@@ -1,0 +1,139 @@
+{
+    "Users": [
+        {
+            "id": 1,
+            "name": "TCHABAO",
+            "firstname": "Japhet",
+            "email": "ptchabao@gmail.com",
+            "phone": null,
+            "password": "$2y$10$BIvQCSrKnLQEUXBuCJlLeO7t.GHqpli80Nr6vJXKLOez23XbUh/fG",
+            "usertype_id": 2
+        },
+        {
+            "id": 2,
+            "name": "karine",
+            "firstname": "yvette",
+            "email": "yvette@gmail.com",
+            "phone": null,
+            "password": "$2y$10$fX9PIj3Ge92VJSYZ08fi6.Yu1XDOWDqz2FJ8Tyerj52PA8HvRPICK",
+            "usertype_id": 1
+        },
+        {
+            "id": 3,
+            "name": "Noob",
+            "firstname": "saibot",
+            "email": "noob@gmail.com",
+            "phone": null,
+            "password": "$2y$10$1VsXTUARthMcfghe1dJFIOBajSLUG5V5uk77sySzXi3Sk2VHmwYF6",
+            "usertype_id": 1
+        },
+        {
+            "id": 4,
+            "name": "mel",
+            "firstname": "sam",
+            "email": "thepi@gmail.com",
+            "phone": null,
+            "password": "$2y$10$4bQ4RMhu5W6BIiEPGa64qOZ9g3e8TEo8C9UgywaJuv7o5QpsMhPgW",
+            "usertype_id": 1
+        },
+        {
+            "id": 5,
+            "name": "lefrancq",
+            "firstname": "karine",
+            "email": "igoguidedirect@gmail.com",
+            "phone": null,
+            "password": "$2y$10$gcscLKd73pCVjHpCc.6jP.Y9x0mTfL70jZW6YWeuyDQdkHZCw2jja",
+            "usertype_id": 1
+        },
+        {
+            "id": 6,
+            "name": "Lefrancq",
+            "firstname": "Killian",
+            "email": "killianlefrancq@gmail.com",
+            "phone": null,
+            "password": "$2y$10$xziLh1/OqEaAhwnwhzF.7Om44nY6X17NKqv9OpHPG6f8DyckR.gI.",
+            "usertype_id": 1
+        },
+        {
+            "id": 7,
+            "name": "Oldi",
+            "firstname": "Orlando",
+            "email": "orlandre19@gmail.com",
+            "phone": null,
+            "password": "$2y$10$GzMIgfOb8PDuh9rsP7PpwuH7h1xikVHhPve/wQTf/cDx8gmt7.nPC",
+            "usertype_id": 1
+        },
+        {
+            "id": 8,
+            "name": "Lefrancq",
+            "firstname": "Killian",
+            "email": "contact.cameki@gmail.com",
+            "phone": null,
+            "password": "$2y$10$IDxWkiuokph3D/RS3A8Jvu7rq5SUzJiWDPL3nj5Ly9zxtj6YLvw2m",
+            "usertype_id": 1
+        },
+        {
+            "id": 9,
+            "name": "igp",
+            "firstname": "guide",
+            "email": "igoguide.jamel@gmail.com",
+            "phone": null,
+            "password": "$2y$10$5issGd4B1UACH9l1SQtas.Xik8y6WKgAQLDrLz79rZkOqSR/i308.",
+            "usertype_id": 1
+        },
+        {
+            "id": 10,
+            "name": "emmanuel",
+            "firstname": "senaya",
+            "email": "emmanuelsenya679@gmail.com",
+            "phone": null,
+            "password": "$2y$10$7Ge3CUs2vbIqDZX.A4hMnOuMe1Oas8ASgt7RIzApuNQJxVoMZPch6",
+            "usertype_id": 1
+        },
+        {
+            "id": 11,
+            "name": "Almouzni",
+            "firstname": "Vincent",
+            "email": "contact@almouznivincent.com",
+            "phone": null,
+            "password": "$2y$10$rZRFqCK17mk4x463pdH9Yu11XHH0yjVEmP.Qv47OTe1NaUOpec0mW",
+            "usertype_id": 1
+        },
+        {
+            "id": 12,
+            "name": "lefrancq",
+            "firstname": "karine",
+            "email": "leslandines@gmail.com",
+            "phone": null,
+            "password": "$2y$10$2HsB3yQxV/cyKUK6mHESzuNbJKp/a8K1xl6t.trt.ejItBwT1g5Ee",
+            "usertype_id": 1
+        },
+        {
+            "id": 13,
+            "name": "Frederic",
+            "firstname": "Borliachon",
+            "email": "contact@rendezvousauchateau.com",
+            "phone": null,
+            "password": "$2y$10$0x13VSKwQPk8H2/6kyVGPu0DH/3p2BBE48At020mj7UimYpy.TH32",
+            "usertype_id": 1
+        },
+        {
+            "id": 14,
+            "name": "Anadi",
+            "firstname": "Jean",
+            "email": "anadi62@igoguide.com",
+            "phone": null,
+            "password": "$2y$10$2Ol/VsT.HWWyEF0H5xZJvedw241hoAjv82GCvQfEjSUDPe2kbpfk.",
+            "usertype_id": 1
+        },
+        {
+            "id": 15,
+            "name": "pierre",
+            "firstname": "xavier",
+            "email": "pierrex@igoguide.com",
+            "phone": null,
+            "password": "$2y$10$FS.JqqaBRSSEGZ4V9CoNI.V3RpVAa8gQAoxichZckrJS3NW5wyok.",
+            "usertype_id": 1
+        }
+    ]
+}

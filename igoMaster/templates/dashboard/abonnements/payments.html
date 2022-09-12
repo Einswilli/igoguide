@@ -1,0 +1,315 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+  {% block content %}
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="/">
+          <i class="bi bi-grid"></i>
+          <span>TABLEAU DE BORD</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>FICHES</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/etablishment/new" id="nf">
+              <i class="bi bi-circle"></i><span>Nouvelle Fiche</span>
+            </a>
+          </li>
+          <li>
+            <a href="/etablishment/list/pro/" id='lf'>
+              <i class="bi bi-circle"></i><span>Liste</span>
+            </a>
+          </li>
+          
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>ABONNEMENTS</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="#" class="active" id="na">
+              <i class="bi bi-circle"></i><span>Nouvel Abonnenment</span>
+            </a>
+          </li>
+          <li>
+            <a href="/subscription/list/pro/" id="la">
+              <i class="bi bi-circle"></i><span>Liste</span>
+            </a>
+          </li>
+          <li>
+            <a href="/payments/pro/{{user.id}}" id='tr'>
+              <i class="bi bi-circle"></i><span>Transactions</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-envelope"></i><span>MESSAGES</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="#" id='mails'>
+              <i class="bi bi-circle"></i><span>Mails</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" id="notif">
+              <i class="bi bi-circle"></i><span>Notifications</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+
+      
+
+      
+
+      <li class="nav-heading">Pages</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id='prof'>
+          <i class="bi bi-person"></i>
+          <span>Profile</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id='faq'>
+          <i class="bi bi-question-circle"></i>
+          <span>F.A.Q</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id="cgv">
+          <i class="bi bi-question-circle"></i>
+          <span>C.G.V</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id="cgu">
+          <i class="bi bi-question-circle"></i>
+          <span>C.G.U</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>TABLEAU DE BORD</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Abonnenments</a></li>
+          <li class="breadcrumb-item active">Paymments</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    {% comment %} CONTENU {% endcomment %}
+
+    {% if msg %}
+      {% if "SUCCES" in msg %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle me-1"></i>{{msg}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% else %}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-octagon me-1"></i>{{msg}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+    {% endif %}
+
+    {% comment %} DEBUT CONTENU {% endcomment %}
+       <!-- Recent Sales -->
+       <div class="col-12">
+        <div class="card recent-sales overflow-auto">
+
+          {% comment %} <div class="filter">
+            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+              <li class="dropdown-header text-start">
+                <h6>Filter</h6>
+              </li>
+
+              <li><a class="dropdown-item" href="#">Today</a></li>
+              <li><a class="dropdown-item" href="#">This Month</a></li>
+              <li><a class="dropdown-item" href="#">This Year</a></li>
+            </ul>
+          </div> {% endcomment %}
+
+          <div class="card-body">
+            <h5 class="card-title">Paiements <span>| Récents</span></h5>
+
+            <table class="table table-borderless datatable">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">ABONNEMENTS</th>
+                  <th scope="col">ETABLISSEMENTS</th>
+                  <th scope="col">MONTANTS</th>
+                  <th scope="col">DATES</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><a href="#">#2457</a></th>
+                  <td>Brandon Jacob</td>
+                  <td><a href="#" class="text-primary">At praesentium minu</a></td>
+                  <td>$64</td>
+                  <td>2022/10/01</td>
+                  <td><span class="badge bg-success">Éffectué</span></td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="#">#2147</a></th>
+                  <td>Bridie Kessler</td>
+                  <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
+                  <td>$47</td>
+                  <td>2022/10/01</td>
+                  <td><span class="badge bg-warning">Encours</span></td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="#">#2049</a></th>
+                  <td>Ashleigh Langosh</td>
+                  <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
+                  <td>$147</td>
+                  <td>2022/10/01</td>
+                  <td><span class="badge bg-success">Éffectué</span></td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="#">#2644</a></th>
+                  <td>Angus Grady</td>
+                  <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
+                  <td>$67</td>
+                  <td>2022/10/01</td>
+                  <td><span class="badge bg-danger">Rejeté</span></td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="#">#2644</a></th>
+                  <td>Raheem Lehner</td>
+                  <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
+                  <td>$165</td>
+                  <td>2022/10/01</td>
+                  <td><span class="badge bg-success">Éffectué</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+
+        </div>
+      </div><!-- End Recent Sales -->
+    {% comment %} FIN DU CONTENU {% endcomment %}
+
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script>
+      $(window).on('load',function(){
+        var uid;
+        var nf=document.querySelector('#nf')
+        var lf=document.querySelector('#lf')
+        var na=document.querySelector('#na')
+        var la=document.querySelector('#la')
+        var tr=document.querySelector('#tr')
+        var mails=document.querySelector('#mails')
+        var notif=document.querySelector('#notif')
+        var prof=document.querySelector('#prof')
+        var faq=document.querySelector('#faq')
+        var cgv=document.querySelector('#cgv')
+        var cgu=document.querySelector('#cgu')
+        //var profile_link=document.querySelector('#prolink')
+        uid = localStorage.getItem('userid');
+        $.ajax(
+        {
+          type:"GET",
+          url: "/users/pro/"+uid,
+          data:{
+                   //post_id: catid
+          },
+          success: function( data ) 
+          {
+            console.log(data);
+            nf.href='/etablishment/new';
+            lf.href='/etablishment/list/pro/'+data.id;
+            na.href="/subscription/new"
+            la.href='/subscription/list/pro/'+data.id;
+            tr.href='/payments/pro/'+data.id;
+            mails.href='/mails/pro/'+data.id;
+            notif.href='/notifications/pro/'+data.id;
+            prof.href='/profile/pro/'+data.id;
+            faq.href='/faq';
+            cgv.href='/cgv';
+            cgu.href='/cgu';
+          }
+        })
+      }
+    );
+  </script>
+  <script>
+    $(window).on('load',function(){
+      $.ajax({
+        type:'GET',
+        url:'/etablishment/get/pro/'+localStorage.getItem('userid'),
+        data:{
+          //post_id: catid
+        },
+        success: function( data ){
+          for(let e of data){
+            //console.log(JSON.parse(data))
+            var opt = document.createElement("option");
+            opt.value = e.id;
+            opt.text = e.name;
+            //select.appendChild(opt);
+            $('#inputState').append(opt)
+          }
+        },
+        error:function(err){
+          console.log(err)
+        }
+      })
+    })
+  </script>
+  <script>
+    $(window).on('load',function(){
+      $('#mois').change((e)=>{
+        //console.log()
+        $.ajax({
+          type:'GET',
+          url:'/subscription/info/'+document.querySelector('#mois').value,
+          data:{
+            //mois:$('#mois').value
+          },
+          success: function( data ){
+            //console.log(data)
+            document.querySelector('#total').value=data.t+' €';
+            document.querySelector('#exp').value=data.d;
+          },
+          error:function(err){
+            console.log(err)
+          }
+        })
+      })
+    })
+  </script>
+
+  </main><!-- End #main -->
+
+  {% endblock %}

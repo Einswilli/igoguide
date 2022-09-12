@@ -1,0 +1,19 @@
+{
+    "Usertypes": [
+        {
+            "id":1,
+            "name":"Client",
+            "description":"catégorie des utilisateurs simples"
+        },
+        {
+            "id":2,
+            "name":"Professionnel",
+            "description":"catégorie des utilisateurs professionnels"
+        },
+        {
+            "id":3,
+            "name":"Administrateur",
+            "description":"catégorie des utilisateurs Administrateurs"
+        }
+    ]
+}

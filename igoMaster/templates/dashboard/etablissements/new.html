@@ -1,0 +1,712 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+  {% block content %}
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="/">
+          <i class="bi bi-grid"></i>
+          <span>TABLEAU DE BORD</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>FICHES</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li >
+            <a href="#"class="active" id="nf">
+              <i class="bi bi-circle"></i><span>Nouvelle Fiche</span>
+            </a>
+          </li>
+          <li>
+            <a href="r" id="lf">
+              <i class="bi bi-circle"></i><span>Liste</span>
+            </a>
+          </li>
+          
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>ABONNEMENTS</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="e" id="na">
+              <i class="bi bi-circle"></i><span>Nouvel Abonnenment</span>
+            </a>
+          </li>
+          <li>
+            <a href="z" id="la">
+              <i class="bi bi-circle"></i><span>Liste</span>
+            </a>
+          </li>
+          <li>
+            <a href="e" id="tr">
+              <i class="bi bi-circle"></i><span>Transactions</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-envelope"></i><span>MESSAGES</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="e" id="mails">
+              <i class="bi bi-circle"></i><span>Mails</span>
+            </a>
+          </li>
+          <li>
+            <a href="e" id="notif">
+              <i class="bi bi-circle"></i><span>Notifications</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+
+      
+
+      
+
+      <li class="nav-heading">Pages</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="" id="prof">
+          <i class="bi bi-person"></i>
+          <span>Profil</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="" id="faq">
+          <i class="bi bi-question-circle"></i>
+          <span>F.A.Q</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="" id="cgv">
+          <i class="bi bi-question-circle"></i>
+          <span>C.G.V</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="" id="cgu">
+          <i class="bi bi-question-circle"></i>
+          <span>C.G.U</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>TABLEAU DE BORD</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="">Fiches</a></li>
+          <li class="breadcrumb-item active">Nouvelle</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    
+
+    {% comment %} ICI LE FORMULAIRE DE CREATION DE FICHES {% endcomment %}
+
+    <!DOCTYPE html>
+    <html>
+    
+        <title>I go guide | Add fiche</title>
+        <link rel="shortcut icon" href="{% static 'template/img/PngItem_97912.png'%}" type="image/x-icon" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'curve/style.css'%}">
+    {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> {% endcomment %}
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> {% endcomment %}
+    <!-- Google Maps JavaScript library -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyCD7BvR3RtGHKwPXt_Q6vaSzvwTYzNIZ_0"></script>
+    
+    <style>
+    
+    #form{
+        margin-top: 50px;
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+    {% comment %} a{
+      text-decoration:none;
+    }
+    a:hover{
+      text-decoration:none;
+    } {% endcomment %}
+    </style>
+    
+    <body style="background-color:rgb(255, 255, 255) ;">
+       {% if msg %}
+          {% if "SUCCES" in msg %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle me-1"></i>{{msg}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% else %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-octagon me-1"></i>{{msg}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endif %}
+        {% endif %}
+            <div id="form">
+                    <form id='saveForm' action="/etablishment/save" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+    
+                            <div class="flex-row tab" >
+    
+                                        <div class="col-lg-12 d-inline">
+                                            <h4 style=""><strong>Indentité de létablissement</strong> <span class="text-muted fs-6 fw-lighter fst-italic">Tout ce qui permet d'identifier facilement votre établissement</span> </h4>
+                                        </div>
+                                        <hr>
+    
+                                        <div class="row">
+                                                <div class=" mb-3 mt-3 col-lg-12">
+                                                    <input type="text"  style="border-radius:15px" class="form-control" id="name"  required placeholder="Nom de l'établissement"  name="name">
+                                                </div>
+                                        </div>
+    
+    
+                                        <div class="row">
+    
+                                                    <div class=" mb-3 mt-3 col-lg-6">
+                                                        <input type="text" class="form-control" style="border-radius:15px" required id="telephone" placeholder="Téléphone"  name="telephone">
+                                                    </div>
+    
+    
+                                                    <div class=" mb-3 mt-3 col-lg-6">
+                                                        <input type="text" class="form-control" style="border-radius:15px" required id="email" placeholder="E-mail" name="email">
+                                                    </div>
+                                        </div>
+    
+                                        <div class="row">
+                                            <div class=" mb-3 mt-3 col">
+                                                <div class="form-floating">
+                                                    <textarea class="form-control mb-4" placeholder="Leave a comment here"  style="border-radius:15px"  required  id="floatingTextarea"  name="presentation"></textarea>
+                                                    <label for="floatingTextarea">Description ( Faite une description complète afin d’affiner les recherches de vos futurs clients )</label>
+                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class=" mb-3 mt-3 col">
+                                              <div class="form-floating">
+                                                  <textarea class="form-control mb-4" placeholder="Manger , bordeaux , restaurant"  style="border-radius:15px"  required  id="tags"  name="tags"></textarea>
+                                                  <label for="floatingTextarea">Mots clés pour vite vous retrouver</label>
+                                               </div>
+                                          </div>
+                                      </div>
+    
+                                        <div class="col-lg-12 mt-4">
+                                             <h4><strong>Localisation </strong> <span class="text-muted fs-6 fw-lighter fst-italic"> Afin d'affiner les recherches par région, départements et villes</span></h4>
+                                        </div>
+                                        <hr>
+    
+                                        <div class="row">
+                                                <div class=" mb-3 mt-3 col-lg-6">
+                                                    <input  id="searchTextField" type="text" size="50"  autocomplete="on" runat="server" class="form-control"  required  style="border-radius:15px" placeholder="Exemple: 2470 Route des Tuileries, Origne, France" required  name="searchTextField">
+                                                </div>
+    
+    
+                                                <div class=" mb-3 mt-3 col-lg-6">
+                                                    <input type="text" class="form-control" id="pays" style="border-radius:15px" required readonly="readonly" placeholder="pays"  name="pays">
+                                                </div>
+                                        </div>
+    
+                                        <div class="row">
+    
+                                          <div class=" mb-3 mt-3 col-lg-4">
+                                              <input type="text" class="form-control" id="longitude" style="border-radius:15px" required readonly="readonly" placeholder="Longitude"  name="longitude">
+                                          </div>
+
+                                          <div class=" mb-3 mt-3 col-lg-4">
+                                              <input type="text" class="form-control" id="latitude" style="border-radius:15px"  required readonly="readonly" placeholder="Latitude"  name="latitude">
+                                          </div>
+                                          <div class=" mb-3 mt-3 col-lg-4">
+                                              <input type="text" class="form-control" id="code_postal" style="border-radius:15px" required readonly="readonly" placeholder="code_postal"  name="code_postal">
+                                          </div>
+                                        </div>
+    
+                                        <div class="row">
+    
+                                          <div class=" mb-3 mt-3 col-lg-4">
+                                              <input type="text" class="form-control" id="ville" style="border-radius:15px"  required readonly="readonly" placeholder="ville"  name="ville">
+                                          </div>
+
+                                          <div class=" mb-3 mt-3 col-lg-4">
+                                              <input type="text" class="form-control" id="region" style="border-radius:15px"  required readonly="readonly" placeholder="region"  name="region">
+                                          </div>
+                                          <div class=" mb-3 mt-3 col-lg-4">
+                                              <input type="text" class="form-control" id="departement" style="border-radius:15px" required readonly="readonly" placeholder="Département"  name="departement">
+                                          </div>
+                                        </div>
+    
+                                <div class="flex-row tab">
+                                    <div class="col-lg-12 mt-4">
+                                        <h4 ><strong>Réseaux Sociaux </strong>  <span class="text-muted fs-6 fw-lighter fst-italic"> Renseignez vos liens de réseaux</span></h4>
+                                    </div>
+                                    <hr>
+    
+                                    <div class="row">
+                                        <div class=" mb-3 mt-3 col-lg-4">
+                                            <input type="text" class="form-control" id="website" placeholder="Site web" name="website">
+                                        </div>
+    
+                                        <div class=" mt-3 mb-3 col-lg-4 ">
+                                            <input type="text" class="form-control" id="facebook" placeholder="Facebook" name="facebook">
+                                        </div>
+    
+                                        <div class=" mb-3 mt-3 col-lg-4">
+                                            <input type="text" class="form-control" id="instagram" placeholder="Instagram" name="instagram">
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-lg-12 mt-4">
+                                      <h4 ><strong>Médias </strong>  <span class="text-muted fs-6 fw-lighter fst-italic"> Choisssez les meilleures images de votre établissement !</span></h4>
+                                    </div>
+                                    <hr>
+
+                                    <div class="row">
+                                        <div class=" mb-3 mt-3 col">
+                                            <input class="form-control" type="file" id="formFileMultiple" required  name="image">
+                                            <input class="form-control" type="hidden" required  name="userfield" id="userfield" value=>
+                                            
+                                        </div>
+                                    </div>
+                                    {% comment %} <hr> {% endcomment %}
+    
+                                    <div class="col-lg-12 mt-5 d-flex">
+                                        <h4><strong>Sous-Catégories </strong><span class="text-muted fs-6 fw-lighter fst-italic"> Choisssez une sous-catégorie</span></h4>
+                                        <div class=" mt-3 mb-3 col-lg-6 " style="margin-left:40px">
+                                          <select class="form-select" id="categorie" style="border-radius:15px"  required aria-label="Default select example"   name="categorie">
+                                              <option value="" disabled selected>Catégorie</option>
+                                              <option value="1">Hébergements</option>
+                                              <option value="2">Où boire</option>
+                                              <option value="3">Où manger</option>
+                                              <option value="4">Balades</option>
+                                              <option value="5">Activités</option>
+                                              <option value="6">Services</option>
+                                          </select>
+                                      </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row mt-4" >
+                                        <div id="contenue" class="row">
+    
+                                        </div>
+                                    </div>
+                                     <hr>
+                                    <div class="row mt-4" >
+                                        <div id="unique" class="row" hidden>
+    
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 mt-5">
+                                      <h4><strong>Divers </strong><span class="text-muted fs-6 fw-lighter fst-italic"> Complètez avec ces informations</span></h4>
+                                  </div>
+                                  <hr>
+                                  <div class="row mt-4" >
+                                    <div id="resto" class="row" style="display:none;">
+                                      <div class=" mb-3 mt-3 col-lg-6">
+                                        <label for="">Jours non ouverts</label><br>
+                                        <input type="text" class="form-control" id="" placeholder="Ex: Lundi, Mardi, etc..."    name="resto_jn_ouverts">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <label for="">Heure d'ouverture</label><br>
+                                        <input type="time" class="form-control" id="" placeholder="ouverture"    name="resto_h_ouverture">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <label for="">Heure de fermeture</label><br>
+                                        <input type="time" class="form-control" id="" placeholder="fermeture"    name="resto_h_fermeture">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <label for="rs1"> famille avec enfants</label><br>
+                                        <input type="checkbox" id="rs1" name="cfenfant" value="Oui">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <label for="rs2"> Conseillé pour groupes</label><br>
+                                        <input type="checkbox" id="rs3" name="cgroupe" value="Oui">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <label for="rs4"> Repas sur place</label><br>
+                                        <input type="checkbox" id="rs4" name="repas_sur_place" value="Oui">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <label for="rs5"> Repas emportés</label><br>
+                                        <input type="checkbox" id="rs5" name="repas_emporte" value="Oui">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <label for="rs6"> Livraisons</label><br>
+                                        <input type="checkbox" id="rs6" name="livraison" value="Oui">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <label for="rs7"> Accessible aux handicaapés</label><br>
+                                        <input type="checkbox" id="rs7" name="resto_handicap" value="Oui">
+                                      </div>
+                                    </div>
+
+                                    {% comment %} FIN {% endcomment %}
+
+                                    <div id="bars" class="row" style="display:none;">
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <label for="">Heure d'ouverture</label><br>
+                                        <input type="time" class="form-control" id="" placeholder="ouverture"    name="bar_h_ouverture">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <label for="">Heure de fermeture</label><br>
+                                        <input type="time" class="form-control" id="" placeholder="fermerture"    name="bar_h_fermeture">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <label for="">Tarif</label><br>
+                                        <input type="number" min="1" class="form-control" id="" placeholder="Tarif à partir de ...€"    name="bar_tarif">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <label for="ac">Adapté aux handicapés</label><br>
+                                        <input type="checkbox" id="ac" name="bar_handicap" value="Oui">
+                                      </div>
+                                    </div>
+
+                                    {% comment %} FIN {% endcomment %}
+
+                                    <div id="hebs" class="row" style="display:none;">
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="number" min="1" class="form-control" id="" placeholder="Tarif à partir de ...€"    name="heb_tarif">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="number" min="1" class="form-control" id="" placeholder="Capacité d'accueil"    name="capaciteAccueil">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="number" min="1" class="form-control" id="" placeholder="Âge minimum"    name="heb_min_age">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="number" min="1" class="form-control" id="" placeholder="Nombre de couchage"    name="heb_ncouchage">
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle1" name="piscine" value="Oui">
+                                        <label for="vehicle1"> Piscine</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle2" name="bain_remous" value="Oui">
+                                        <label for="vehicle2"> Bain à remous</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle3" name="sauna" value="Oui">
+                                        <label for="vehicle3"> Sauna</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle4" name="cuisine" value="Oui">
+                                        <label for="vehicle4"> Cuisine</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle5" name="bain_wc" value="Oui">
+                                        <label for="vehicle5"> Salles de bain et wc</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle6" name="ac_internet" value="Oui">
+                                        <label for="vehicle6">Acces à Internet</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle7" name="menage" value="Oui">
+                                        <label for="vehicle7"> Ménage inclus</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle8" name="drap_linge" value="Oui">
+                                        <label for="vehicle8"> Drap et linges inclus</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle9" name="animaux" value="Oui">
+                                        <label for="vehicle9"> Animaux</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle10" name="enfants" value="Oui">
+                                        <label for="vehicle10"> Enfants</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle11" name="ptidej" value="Oui">
+                                        <label for="vehicle11"> Petit déjeuner inclus</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle12" name="lits_simples" value="Oui">
+                                        <label for="vehicle12"> Lits simples</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle13" name="lits_db" value="Oui">
+                                        <label for="vehicle13"> Lits doubles</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle14" name="lits_appoint" value="Oui">
+                                        <label for="vehicle14"> Lits d'appoints</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle15" name="lits_bb" value="Oui">
+                                        <label for="vehicle15"> Lits pour bébé</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle16" name="lit_canape" value="Oui">
+                                        <label for="vehicle16"> Canapé lit</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle17" name="lit_supp" value="Oui">
+                                        <label for="vehicle17"> Lits supperposés</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle18" name="handicap" value="Oui">
+                                        <label for="vehicle18">Accessible aux handicapés</label><br>
+                                      </div>
+                                      <div class=" mb-3 mt-3 col-lg-3">
+                                        <input type="checkbox" id="vehicle19" name="m_sur_place" value="Oui">
+                                        <label for="vehicle19">Possibilité de manger sur place</label><br>
+                                      </div>
+                                      {% comment %} 
+                                      Capacite d'accueil
+                                      piscine
+                                      spacebain à remous
+                                      sauna
+                                      Cuisine
+                                      sales de bain et wc 
+                                      Acces à Internet
+                                      ménage inclus
+                                      Drap et linges inclus
+                                      animaux
+                                      enfants
+                                      Age minimum
+                                      petit dejener inclus
+                                      Tarif
+                                      Nbre de couchage
+                                      lits simples
+                                      lits d'appoint
+                                      lit bébé
+                                      lit double
+                                      canapé lit
+                                      lit supperposés
+                                      handicapés 
+                                      manger sur place Y/N
+                                      {% endcomment %}
+                                    </div>
+                                    <div id="bals" class="row" style="display:none;">
+                                      {% comment %} 
+                                      Temps
+                                      Tarif
+                                      {% endcomment %}
+                                    </div>
+                                    <div id="serv" class="row" style="display:none;">
+                                      {% comment %} 
+                                      Photographie
+                                      Vidéo
+                                      {% endcomment %}
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            
+                                <div  class="flex-row mt-3 mb-5" style="margin-bottom: 80px;margin-top:30px;">
+                                  
+                                    <div style="float: right;" class="col ">
+
+                                    <button id="savebtn" type="submit"  class="btn btn-primary btn-block" style="margin-right: 10px;">Enregistrer</button>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 8%;">
+                                  
+                                </div>
+                                
+                              </form>
+            </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
+    {% comment %} <script>
+      $(document).ready(function(){
+        var form=$("#saveForm");
+        $("#savebtn").click(function(){
+        $.ajax({
+                type:"POST",
+                url:form.attr("action"),
+                data:$("#saveForm input").serialize(),//only input
+                success: function(response){
+                    console.log(response);  
+                }
+            });
+        });
+        });    
+    </script> {% endcomment %}
+
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script>
+      $(window).on('load',function(){
+        console.log('yes')
+        var uid;
+        uid = localStorage.getItem('userid');
+        var nf=document.getElementById('nf')
+        var lf=document.getElementById('lf')
+        var na=document.getElementById('na')
+        var la=document.getElementById('la')
+        var tr=document.getElementById('tr')
+        var mails=document.getElementById('mails')
+        var notif=document.getElementById('notif')
+        var prof=document.getElementById('prof')
+        var faq=document.getElementById('faq')
+        var cgv=document.getElementById('cgv')
+        var cgu=document.getElementById('cgu')
+        //var profile_link=document.querySelector('#prolink')
+        nf.href='#';
+        lf.href='/etablishment/list/pro/'+uid;
+        na.href="/subscription/new";
+        la.href='/subscription/list/pro/'+uid;
+        tr.href='/payments/pro/'+uid;
+        mails.href='/mails/pro/'+uid;
+        notif.href='/notifications/pro/'+uid;
+        prof.href='/profile/pro/'+uid;
+        faq.href='/faq';
+        cgv.href='/cgv';
+        cgu.href='/cgu';
+        console.log(lf.href)
+      }
+    );
+    </script>
+    
+    <script type="text/javascript">
+        function initialize() {
+            var input = document.getElementById('searchTextField');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                var place = autocomplete.getPlace();
+                var longitude=place.geometry.location.lng();
+                var latitude=place.geometry.location.lat();
+                document.getElementById('latitude').value = latitude;
+                document.getElementById('longitude').value = longitude;
+                console.log(place.address_components);
+    
+                for(var i=0;i<place.address_components.length;i+=1){
+                    var expression=place.address_components[i].types[0];
+    
+                    switch (expression) {
+                        case "country":
+                          document.getElementById('pays').value=place.address_components[i].long_name;
+                        break;
+    
+                        case "locality":
+                          document.getElementById('ville').value=place.address_components[i].long_name;
+                        break;
+    
+                        case "administrative_area_level_1":
+                          document.getElementById('region').value=place.address_components[i].long_name;
+                        break;
+    
+                        case "postal_code":
+                          document.getElementById('code_postal').value=place.address_components[i].long_name;
+                        break;
+    
+                        case "administrative_area_level_2":
+                          document.getElementById('departement').value=place.address_components[i].long_name;
+                        break;
+                    }
+                }
+    
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    
+    <script>
+        $(document).ready(function(){
+          document.getElementById('userfield').value=localStorage.getItem('userid')
+          console.log(document.getElementById('userfield').value)
+            var bar="<h6>Les bars</h6><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"12\" id=\"flexSwitchCheckChecked1\" name=\"sous_cat\" checked><label class=\"form-check-label\" for=\"flexSwitchCheckChecked1\">Bar à lounge-Whisky-Cocktails</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"17\" id=\"flexSwitchCheckChecked2\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked2\">Concerts bars</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"14\" id=\"flexSwitchCheckChecked3\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked3\">Bar à vin</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"15\" id=\"flexSwitchCheckChecked4\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked4\">Pubs-Bar à taps</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"16\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Bar à thèmes-jeux-billard</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"13\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Bar à rooftop</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"18\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Bar à chat</label></div></div></hr>";
+            var hebergement="<h6>Les hebergements</h6><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" value=\"2\" type=\"radio\" id=\"flexSwitchCheckChecked1\" name=\"sous_cat\" checked><label class=\"form-check-label\" for=\"flexSwitchCheckChecked1\">Cabane sur terre</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"3\" id=\"flexSwitchCheckChecked2\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked2\">Cabane sous terre</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"4\" id=\"flexSwitchCheckChecked3\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked3\">Cabane sur l\'eau</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"5\" id=\"flexSwitchCheckChecked4\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked4\">Tippi/Tente/Yourts</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"7\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Habitats roulants</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"1\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Cabane dans les arbres</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"6\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Bulles</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"8\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Monuments historiques</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"9\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Bateaux</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"10\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Hebergements de charme</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"11\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Hotels atypiques</label></div></div></hr>";
+            var restaurant="<h6>Les Restaurants</h6><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"19\" id=\"flexSwitchCheckChecked1\" name=\"sous_cat\" checked><label class=\"form-check-label\" for=\"flexSwitchCheckChecked1\">Restaurants originaux</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"20\" id=\"flexSwitchCheckChecked2\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked2\">Restaurants avec animations</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"22\" id=\"flexSwitchCheckChecked3\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked3\">Cuisine traditionnelle</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"23\" id=\"flexSwitchCheckChecked4\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked4\">Cuisine du monde</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" value=\"24\" type=\"radio\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Types fast food/tapas</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\"  value=\"21\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Brasseries-Bistrot-Auberges</label></div></div></hr>";
+            var balade="<h6>Les balades</h6><div class=\"mb-3 mt-3 col-lg-3\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"26\" id=\"flexSwitchCheckChecked1\" name=\"sous_cat\" checked><label class=\"form-check-label\" for=\"flexSwitchCheckChecked1\">Randonnées nature</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"25\" id=\"flexSwitchCheckChecked2\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked2\">Au fil de l\'eau</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"27\" id=\"flexSwitchCheckChecked3\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked3\">Sites historiques</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"28\" id=\"flexSwitchCheckChecked4\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked4\">Perles sauvages</label></div></div><div class=\"mb-3 mt-3 col-lg-3\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"29\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Les jardins de imaginaires</label></div></div></hr>";
+            var activite="<h6>Les activitées</h6><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"30\" id=\"flexSwitchCheckChecked1\" name=\"sous_cat\" checked><label class=\"form-check-label\" for=\"flexSwitchCheckChecked1\">Ateliers-Stages</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"31\" id=\"flexSwitchCheckChecked2\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked2\">Activités physiques et sportives</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"32\" id=\"flexSwitchCheckChecked3\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked3\">Activités ludiques</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"33\" id=\"flexSwitchCheckChecked4\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked4\">Activités gustatives</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"34\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Activites éducative</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check form-switch\"><input class=\"form-check-input\" type=\"radio\" value=\"35\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Activités bien-etre</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"36\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Shopping artsants et créateurs</label></div></div></hr>";
+            var service="<h6>Les services</h6><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"37\" id=\"flexSwitchCheckChecked1\" name=\"sous_cat\" checked><label class=\"form-check-label\" for=\"flexSwitchCheckChecked1\">Organisateurs</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"38\" id=\"flexSwitchCheckChecked2\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked2\">Photographes etc</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"39\" id=\"flexSradiowitchCheckChecked3\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked3\">Traiteurs</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"40\" id=\"flexSwitchCheckChecked4\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked4\">Fleuristes</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"41\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Locations de véhicules</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"42\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Location de vélos</label></div></div><div class=\"mb-3 mt-3 col-lg-2\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"43\" id=\"flexSwitchCheckChecked\" name=\"sous_cat\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked\">Divers</label></div></div></hr>";
+    
+    
+            var balad="<div class=\"row\"><div class=\"mb-3 mt-3 col-lg-4\"><label>Temps</label><input type=\"time\" class=\"form-control\" id=\"time\" placeholder=\"Time\"  name=\"time\"></div><div class=\"mb-3 mt-3 col-lg-4\"><label>Tarif à partir de</label><input type=\"number\" min=\"1\"class=\"form-control\" value=\"1\" id=\"tarif\" placeholder=\"(En euro €)\"  name=\"balad_tarif\"></div><div class=\"mb-3 mt-3 col-lg-4\"><label>Distance du parcours</label><input type=\"number\" class=\"form-control\" id=\"distance\" placeholder=\"(En km)\" name=\"distance\"></div></div><div class=\"row\"><div class=\" mt-3 mb-3 col-lg-6 row\"><label>Difficultés</label><div class=\"mb-3 mt-3 col-lg-3\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"1\" id=\"flexSwitchCheckChecked13\" name=\"difficult\" checked><label class=\"form-check-label\" for=\"flexSwitchCheckChecked13\">Facile</label></div></div><div class=\"mb-3 mt-3 col-lg-3\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"2\" id=\"flexSwitchCheckChecked12\" name=\"difficult\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked12\">Moyenne</label></div></div><div class=\"mb-3 mt-3 col-lg-3\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"3\" id=\"flexSwitchCheckChecked14\" name=\"difficult\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked14\">Difficile</label></div></div></div><div class=\" mt-3 mb-3 col-lg-4 row \"><label>Adapté aux enfants</label><div class=\"mb-3 mt-3 col-lg-3\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"1\" id=\"flexSwitchCheckChecked10\" name=\"enfants\" checked><label class=\"form-check-label\" for=\"flexSwitchCheckChecked10\">Oui</label></div></div><div class=\"mb-3 mt-3 col-lg-3\"><div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" value=\"2\" id=\"flexSwitchCheckChecked11\" name=\"enfants\"><label class=\"form-check-label\" for=\"flexSwitchCheckChecked11\">Non</label></div></div></div></div>";
+    
+           const categorie = document.querySelector("#categorie");
+           const contenue = document.querySelector("#contenue");
+           const inputValeurDec = document.querySelector("#valeur-dec");
+    
+           categorie.addEventListener('change',function(){
+    
+            if(categorie.value==1){
+                contenue.innerHTML =hebergement;
+                $('#resto').fadeOut();
+                $('#bars').fadeOut();
+                $('#bals').fadeOut();
+                $('#serv').fadeOut();
+                $('#hebs').fadeIn();
+            }
+            if(categorie.value==2){
+                contenue.innerHTML = bar;
+                $('#resto').fadeOut();
+                $('#hebs').fadeOut();
+                $('#bals').fadeOut();
+                $('#serv').fadeOut();
+                $('#bars').fadeIn();
+            }
+            if(categorie.value==3){
+                contenue.innerHTML =restaurant;
+                $('#hebs').fadeOut();
+                $('#bars').fadeOut();
+                $('#bals').fadeOut();
+                $('#serv').fadeOut();
+                $('#resto').fadeIn();
+            }
+             if(categorie.value==4){
+                contenue.innerHTML = balade;
+                $('#resto').fadeOut();
+                $('#bars').fadeOut();
+                $('#hebs').fadeOut();
+                $('#serv').fadeOut();
+                $('#bals').fadeIn();
+                document.getElementById('bals').innerHTML=balad;
+            }
+            if(categorie.value==5){
+                contenue.innerHTML = activite;
+                $('#resto').fadeOut();
+                $('#bars').fadeOut();
+                $('#hebs').fadeOut();
+                $('#serv').fadeOut();
+                $('#bals').fadeOut();
+            }
+            if(categorie.value==6){
+                contenue.innerHTML = service;
+                $('#resto').fadeOut();
+                $('#bars').fadeOut();
+                $('#hebs').fadeOut();
+                $('#serv').fadeOut();
+                $('#bals').fadeOut();
+            }
+           });
+        });
+    </script>
+    
+  </body>
+</html>
+
+    {% comment %} ICI LA FIN DU FORMULAIRE {% endcomment %}
+  </main><!-- End #main -->
+
+  {% endblock %}

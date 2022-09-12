@@ -1,0 +1,127 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>I go guide | login</title>
+  <link rel="shortcut icon" href="{% static 'template/img/PngItem_97912.png'%}" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 't2/urbanui-login-template-free-2-38baaa875b8e/assets/css/login.css'%}">
+  <style>
+
+    input{
+        border:1px solid blue;
+    }
+    input::placeholder {
+      border: 1px solid #095484;
+    }
+    style
+  </style>
+
+</head>
+<body>
+  {% if  msg %}
+    <div class="alert alert-danger row txt-center" role="alert">
+        {{msg}}
+    </div>
+  {% endif %}
+  <main class="d-flex align-items-center min-vh-100 py-3 py-md-0 mt-4 mb-4">
+    <div class="container">
+      <div class="card login-card">
+        <div class="row no-gutters">
+          <div class="col-md-6">
+            <img src="{% static 'IMG/partenariat profesionnels et Igoguide.jpg'%}" alt="login" class="login-card-img">
+          </div>
+
+          <div class="col-md-6 d-flex align-item-center  justify-content-center">
+            <div class="card-body center">
+                <div class="row d-flex align-item-center mb-5">
+                    <div class="col-md-12 d-flex">
+                        <div class="text-center col-sm-6">
+                            <img src="{% static 'IMG/lg.png'%}"  class="float-left" style="width:85px" alt="logo.png">
+                        </div>
+                        <div class="col-sm-6">
+                        <a href="/" class="btn btn-outline-warning  float-right">Acueil</a>
+                        </div>
+                    </div>
+                </div>
+                <form class="md-float-material form-material" method="POST" action="/auth/pro/register" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-row">
+                      <div class="col">
+                        <input  class="form-control" id="lname"  type="text" name="lname" required autofocus  style="border-top: 1px;border-right: 1px;" placeholder="Nom">
+                      </div>
+                    </div>
+                     <div class="form-row">
+
+                      <div class="col">
+                        <input id="firstname" type="text" name="fname" required autofocus  class="form-control"  style="border-top: 1px;border-right: 1px;" placeholder="Prénom">
+                      </div>
+                    </div>
+                      <div class="form-row">
+                        <div class="col">
+                          <input id="email" type="email" name="email"  required class="form-control"  style="border-top: 1px;border-right: 1px;" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="col">
+                          <input id="phone" type="text" name="phone"  required class="form-control"  style="border-top: 1px;border-right: 1px;" placeholder="Téléphone">
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="col">
+                          <input id="password"  type="password" name="pass" required autocomplete="new-password" class="form-control"  style="border-top: 1px;border-right: 1px;" placeholder="Mot de passe">
+                        </div>
+
+                      </div>
+                      <div class="form-row">
+                        <div class="col">
+                          <input id="password_confirmation" type="password" name="pass_confirm" required  class="form-control"  style="border-top: 1px;border-right: 1px;" placeholder="Confirmer mot de passe">
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="col">
+                          <input id="photo" type="file" name="photo"  required class="form-control"  style="border-top: 1px;border-right: 1px;" placeholder="Photo">
+                        </div>
+                      </div>
+
+                      {% comment %} <div class="form-row">
+                        <div class="col-sm-6">
+                            <input type="hidden" name="usertype_id" value="2" id="">
+                        </div>
+                    </div> {% endcomment %}
+                        <div class="form-row mb-4 mt-4">
+                            <div class="checkbox-fade fade-in-primary">
+                                <label>
+                                    <input type="checkbox" value="false" required>
+                                    <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
+                                    <span class="text-inverse">J'accepte les <a href="#" style="color:blue;">CGV</a></span>
+                                </label>
+                            </div>
+
+                    </div>
+              <div class="mb-3">
+                <button type="submit" style="min-width: 100%" class="btn btn-warning">S'inscrire</button>
+              </div>
+        </form>
+
+
+              <nav class="login-card-footer-nav">
+                <p class="login-card-footer-text"> <span style="color: rgb(108, 105, 99); margin-top:4px">J'ai déjà un compte!!</span> <a href="/auth/pro/connexion" class="text-reset" style="color: blue">Me connecter</a></p>
+
+            </nav>
+          </div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

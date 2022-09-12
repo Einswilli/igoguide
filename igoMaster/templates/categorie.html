@@ -1,0 +1,136 @@
+{% extends 'header-footer.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'assets/css/categorie.css'%}">
+<link rel="shortcut icon" href="{% static 'template/img/PngItem_97912.png'%}" type="image/x-icon" />
+<link href="{% static 'assets/remixicon/remixicon.css" rel="stylesheet'%}">
+
+<style>
+    @font-face {
+        font-family: 'badaboom_bbregular';
+        src: url('{% static "assets/fonts/badabb__-webfont.woff2"%}') format('woff2'),
+            url('{% static "asstes/fonts/badabb__-webfont.woff"%}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Bangers';
+        src: url('{% static "assets/fonts/bangers.ttf"%}');
+    }
+    a:hover{
+        text-decoration: none;
+        text-decoration-style: none;
+    }
+    .hero-container{
+        display:grid;
+        grid-template-columns: 60% 40%;
+        margin-top: 150px;
+    }
+    .aa:hover{
+        background-color: {{EtablishmentType.color}};
+        color:{{EtablishmentType.color}};
+        text-decoration: none;
+        border-radius: 10px;
+        /*text-decoration-style: none; */
+    }
+    .aa{
+        height: 300px;
+    }
+    .bt:hover{
+        text-decoration: none;
+        /* height: inherit; */
+        color:white;
+        background-color: {{EtablishmentType.color}};
+    }
+    .btn{
+        color: {{EtablishmentType.color}};
+    }
+    .cc:hover{
+        /* height: 300px; */
+        border-radius: 10px;
+        background-color: {{EtablishmentType.color}};
+    }
+    .antxt{
+        font-size:70;
+        animation: waviy 1s infinite;
+        animation-delay: calc(.1s * var(--i));
+    }
+    @keyframes waviy {
+        0%,40%,100% {
+            transform: translateY(0)
+        }
+        20% {
+            transform: translateY(-20px)
+        }
+    }
+</style>
+<body style="background-color: white">
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+      <div class="container d-flex align-items-center justify-content-between">
+
+        <div class="logo">
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <a href="/"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+      </div>
+    </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" style="background: url('{% static "categories/"%}{{EtablishmentType.image}}') top center; background-size:100% auto;background-repeat:no-rpeat;">
+      <div class="hero-container">
+        <div class="container">
+            <div class="carousel-caption text-start">
+                <h1 style="color:{{EtablishmentType.color}};font-family:Bangers;display:inline-block;">
+                    {{ EtablishmentType.name }}
+                    
+                     
+                </h1> 
+                <h2>{{EtablishmentType.description}}</h2>
+                <p><a class="btn btn-lg btn-outline-light" href="#scat" style="color: {{EtablishmentType.color}};" id="bt">Explorer</a></p>
+                </div>
+            </div>
+        
+        <div style="width:40%;height:100%"></div>
+      </div>
+    </section><!-- End Hero -->
+
+
+    <div class="row mt-30" id="scat">
+        <div class="col-sm-4 mt-1" style="height:20px "><hr></div>
+        <div class="col-sm-4 mt-1 text-center" style="font-family: Bangers;font-size: 38px; color:{{EtablishmentType.color}}"> Sous-Catégories</div>
+        <div class="col-sm-4 mt-1"><hr></div>
+    </div>
+       <!-- CATEGORY AREA START -->
+    <div class="ltn__category-area ltn__product-gutter section-bg-1--- pt-50 pb-90 " id="">
+        <div class="container">
+            <div class="row">
+            </div>
+            <div class="row ltn__category-slider-active--- slick-arrow-1 justify-content-center" data-aos="fade-left">
+                {% for es in EtablishmentSubTypes %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                    <div class="ltn__category-item ltn__category-item-5 text-center cc">
+                        <a href="/etablishment/subtype/{{es.id}}" class="aa">
+                            <span class="category-icon"><i class="flaticon-home-2" style="color: {{EtablishmentType.color}}"></i></span>
+                            <span class="category-title">{{es.name}}</span>
+                            <span class="category-btn"><i class="flaticon-right-arrow"></i></span>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- CATEGORY AREA END -->
+
+</body>
+{% endblock content %}

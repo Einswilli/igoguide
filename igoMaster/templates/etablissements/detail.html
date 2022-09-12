@@ -1,0 +1,431 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGOGUIDE | Détails</title>
+    <link rel="stylesheet" href="{% static 'assets/detail/css/detailStyle.css'%}">
+    <link href="{% static 'assets/detail/css/animate.min.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/detail/css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/detail/css/bootstrap-icons.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/detail/css/boxicons.min.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/detail/css/glightbox.min.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/detail/css/swiper-bundle.min.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/detail/css/remixicon.css'%}" rel="stylesheet">
+    <!-- Place favicon.png in the root directory -->
+    <!-- <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" /> -->
+    <link rel="shortcut icon" href="{% static 'template/img/PngItem_97912.png'%}" type="image/x-icon" />
+    <!-- Font Icons css -->
+    <link rel="stylesheet" href="{% static 'assets/detail/css/font-icons.css'%}">
+    <!-- plugins css -->
+    <link rel="stylesheet" href="{% static 'assets/detail/css/plugins.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/detail/css/galerie.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/detail/css/aboutstyle.css'%}">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{% static 'assets/detail/css/mapstyle.css'%}">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="{% static 'assets/detail/css/responsive.css'%}">
+    <link href="{% static 'assets/detail/css/quill.snow.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/detail/css/quill.bubble.css'%}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/detail/css/contactstyle.css'%}" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'badaboom_bbregular';
+            src: url('{% static "assets/fonts/badabb__-webfont.woff2"%}') format('woff2'),
+                url('{% static "asstes/fonts/badabb__-webfont.woff"%}') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Bangers';
+            src: url('{% static "assets/fonts/bangers.ttf"%}');
+        }
+
+        body{
+            background-color:#11101D;
+            color:#FFFFFF;
+        }
+        section, #heroCarousel{
+            background-color:#11101D;
+        }
+        p{
+            /*color:#ffffff;*/
+        }
+        a {
+            text-decoration: none;
+            color: {{e.typeColor}};
+        }
+        #navbar ul a.active {
+            text-decoration: none;
+            color: {{e.typeColor}};
+        }
+        #navbar ul a:hover {
+            text-decoration: none;
+            color: {{e.typeColor}};
+        }
+        #hero .btn-book{
+            border: 2px solid {{e.typeColor}};
+            color: {{e.typeColor}};
+        }
+        #hero .btn-book:hover{
+            color:#FFFFFF;
+            text-decoration:none;
+            background-color: {{e.typeColor}};
+        }
+        /*.content{
+            background-color:#11101D;
+        }*/
+        .social-links {
+            margin: 0 0 15px 0;
+            text-align: center;
+        }
+
+        .social-links li {
+            font-size: 18px;
+            display: inline-block;
+            background: #46423b;
+            color: #fff;
+            line-height: 1;
+            padding: 8px 0;
+            margin-right: 4px;
+            border-radius: 50%;
+            text-align: center;
+            width: 36px;
+            height: 36px;
+            transition: 0.3s;
+        }
+
+        .social-links li:hover {
+            background: {{e.typeColor}};
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <!-- ======= Top Bar ======= -->
+    <!--<section id="topbar" class="d-flex align-items-center topbar-transpaent">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
+            <i class="bi bi-phone d-flex align-items-center"><span>+1 5589 55488 55</span></i>
+            <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 23:00 PM</span></i>
+        </div>
+    </section>-->
+    <!-- ======= Top Bar ======= -->
+    {% comment %} <section id="topbar" class="d-flex align-items-center fixed-top ">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
+            <i class="bi bi-phone d-flex align-items-center"><span>+1 5589 55488 55</span></i>
+            <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 23:00 PM</span></i>
+        </div>
+    </section>  {% endcomment %}
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between ">
+
+            <div class="logo me-auto">
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <a href="/" title="Retour à l'acceuil"><img src="{% static 'IMG/logo Igoguide/logo_fond_sombre.png'%}" alt="" class="img-fluid"></a>
+            </div>
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#hero">Acceuil</a></li>
+                    <li><a class="nav-link scrollto" href="#about">À Propos</a></li>
+                    {% comment %} <li><a class="nav-link scrollto" href="#criteres">Nos Activités</a></li> {% endcomment %}
+                    <li><a class="nav-link scrollto" href="#gallery">Galerie</a></li>
+
+                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+                <script>
+                let links=document.querySelectorAll('#navbar ul a')//["#hero","#about","#criteres","#gallery","#contact"]
+                for(let e of links){
+                    e.addEventListener('click',function(){
+                        document.querySelector('.active').classList.remove('active')
+                        e.classList.add('active')
+                    })
+                }
+                </script>
+            </nav>
+            <!-- .navbar -->
+
+            <!-- <a href="#contact" class="book-a-table-btn scrollto">Contacter</a> -->
+
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" style="height:100vh;background-color:#11101D;">
+        <div class="hero-container" style="height:80vh" background-color:"#11101D;">
+            <div id="heroCarousel" data-bs-interval="50" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                {% for image in e.images %}
+                <ol class="carousel-indicators {% if forloop.first %} active {% endif %}" id="hero-carousel-indicators" data-bs-slide-to="{{forloop.counter}}"  ></ol>
+                {% endfor %}
+                <div class="carousel-inner" role="listbox">
+
+                    <!-- Slide 1 -->
+                    {% for image in e.images %}
+                        <div class="carousel-item {% if forloop.first %} active {% endif %}" style="background: url('{{image.url}}') top center;background-size:100% auto;backgorund-color:#11101D;">
+                            <div class="carousel-container" style="margon-top:100px;width:50%">
+                                <div class="carousel-content text-start">
+                                    <h2 class="animate__animated animate__fadeInDown"style="font-size:40px;color:{{e.typeColor}}"><span style="font-family:Bangers;font-size:60px;color:{{e.typeColor}};">{{e.subType.name}}</span><br> {{e.name}}</h2>
+                                    <p class="animate__animated animate__fadeInUp text-start text-start" style="font-size:22px">{{e.presentation}}</p>
+                                    <div class="text-start">
+                                        <!-- <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a> -->
+                                        <a href="#contact" class="btn-book animate__animated animate__fadeInUp scrollto" id="gbtn">Contact</a>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+                </a>
+
+                <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+    <!-- End Hero -->
+
+        <!-- about section starts  -->
+        <section style="background-color:#11101D;"></section>
+
+
+        <div class="row  mb-5 mt-20" style="width:100%;" id="about">
+            <div class="col-sm-4" ><hr style="height:2px;color:black;margin-left:25px"></div>
+            <div class="col-sm-4 text-center" style="font-size: 50px; font-family: Bangers; color:{{e.typeColor}}">À Propos de Nous</div>
+            <div class="col-sm-4"><hr style="height:2px;color:black;"></div>
+        </div>
+    <section class="about section-bg mt-60" style="background-color:#11101D;" >
+
+        <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+            <div class="about-img">
+                {% if e.images|length > 1 %}
+                    <img src="{{ e.images.1.url }}" alt="" height=450px>
+                {% else %}
+                <img src="{{ e.images.0.url }}" alt="" height=450px>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="content col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3 style="color:{{e.typeColor}}">{{e.name}}</h3>
+            <p style="color:#FFFFFF;">{{e.presentation}}</p>
+        </div>
+
+    </section>
+
+    <!-- about section ends -->
+
+    {% comment %} <div class="row  mb-5 mt-20" style="width:100%;" id="criteres">
+        <div class="col-sm-4" ><hr style="height:2px;color:black;margin-left:25px"></div>
+        <div class="col-sm-4 text-center" style="font-size: 50px; font-family: Bangers; color:{{e.typeColor}}">Nos Activités</div>
+        <div class="col-sm-4"><hr style="height:2px;color:black;"></div>
+    </div> {% endcomment %}
+    <!-- ======= Services Section ======= -->
+    {% comment %} <section id="" class="services section-bg">
+        
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 icon-box">
+                    <div class="icon"><i class="bi bi-briefcase"></i></div>
+                    <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+                    <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                </div>
+                <div class="col-lg-4 col-md-6 icon-box">
+                    <div class="icon"><i class="bi bi-card-checklist"></i></div>
+                    <h4 class="title"><a href="">Dolor Sitema</a></h4>
+                    <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                </div>
+                <div class="col-lg-4 col-md-6 icon-box">
+                    <div class="icon"><i class="bi bi-bar-chart"></i></div>
+                    <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+                    <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                </div>
+                <div class="col-lg-4 col-md-6 icon-box">
+                    <div class="icon"><i class="bi bi-binoculars"></i></div>
+                    <h4 class="title"><a href="">Magni Dolores</a></h4>
+                    <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                </div>
+                <div class="col-lg-4 col-md-6 icon-box">
+                    <div class="icon"><i class="bi bi-brightness-high"></i></div>
+                    <h4 class="title"><a href="">Nemo Enim</a></h4>
+                    <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                </div>
+                <div class="col-lg-4 col-md-6 icon-box">
+                    <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+                    <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+                    <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+                </div>
+            </div>
+
+        </div>
+    </section> {% endcomment %}
+    <!-- End Services Section -->
+
+    <div class="row  mb-5 mt-20" style="width:100%;" id="gallery">
+        <div class="col-sm-4" ><hr style="height:2px;color:black;margin-left:25px"></div>
+        <div class="col-sm-4 text-center" style="font-size: 50px; font-family: Bangers; color:{{e.typeColor}}">Galerie</div>
+        <div class="col-sm-4"><hr style="height:2px;color:black;"></div>
+    </div>
+    <!-- gallery section starts  -->
+
+    <section class="gallery" id="">
+
+        <div class="box-container">
+            {% for image in e.images %}
+                <div class="box">
+                    <img src="{{ image.url }}" alt="">
+                    <div class="content">
+                        <h3 style="color:{{e.typeColor}}">{{image.name}}</h3>
+                        <p>{{e.name}}</p>
+                        {% comment %} {{-- <p>ajoutée par {{$e->User->firstname}} {{$e->User->name}}</p> --}} {% endcomment %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </section>
+
+    <!-- gallery section ends -->
+
+    <div class="row  mb-5 mt-20" style="width:100%;" id="contact">
+        <div class="col-sm-4" ><hr style="height:2px;color:black;margin-left:25px"></div>
+        <div class="col-sm-4 text-center" style="font-size: 50px; font-family: Bangers; color:{{e.typeColor}}">Nous Contacter</div>
+        <div class="col-sm-4"><hr style="height:2px;color:black;"></div>
+    </div>
+
+    <section id="">
+        <main id="main" class="main">
+
+            <div class="pagetitle">
+                <h1 style="font-size: 24px; font-family: Bangers; color:{{e.typeColor}}">Contact</h1>
+            </div><!-- End Page Title -->
+
+            <section class="section section_contact">
+
+                <div class="row gy-4">
+
+                    <div class="col-xl-6">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="info-box card">
+                                    <i class="bi bi-geo-alt" style="color:{{e.typeColor}}"></i>
+                                    <h3 style="color:{{e.typeColor}}">Adresse</h3>
+                                    <p>{{e.adresse}},<br>{{e.city.name}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="info-box card">
+                                    <i class="bi bi-telephone" style="color:{{e.typeColor}}"></i>
+                                    <h3 style="color:{{e.typeColor}}">Téléphone</h3>
+                                        <p>{{e.contact.telephone}}</p><br>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="info-box card">
+                                    <i class="bi bi-envelope" style="color:{{e.typeColor}}"></i>
+                                    <h3 style="color:{{e.typeColor}}">E-mails</h3>
+                                    <p>{{e.contact.email}}<br></p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="info-box card">
+                                    <i class="bi bi-clock" style="color:{{e.typeColor}}"></i>
+                                    <h3 style="color:{{e.typeColor}}">Heures</h3>
+                                    <p>Monday - Friday<br>9:00AM - 05:00PM</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-xl-6">
+                        <div class="card p-4" id="formulaire">
+                            <form action="/mails/contact/{{e.id}}" method="POST" class="php-email-form">
+                                {% csrf_token %}
+                                <div class="row gy-4">
+
+                                    <div class="col-md-6">
+                                        <input type="text" name="name" class="form-control" placeholder="Votre Nom" required>
+                                    </div>
+
+                                    <div class="col-md-6 ">
+                                        <input type="email" class="form-control" name="email" placeholder="Votre Email" required>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" name="subject" placeholder="Objet" required>
+                                    </div>
+                                    <div class="col-md-12" hidden>
+                                        <input type="text" class="form-control" name="contacts" placeholder="contact" hidden value="{{e.contact.email}},{{e.owner.Email}}" required>
+                                    </div>
+                                    <div class="col-md-12" hidden>
+                                        <input type="text" class="form-control" name="fromuser" placeholder="contact" id="fromuser" hidden required>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                                    </div>
+
+                                    <div class="col-md-12 text-center">
+                                        <div class="loading">Loading</div>
+                                        <div class="error-message"></div>
+                                        <div class="sent-message">Votre méssage a bien été envoyé!</div>
+
+                                        <button type="submit" style="background-color:{{e.typeColor}}">Envoyer</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+            <div class="pagetitle">
+                <h1 style="font-size: 24px; font-family: Bangers; color:{{e.typeColor}}">Localisation</h1>
+            </div>
+            <div class="property-details-google-map mb-60" id="detmap" data-lat="{{e.latitude}}" data-lng="{{e.longitude}}">
+    
+            </div>
+            <div class="social-links mt-3">
+                <li class="twitter so" data-url="{{ e.reseax.twitterName }}"><i class="bi bi-twitter"></i></a>
+                <li class="facebook so" data-url="{{e.reseax.facebookName }}"><i class="bi bi-facebook"></i></a>
+                <li class="instagram so" data-url="{{ e.reseaux.instagramName }}"><i class="bi bi-instagram"></i></a>
+                {% comment %} {{-- <a href="#" class="google-plus"><i class="bi bi-skype"></i></a> --}} {% endcomment %}
+                <li class="linkedin"><i class="bi bi-linkedin"></i></a>
+                <script>
+                    for(let item of document.querySelectorAll('.so')){
+                        item.addEventListener('click',function(){
+                            window.open(item.dataset.url, '_blank');
+                        })
+                    }
+                    document.getElementById('fromuser').value=localStorage.getItem('clientid')
+                </script>
+            </div>
+
+        </main>
+        <!-- End #main -->
+    </section>
+    <script src="{% static 'js/vendor.js'%}"></script>
+    <script src="{% static 'js/map.js'%}"></script>
+</body>
+
+</html>

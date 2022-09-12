@@ -1,0 +1,265 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+  {% block content %}
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="/">
+          <i class="bi bi-grid"></i>
+          <span>TABLEAU DE BORD</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>FICHES</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/etablishment/new" id="nf">
+              <i class="bi bi-circle"></i><span>Nouvelle Fiche</span>
+            </a>
+          </li>
+          <li>
+            <a href="/etablishment/list/pro/" id='lf'>
+              <i class="bi bi-circle"></i><span>Liste</span>
+            </a>
+          </li>
+          
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>ABONNEMENTS</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="#" class="active" id="na">
+              <i class="bi bi-circle"></i><span>Nouvel Abonnenment</span>
+            </a>
+          </li>
+          <li>
+            <a href="/subscription/list/pro/" id="la">
+              <i class="bi bi-circle"></i><span>Liste</span>
+            </a>
+          </li>
+          <li>
+            <a href="/payments/pro/{{user.id}}" id='tr'>
+              <i class="bi bi-circle"></i><span>Transactions</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-envelope"></i><span>MESSAGES</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="#" id='mails'>
+              <i class="bi bi-circle"></i><span>Mails</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" id="notif">
+              <i class="bi bi-circle"></i><span>Notifications</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+
+      
+
+      
+
+      <li class="nav-heading">Pages</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id='prof'>
+          <i class="bi bi-person"></i>
+          <span>Profile</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id='faq'>
+          <i class="bi bi-question-circle"></i>
+          <span>F.A.Q</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id="cgv">
+          <i class="bi bi-question-circle"></i>
+          <span>C.G.V</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id="cgu">
+          <i class="bi bi-question-circle"></i>
+          <span>C.G.U</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>TABLEAU DE BORD</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Abonnenments</a></li>
+          <li class="breadcrumb-item active">Nouvel</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    {% comment %} CONTENU {% endcomment %}
+
+    {% if msg %}
+      {% if "SUCCES" in msg %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle me-1"></i>{{msg}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% else %}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-octagon me-1"></i>{{msg}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+    {% endif %}
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Nouvel Abonnement</h5>
+
+        <!-- No Labels Form -->
+        <form class="row g-3" action="/subscription/save" method='POST'>
+          {% csrf_token %}
+          <div class="col-12">
+            <input type="number" min="1" class="form-control" placeholder="Nombre de mois" name="mois" id="mois" required>
+          </div>
+          <div class="col-md-6">
+            <select id="inputState" class="form-select" name="etablissement" required>
+              <option desabled selected>Etablissement</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <input type="text" id='total' class="form-control" placeholder="Total" readonly="readonly" name='total' >
+          </div>
+          <div class="col-md-3">
+            <input type="text" id='exp' class="form-control" placeholder="Date de fin" readonly="readonly" name="exp" >
+          </div>
+          <div class=""style="display:flex;justify-content:space-between;">
+            <button type="reset" class="btn btn-danger" style="width:45%">Annuler</button>
+            <button type="submit" class="btn btn-primary" style="width:45%">Enregister</button>
+          </div>
+        </form><!-- End No Labels Form -->
+
+      </div>
+    </div>
+
+    {% comment %} FIN DU CONTENU {% endcomment %}
+
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script>
+      $(window).on('load',function(){
+        var uid;
+        var nf=document.querySelector('#nf')
+        var lf=document.querySelector('#lf')
+        var na=document.querySelector('#na')
+        var la=document.querySelector('#la')
+        var tr=document.querySelector('#tr')
+        var mails=document.querySelector('#mails')
+        var notif=document.querySelector('#notif')
+        var prof=document.querySelector('#prof')
+        var faq=document.querySelector('#faq')
+        var cgv=document.querySelector('#cgv')
+        var cgu=document.querySelector('#cgu')
+        //var profile_link=document.querySelector('#prolink')
+        uid = localStorage.getItem('userid');
+        $.ajax(
+        {
+          type:"GET",
+          url: "/users/pro/"+uid,
+          data:{
+                   //post_id: catid
+          },
+          success: function( data ) 
+          {
+            console.log(data);
+            nf.href='/etablishment/new';
+            lf.href='/etablishment/list/pro/'+data.id;
+            na.href="#"
+            la.href='/subscription/list/pro/'+data.id;
+            tr.href='/payments/pro/'+data.id;
+            mails.href='/mails/pro/'+data.id;
+            notif.href='/notifications/pro/'+data.id;
+            prof.href='/profile/pro/'+data.id;
+            faq.href='/faq';
+            cgv.href='/cgv';
+            cgu.href='/cgu';
+          }
+        })
+      }
+    );
+  </script>
+  <script>
+    $(window).on('load',function(){
+      $.ajax({
+        type:'GET',
+        url:'/etablishment/get/pro/'+localStorage.getItem('userid'),
+        data:{
+          //post_id: catid
+        },
+        success: function( data ){
+          for(let e of data){
+            //console.log(JSON.parse(data))
+            var opt = document.createElement("option");
+            opt.value = e.id;
+            opt.text = e.name;
+            //select.appendChild(opt);
+            $('#inputState').append(opt)
+          }
+        },
+        error:function(err){
+          console.log(err)
+        }
+      })
+    })
+  </script>
+  <script>
+    $(window).on('load',function(){
+      $('#mois').change((e)=>{
+        //console.log()
+        $.ajax({
+          type:'GET',
+          url:'/subscription/info/'+document.querySelector('#mois').value,
+          data:{
+            //mois:$('#mois').value
+          },
+          success: function( data ){
+            //console.log(data)
+            document.querySelector('#total').value=data.t+' €';
+            document.querySelector('#exp').value=data.d;
+          },
+          error:function(err){
+            console.log(err)
+          }
+        })
+      })
+    })
+  </script>
+
+  </main><!-- End #main -->
+
+  {% endblock %}

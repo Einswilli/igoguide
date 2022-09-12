@@ -1,0 +1,306 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+  {% block content %}
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="/">
+          <i class="bi bi-grid"></i>
+          <span>TABLEAU DE BORD</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>FICHES</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/etablishment/new" id="nf">
+              <i class="bi bi-circle"></i><span>Nouvelle Fiche</span>
+            </a>
+          </li>
+          <li>
+            <a href="/etablishment/list/pro/" id='lf'>
+              <i class="bi bi-circle"></i><span>Liste</span>
+            </a>
+          </li>
+          
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>ABONNEMENTS</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="#"  id="na">
+              <i class="bi bi-circle"></i><span>Nouvel Abonnenment</span>
+            </a>
+          </li>
+          <li>
+            <a href="/subscription/list/pro/" id="la">
+              <i class="bi bi-circle"></i><span>Liste</span>
+            </a>
+          </li>
+          <li>
+            <a href="/payments/pro/" id='tr'>
+              <i class="bi bi-circle"></i><span>Transactions</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-envelope"></i><span>MESSAGES</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="#" id='mails'>
+              <i class="bi bi-circle"></i><span>Mails</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" id="notif">
+              <i class="bi bi-circle"></i><span>Notifications</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+
+      
+
+      
+
+      <li class="nav-heading">Pages</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id='prof'>
+          <i class="bi bi-person"></i>
+          <span>Profile</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id='faq'>
+          <i class="bi bi-question-circle"></i>
+          <span>F.A.Q</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id="cgv">
+          <i class="bi bi-question-circle"></i>
+          <span>C.G.V</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id="cgu" class="active">
+          <i class="bi bi-question-circle"></i>
+          <span>C.G.U</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>TABLEAU DE BORD</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">C.G.V</a></li>
+          <li class="breadcrumb-item active">pour vous</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    {% comment %} CONTENU {% endcomment %}
+
+    
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Conditions Générales de Ventes</h5>
+          <p align="center">Mises à jour et applicables à compter du 01 Juillet 2022</p>
+          <!-- Default Accordion -->
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Identification de la société exploitant le Site:
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Le site internet www.igoguide.com est édité par la société IGOgroup, Société par actions simplifiées, immatriculée au RCS de Bordeaux, sous le n°889371142, dont le siège social est 9 rue de Condé, bureau 3, 33000 Bordeaux.
+                  N° de TVA intracommunautaire : FR10889371142
+                  Email : infos@igoguide.com
+                  Hébergeur : OVH, société par action simplifiée au capital de 10 069 020 €uros, immatriculée au RCS Lille Métropole 424 761 419 0004, N° TVA : FR 22 424 761 419 dont le siège social est  2 rue Kellermann – 59100 Roubaix – France
+                  <br><br><strong>Préambule :</strong><br>Les présentes Conditions Générales de Vente (  “CGV” ) ont pour objet de définir les conditions de vente des services qui sont proposés sur la Plateforme IGOguide et détaillent les droits et obligations de la société IGOgroup ainsi que de son client afin que celui-ci puisse déposer une annonce dans l’une des catégories énumérée dans l’article 1.1
+                  La Plateforme IGOguide est un outil numérique (site internet) permettant de mettre en contact des particuliers (les « Utilisateurs » ) avec des professionnels (les « Partenaires » ) . Il est donc rappelé les droits et obligations du professionnel vis-à-vis de cette plateforme numérique.
+                  La société IGOgroup se réserve le droit de mettre à jour les CGV et de les modifier à tout moment. La version applicable est celle en vigueur sur la plateforme.
+                  Rappel pour l'utilisation du site IGOguide.com:
+                  La société IGOgroup est propriétaire du site internet www.igoguide.com (ci-après, la « Plateforme IGOguide » ).
+                  L’accès, la consultation et l’utilisation de la Plateforme IGOguide valent tout d’abord acceptation sans réserve des Conditions Générales d’Utilisation, dont les usagers déclarent avoir eu connaissance par le biais de sa lecture disponible en libre accès sur le site.
+                  IGOgroup se réserve le droit de mettre à jour les CGU et de les modifier à tout moment. La version applicable est celle en vigueur à la date d’utilisation de la plateforme.
+                  
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  ARTICLE 1: QU’EST CE QUE LA PLATEFORME IGOguide?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>1.1 Description générale</strong><br> La Plateforme IGOguide est un outil numérique (site internet sous forme d’annuaire)  permettant de mettre en contact des particuliers (les « Utilisateurs » ) avec des professionnels (les « Partenaires » ) d’hébergements, de bars, de la restauration, de balades et d’activités tels que des ateliers, stages ou encore d’activités ludiques, éducatives, de bien-être, de shopping  et ceux désireux de proposer leurs services ou de se faire connaître de manière facile et interactive.
+                  La Plateforme IGOguide est donc une simple interface de mise en relation et ne revêt en aucun cas la qualité d’agent ou de mandataire des “Utilisateurs” ou des “Partenaires”.<br>
+                  <strong>1.2 Fonctionnement de la plateforme IGOguide</strong><br>La Plateforme IGOguide est une plateforme d’assistance à la recherche de lieux “pour créer son échappée belle” et uniquement d’assistance pour les “Utilisateurs”. Elle n’est en aucun cas tenue d’une quelconque obligation de résultat quant à l’aboutissement d’une recherche voulue ou quant à la conclusion d’un contrat entre les “Utilisateurs” et les “Partenaires”.
+                  En fonction des critères de recherche saisis, elle propose le profil de “Partenaires” aux “Utilisateurs”, qui sont libres d’accepter ou de refuser de continuer d’utiliser les informations reçues par l’intermédiaire de la Plateforme IGOguide.
+                  L’utilisation des services du “Partenaire” par “l'Utilisateur”, quelle que soit sa nature et la négociation de ses dispositions relèvent de leurs entières responsabilités, comme détaillé à l’article 6 des présentes.
+                  La société IGOgroup ne pourra recueillir aucune des conditions contractuelles définies entre “l'Utilisateur” et le “Partenaire”, étant souligné qu’elles ne sont en aucune façon négociées sur la Plateforme IGOguide. 
+                  La société IGOgroup ne peut engager sa responsabilité de ce chef, n’ayant pas la qualité d’agent ou de mandataire dans la relation contractuelle créée.
+                  “L'Utilisateur” réalise sa mission auprès du “Partenaire”, sous son entière responsabilité. La Plateforme IGOguide ne sera en aucun cas responsable des défauts d’exécution contractuelle qui pourraient être imputés à l’”Utilisateur” ou au “Partenaire”.
+                  “L'Utilisateur” et le “Partenaire” engageront ainsi leur responsabilité pour toutes les conséquences dommageables résultant des actions, omissions, fautes, erreurs, défaillances et négligences qu’ils commettraient au titre de chaque contrat. En aucun cas, ils ne sauraient imputer ou transférer toute ou partie de cette responsabilité à la Plateforme IGOguide ou à la société IGOgroup en général.
+                  <br><strong>1.3 Publication des annonces</strong><br>Le Partenaire est invité à déposer des annonces honnêtes, simples et respectueuses, sans sur renchérissement de termes élogieux et à respecter les règles de descriptifs énoncés à l’article 3.2 afin de permettre à la plateforme IGOguide d’avoir une unité dans ses annonces proposées.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  ARTICLE 2: LES INSCRIPTIONS DES UTILISATEURS ET DES PARTENAIRES
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>2.1 Inscription de “l’Utilisateur”</strong><br> 
+                  <strong>2.1.1 Création d’un compte</strong><br>Pour accéder aux services de la Plateforme IGOguide, “l'Utilisateur” peut librement l’utiliser. S’il souhaite enregistrer des favoris et y revenir, il doit créer un compte individuel par le biais d’un formulaire d’inscription en ligne, en renseignant ses noms, prénoms, email et doit choisir un mot de passe. La création et l’utilisation de ce compte sont placées sous l’entière responsabilité de “l'Utilisateur”, suivant modalités prévues à l’article 4 des présentes.
+                  Ces informations sont transmises à la société IGOgroup après validation par l’Utilisateur et acceptation expresse des présentes Conditions générales d’Utilisation.                  
+                  <strong>2.1.2 Gratuité des services pour les “Utilisateurs”</strong><br>L’accès à la Plateforme IGOguide et l’utilisation de ses services sont gratuits pour “l’Utilisateur”. “L’Utilisateurs” peut ainsi entrer directement en contact avec les “Partenaires”, sans aucune contrepartie financière. Mais il peut créer son compte afin de sélectionner les établissements ou activités et les mettre dans ses favoris
+                  <strong>2.2. Inscription du Partenaire</strong><br>Pour accéder aux services de la Plateforme IGOguide, le “Partenaire” doit créer un compte individuel, en indiquant son nom, prénom, nom de l’entreprise, numéro de siret, email de contact et créer son mot de passe. La création et l’utilisation de ce compte sont placées sous son entière responsabilité, en application de l’article 6.2 des présentes.
+                  L’inscription du “Partenaire” est soumise aux CGV qu’il aura préalablement lues afin de les valider. Il pourra ensuite accéder à ces CGV à tout moment depuis son tableau de bord une fois son inscription validée.
+                  L'acceptation des CGV par le “Partenaire” vaut acceptation, compréhension et lecture des CGV et implique l'adhésion sans réserve de celui-ci aux présentes Conditions Générales de Vente.
+                  Après avoir rempli le formulaire d’inscription en ligne, le “Partenaire” peut ensuite accéder à son tableau de bord et à la création et correction de ses fiches contenant toutes les informations qu’il souhaite faire valoir pour son établissement.                  
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapseThree">
+                  ARTICLE 3: LES CRÉATIONS  DES ANNONCES SOUS FORME DE FICHES  PAR LES PARTENAIRES ET CORRECTIONS DE CELLES-CI
+                </button>
+              </h2>
+              <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body"> 
+                  <strong>3.1 Création de fiche</strong><br>Après la création de son compte individuel, le “Partenaire” procède à la création de sa fiche, visible par les “Utilisateurs”. Elle contient notamment les informations concernant le type de l’établissement, de la prestation ou de l’activité, sa description, sa localisation et les moyens fournis pour pouvoir contacter son établissement.
+                  Cette fiche est ensuite transmise à l’équipe de la Plateforme IGOguide afin qu’elle soit corrigée et qu’elle corresponde au mieux à la ligne directive choisie pour les descriptions (article 3.2) des établissements sur le site. IGOguide se réserve le droit de modifier la fiche à sa convenance, particulièrement dans le titre et la description. Le “Partenaire” accepte sans réserve cette possibilité.                  
+                  <br><br><strong>3.2 Description du contenu d’une fiche</strong><br>Afin de conserver une cohérence dans la recherche des “Utilisateurs” et dans la fonctionnalité interactive, la création d’une fiche est soumise à certaines règles qui sont accessibles à tout moment depuis les Foires aux questions des pros (FAQ pros) se trouvant dans le tableau de bord du Partenaire. Les étapes et la description dans les fiches doivent être respectueuses de la volonté du site à ne présenter qu’une caractéristique à la fois.
+                  Tout est mis en œuvre pour que la visibilité du partenaire soit optimisée. Le référencement fait partie de cette visibilité et il est d’autant plus maximisé si les informations sur l'établissement ou l’activité sont adéquates.
+                  Si le partenaire souhaite décrire plusieurs activités au sein de son établissement, il est prié de faire plusieurs fiches afin de décrire chacune de ses activités ou chacune des caractéristiques de l'établissement ou prestation.
+                  <br><br><strong>3.2.1 Explication et exemples d’un contenu</strong><br>Le contenu d’une fiche doit représenter l'établissement ou l’activité du “Partenaire”. Celui-ci doit décrire l’établissement ou l’activité dans son ensemble sans développer plusieurs atouts, plusieurs prestations ou activités..
+                  Si le “Partenaire” souhaite développer plusieurs aspects de son établissement, il devra pour cela faire plusieurs fiches.
+                  Quelques exemples:
+                  <ul>
+                    Exemple 1:
+                      <li>Le partenaire a un hôtel: il peut présenter son hôtel dans son ensemble en mentionnant simplement la qualité de la chambre, l’accès au spa, le restaurant qui s’y trouve.</li>
+                      <li>Il veut développer les atouts de son activité de restaurant ou veut expliquer la possibilité de faire des massages: il faudra créer des fiches supplémentaires dans les sections vouées à cet effet au sein des catégories et sous catégories.</li>
+                    Exemple 2:
+                      <li>Le partenaire a un hôtel: Ses chambres sont toutes différentes. Il peut faire une fiche par chambre dans l’idée de présenter un style de chambre ou présenter certains atouts.</li>
+                    Exemple 3:
+                      <li>un camping propose des logements atypiques mais aussi du canoë kayak. Il devra donc faire  2 fiches pour décrire les deux.</li>
+                    Exemple 4:
+                      <li>une chaîne de camping proposant des logements assez atypiques souhaite faire la promotion de chacun de ses campings. Il faudra faire une fiche par camping.</li>                               
+                  </ul>
+                  <br><br><strong>3.2.2 Intégrité du “Partenaire”</strong><br>Le “Partenaire” est invité à déposer des annonces honnêtes, simples et respectueuses, sans sur-renchérissement de termes élogieux, afin de permettre à la plateforme IGOguide d’avoir une unité dans ses annonces proposées.
+                  Le “Partenaire” s'engage à ce que le texte de description soit fondé sur des faits vérifiables et soit diffusé uniquement aux fins d'appréciation de la qualité du service fourni. “L'utilisateur” de la Plateforme IGOguide pourra en bénéficier en toute honnêteté et transparence.
+                  La société IGOgroup se réserve le droit de refuser de publier toute annonce :
+                  <ul>
+                    <li>susceptible de porter atteinte de quelque manière que ce soit à la réputation, à la vie privée, ou à l'image d’un Utilisateur ou d’un tiers ,</li>
+                    <li>susceptible de porter atteinte de quelque manière que ce soit à la réputation de IGOgroup-IGOguide.com</li>
+                    <li>susceptible de porter atteinte à l'ordre public ou aux bonnes mœurs ,</li>
+                    <li>susceptible d’être dénigrant, diffamatoire ou discriminatoire</li>
+                  </ul>
+                  <br><br><strong>3.3 Refus de publication d’une annonce</strong><br>La société IGOgroup se réserve le droit de refuser de publier une fiche si celle-ci ne respecte pas l’Article 3.2.1 des présentes.
+                  Les descriptions doivent respecter le process demandé.
+                  <br><br><strong>3.4 Modification de l’annonce</strong><br>La société IGOgroup se réserve le droit de modifier une annonce si celle-ci ne correspond pas à la logique demandée. Mais aussi d’intervenir sur l’annonce afin de mieux développer le référencement et la visibilité sur les différents supports du web.
+                  <br><br><strong>3.5 Créations de plusieurs annonces sous forme de fiche</strong><br>Plusieurs fiches peuvent être créées si le “Partenaire” souhaite mettre plusieurs éléments de son établissement en avant. Celles-ci sont soumises au tarif du forfait en vigueur au moment de la création de ces fiches supplémentaires.
+                  <br><br><strong>3.6 Le délai de conservation des fiches.</strong><br>Les annonces sous forme de fiches seront validées, mises en ligne et conservées en ligne pendant le délai soumis à la période du forfait choisi.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapseThree">
+                  ARTICLE 4: FONCTIONNEMENT DES FORFAITS PROPOSÉS, TARIFS PRATIQUÉS, RENOUVELLEMENT, OPTIONS DE VISIBILITÉ ET PROMOTIONS
+                </button>
+              </h2>
+              <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>4.1 Gratuité pendant 2 mois</strong><br><br>
+                  A partir du 01JUILLET 2022, la Plateforme IGOguide propose un essai gratuit de 2 mois lors de la création d’une fiche. Passée ce délai, la fiche est retirée de la Plateforme IGOguide si aucun forfait n’a été choisi et réglé pour prolonger la visibilité de celle-ci.
+                </div>
+              </div>
+            </div>
+          </div><!-- End Default Accordion Example -->
+
+        </div>
+      </div>
+
+    {% comment %} FIN DU CONTENU {% endcomment %}
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script>
+      $(window).on('load',function(){
+        var uid;
+        var nf=document.querySelector('#nf')
+        var lf=document.querySelector('#lf')
+        var na=document.querySelector('#na')
+        var la=document.querySelector('#la')
+        var tr=document.querySelector('#tr')
+        var mails=document.querySelector('#mails')
+        var notif=document.querySelector('#notif')
+        var prof=document.querySelector('#prof')
+        var faq=document.querySelector('#faq')
+        var cgv=document.querySelector('#cgv')
+        var cgu=document.querySelector('#cgu')
+        //var profile_link=document.querySelector('#prolink')
+        uid = localStorage.getItem('userid');
+        $.ajax(
+        {
+          type:"GET",
+          url: "/users/pro/"+uid,
+          data:{
+                   //post_id: catid
+          },
+          success: function( data ) 
+          {
+            console.log(data);
+            nf.href='/etablishment/new';
+            lf.href='/etablishment/list/pro/'+data.id;
+            na.href="/subscription/new"
+            la.href='/subscription/list/pro/'+data.id;
+            tr.href='/payments/pro/'+data.id;
+            mails.href='/mails/pro/'+data.id;
+            notif.href='/notifications/pro/'+data.id;
+            prof.href='/profile/pro/'+data.id;
+            faq.href='/faq';
+            cgv.href='#';
+            cgu.href='/cgu';
+          }
+        })
+      }
+    );
+  </script>
+
+  </main><!-- End #main -->
+
+  {% endblock %}

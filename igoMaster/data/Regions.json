@@ -1,0 +1,94 @@
+{
+    "Regions": [
+        {
+            "id": 1,
+            "name": "Auvergne-Rh\u00f4ne-Alpes",
+            "country_id": 1
+        },
+        {
+            "id": 2,
+            "name": "Bourgogne-Franche-Comt\u00e9",
+            "country_id": 1
+        },
+        {
+            "id": 3,
+            "name": "Bretagne",
+            "country_id": 1
+        },
+        {
+            "id": 4,
+            "name": "Centre-Val de Loire",
+            "country_id": 1
+        },
+        {
+            "id": 5,
+            "name": "Corse",
+            "country_id": 1
+        },
+        {
+            "id": 6,
+            "name": "Grand Est",
+            "country_id": 1
+        },
+        {
+            "id": 7,
+            "name": "Hauts-de-France",
+            "country_id": 1
+        },
+        {
+            "id": 8,
+            "name": "\u00cele-de-France",
+            "country_id": 1
+        },
+        {
+            "id": 9,
+            "name": "Normandie",
+            "country_id": 1
+        },
+        {
+            "id": 10,
+            "name": "Nouvelle-Aquitaine",
+            "country_id": 1
+        },
+        {
+            "id": 11,
+            "name": "Occitanie",
+            "country_id": 1
+        },
+        {
+            "id": 12,
+            "name": "Pays de la Loire",
+            "country_id": 1
+        },
+        {
+            "id": 13,
+            "name": "Provence-Alpes-C\u00f4te d'Azur",
+            "country_id": 1
+        },
+        {
+            "id": 14,
+            "name": "Guadeloupe",
+            "country_id": 1
+        },
+        {
+            "id": 15,
+            "name": "Martinique",
+            "country_id": 1
+        },
+        {
+            "id": 16,
+            "name": "Guyane",
+            "country_id": 1
+        },
+        {
+            "id": 17,
+            "name": "La R\u00e9union",
+            "country_id": 1
+        },
+        {
+            "id": 18,
+            "name": "Mayotte",
+            "country_id": 1
+        }
+    ]
+}

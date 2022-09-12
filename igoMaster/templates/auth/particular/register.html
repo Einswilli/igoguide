@@ -1,0 +1,523 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+
+<head>
+    <title>Igoguide | Registration</title>
+
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+      <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
+      <meta name="author" content="Codedthemes" />
+      <!-- Favicon icon -->
+
+      <link rel="shortcut icon" href="{% static 'template/img/PngItem_97912.png'%}" type="image/x-icon" />
+      <!-- Google font-->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+      <!-- Required Fremwork -->
+      <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap/css/bootstrap.min.css'%}">
+      <!-- waves.css -->
+      <link rel="stylesheet" href="{% static 'assets/pages/waves/css/waves.min.css'%}" type="text/css" media="all">
+      <!-- themify-icons line icon -->
+      <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/themify-icons/themify-icons.css'%}">
+      <!-- ico font -->
+      <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/icofont/css/icofont.css'%}">
+      <!-- Font Awesome -->
+      <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/font-awesome/css/font-awesome.min.css'%}">
+      <!-- Style.css -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <link href="{% static 'assets/detail/css/boxicons.min.css'%}" rel="stylesheet">
+      <link href="{% static 'assets/detail/css/bootstrap-icons.css'%}" rel="stylesheet">
+      {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css'%}"> {% endcomment %}
+      <style>
+        body {
+            font-family: sans-serif;
+            background-color: #eeeeee;
+          }
+          
+          .file-upload {
+            background-color: inherit;
+            width: inherit;
+            height:inherit;
+            margin-bottom: 30px;
+            padding: 20px;
+          }
+          .file-upload:hover h3{
+            color:#11101D;
+          }
+          
+          
+          .file-upload-content {
+            display: none;
+            text-align: center;
+          }
+          
+          .file-upload-input {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            opacity: 0;
+            cursor: pointer;
+          }
+          
+          .image-upload-wrap {
+            margin-top: 20px;
+            border: 4px dashed powderblue;/*#1FB264;*/
+            position: relative;
+          }
+          
+          .image-dropping,
+          .image-upload-wrap:hover {
+            background-color: powderblue;/* #1FB264;*/
+            border: 4px dashed #ffffff;
+          }
+          
+          .image-title-wrap {
+            padding: 0 2px 15px 15px;
+            color: #222;
+          }
+          
+          .drag-text {
+            text-align: center;
+        }
+        
+        .drag-text h3 {
+            color:powderblue;
+            font-weight: 100;
+            text-transform: uppercase;
+            /*color: #15824B;*/
+            padding: 60px 0;
+          }
+          
+          .file-upload-image {
+            max-height: 200px;
+            max-width: 200px;
+            margin: auto;
+            padding: 20px;
+          }
+          
+          .remove-image {
+            width: 60px;
+            height:40px;
+            margin: 0;
+            color: #fff;
+            background: #cd4535;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            border-bottom: 4px solid #b02818;
+            transition: all .2s ease;
+            outline: none;
+            text-transform: uppercase;
+            font-weight: 700;
+          }
+          
+          .remove-image:hover {
+            background: #c13b2a;
+            color: #ffffff;
+            transition: all .2s ease;
+            cursor: pointer;
+          }
+          
+          .remove-image:active {
+            border: 0;
+            transition: all .2s ease;
+          }
+
+          #pills-register{
+            width:100%;
+            height:inherit;
+          }
+
+          body { 
+            width: 100%;
+            height:100%;
+            font-family: 'Open Sans', sans-serif;
+            background: #092756;
+            background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
+            background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+            background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+            background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+            background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+            background-attachment:fixed;
+          }
+          a{
+            height:70px;
+            width:70px;
+            border-radius:10px;
+            text-decoration:none;
+          }
+          a:hover{
+            text-decoration:none;
+            background-color:#11101D;
+          }
+      </style>
+  </head>
+
+  <body themebg-pattern="theme1">
+  <!-- Pre-loader start -->
+  {% comment %} <div class="theme-loader">
+      <div class="loader-track">
+          <div class="preloader-wrapper">
+              <div class="spinner-layer spinner-blue">
+                  <div class="circle-clipper left">
+                      <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                      <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                      <div class="circle"></div>
+                  </div>
+              </div>
+              <div class="spinner-layer spinner-red">
+                  <div class="circle-clipper left">
+                      <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                      <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                      <div class="circle"></div>
+                  </div>
+              </div>
+
+              <div class="spinner-layer spinner-yellow">
+                  <div class="circle-clipper left">
+                      <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                      <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                      <div class="circle"></div>
+                  </div>
+              </div>
+
+              <div class="spinner-layer spinner-green">
+                  <div class="circle-clipper left">
+                      <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                      <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                      <div class="circle"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Pre-loader end -->
+    {% if msg %}
+        <div class="alert alert-danger row txt-center" role="alert">
+            {{msg}}
+        </div>
+    {% endif %}
+  <section class="login-block">
+        <!-- Container-fluid starts -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <form class="md-float-material form-material" enctype="multipart/form-data" method="POST" action="/auth/p/register">
+                        {% csrf_token %}
+
+                        <div class="auth-box card bg-dark text-white" style="width:40%;">
+                            <div class="card-block p-5 " style="width:100%;height:100vh"> {% endcomment %}
+                                {% comment %} <div class="row m-b-20">
+                                    <div class="col-md-12 d-flex">
+                                        <div class="text-center">
+                                            <img src="{% static 'IMG/lg.png'%}" style="width:70px" alt="logo.png">
+                                        </div>
+                                        <div style="width:50px"></div>
+                                        <h3 class="text-right txt-primary">Créer mon compte</h3>
+                                    </div>
+                                </div>
+                                <div class="form-group form-primary">
+                                    <input  class="form-control" id="lname"  type="text" name="lname" required autofocus >
+                                    <span class="form-bar"></span>
+                                    <label class="float-label" for="lname" >Nom</label>
+                                </div>
+                                <div class="form-group form-primary">
+                                    <input id="firstname" type="text" name="fname"  required autofocus  class="form-control">
+                                    <span class="form-bar"></span>
+                                    <label class="float-label"  for="firstname" >Prénom</label>
+                                </div>
+                                <div class="form-group form-primary">
+                                    <input id="email" type="email" name="email" required class="form-control">
+                                    <span class="form-bar"></span>
+                                    <label class="float-label" for="email" >Email</label>
+                                </div>
+                                <div class="form-group form-primary">
+                                    <input id="email" type="text" name="phone" required class="form-control">
+                                    <span class="form-bar"></span>
+                                    <label class="float-label" for="email" >Téléphone</label>
+                                </div>
+                                <div class="form-group form-primary">
+                                    <input  id="password"  type="password" name="pass" required autocomplete="new-password" class="form-control">
+                                    <span class="form-bar"></span>
+                                    <label class="float-label" for="password" >Mot de passe</label>
+                                </div>
+                                <div class="form-group form-primary">
+                                    <input id="password_confirmation" type="password" name="pass_confirm" required  class="form-control">
+                                    <span class="form-bar"></span>
+                                    <label class="float-label" for="password_confirmation" >Confimer Mot de passe</label>
+                                </div>
+                                <div class="form-group form-primary">
+                                    <input id="password_confirmation" type="file" name="photo" required  class="form-control">
+                                    <span class="form-bar"></span>
+                                    <label class="float-label" for="password_confirmation" >Choisissez Une photo</label>
+                                </div> {% endcomment %}
+                                
+
+
+                                    {% comment %} <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+                                    
+                                        <div class="file-upload"> {% endcomment %}
+
+                                            {% comment %} <div class="image-upload-wrap">
+                                                <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                                                <div class="drag-text">
+                                                    <h3>Cliquez pour choisir une image</h3>
+                                                </div>
+                                            </div>
+                                            <div class="file-upload-content">
+                                                <img class="file-upload-image" src="#" alt="your image" />
+                                                <div class="image-title-wrap">
+                                                    <button type="button" onclick="removeUpload()" class="remove-image">Supprimer <span class="image-title">Uploaded Image</span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="" id="pills-register">
+
+                                            <!-- Name input -->
+                                            <div class="form-outline mb-4">
+                                                <input type="text" id="registerName" class="form-control"name="lname" placeholder="Nom" />
+                                            </div>
+
+                                            <!-- Username input -->
+                                            <div class="form-outline mb-4">
+                                                <input type="text" id="registerUsername" class="form-control"name="fname" placeholder="Prénom" />
+                                            </div>
+
+                                            <!-- Email input -->
+                                            <div class="form-outline mb-4">
+                                                <input type="email" id="registerEmail" class="form-control"name="email" placeholder="E-mail" />
+                                            </div>
+
+                                            <!-- Password input -->
+                                            <div class="form-outline mb-4">
+                                                <input type="password" id="registerPassword" class="form-control" name="pass" placeholder="Mot de passe" />
+                                            </div>
+
+                                            <!-- Repeat Password input -->
+                                            <div class="form-outline mb-4">
+                                                <input type="password" id="registerRepeatPassword" class="form-control" name="pass_confirm" placeholder="Confirmation" />
+                                            </div>
+
+                                            <div class="">
+                                                <div class="form-outline mb-4">
+                                                    <div class="checkbox-fade fade-in-primary">
+                                                        <label>
+                                                            <input type="checkbox" value="false" required>
+                                                            <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
+                                                            <span class="text-inverse">J'accepte les <a href="#" style="color:blue;">Termes &amp; Conditions.</a></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-outline mb-4">
+                                                    <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Créer mon Compte</button>
+                                                </div>
+                                                <div class="form-outline mb-4 text-center">
+                                                    <p class="text-inverse text-left">Avez-vous déjà un compte?<a href="/auth/p/connexion" style="color:blue;"><b> Connexion</b></a></p>
+                                                </div>
+                                                
+                                                <hr/>
+                                                <div class="form-outline mb-4 ">
+                                                    <p class="text-inverse text-left  m-b-0" >Igoguide vous remerci!</p>
+                                                    <p class="text-inverse text-left "><a href="/" style="color:blue;"><b>Retour au site</b></a></p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- end of col-sm-12 -->
+            </div>
+            <!-- end of row -->
+        </div>
+        <!-- end of container-fluid -->
+    </section> {% endcomment %}
+
+    {% if msg %}
+      {% if "SUCCES" in msg %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle me-1"></i>{{msg}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% else %}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-octagon me-1"></i>{{msg}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+    {% endif %}
+  <section class="vh-90 gradient-custom" style="height:100vh" >
+    <div class="container py-5 h-50" style="height:90%">
+      <div class="row d-flex justify-content-center align-items-center h-50">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <form enctype="multipart/form-data" method="POST" action="/auth/p/register">
+            {% csrf_token %}
+            <div class="card bg-dark text-white" style="border-radius: 1rem;height:auto">
+              <div class="card-body p-5 py-3 text-center" style="height:100%">
+    
+                <div class="mb-md-5 mt-md-4 pb-5">
+                  <div class="row">
+                    <div class="col-1" style="justify-content:center;">
+                      <a href="/"><i class="bi bi-arrow-left" title="retour sur la page d'accueil" style="color:aqua;font-size:26px"></i></a>
+                    </div>
+                    <div class="col-8">
+                    </div>
+                    <div class="col-2">
+                      <img src="{% static 'IMG/logo Igoguide/logo_fond_sombre.png'%}" style="height:50px;width:auto;">
+                    </div>
+                  </div>
+                  <h2 class="fw-bold mb-2 text-uppercase" style="color:aqua">Inscription</h2>
+                  <p class="text-white-50 mb-3" style="color:#f3f4f6">Renseignez les informations pour votre inscription!</p>
+                  
+                  <div class="form-outline " style="height:250px;width:100%">
+                    <div class="row">
+                        <div class="clo-6 file-upload mb-4">
+
+                            <div class="image-upload-wrap">
+                                <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" name="photo" required/>
+                                <div class="drag-text">
+                                    <h3>Cliquez pour choisir une image</h3>
+                                </div>
+                            </div>
+                            <div class="file-upload-content">
+                                <img class="file-upload-image" src="#" alt="your image" />
+                                <div class="image-title-wrap mt-5">
+                                    <p id="imgname" style="color:#FFFFFF"></p>
+                                    <button type="button" onclick="removeUpload()" class="remove-image"><i class="bi bi-trash"></i><span class="image-title">Uploaded Image</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <!-- Name input -->
+                  <div class="form-outline mb-4">
+                    <input type="text" id="registerName" class="form-control"name="lname" placeholder="Nom" />
+                  </div>
+
+                <!-- Username input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="registerUsername" class="form-control"name="fname" placeholder="Prénom" />
+                </div>
+
+                  <div class="form-outline form-white mb-4">
+                    <input type="email" name="email" id="typeEmailX" class="form-control form-control-lg" placeholder="E-mail" />
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <input type="text" name="phone" id="typeEmailX" class="form-control form-control-lg" placeholder="Téléphone" />
+                  </div>
+    
+                  <div class="form-outline form-white mb-4">
+                    <input type="password" name="pass" id="typePasswordX" class="form-control form-control-lg" placeholder="Mot de passe" />
+                  </div>
+                  <!-- Repeat Password input -->
+                  <div class="form-outline mb-4">
+                    <input type="password" id="registerRepeatPassword" class="form-control" name="pass_confirm" placeholder="Confirmation" />
+                  </div>
+                  
+                  <div class="form-outline mb-4">
+                    <div class="checkbox-fade fade-in-primary">
+                        <label>
+                            <input type="checkbox" value="false" required>
+                            <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
+                            <span class="text-inverse">J'accepte les <a href="#" class="text-white-50">Termes &amp; Conditions.</a></span>
+                        </label>
+                    </div>
+                </div>
+                  {% comment %} <p class="small mb-3 pb-lg-2"><a class="text-white-50" href="#!" data-toggle="modal" data-target="#staticBackdrop" id="mdpo">Mot de passe oublié ?</a></p> {% endcomment %}
+    
+                  <button class="btn btn-outline-light btn-lg px-5" type="submit">S'enregistrer</button>
+                </div>
+    
+                <div>
+                  <p class="mb-10">Avez-vous déjà un compte ? <a href="/auth/p/connexion" class="text-white-50 fw-bold">Se connecter</a>
+                  </p>
+                </div>
+    
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Warning Section Ends -->
+<!-- Required Jquery -->
+<script type="text/javascript" src="{% static 'assets/js/jquery/jquery.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery-ui/jquery-ui.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'assets/js/popper.js/popper.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'assets/js/bootstrap/js/bootstrap.min.js'%}"></script>
+<!-- waves js -->
+<script src="{% static 'assets/pages/waves/js/waves.min.js'%}"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="{% static 'assets/js/jquery-slimscroll/jquery.slimscroll.js'%}"></script>
+<script type="text/javascript" src="{% static 'assets/js/common-pages.js'%}"></script>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+      
+          var reader = new FileReader();
+      
+          reader.onload = function(e) {
+            $('.image-upload-wrap').hide();
+      
+            $('.file-upload-image').attr('src', e.target.result);
+            document.querySelector('.file-upload-content').classList.add('d-flex')
+            $('.file-upload-content').show();
+            $('#imgname').text(input.files[0].name);
+            $('.image-title').html(''); //(input.files[0].name);
+          };
+      
+          reader.readAsDataURL(input.files[0]);
+      
+        } else {
+          removeUpload();
+        }
+      }
+      
+      function removeUpload() {
+        $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+        document.querySelector('.file-upload-content').classList.remove('d-flex')
+        $('.file-upload-content').hide();
+        $('.image-upload-wrap').show();
+      }
+      $('.image-upload-wrap').bind('dragover', function () {
+          $('.image-upload-wrap').addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function () {
+          $('.image-upload-wrap').removeClass('image-dropping');
+      });
+</script>
+</body>
+
+</html>
+

@@ -1,0 +1,592 @@
+{
+    "Cities": [
+        {
+            "id": 1,
+            "name": "Paris",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 2,
+            "name": "Nice",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 3,
+            "name": "Bordeaux",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 4,
+            "name": "Le Havre",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 5,
+            "name": "Angers",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 6,
+            "name": "N\u00eemes",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 7,
+            "name": "Besan\u00e7con",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 8,
+            "name": "Mulhouse",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 9,
+            "name": "Argenteuil",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 10,
+            "name": "Avignon",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 11,
+            "name": "Cr\u00e9teil",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 12,
+            "name": "Vytri-sur-sienne",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 13,
+            "name": "La Rochelle",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 14,
+            "name": "Calais",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 15,
+            "name": "Bourge",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 16,
+            "name": "Quimp\u00e9",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 17,
+            "name": "M\u00e9rignac",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 18,
+            "name": "Neuilly-sur-sienne",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 19,
+            "name": "Antony",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 20,
+            "name": "Cergy",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 21,
+            "name": "Chambery",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 22,
+            "name": "Cholet",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 23,
+            "name": "Vannes",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 24,
+            "name": "Laval",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 25,
+            "name": "Marseille",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 26,
+            "name": "Lille",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 27,
+            "name": "Nantes",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 28,
+            "name": "Saint \u00c9tienne",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 29,
+            "name": "Dijon",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 30,
+            "name": "Aix-en-Provence",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 31,
+            "name": "Limoges",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 32,
+            "name": "Perpignan",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 33,
+            "name": "Montreuil",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 34,
+            "name": "TourcoingBoulonge-Billancourt",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 35,
+            "name": "Versailles",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 36,
+            "name": "Asni\u00e8res-sur-Seine",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 37,
+            "name": "Rueil-Malmaison",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 38,
+            "name": "Champigny-sur-Marne",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 39,
+            "name": "Canne",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 40,
+            "name": "Valence",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 41,
+            "name": "Ajaccio",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 42,
+            "name": "Issy-les-Moulineaux",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 43,
+            "name": "Nirot",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 44,
+            "name": "Saint-Quentin",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 45,
+            "name": "La Seyne-sur-Mer",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 46,
+            "name": "Hy\u00e8re",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 47,
+            "name": "La Roche-sur-Yon",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 48,
+            "name": "Maison-Alfort",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 49,
+            "name": "Lyon",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 50,
+            "name": "Strasbourg",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 51,
+            "name": "Rennes",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 52,
+            "name": "Toulon",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 53,
+            "name": "Brest",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 54,
+            "name": "Clermont-Ferrand",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 55,
+            "name": "Villeurbanne",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 56,
+            "name": "Orl\u00e9an",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 57,
+            "name": "Rouen",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 58,
+            "name": "Saint-Denis",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 59,
+            "name": "Poitiers",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 60,
+            "name": "Pau",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 61,
+            "name": "Colombes",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 62,
+            "name": "Antibes",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 63,
+            "name": "Aubervilliers",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 64,
+            "name": "Saint-Nazaire",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 65,
+            "name": "olmar",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 66,
+            "name": "Levallois-Perret",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 67,
+            "name": "Villeneuve-d'Ascq",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 68,
+            "name": "Lorien",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 69,
+            "name": "Pessac",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 70,
+            "name": "Clichy",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 71,
+            "name": "Ivry-sur-Seine",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 72,
+            "name": "Charleville-M\u00e9zi\u00e8res",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 73,
+            "name": "Bondy",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 74,
+            "name": "Toulouse",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 75,
+            "name": "Montpellier",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 76,
+            "name": "Reims",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 77,
+            "name": "Grenoble",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 78,
+            "name": "Le Mans",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 79,
+            "name": "Tour",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 80,
+            "name": "Metz",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 81,
+            "name": "Caen",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 82,
+            "name": "Nancy",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 83,
+            "name": "Roubaix",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 84,
+            "name": "Nanterre",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 85,
+            "name": "Courbevoie",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 86,
+            "name": "Aulnay-sous-Bois",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 87,
+            "name": "Drancy",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 88,
+            "name": "Saint-Maur-des-Foss\u00e9s",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 89,
+            "name": "B\u00e9ziers",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 90,
+            "name": "Dunkerque",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 91,
+            "name": "Troyes",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 92,
+            "name": "Noisy-le-Grand",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 93,
+            "name": "Sarcelle",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 94,
+            "name": "V\u00e9nissieux",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 95,
+            "name": "Beauvais",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 96,
+            "name": "Montauban",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 97,
+            "name": "Pantin",
+            "department": "",
+            "region": ""
+        },
+        {
+            "id": 98,
+            "name": "Evry",
+            "department": "",
+            "region": ""
+        }
+    ]
+}

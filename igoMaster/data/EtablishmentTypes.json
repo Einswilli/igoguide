@@ -1,0 +1,46 @@
+{
+    "EtablishmentTypes": [
+        {
+            "id": 1,
+            "name": "Hebergements",
+            "description": "Des nuits atypiques, c'est assuré...insolites, c'est proobable...et des nuits magiques, c'est certain! Lunivers que les hôtes ont créé est inventif et rend ces moments inoubliables.",
+            "image":"hebergements.jpg",
+            "couleur":"#279fdb"
+        },
+        {
+            "id": 2,
+            "name": "O\u00f9 boire?",
+            "description": "Se retrouver entr amis ou en famille pour un partage de bons moments",
+            "image":"bars.jpg",
+            "couleur":"#bb218f"
+        },
+        {
+            "id": 3,
+            "name": "O\u00f9 manger?",
+            "description": "Lorsque l'on va au restaurant, on ne se contente plus de savourer un délicieux repas. On cherche aussi maintenat à vivre une véritable expérience de dépaysement le temps d'un tête à tête.",
+            "image":"restaurants.jpg",
+            "couleur":"#dd1406"
+        },
+        {
+            "id": 4,
+            "name": "Balades",
+            "description": "Des idées de promenades et des itinéraires de randonnées pour une découverte de La France et de ses régions dans les moindres recoins.",
+            "image":"balades.jpg",
+            "couleur":"#76a509"
+        },
+        {
+            "id": 5,
+            "name": "Activit\u00e9s",
+            "description": "À la recherche d'une activité dans le lieu où vous vous trouvez ? Envie de découvrir les régions françaises sous leurs angles les plus originaux? IGOguide vous emmène pour bouger ou vous détendre.",
+            "image":"activités.jpg",
+            "couleur":"#ff8100"
+        },
+        {
+            "id": 6,
+            "name": "Services",
+            "description": "Et si pour animer votre soirée ou rendre votre séjour inoubliable, vous faisiez appel aux services de professionnels? besoin d'un photographe? D'un traiteur? D'une location de voiture? D'un fleuriste peut-être!",
+            "image":"services.jpg",
+            "couleur":"#ffc823"
+        }
+    ]
+}

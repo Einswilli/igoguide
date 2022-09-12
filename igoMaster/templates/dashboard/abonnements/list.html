@@ -1,0 +1,307 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+  {% block content %}
+
+  <script src="{% static 'js/jquery.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap.min.js'%}"></script>
+
+  <style>
+    .modal-dialog{
+      max-width:80%;
+    }
+    iframe{
+      width:100%;
+      height:90vh;
+    }
+  </style>
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="/">
+          <i class="bi bi-grid"></i>
+          <span>TABLEAU DE BORD</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>FICHES</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/etablishment/new" id="nf">
+              <i class="bi bi-circle"></i><span>Nouvelle Fiche</span>
+            </a>
+          </li>
+          <li>
+            <a href="/etablishment/list/pro/" id='lf'>
+              <i class="bi bi-circle"></i><span>Liste</span>
+            </a>
+          </li>
+          
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>ABONNEMENTS</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="#"  id="na">
+              <i class="bi bi-circle"></i><span>Nouvel Abonnenment</span>
+            </a>
+          </li>
+          <li>
+            <a href="/subscription/list/pro/" id="la" class="active">
+              <i class="bi bi-circle"></i><span>Liste</span>
+            </a>
+          </li>
+          <li>
+            <a href="/payments/pro/" id='tr'>
+              <i class="bi bi-circle"></i><span>Transactions</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-envelope"></i><span>MESSAGES</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="#" id='mails'>
+              <i class="bi bi-circle"></i><span>Mails</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" id="notif">
+              <i class="bi bi-circle"></i><span>Notifications</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+
+      
+
+      
+
+      <li class="nav-heading">Pages</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id='prof'>
+          <i class="bi bi-person"></i>
+          <span>Profile</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id='faq'>
+          <i class="bi bi-question-circle"></i>
+          <span>F.A.Q</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id="cgv">
+          <i class="bi bi-question-circle"></i>
+          <span>C.G.V</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" id="cgu">
+          <i class="bi bi-question-circle"></i>
+          <span>C.G.U</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>TABLEAU DE BORD</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Abonnenments</a></li>
+          <li class="breadcrumb-item active">Liste</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    {% comment %} CONTENU {% endcomment %}
+
+    <div class="card shadow mb-4" id="liste">
+        <div class="card-header py-3">
+            <h1 style="font-size:26px">Liste de vos abonnements</h1><br>
+            <!-- <div class="form-group">
+                <label for="exampleInputPassword" class="sr-only"></label>
+                <div class="position-relative has-icon-right">
+                    <input type="text" id="searchtext" name="searchtext" class="form-control input-shadow" placeholder="search">
+                    
+                </div>
+            </div> -->
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="margin-top:20px !important">
+                    <thead>
+                        <tr>
+                            <th>Etablissements</th>
+                            <th>Durées</th>
+                            <th>Prix</th>
+                            <th>Créations</th>
+                            <th>Expirations</th>
+                            <th>Etats</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Etablissements</th>
+                            <th>Durées</th>
+                            <th>Prix</th>
+                            <th>Créations</th>
+                            <th>Expirations</th>
+                            <th>Etats</th>
+                            <th>Actions</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for sub in subscriptions %}
+                        <tr>
+                            {% comment %} <td>{{sub.id}}</td> {% endcomment %}
+                            <td>{{sub.etablishment.name}} </td>
+                            <td>{{sub.activeDuration}}{% if sub.activeDuration == 1 %} an {% else %} ans{% endif %}</td>
+                            <td>{{sub.fee}} €</td>
+                            <td>{{sub.createdAt}}</td>
+                            <td>{{sub.stopDate}}</td>
+                            {% if sub.isActive %}
+                                <td style="color:green">Actif</td>
+                                <td style="text-align:center;">No Action</td>
+                            {% else %}
+                                <td style="color:red">Inactif</td>
+                                <td style="text-align:center;">
+                                  {% comment %} data-toggle="modal" data-target="#paymodal{{forloop.counter}}" {% endcomment %}
+                                  {% comment %} <a title="Payer l'activation" href="/payments/new/{{sub.id}}" style="width:50%"> {% endcomment %}
+                                    <button class="btn btn-success" onclick="$('#paymodal{{forloop.counter}}').modal('toggle');">
+                                      <i class="bx bxl-paypal"></i>
+                                    </button>
+                                  {% comment %} </a> {% endcomment %}
+                                </td>
+                                
+                                {% endif %}
+                              </tr>
+                              <div id="paymodal{{forloop.counter}}" class="modal fade" role="dialog">
+                                <div class="modal-dialog big">
+                              
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button"  data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Payer l'Abonnement de {{sub.etablishment.name}}</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form class="row g-3" action="/subscription/save" method='POST'>
+                                        {% csrf_token %}
+                                        <div class="col-12 d-none">
+                                          <input type="text" class="form-control" name="etab" id="etab" value="{{etablissement.id}}" hidden required>
+                                        </div>
+                                        <iframe id="idFramePaiement" name="nomFramePaiement" src="https://p.monetico-services.com/paiement.cgi?TPE=7569774&version=valeur2&" ></iframe>
+                                        <div class=""style="display:flex;justify-content:space-between;">
+                                          <button type="reset" class="btn btn-danger" style="width:45%">Annuler</button>
+                                          <button type="submit" class="btn btn-primary" data-dismiss="modal" style="width:45%">Enregister</button>
+                                        </div>
+                                      </form>
+                                    </div>
+                                    {% comment %} <div class="modal-footer">
+                                      <a href=""><button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button></a>
+                                    </div> {% endcomment %}
+                                  </div>
+                              
+                                </div>
+                              </div>
+                        {% endfor %}
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    {% comment %} FIN DU CONTENU {% endcomment %}
+    
+    {% comment %} <script src="{% static 'js/jquery.js'%}"></script> {% endcomment %}
+    <script src="{% static 'js/datatables.min.js'%}"></script>
+    {% comment %} <script src="{% static 'js/dataTables.bootstrap4.min.js'%}"></script> {% endcomment %}
+    
+    <script>
+        $(document).ready(function() {
+            $.noConflict();
+            $('#dataTable').DataTable({
+                aoColumnDefs: [
+                {"aTargets": [0], "bSortable": true},
+                {"aTargets": [3], "asSorting": ["asc"], "bSortable": true},
+            ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                }
+            });
+        });
+    </script>
+    <script>
+      $(window).on('load',function(){
+        var uid;
+        var nf=document.querySelector('#nf')
+        var lf=document.querySelector('#lf')
+        var na=document.querySelector('#na')
+        var la=document.querySelector('#la')
+        var tr=document.querySelector('#tr')
+        var mails=document.querySelector('#mails')
+        var notif=document.querySelector('#notif')
+        var prof=document.querySelector('#prof')
+        var faq=document.querySelector('#faq')
+        var cgv=document.querySelector('#cgv')
+        var cgu=document.querySelector('#cgu')
+        //var profile_link=document.querySelector('#prolink')
+        uid = localStorage.getItem('userid');
+        $.ajax(
+        {
+          type:"GET",
+          url: "/users/pro/"+uid,
+          data:{
+                   //post_id: catid
+          },
+          success: function( data ) 
+          {
+            console.log(data);
+            nf.href='/etablishment/new';
+            lf.href='/etablishment/list/pro/'+data.id;
+            na.href="/subscription/new"
+            la.href='#';
+            tr.href='/payments/pro/'+data.id;
+            mails.href='/mails/pro/'+data.id;
+            notif.href='/notifications/pro/'+data.id;
+            prof.href='/profile/pro/'+data.id;
+            faq.href='/faq';
+            cgv.href='/cgv';
+            cgu.href='/cgu';
+          }
+        })
+      }
+    );
+  </script>
+
+  </main><!-- End #main -->
+
+  {% endblock %}

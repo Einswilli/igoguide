@@ -1,0 +1,1201 @@
+<!doctype html>{% load static %}
+<html class="no-js" lang="zxx"
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>IGOguide</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Place favicon.png in the root directory -->
+    <link rel="shortcut icon" href="{% static 'template/img/PngItem_97912.png'%}" type="image/x-icon" />
+    <!-- Font Icons css -->
+    <link rel="stylesheet" href="{% static 'template/css/font-icons.css'%}">
+    <!-- plugins css -->
+    <link rel="stylesheet" href="{% static 'template/css/plugins.css'%}">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{% static 'template/css/style.css'%}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/profile.css'%}"> {% endcomment %}
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="{% static 'template/css/responsive.css'%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <script src="https://kit.fontawesome.com/75a692d9bc.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery/jquery.min.js'%}"></script>
+    
+
+    <style>
+
+        @font-face {
+            font-family: 'Bangers';
+            src: url("{% static 'assets/fonts/bangers.ttf'%}");
+          }
+
+          h1, h2, h3, .subtitle {
+            font-family: 'Bangers';
+          }
+        .ltn__main-menu li a span {
+            font-size: 15px;
+        }
+
+        .categorie:hover  {
+            text-decoration: none;
+            color: rgb(0, 64, 142);
+            background-color:rgb(0, 174, 255);
+        }
+        .h{
+            background-color:black;
+            color:yellow;
+        }
+
+        .ic{
+            color:yellow;
+        }
+
+        .h:hover{
+            background-color:rgb(0, 234, 255);
+            color:black;
+        }
+
+
+        .h:hover .ic{
+            color:black;
+        }
+
+
+        .h:hover{
+            background-color:rgb(0, 174, 255);
+            color:black;
+        }
+        .sub-categorie {
+            color: rgb(59, 59, 59);
+            width: 100px;
+            height:100px
+        }
+
+       .survol:hover {
+            border: transparent black solid;
+            height: 20px;
+        }
+
+        .sub-categorie:hover {
+            text-decoration: none;
+            animation: grow 5s infinite;
+            color: rgb(211, 195, 18);
+        }
+
+        .sub-categorie1 {
+            color: rgb(255, 255, 255);
+        }
+
+        .sub-categorie1:hover {
+            text-decoration: none;
+
+        }
+        .categorie{
+        }
+        .ic{
+            color:yellow;
+        }
+
+        @media (min-width: 10px) and (max-width: 1000px) {
+            #papito{
+                display:none;
+            }
+           }
+           @media (min-width: 1200px){
+            #ltn__utilize-mobile-menu
+            {
+                display:none;
+            }
+           }
+
+           #himg{
+            height:100px;
+        }
+        .sub-menu li a{
+            text-decoration: none;
+        }
+        .sub-menu{
+            text-decoration: none;
+        }
+
+        .icon-container{
+            display: grid;
+            height:auto;
+            background-color: #d1cfd0;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+            /* grid-template-rows: 50% 50%; */
+            padding:10px 10px;
+            align-self: center;
+        }
+        .elmt{
+            height:135px;
+            width: 100%;
+            display: grid;
+            grid-template-rows: 75% 25%;
+            justify-content:center;
+            /* margin-top:10px; */
+            /* padding:10px 10px; */
+            text-align: center;
+            border-right: 1px solid #bbb;
+        }
+        
+        .elmt img{
+            width: auto;
+            max-width:120px;
+            height: 100px;
+            object-fit: fill;
+            bottom:1;
+        }
+
+        .elmt p{
+            margin-top:10px;
+            color:black;
+            font-family: "bangers";
+            font-size:14px;
+        }
+
+        hr.solid {
+            border-top: 1px solid #bbb;
+            width: 90%;
+            margin-left:5%;
+        }
+        .dropdown-toggle{
+            text-align:center;
+            justify-content: center;
+        }
+
+        /*#menul{
+            display: none;
+            position: fixed;
+            height: 100vh;
+            width:60%;
+            background-color:#ffffff;
+            bottom: 0;
+            right: 0;
+            border: 3px solid #f1f1f1;
+            z-index: 9000;
+        }*/
+        .favoris{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 5vw;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        
+
+        .fcard {
+            position: relative;
+            display: block;
+            height: 100%;  
+            border-radius: calc(var(--curve) * 1px);
+            overflow: hidden;
+            text-decoration: none;
+          }
+
+        .card__thumb {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;      
+            border-radius: 50%;      
+          }
+          
+          .card__title {
+            font-size: 1em;
+            margin: 0 0 .3em;
+            color: #6A515E;
+          }
+          
+          .card__tagline {
+            display: block;
+            margin: 1em 0;
+            font-family: "MockFlowFont";  
+            font-size: .8em; 
+            color: #D7BDCA;  
+          }
+          
+          .card__status {
+            font-size: .8em;
+            color: #D7BDCA;
+          }
+          
+          .card__description {
+            padding: 0 2em 2em;
+            margin: 0;
+            color: #D7BDCA;
+            font-family: "MockFlowFont";   
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+          } 
+
+    </style>
+
+</head>
+
+<body style="background-color: rgb(240, 240, 240)">
+
+    {% if client %}
+    <script>
+        localStorage.setItem('clientid',{{ client.id }})
+    </script>
+    {% endif %}
+
+    <!-- Body main wrapper start -->
+    <div class="body-wrapper">
+
+
+        <!-- HEADER AREA START (header-5) -->
+
+        <header class="ltn__header-area ltn__header-5 ltn__header-transparent--- gradient-color-4---">
+            <!-- ltn__header-top-area start -->
+<p  style="display:none">papito</p>
+
+            <div class="ltn__header-top-area section-bg-6 " id="papito" style="background-color:#424141 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="site-logo-wrap">
+                                <div class="site-logo">
+                                    <a href="/">
+                                        <img class="img-fluid"  src="{% static 'IMG/logo Igoguide/logo_fond_sombre.png'%}" height="70px"
+                                            style="width: 70px;margin-right:7%;" alt="Logo">
+                                        <p style="font-size: 1rem;" class="mt-3">Vos envies coïncident !</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="top-bar-right text-end">
+                                <div class="ltn__top-bar-menu">
+                                    <ul>
+                                        <li>
+                                            <!-- ltn__social-media -->
+                                            <div class="ltn__social-media">
+                                                <ul>
+                                            <div class="row">
+                                                {% comment %} @auth {% endcomment %}
+                                                    {% comment %} <div class="col">
+                                                        <form method="POST" action="logout">{% csrf_token %}
+
+                                                            <a class="btn btn-dark rounded-pill h-100 h" href="particular_login" onclick="event.preventDefault(); this.closest('form').submit();"  type="submit" title="Se déconnecter"><i class="fas fa-user pr-2 ic" aria-hidden="true" style="color:yellow;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic"> Se déconnecter</span></a>
+                                                        </form>
+                                                    </div>
+                                                    <div class="col">
+                                                        <a class="btn btn-dark rounded-pill h-100 h" href="fiche.index" type="submit" title="Dashboard"><i class="fas fa-dashboard pr-2 ic" aria-hidden="true" style="color:yellow;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Dashboard</span></a>
+                                                    </div> {% endcomment %}
+                                                {% comment %} @else {% endcomment %}
+                                                    <div class="col" id="pcon">
+                                                    <a class="btn btn-dark rounded-pill h-100 h" href="/auth/p/connexion" type="submit" title="Se connecter"><i class="fas fa-user pr-2 ic" aria-hidden="true" style="color:yellow;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic"> Se connecter</span></a>
+                                                    </div>
+                                                    <div class="col" id="procon">
+                                                        <a class="btn btn-dark rounded-pill h-100 h" href="/auth/pro/connexion" type="submit" title="Espace pro"><i class="fas fa-user-tie pr-2 ic" aria-hidden="true" style="color:yellow;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Espace pro</span></a>
+                                                    </div>
+                                                    <div class="col" id="pfav" style="display:none">
+                                                        <a id="espace" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" href="/profile/p/{{ client.id }}" type="button" title="Mon espace" ><i class="fas fa-heart pr-2 ic" aria-hidden="true" style="color:deeppink;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Mon espace</span></a>
+                                                    </div>
+                                                    <script>
+                                                        if(localStorage.hasOwnProperty('clientid')){
+                                                            document.querySelector('#espace').href="/profile/p/"+localStorage.getItem('clientid')
+                                                            $('#pcon').fadeOut()
+                                                            $('#procon').fadeOut()
+                                                            $('#pfav').fadeIn()
+                                                        }else{
+                                                            $('#pcon').fadeIn()
+                                                            $('#procon').fadeIn()
+                                                            $('#pfav').fadeOut()
+                                                        }
+                                                    </script>
+                                                 {% comment %} @endauth {% endcomment %}
+
+
+                                                    <div class="btn-group mt-3 mb-2 col">
+                                                        <a type="button"
+                                                            class="btn btn-dark rounded-pill h-100 h dropdown-toggle"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false"
+                                                            style="border-radius: 15px;background-color:black; border:0">
+                                                            <i class="fa fa-earth-europe border-0" style="color: #f8ce09; border:0px black;"></i>
+                                                    </a>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#">Francais</a>
+                                                            <a class="dropdown-item" href="#">Anglais</a>
+                                                            <a class="dropdown-item" href="#">Espagnol</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+    <!-- ltn__header-top-area end -->
+
+    <!-- ltn__header-middle-area start -->
+    <div class="ltn__header-middle-area ltn__header-sticky" style="height: 95px; background-color: #252525;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-1">
+                    <div class="site-logo-wrap">
+                        <!-- Mobile Menu Button -->
+                        <div class="mobile-menu-toggle d-xl-none" style=" float: right;margin_left:100px;margin-top:30px;">
+                            <a href="#ltn__utilize-mobile-menu" class="ltn__utilize-toggle float-end" style="margin:10%; float:left;">
+                                <i  style="color:white; float:left;margin:6%;" class="fas fa-bars-staggered"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col header-menu-column" >
+                    <div class="header-menu d-none d-xl-block">
+                        <nav>
+                            <div class="ltn__main-menu">
+                                <ul>
+                                    <li class="dropdown-toggle">
+                                        <a href="#" style="color: #FFFFFF !important;" class="categorie"><div style="text-align:center;"><img  src="{% static 'IMG/Icones Menu/herbergement VB1@4x.png'%}" width="30px" height="25px" alt=""><span><br>Hébergements atypiques</span></div> </a>
+                                        <ul class="sub-menu menu-pages-img-show" style="width: 900px;background-color:#d1cfd0;">
+                                            
+                                                <div class="icon-container" style="">
+                                                    <div class="">
+                                                        <a class="sub-categorie" style=""
+                                                            href="/etablishment/subtype/1">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/heb/cabane_arbres.png'%}" alt="">
+                                                                <p>Cabane dans les arbres</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/3">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/heb/cabane_sous_terre.png'%}" alt="">
+                                                                <p>Cabane sous terre</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/2">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/heb/cabane_sur_terre.png'%}" alt="">
+                                                                <p>Cabane sur terre</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/4">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/heb/cabane_sur_l_eau.png'%}" alt="">
+                                                                <p>Cabane sur l'eau</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/6">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/heb/bulle.png'%}" alt="">
+                                                                <p>Bulles</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/5">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/heb/tipis_tente_yourte.png'%}" alt="">
+                                                                <p>Tippi/ Tente/ Yourt</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>   
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/7">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/heb/habitat_roulant.png'%}" alt="">
+                                                                <p>Habitats roulants</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/8">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/heb/monument_historique.png'%}" alt="">
+                                                                <p>Monuments historiques</p>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/9">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/heb/bateau.png'%}" alt="">
+                                                                <p>Bateaux</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="-mr-2">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/10">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/heb/hébergements_de_charme.png'%}" alt="">
+                                                                <p>Hebergements de charmes</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/11">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/heb/hotels_atypiques.png'%}" alt="">
+                                                                <p>Hotels atypiques</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown-toggle">
+                                        <a href="#" style="color: white !important;" class="categorie"> <div style="text-align:center;"><img src="{% static 'IMG/Icones Menu/Ou Boire VB@4x.png'%}" width="25px" height="25px" alt=""> <span style="font-size:15px;"><br> Où boire?</span></div></a>
+                                        <ul class="sub-menu menu-pages-img-show" style="width: 900px;background-color:#d1cfd0;left:-200%">
+                                            
+                                                <div class="megamenu icon-container">
+                                                    <div class="">
+                                                        <a href="/etablishment/subtype/12"
+                                                            class="sub-categorie">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/oub/bar_whiskies.png'%}" alt="#">
+                                                                <p>Lounges/Whiskies/Cocktails</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/13">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/oub/bar_rooftop.png'%}" alt="#">
+                                                                <p>Bar à Rooftop</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/14">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/oub/bar_vin.png'%}" alt="#">
+                                                                <p>Bar à vins</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/15">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/oub/bar_pubs _ tapas.png'%}" alt="#">
+                                                                <p>Pubs /Bars à Tapas</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/16">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/oub/bar_billard.png'%}" alt="#">
+                                                                <p>Bars à thèmes/ jeux/billards</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/17">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/oub/concert_bar.png'%}" alt="#">
+                                                                <p>Concerts bars</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/18">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/oub/bar_chat.png'%}" alt="#">
+                                                                <p>Bars à Chats</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                            
+                                            
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown-toggle"><a href="#" style="color: white !important;" class="categorie"><div style="text-align:center; margin-right:4%;"><img src="{% static 'IMG/Icones Menu/Ou Manger 1 VB@4x.png'%}" width="41px" height="25px" alt=""> <span><br>Où manger?</span></div></a>
+                                        <ul class="sub-menu menu-pages-img-show" style="width: 900px;left:-300%;background-color:#d1cfd0">
+                                            
+                                                <div class="icon-container">
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/19">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/oum/Restaurants_originaux.png'%}" alt="#">
+                                                                <p>Restaurants originaux</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/20">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/oum/Restaurants_originaux.png'%}" alt="#">
+                                                                <p>Restaurants avec animations</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/21">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/oum/brasserie_bistrot.png'%}" alt="#">
+                                                                <p>Brasseries - Bistrot - Auberges</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/22">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/oum/cuisine_traditionnelle.png'%}" alt="#">
+                                                                <p>Cuisine traditionnelle</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/23">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/oum/cuisine_monde.png'%}" alt="#">
+                                                                <p>Cuisine du monde</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/24">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/oum/type_fast_food.png'%}" alt="#">
+                                                                <p>Types fast foods/ Tapas</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown-toggle"><a style="color: white !important;" class="categorie" href="#"><div style="text-align:center; margin-right:4%;"><img src="{% static 'IMG/Icones Menu/Balades 1 VB@4x.png'%}" width="25px" height="25px" alt=""><span><br>Balades</span></div></a>
+                                        <ul class="sub-menu menu-pages-img-show" style="width: 900px;left:-500%;background-color:#d1cfd0">
+                                                <div class="icon-container">
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/25">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/bal/au_fil_de_l_eau.png'%}" alt="#">
+                                                                <p>Au fil de l'eau</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/26">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/bal/randonnées_nature.png'%}" alt="#">
+                                                                <p>Randonnées nature</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/27">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/bal/monuments_hsitoriques.png'%}" alt="#">
+                                                                <p>Sites historiques</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/28">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/bal/perles_sauvages.png'%}" alt="#">
+                                                                <p>Les perles sauvages</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/29">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/bal/jardins_imaginaire.png'%}" alt="#">
+                                                                <p>Les jardins imaginaires</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                        </ul>
+                                    </li>
+
+
+                                    <li class="dropdown-toggle"><a style="color: white !important;" class="categorie" href="#"><div style="text-align:center; margin-right:4%;"> <img src="{% static 'IMG/Icones Menu/Activités VB@4x.png'%}" width="44px" height="25px" alt=""> <span><br>Activités</span></div> </a>
+                                        <ul class="sub-menu menu-pages-img-show" style="width: 900px;left:-600%;background-color:#d1cfd0">
+                                                <div class="icon-container">
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/30">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/act/ateliers_stage.png'%}" alt="#">
+                                                                <p>Ateliers et stages</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/31">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/act/activités_sportives.png'%}" alt="#">
+                                                                <p>Activités Sportives</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/32">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/act/activités_ludiques.png'%}" alt="#">
+                                                                <p>Activités ludiques</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/33">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/act/activités_gustatives.png'%}" alt="#">
+                                                                <p>Activités gustatives</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/34">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/act/activité_educative.png'%}" alt="#">
+                                                                <p>Activités éducatives</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/35">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/act/activités_bien_etre.png'%}" alt="#">
+                                                                <p>Activités Bien-etre</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie" href="/etablishment/subtype/35">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/act/shopping_artisans_créateurs.png'%}" alt="#">
+                                                                <p>Shoppings artisans et créateurs</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown-toggle"><a style="color: white !important;" class="categorie" href="#"><div style="text-align:center; margin-right:4%;"> <img src="{% static 'IMG/Icones Menu/Services VB@4x.png'%}" width="20px" height="25px" alt=""> <span><br>Services</span></div> </a>
+                                        <ul class="sub-menu menu-pages-img-show" style="width: 900px;left:-800%;background-color:#d1cfd0">
+                                                <div class="icon-container">
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/37">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/ser/organisateurs.png'%}" alt="#">
+                                                                <p>Organisateurs</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/38">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/ser/photographe.png'%}" alt="#">
+                                                                <p>Photographes etc</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/39">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/ser/traiteur.png'%}" alt="#">
+                                                                <p>Traiteurs</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/40">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/ser/fleuriste.png'%}" alt="#">
+                                                                <p>Fleuristes</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/41">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/ser/location_voiture.png'%}" alt="#">
+                                                                <p>Locations de vehicules</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/42">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/ser/location_velo.png'%}" alt="#">
+                                                                <p>Locations de velos</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="">
+                                                        <a class="sub-categorie"
+                                                            href="/etablishment/subtype/43">
+                                                            <div class="elmt">
+                                                                <img src="{% static 'icon_sous_categories/ser/divers_pressing.png'%}" alt="#">
+                                                                <p>Divers</p>
+                                                            </div>
+                                                            <hr class="solid">
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col ltn__header-options ltn__header-options-2 mb-sm-20">
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ltn__header-middle-area end -->
+    </header>
+    <!-- HEADER AREA END -->
+
+    <!-- Utilize Mobile Menu Start -->
+
+    <div id="ltn__utilize-mobile-menu" class="ltn__utilize ltn__utilize-mobile-menu">
+        <div class="ltn__utilize-menu-inner ltn__scrollbar">
+            <div class="ltn__utilize-menu-head">
+                <div class="site-logo">
+                    <a href="/"><img style="height:50px" src="{% static 'IMG/lg.png'%}" alt="Logo"></a>
+                </div>
+                <button style="height: 60%;text-align:center" class="ltn__utilize-close" ><p>x</p></button>
+            </div>
+                {% comment %} @auth {% endcomment %}
+                <form method="POST" action="logout">
+                    {% csrf_token %}
+                    <button class="btn btn-outline-warning"  onclick="event.preventDefault();
+                    this.closest('form').submit();"  type="submit">Se Déconnecter</button>
+                </form>
+                {% comment %} @else {% endcomment %}
+                <a class="btn btn-outline-warning" href="particular_login"  type="button">Se Connecter</a>
+                <a class="btn btn-outline-warning mt-2" href="professional_login" type="button">Espace Pro</a>
+                {% comment %} @endauth {% endcomment %}
+
+            <div class="ltn__utilize-menu">
+                <ul>
+                    <li><a>Hébergements atypiques</a>
+                        <ul class="sub-menu">
+                            <li><a href="/etablishment/subtype/1">Cabane dans les arbres</a></li>
+                            <li><a href="/etablishment/subtype/3">Cabane sous terre</li>
+                            <li><a href="/etablishment/subtype/2">Cabane sur terre</a></li>
+                            <li><a href="/etablishment/subtype/4">Cabane sur l'eau</a></li>
+                            <li><a href="/etablishment/subtype/6">Bulles</a></li>
+                            <li><a href="/etablishment/subtype/5">Tippi/Tente/Yourt</a></li>
+                            <li><a href="/etablishment/subtype/7">Habitats roulants</a></li>
+                            <li><a href="/etablishment/subtype/8">Monuments historiques </a></li>
+                            <li><a href="/etablishment/subtype/9">Bateaux</a></li>
+                            <li><a href="/etablishment/subtype/10">Hébergements de charmes</a></li>
+                            <li><a href="/etablishment/subtype/11">Hotels atypiques</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a>Où Boire ?</a>
+                        <ul class="sub-menu">
+                            <li><a href="/etablishment/subtype/12">Bars lounges/Whiskies/Cocktail</a></li>
+                            <li><a href="/etablishment/subtype/13">Bars à Rooftop</a></li>
+                            <li><a href="/etablishment/subtype/14">Bars à vin</a></li>
+                            <li><a href="/etablishment/subtype/15">Pubs/Bars à tap</a></li>
+                            <li><a href="/etablishment/subtype/16">Bars à thèmes/jeux/billards</a></li>
+                            <li><a href="/etablishment/subtype/17">Concert Bars</a></li>
+                            <li><a href="/etablishment/subtype/18">Bars à Chats</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a>Où manger?</a>
+                        <ul class="sub-menu">
+                            <li><a href="/etablishment/subtype/19">Restaurant originaux</a></li>
+                            <li><a href="/etablishment/subtype/20">Restaurants avec animations</a></li>
+                            <li><a href="/etablishment/subtype/21">Brasseries -Bistrots -Auberges</a></li>
+                            <li><a href="/etablishment/subtype/22">Cuisine traditionnelle</a></li>
+                            <li><a href="/etablishment/subtype/23">Cuisine du monde </a></li>
+                            <li><a href="/etablishment/subtype/24">Types fast foods /Tapas</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a>Balades</a>
+                        <ul class="sub-menu">
+                            <li><a href="/etablishment/subtype/25">Au fil de l'eau</a></li>
+                            <li><a href="/etablishment/subtype/26">Randonnées natures</a></li>
+                            <li><a href="/etablishment/subtype/27">Sites historiques</a></li>
+                            <li><a href="/etablishment/subtype/28">Les perles sauvages</a></li>
+                            <li><a href="/etablishment/subtype/29">Les jardins imaginaires </a></li>
+                        </ul>
+                    </li>
+
+                    <li><a>Activités</a>
+                        <ul class="sub-menu">
+                            <li><a href="/etablishment/subtype/30">Ateliers et stages</a></li>
+                            <li><a href="/etablishment/subtype/31">Activités physiques et sportives</a></li>
+                            <li><a href="/etablishment/subtype/32">Activités ludiques</a></li>
+                            <li><a href="/etablishment/subtype/33">Activités gustatives</a></li>
+                            <li><a href="/etablishment/subtype/34">Activités éducatives </a></li>
+                            <li><a href="/etablishment/subtype/35">Activités Bien etre</a></li>*
+                            <li><a href="/etablishment/subtype/36">Shoppings artisans et créateurs</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a>Services</a>
+                        <ul class="sub-menu">
+                            <li><a href="/etablishment/subtype/37">Organisatreurs</a></li>
+                            <li><a href="/etablishment/subtype/38">Photographes etc</a></li>
+                            <li><a href="/etablishment/subtype/39">Traiteurs</a></li>
+                            <li><a href="/etablishment/subtype/40">Fleuristes</a></li>
+                            <li><a href="/etablishment/subtype/41">Locations de véhicules</a></li>
+                            <li><a href="/etablishment/subtype/42">Locatin de velos</a></li>
+                            <li><a href="/etablishment/subtype/43">Divers</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    {% block content %}
+    {% endblock %}
+
+
+    <!-- FOOTER AREA START -->
+    <footer class="ltn__footer-area "
+        style="">
+        <div class="footer-top-area  section-bg-2 plr--5"
+            style="">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-2 col-md-6 col-sm-6 col-12">
+                        <div class="footer-widget footer-about-widget">
+                            <div class="footer-logo " style="background-color: rgba(166, 166, 166, 0.496);border-top-left-radius:15px;border-bottom-right-radius:15px">
+                                <div class="site-logo">
+                                    <img src="{% static 'IMG/lg.png'%}" height="60px" alt="Logo">
+                                </div>
+                                <div style="margin: 6px;">
+                                    <p>La plateforme intuitive qui vous trouve toutes vos adresses de loisirs!</p>
+                                </div>
+                            </div>
+
+                            <div class="ltn__social-media mt-3">
+                                <ul>
+                                    <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                                    <li><a href="#" title="Youtube"><i class="fab fa-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 col-sm-6 col-12">
+                        <div class="footer-widget footer-menu-widget clearfix">
+                            <h6 class="footer-title fs-6">Entreprise</h6>
+                            <div class="footer-menu">
+                                <ul>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="#">A propos de nous</a></li>
+                                    <li><a class="sub-categorie1" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-size: 12px" href="mention_legales">Mentions légales</a></li>
+                                    <li><a class="sub-categorie1" data-bs-toggle="modal" data-bs-target="#exampleModal1" style="font-size: 12px" href="confidentialite">Confidentialité</a></li>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="#">CGU</a></li>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="#">FAQ</a></li>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="#">Nous contacter</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6 col-12">
+                        <div class="footer-widget footer-menu-widget clearfix">
+                            <h6 class="footer-title fs-6">Pages</h6>
+                            <div class="footer-menu">
+                                <ul>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/1">Hebergements atypiques</a></li>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/2">Ou boire?</a></li>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/3">Ou manger?</a></li>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/5">Activités</a></li>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/4">Balades</a></li>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/6">Services</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6 col-12">
+                        <div class="footer-widget footer-menu-widget clearfix">
+                            <h6 class="footer-title fs-6">Pour vous</h6>
+                            <div class="footer-menu">
+                                <ul>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="#">Carte cadeau</a></li>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="particular_login')}}">Se connecter</a></li>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="professional_login')}}">Espace pro</a></li>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="#">Langue</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="footer-widget footer-menu-widget clearfix">
+                            <h6 class="footer-title fs-6">Avis</h6>
+                            <div class="footer-men">
+                                <ul>
+                                    <li style="list-style: none">
+                                        <a class="sub-categorie1" style="font-size: 12px;justify-items:center" >
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <img class="rounded-circle z-depth-2" style="height:60px" alt="100x100" src="{% static 'IMG/avis postif 3 igoguide.jpg'%}">
+                                                </div>
+                                                <div class="col">Super expérience avec ce guide pour vous montrer les sites touristiques cachés</div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li style="list-style: none">
+                                        <a class="sub-categorie1" style="font-size: 12px;justify-items:center" >
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <img class="rounded-circle z-depth-2" style="height:60px" alt="100x100" src="{% static 'IMG/avis positif 1 igoguide_1.jpg'%}">
+                                                </div>
+                                                <div class="col">J'ai pu compilé mes activités avec mon hébergement. Je recommande!</div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li style="list-style: none">
+                                        <a class="sub-categorie1" style="font-size: 12px;justify-items:center">
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <img class="rounded-circle z-depth-2" style="height:60px" alt="100x100" src="{% static 'IMG/avis positif 2 igoguide.jpg'%}">
+                                                </div>
+                                                <div class="col">IGOguide, est un site vraiment exceptionnel ! En tant que professionnel j'ai su me servir de cette plateforme pour avoir non seulement des client mais aussi un site représentatif par la même occasion pour une maudite somme de 49 euros</div>
+                                           </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-12" style="width: 200px;">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ltn__copyright-area ltn__copyright-2 section-bg-7  plr--5 ">
+            <div class="container-fluid ltn__border-top-2">
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <div class="ltn__copyright-design clearfix">
+                            <p>All Rights Reserved @ igoguide <span class="current-year"></span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 align-self-center">
+                        <div class="ltn__copyright-menu text-end">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- FOOTER AREA END -->
+
+
+    <!-- Body main wrapper end -->
+
+    <!-- preloader area start -->
+    <div class="preloader d-none" id="preloader">
+        <div class="preloader-inner">
+            <div class="spinner">
+                <div class="dot1"></div>
+                <div class="dot2"></div>
+            </div>
+        </div>
+    </div>
+    <!-- preloader area end -->
+    </div>
+
+    <!-- All JS Plugins -->
+    <script src="{% static 'template/js/plugins.js'%}"></script>
+    <!-- Main JS -->
+    <script src="{% static 'template/js/main.js'%}"></script>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace()
+    </script>
+
+</body>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: rgb(160, 160, 0);" id="exampleModalLabel">Identification de la société exploitant le Site</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h3 ></h3>
+Le site internet www.igoguide.com est édité par la société IGOgroup, SAS au capital de 10.000 €, immatriculée au RCS de Bordeaux, sous le n°889371142, dont le siège social est 9 rue de Condé, bureau 3,  33000 Bordeaux.
+N° de TVA intracommunautaire : FR10889371142
+Email : infos@igoguide.com
+Hébergeur : OVH, société par action simplifiée au capital de 10 069 020 €uros, immatriculée au RCS Lille Métropole 424 761 419 0004, N° TVA : FR 22 424 761 419 dont le siège social est  2 rue Kellermann – 59100 Roubaix – France
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: rgb(160, 160, 0);" id="exampleModalLabel">DONNEES A CARACTERE PERSONNELLES</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5>Les données à caractère personnelles des “Partenaires” et “Utilisateurs” recueillies via les formulaires présents sur “notre Site”</h5>
+        IGOgroup s’engage à respecter la vie privée des “Partenaires” et ‘Utilisateurs” de “igoguide.com” et de garantir la confidentialité des données personnelles recueillies. Celles-ci résultent de la communication volontaire d’informations via les formulaires présents sur “igoguide.com”. Certaines données, qui doivent être fournies obligatoirement, sont identifiées visuellement. Elle concerne uniquement le nom, prénom et email. Les données recueillies, à la demande d’IGOgroup, le responsable du traitement, font l’objet d’un traitement informatique destiné à la gestion de fichiers clients et prospects.
+        Les données des “Partenaires” sont nécessaires à l’inscription sur “igoguide.com”, à la publication des annonces sur “igoguide.com”, à la gestion commerciale et à la qualité de nos services. Les données collectées sont confidentielles et ne font pas l’objet de transmission à des tiers, sauf en cas de réquisition judiciaire ou de demande par une autorité habilitée.
+        Les données des “Utilisateurs” ne sont pas nécessaires pour pouvoir entrer en contact avec un “Partenaire” et ne sont pas utilisées à des fins de prospection. Les données collectées pour permettre à “l'Utilisateur" de s’inscrire afin de conserver ses “favoris” sont confidentielles et ne font pas l’objet de transmission à des tiers, sauf en cas de réquisition judiciaire ou de demande par une autorité habilitée, ou en cas d'accord de transmission exprimé par les « Utilisateurs » pour un besoin particulier de la plateforme.
+        Conformément aux articles 38 et suivants de la loi n° 78-17 du 6 janvier 1978 modifiée par la loi du 6 août 2004 relative à l’informatique, aux fichiers et aux libertés, toute personne peut obtenir communication et, le cas échéant, modification, rectification ou suppression des informations le concernant, en s’adressant à IGOgroup, 9 rue de Condé, bureau 3, 33000 Bordeaux, France.
+        Conformément à l’article 92 du décret N°2005-1309 du 20 octobre 2005, les demandes doivent être signées et accompagnées de la photocopie d’un titre d’identité portant la signature du titulaire. Les demandes doivent également préciser l’adresse à laquelle doit parvenir la réponse.
+        Conformément à l’article 94 du décret N°2005-1309 du 20 octobre 2005, le responsable du traitement répond à la demande présentée par l’intéressé dans le délai de 2 mois suivant sa réception. Si la demande est imprécise ou ne comporte pas tous les éléments, le responsable du traitement invite l’intéressé à les lui fournir.
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>
+     </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="{% static 'js/jquery.min.js'%}"></script>
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+</html>
+

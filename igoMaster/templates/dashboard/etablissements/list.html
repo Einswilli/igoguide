@@ -1,0 +1,841 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+  {% block content %}
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="/">
+          <i class="bi bi-grid"></i>
+          <span>TABLEAU DE BORD</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>FICHES</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li >
+            <a href="" id='nf'>
+              <i class="bi bi-circle"></i><span>Nouvelle Fiche</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"class="active" id="lf">
+              <i class="bi bi-circle"></i><span>Liste</span>
+            </a>
+          </li>
+          
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>ABONNEMENTS</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="#" id="na">
+              <i class="bi bi-circle"></i><span>Nouvel Abonnenment</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" id='la'>
+              <i class="bi bi-circle"></i><span>Liste</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" id='tr'>
+              <i class="bi bi-circle"></i><span>Transactions</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-envelope"></i><span>MESSAGES</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="" id="mails">
+              <i class="bi bi-circle"></i><span>Mails</span>
+            </a>
+          </li>
+          <li>
+            <a href="" id="notif">
+              <i class="bi bi-circle"></i><span>Notifications</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+
+      
+
+      
+
+      <li class="nav-heading">Pages</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="" id="prof">
+          <i class="bi bi-person"></i>
+          <span>Profile</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="" id="faq">
+          <i class="bi bi-question-circle"></i>
+          <span>F.A.Q</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="" id='cgv'>
+          <i class="bi bi-question-circle"></i>
+          <span>C.G.V</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="" id="cgu">
+          <i class="bi bi-question-circle"></i>
+          <span>C.G.U</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>TABLEAU DE BORD</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="">Fiches</a></li>
+          <li class="breadcrumb-item active">Liste</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    {% comment %} ICI LA LISTE DES FICHES {% endcomment %}
+
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="{% static 'js/jquery.min.js'%}"></script>
+
+ <style>
+   .container{
+    padding: 0.5%;
+   }
+</style>
+<style>
+    @font-face {
+        font-family: 'badaboom_bbregular';
+        src: url('{% static "assets/fonts/badabb__-webfont.woff2"%}') format('woff2'),
+            url('{% static "asstes/fonts/badabb__-webfont.woff"%}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Bangers';
+        src: url('{% static "assets/fonts/bangers.ttf"%}');
+    }
+    @media only screen and (min-width:1100px){
+        .mycontainer{
+            /*margin: 25px 25px;
+            display:grid;
+            grid-template-columns: 7fr 4fr;*/
+        }
+        .map{
+            background-color: gray;
+            position:sticky !important;
+            top:0;
+            left:0;
+            height: 90vh;
+            width: 100%;
+            margin-left: 15px;
+        }
+    }
+    .marker{
+        transform: translate(-50%,calc(100%-10px));
+        white-space:nowrap;
+        font-size: 16px;
+        padding: 5px 10px;
+        text-align: center;
+        background-color: white;
+        box-shadow: 0 0 2px #29282862
+    }
+    .marker::after{
+        content: '';
+        position: absolute;
+        top:100%;
+        left: 50%;
+        width: 0px;
+        height: 0px;
+        margin-left: -8px;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-left: 8px solid #FFFFFF;
+    }
+    .marker.is-active{
+        background-color: #569ff5;
+        color:#FFFFFF;
+        z-index:300;
+    }
+    .marker.is-active::after{
+        border-top-color: #569ff5;
+    }
+    .marker.is-current{
+        --parentHeight:200px;
+        width: 230px;
+        height: 230px;
+        z-index: 500;
+        background-color: transparent;
+        /* top: calc(45vh -300px); */
+    }
+    .marker.is-current .ltn__blog-img, .face-back{
+        height: var(--parentHeight);
+        width: var(--parentHeight);
+    }
+    .marker.is-current .face-back{
+        height: var(--parentHeight);
+        width: var(--parentHeight);
+    }
+    .marker.is-current .ltn__blog-item{
+        height: var(--parentHeight);
+        width: var(--parentHeight);
+    }
+    .h{
+        background-color:black;
+        color:yellow;
+    }
+
+    .ic{
+        color:yellow;
+    }
+
+    .h:hover{
+        background-color:rgb(0, 234, 255);
+        color:black;
+    }
+
+
+    .h:hover .ic{
+        color:black;
+    }
+
+    .like {
+        animation: like 1500ms ;
+      }
+
+    @keyframes like {
+        0%   {  top: 0px;
+                opacity:0;
+                transform: rotate(45deg);
+                background:#0071bd00;
+              }
+        25%  {  top: 10px;
+                transform: rotate(-45deg);
+                opacity:1;
+              }
+        50%   { top: 0px;
+                opacity:0;
+                transform: rotate(45deg);
+              }
+        75%  {  top: 10px;
+                transform: rotate(-45deg);
+                opacity:1;
+              }
+
+        100% {  top: 10px;
+                opacity:1;
+              }
+      }
+    .ltn__blog-item{
+        height:300px;
+        position:relative;
+    }
+    .ltn__blog-item .ltn__blog-img{
+        box-shadow:0 5px 5px black;
+        overflow: hidden;
+        transform: perspective(600px) rotateY(0deg);
+    }
+    .ltn__blog-brief,.ltn__blog-meta , .carousel-caption{
+        height:auto;
+        box-sizing: border-box;
+        padding:10px;
+        border-radius:8px;
+        position:absolute;
+        bottom:150px;
+        background:rgb(27,27,27,.5);
+        color:#FFFFFF;
+    }
+    .likee{
+        right:3%;
+        top:3%;
+        height:30px;
+        width:30px; 
+        /*padding:3px 3px 3px 3px;*/
+        border-radius:12px;
+        position:absolute;
+        background:transparent; /*rgb(255,255,255,.4);*/
+        color:#FFFFFF;
+        text-align:center;
+    }
+    .ltn__blog-meta > h6 > p{
+        color:#FFFFFF;
+    }
+    .ltn__blog-meta > h3{
+        color:#FFFFFF;
+    }
+    .carousel-caption > h6{
+        visibility:hiden;
+    }
+    .carousel-caption > a{
+        visibility:hiden;
+    }
+    .ltn__blog-img,.face-back{
+        position:absolute;
+        width:100%;
+        height:300px;
+        backface-visibility: hidden;
+        overflow:hidden;
+        transition:.5s;
+        border-radius:15px;
+    }
+    .ltn__blog-item .face-back{
+        /*position:absolute;*/
+        transform: perspective(600px) rotateY(180deg);
+        box-shadow: 0 5px 10px black;
+        background:#11101D;
+        padding:15px;
+        color:#FFFFFF;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+    }
+    .ltn__blog-item:hover .face-back{
+        transform: perspective(600px) rotateY(360deg);
+        box-shadow: 0 5px 10px black;
+        position:absolute;
+    }
+    .ltn__blog-item:hover .ltn__blog-img{
+        transform: perspective(600px) rotateY(180deg);
+        box-shadow: 0 5px 10px black;
+        height:0px;
+    }
+
+    .a{
+      text-decoration:none;
+    }
+    .a:hover{
+      text-decoration:none;
+    }
+    .modal-dialog.big {
+      max-width: 80%;
+      max-height:95vh;
+    }
+    iframe{
+      width:100%;
+      height:60vh;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="mami"></div>
+        <div class="ltn__blog-area ltn__blog-item-3-normal mb-100">
+            <div class="mycontainer">
+                <div class="row mr-10">
+                {% if not etablissements or etablissements|length < 0 %}
+                    <h2 style="text-align:center;margin-top:200px">Aucun résultat!</h2>
+                {% else %}
+                {% for etablissement in etablissements %}
+                        <div class="col-lg-4 col-sm-6 col-12 js-marker" data-lat="{{etablissement.latitude}}" data-lng="{{etablissement.longitude}}" data-num="{{etablissement.id}}" style="border-radius:10px">
+                            <div class="ltn__blog-item ltn__blog-item-3" style="margin-top:10%; border-radius:10px">
+                                <div class="ltn__blog-img " style="background-color:black;border-radius:15px;border-top-right-radius:15px">
+                                <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                                    
+                                    <div class="carousel-indicators">
+                                        {% for image in etablissement.images %}
+                                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{forloop.counter}}"  class="{% if forloop.first %} active {% endif %}" aria-current="true"></button>
+										                    {% endfor %}
+                                        
+                                    </div>
+
+                                        <div class="carousel-inner ltn__blog-img ima" style="height:300px;background-color:rgb(223, 200, 200);border-radius:15px;border-top-right-radius:15px;margin:0;padding:0" role="listbox">
+                                            {% for image in etablissement.images %}
+                                              <div class="carousel-item {% if forloop.first %} active {% endif %}" style="height:300px;background-color:rgba(71, 71, 71, 0.498);border-radius:15px;border-top-right-radius:15px;margin:0;padding:0">
+                                                <img style="max-height:100%;max-width:100%;height:100%;width:auto" src="{{ image.url }}" class="d-block w-100" alt="{{image.name}}">
+                                                <div class="carousel-caption text-center">
+                                                  <h6> <p href="#" class="categorie2" style="color: rgb(2, 131, 191);font-style:italic"><div style="visibility:hiden; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;color:#ffffff;font-size:20px;" class="fst-italic"><i class="fa-solid fa-house"></i>{{etablissement.name}}</div></p></h6>
+                                              </div>
+                                              </div>
+											                      {% endfor %}
+
+                                        </div>
+                                        
+                                        {% comment %} <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                          <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                          <span class="visually-hidden">Next</span>
+                                        </button> {% endcomment %}
+                                    </div>
+                                </div>
+                                <div class="face-back">
+                                    <h3><i class="fa-solid fa-arrow-circle-right"></i>{{etablissement.type}}</h3>
+									                  <p>Description</p>
+                                    <h6> <p href="#" class="categorie2" style="color: rgb(2, 131, 191);font-style:italic"><div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;color:#ffffff;font-size:14px;" class="fst-italic"><i class="bx bx-detail"></i> {{etablissement.presentation}}</div></p></h6>
+                                    <h6> <p href="#" class="categorie2" style="color: rgb(2, 131, 191);font-style:italic"><div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;color:#ffffff;font-size:14px;" class="fst-italic"><i class="bx bx-map"></i> {{etablissement.address}}</div></p></h6>
+                                    <div class="" style="display:flex;justify-content:space-between;padding-left:30px;padding-right:30px;">
+                                      <button class="btn btn-warning" type='button' title="Ajouter une image" data-toggle="modal" data-target="#imgmodal{{etablissement.id}}"><i class="bx bx-image-add"></i></button><!--<i class="bi bi-image">-->
+                                        <button class="btn btn-info" title="Promouvoir {{etablissement.name}} pour plus de visibilité" data-toggle="modal" data-target="#promodal{{etablissement.id}}"><i class="bx bx-upload"></i></button><!--<i class="bi bi-pen">-->
+                                        <a title="Détailles sur {{etablissement.name}}" class="btn btn-primary" href="/etablishment/{{etablissement.id}}" style="width:20%"><i class="bx bx-detail"></i></a>
+                                        <button class="btn btn-success" title="Modifier {{etablissement.name}}" data-toggle="modal" data-target="#editmodal{{etablissement.id}}"><i class="bx bx-edit"></i></button><!--<i class="bi bi-pen">-->
+                                      <button class="btn btn-danger" title="Supprimer {{etablissement.name}}" data-toggle="modal" data-target="#deletemodal{{etablissement.id}}"><i class="bx bx-trash"></i></button><!--<i class="bi bi-trash">-->
+                                    </div>
+                                    <p></p>
+                                    {% comment %} <a title="Supprimer {{etablissement.name}}"  href="/etablissement/delete/{{etablissement.id}}" style="width:22%"></a> {% endcomment %}
+                                    {% comment %} <a title="Modifier {{etablissement.name}}" href="/etablissement/edit/{{etablissement.id}}" style="width:22%"></a> {% endcomment %}
+                                    {% comment %} <a title="Ajouter une image" href="/media/new/{{etablissement.id}}" style="width:22%"></a> {% endcomment %}
+                                    
+                                </div>
+                                {% comment %} ICI LE MODAL DE UPDATE {% endcomment %}
+
+                                <div id="editmodal{{etablissement.id}}" class="modal fade" role="dialog">
+                                  <div class="modal-dialog big">
+                                
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title text-center">Modifier {{etablissement.name}}</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        {% comment %} DEBUT {% endcomment %}
+                                        <div id="form">
+                                          <form id='saveForm' action="/etablissement/edit/{{etablissement.id}}" method="post" enctype="multipart/form-data">
+                                              {% csrf_token %}
+                          
+                                                  <div class="flex-row tab" >
+                          
+                                                              <div class="col-lg-12 d-inline">
+                                                                  <h4 style=""><strong>Indentité de létablissement</strong> <span class="text-muted fs-6 fw-lighter fst-italic">Tout ce qui permet d'identifier facilement votre établissement</span> </h4>
+                                                              </div>
+                                                              <hr>
+                          
+                                                              <div class="row">
+                                                                      <div class=" mb-3 mt-3 col-lg-12">
+                                                                          <input type="text"  style="border-radius:15px" class="form-control" id="name"  required placeholder="Nom Etablissement"  name="name" value="{{etablissement.name}}">
+                                                                      </div>
+                                                              </div>
+                          
+                          
+                                                              <div class="row">
+                          
+                                                                          <div class=" mb-3 mt-3 col-lg-6">
+                                                                              <input type="text" class="form-control" style="border-radius:15px" required id="telephone" placeholder="Numero"  name="telephone" value={{ etablissement.contact.telephone }}>
+                                                                          </div>
+                                                                          <div class=" mb-3 mt-3 col-lg-6">
+                                                                              <input type="text" class="form-control" style="border-radius:15px" required id="email" placeholder="E-mail" name="email" value="{{etablissement.contact.email}}">
+                                                                          </div>
+                                                              </div>
+                          
+                                                              <div class="row" >
+                                                                  <div class=" mb-3 mt-3 col">
+                                                                      <div class="form-floating">
+                                                                        {% comment %} <label for="floatingTextarea">Que devons nous savoir sur vous??</label> {% endcomment %}
+                                                                          <textarea class="form-control mb-4" placeholder="Leave a comment here"  style="border-radius:15px"  required  id="floatingTextarea"  name="presentation">{{ etablissement.presentation }}</textarea>
+                                                                       </div>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="row">
+                                                                <div class=" mb-3 mt-3 col">
+                                                                    <div class="form-floating">
+                                                                        <textarea class="form-control mb-4" placeholder="Manger , bordeaux , restaurant"  style="border-radius:15px"  required  id="tags"  name="tags">{{etablissement.tags}}</textarea>
+                                                                        {% comment %} <label for="floatingTextarea">Mots clés pour vite vous retrouver</label> {% endcomment %}
+                                                                     </div>
+                                                                </div>
+                                                            </div>
+                          
+                                                              <div class="col-lg-12 mt-4">
+                                                                   <h4><strong>Localisation </strong> <span class="text-muted fs-6 fw-lighter fst-italic"> Afin d'affiner les recherches par région, départements et villes</span></h4>
+                                                              </div>
+                                                              <hr>
+                          
+                                                              <div class="row">
+                                                                      <div class=" mb-3 mt-3 col-lg-6">
+                                                                          <input  id="searchTextField" type="text" size="50"  autocomplete="on" runat="server" class="form-control"  required readonly="readonly" style="border-radius:15px" placeholder="Adresse" required  name="searchTextField" value="{{etablissement.address}}">
+                                                                      </div>
+                          
+                          
+                                                                      <div class=" mb-3 mt-3 col-lg-6">
+                                                                          <input type="text" class="form-control" id="pays" style="border-radius:15px" required  placeholder="pays" readonly="readonly" name="pays" value="{{etablissement.city.country}}">
+                                                                      </div>
+                                                              </div>
+                          
+                                                              <div class="row">
+                          
+                                                                <div class=" mb-3 mt-3 col-lg-4">
+                                                                    <input type="text" class="form-control" id="longitude" style="border-radius:15px" required  placeholder="Longitude" readonly="readonly" name="longitude" value="{{etablissement.longitude}}">
+                                                                </div>
+                      
+                                                                <div class=" mb-3 mt-3 col-lg-4">
+                                                                    <input type="text" class="form-control" id="latitude" style="border-radius:15px"  required placeholder="Latitude" readonly="readonly" name="latitude" value="{{etablissement.latitude}}">
+                                                                </div>
+                                                                <div class=" mb-3 mt-3 col-lg-4">
+                                                                    <input type="text" class="form-control" id="code_postal" style="border-radius:15px" required  placeholder="code_postal"  name="code_postal" value="{{etablissement.postal}}">
+                                                                </div>
+                                                              </div>
+                          
+                                                              <div class="row">
+                          
+                                                                <div class=" mb-3 mt-3 col-lg-4">
+                                                                    <input type="text" class="form-control" id="ville" style="border-radius:15px"  required placeholder="ville" readonly="readonly" name="ville" value="{{etablissement.city.name}}">
+                                                                </div>
+                      
+                                                                <div class=" mb-3 mt-3 col-lg-4">
+                                                                    <input type="text" class="form-control" id="region" style="border-radius:15px"  required  placeholder="region" readonly="readonly" name="region" value="{{etablissement.city.region}}">
+                                                                </div>
+                                                                <div class=" mb-3 mt-3 col-lg-4">
+                                                                    <input type="text" class="form-control" id="departement" style="border-radius:15px" required  placeholder="Département" readonly="readonly" name="departement" value="{{etablissement.department}}">
+                                                                </div>
+                                                              </div>
+                          
+                                                      <div class="flex-row tab">
+                                                          <div class="col-lg-12 mt-4">
+                                                              <h4 ><strong>Réseaux Sociaux </strong>  <span class="text-muted fs-6 fw-lighter fst-italic"> Renseignez vos liens de réseaux</span></h4>
+                                                          </div>
+                                                          <hr>
+                          
+                                                          <div class="row">
+                                                              <div class=" mb-3 mt-3 col-lg-4">
+                                                                  <input type="text" class="form-control" id="website" placeholder="Site web" required   name="website" value="{{etablissement.contact.website}}">
+                                                              </div>
+                          
+                                                              <div class=" mt-3 mb-3 col-lg-4 ">
+                                                                  <input type="text" class="form-control" id="facebook" placeholder="Facebook" required   name="facebook" value="{{etablissement.reseaux.facebookName}}">
+                                                              </div>
+                          
+                                                              <div class=" mb-3 mt-3 col-lg-4">
+                                                                  <input type="text" class="form-control" id="instagram" placeholder="Instagram" required   name="instagram" value="{{etablissement.reseaux.instagramName}}">
+                                                              </div>
+                                                          </div>
+                          
+                                                          {% comment %} <div class="col-lg-12 mt-4">
+                                                            <h4 ><strong>Médias </strong>  <span class="text-muted fs-6 fw-lighter fst-italic"> Choisssez les meilleures images de votre établissement !</span></h4>
+                                                          </div>
+                                                          <hr>
+                      
+                                                          <div class="row">
+                                                              <div class=" mb-3 mt-3 col">
+                                                                  <input class="form-control" type="file" id="formFileMultiple" required  name="image">
+                                                                  <input class="form-control" type="hidden" required  name="userfield" id="userfield" value=>
+                                                                  
+                                                              </div>
+                                                          </div>
+                                                          <hr> {% endcomment %}
+                          
+                                                          <div class="col-lg-12 mt-5">
+                                                              <h4><strong>Divers </strong><span class="text-muted fs-6 fw-lighter fst-italic"> Choisssez une sous-catégorie</span></h4>
+                                                          </div>
+                                                          <hr>
+                                                          <div class="row mt-4" >
+                                                              <div id="contenue" class="row">
+                                                                <div class=" mt-3 mb-3 col-lg-12 ">
+                                                                          <select class="form-select" id="categorie" style="border-radius:15px"  required aria-label="Default select example"   name="souscategorie">
+                                                                            {% for sub in etablissement.type_subtypes %}
+                                                                            {% if sub.id == etablissement.subtypeid %}
+                                                                              <option title="{{ sub.desc }}" value="{{sub.id}}" selected>{{sub.name}}</option>
+                                                                              {% else %}
+                                                                              <option title="{{ sub.desc }}" value="{{sub.id}}">{{sub.name}}</option>
+                                                                            {% endif %}
+                                                                            {% endfor %}
+                                                                              <option value="1">Hérgements</option>
+                                                                              
+                                                                          </select>
+                                                                      </div>
+                                                              </div>
+                                                          </div>
+                                                           <hr>
+                                                      </div>
+                                                  </div>
+                                                  
+                                                      <div  class="flex-row mt-3 mb-5" style="margin-bottom: 80px;margin-top:30px;">
+                                                        
+                                                          <div style="float: right;" class="col ">
+                      
+                                                          <button id="savebtn" type="submit"  class="btn btn-primary btn-block" style="margin-right: 10px;">Enregistrer</button>
+                                                          </div>
+                                                      </div>
+                                                      <div style="margin-top: 8%;">
+                                                        
+                                                      </div>
+                                                      
+                                                    </form>
+                                    </div>
+                                        {% comment %} FIN {% endcomment %}
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                                      </div>
+                                    </div>
+                                
+                                  </div>
+                                </div>
+
+                                {% comment %} ICI LA FIN DU MODAL UPDATE {% endcomment %}
+
+                                {% comment %} DEBUT MODAL IMAGE {% endcomment %}
+                                <div id="imgmodal{{etablissement.id}}" class="modal fade" role="dialog">
+                                  <div class="modal-dialog">
+                                
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Choisissez l'image</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        <form action="/media/new/{{etablissement.id}}" method="POST" enctype="multipart/form-data" required>
+                                          {% csrf_token %}
+                                          <div class="row">
+                                            <div class=" mb-3 mt-3 col">
+                                              <input class="form-control" type="text" id="" required placeholder="nom ou description de l'image" name="description">
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class=" mb-3 mt-3 col">
+                                              <input class="form-control" type="file" id="formFileMultiple" required  name="image">
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class=" mb-3 mt-3 col">
+                                              <button id="savebtn" type="submit"  class="btn btn-primary btn-block" style="margin-right: 10px;">Enregistrer</button>
+                                            </div>
+                                          </div>
+                                        </form>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal" id="imgbtn">Annuer</button>
+                                        <script>
+                                          $('#imgbtn').click(function(){
+                                            imgmodal.dismiss()
+                                          })
+                                        </script>
+                                      </div>
+                                    </div>
+                                
+                                  </div>
+                                </div>
+                                {% comment %} FIN MODAL IMAGE {% endcomment %}
+
+                                {% comment %} DEBUT MODAL DE SUPPRESSION {% endcomment %}
+                                <div id="deletemodal{{etablissement.id}}" class="modal fade" role="dialog">
+                                  <div class="modal-dialog">
+                                
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button"  data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Suppression de {{etablissement.name}}</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        <p>Êtes-vous sûr de vouloir supprimer {{etablissement.name}} ?</p>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <a href="/etablissement/delete/{{etablissement.id}}"><button type="button" class="btn btn-danger" data-dismiss="modal">Supprimer</button></a>
+                                      </div>
+                                    </div>
+                                
+                                  </div>
+                                </div>
+                                {% comment %} FIN MODAL DE SUPPRESSION {% endcomment %}
+                                {% comment %} DEBUT MODAL DE PROMOTION {% endcomment %}
+
+                                <div id="promodal{{etablissement.id}}" class="modal fade" role="dialog">
+                                  <div class="modal-dialog big">
+                                
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button"  data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Promotion de {{etablissement.name}}</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        <form class="row g-3" action="/subscription/save" method='POST'>
+                                          {% csrf_token %}
+                                          <div class="col-12">
+                                            <input type="text" class="form-control" placeholder="Texte de l'annonce" name="an" id="an" required>
+                                          </div>
+                                          <div class="col-12 d-none">
+                                            <input type="text" class="form-control" name="etab" id="etab" value="{{etablissement.id}}" hidden required>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <select id="inputState" class="form-select" name="duree" required>
+                                              <option desabled selected>Forfait</option>
+                                            </select>
+                                          </div>
+                                          <div class="col-md-3">
+                                            <input type="text" id='total' class="form-control" placeholder="Total" readonly="readonly" name='total' >
+                                          </div>
+                                          <div class="col-md-3">
+                                            <input type="text" id='exp' class="form-control" placeholder="Date de fin" readonly="readonly" name="exp" >
+                                          </div>
+                                          <iframe id="idFramePaiement" name="nomFramePaiement" src="https://p.monetico-services.com/paiement.cgi?TPE=7569774&version=3.0&" ></iframe>
+                                          <div class=""style="display:flex;justify-content:space-between;">
+                                            <button type="reset" class="btn btn-danger" style="width:45%">Annuler</button>
+                                            <button type="submit" class="btn btn-primary" data-dismiss="modal" style="width:45%">Enregister</button>
+                                          </div>
+                                        </form>
+                                      </div>
+                                      {% comment %} <div class="modal-footer">
+                                        <a href=""><button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button></a>
+                                      </div> {% endcomment %}
+                                    </div>
+                                
+                                  </div>
+                                </div>
+                                {% comment %} FIN MODAL DE PROMOTION {% endcomment %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+                {% comment %} <div class="map" id="map">
+
+                </div> {% endcomment %}
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyCD7BvR3RtGHKwPXt_Q6vaSzvwTYzNIZ_0"></script>
+<script type="text/javascript">
+  function initialize() {
+      var input = document.getElementById('searchTextField');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+      google.maps.event.addListener(autocomplete, 'place_changed', function () {
+          var place = autocomplete.getPlace();
+          var longitude=place.geometry.location.lng();
+          var latitude=place.geometry.location.lat();
+          document.getElementById('latitude').value = latitude;
+          document.getElementById('longitude').value = longitude;
+          console.log(place.address_components);
+
+          for(var i=0;i<place.address_components.length;i+=1){
+              var expression=place.address_components[i].types[0];
+
+              switch (expression) {
+                  case "country":
+                    document.getElementById('pays').value=place.address_components[i].long_name;
+                  break;
+
+                  case "locality":
+                    document.getElementById('ville').value=place.address_components[i].long_name;
+                  break;
+
+                  case "administrative_area_level_1":
+                    document.getElementById('region').value=place.address_components[i].long_name;
+                  break;
+
+                  case "postal_code":
+                    document.getElementById('code_postal').value=place.address_components[i].long_name;
+                  break;
+
+                  case "administrative_area_level_2":
+                    document.getElementById('departement').value=place.address_components[i].long_name;
+                  break;
+              }
+          }
+
+      });
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+    <script>
+      $(window).on('load',function(){
+        console.log('yes')
+        var uid;
+        uid = localStorage.getItem('userid');
+        var nf=document.getElementById('nf')
+        var lf=document.getElementById('lf')
+        var na=document.getElementById('na')
+        var la=document.getElementById('la')
+        var tr=document.getElementById('tr')
+        var mails=document.getElementById('mails')
+        var notif=document.getElementById('notif')
+        var prof=document.getElementById('prof')
+        var faq=document.getElementById('faq')
+        var cgv=document.getElementById('cgv')
+        var cgu=document.getElementById('cgu')
+        //var profile_link=document.querySelector('#prolink')
+        nf.href='/etablishment/new';
+        lf.href='#';
+        na.href="/subscription/new";
+        la.href='/subscription/list/pro/'+uid;
+        tr.href='/payments/pro/'+uid;
+        mails.href='/mails/pro/'+uid;
+        notif.href='/notifications/pro/'+uid;
+        prof.href='/profile/pro/'+uid;
+        faq.href='/faq';
+        cgv.href='/cgv';
+        cgu.href='/cgu';
+        console.log(lf.href)
+      }
+    );
+    </script>
+    <script>
+      $(window).on('load',function(){
+        $.ajax({
+          type:'GET',
+          url:'/forfaits',
+          data:{
+            //post_id: catid
+          },
+          success: function( data ){
+            for(let e of data){
+              //console.log(JSON.parse(data))
+              var opt = document.createElement("option");
+              opt.value = e.duration;
+              opt.text = e.name+'   '+e.price+' €';
+              //select.appendChild(opt);
+              $('#inputState').append(opt)
+            }
+          },
+          error:function(err){
+            console.log(err)
+          }
+        })
+      })
+    </script>
+<script src="{% static 'js/vendor.js'%}"></script>
+<script src="{% static 'js/map.js'%}"></script>
+
+    {% comment %} ICI LA FIN DE LA LISTE {% endcomment %}
+
+  </main><!-- End #main -->
+
+  {% endblock %}

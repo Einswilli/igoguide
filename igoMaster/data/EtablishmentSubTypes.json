@@ -1,0 +1,262 @@
+{
+    "EtablishmentSubTypes": [
+        {
+            "id": 1,
+            "name": "Cabane dans les arbres",
+            "description": "S’endormir au plus près des étoiles, se réveiller avec le chant des oiseaux et être surpris par un écureuil qui vous regarde depuis sa branche, quoi de plus bienfaisant que ce retour en enfance  dans une cabane en bois, perchée en hauteur... Les cabanes dans les arbres ne sont plus simplement un rêve d’enfant mais depuis quelques années, un véritable engouement sur les hébergements insolites. Il y en a pour tous les goûts : perchées à 10 mètres pour les plus courageux, simples et rustiques pour les amateurs d’authenticités mais aussi de belles et grandes cabanes luxueuses avec un confort sans égal avec jacuzzis ou bain nordiques. Le cadre naturel permet une harmonie parfaite avec l’environnement.",
+            "etablishment_type_id": 1
+        },
+        {
+            "id": 2,
+            "name": "Cabane sur terre",
+            "description": "Les cabanes sont uniques, chacune dans leur style et souvent construites en fonction de leur environnement. Les cabanes posées à même le sol sont souvent accessibles au plus petits comme aux plus âgés et permettent à tous de vivre un rêve éveillé. Simples, authentiques ou très luxueuses avec spa tels les lodges, les cabanes qui ne sont pas en haut des cimes sont souvent immergées dans leur nature environnante. Le retour aux sources est des plus délicieux!",
+            "etablishment_type_id": 1
+        },
+        {
+            "id": 3,
+            "name": "Cabane sous terre",
+            "description": "Cette sensation étrange que l’on peut éprouver en habitant une caverne, une grotte ou une demeure aménagée dans le roc donne aux habitats troglodytes ce côté rassurant et chaleureux d’une demeure solide. Les régions qui possèdent de nombreux sites souterrains à visiter comme des forteresses, des caves, des galeries d’extractions, des fermes, voir même parfois des villages entiers creusés dans la roches possèdent souvent des maisons troglodytiques et donc des chambres de types insolites, pour vivre une expérience unique.  Certains logements peuvent être moins naturel mais tout aussi étrange avec des architectures ultra moderne impossible à distinguer car elles se trouvent au niveau du sol. Mais aussi pour plus de fantaisie et les âmes d’enfant, il est bon de dormir dans un terrier tout confort. Les constructions inspirées de la littérature, où l’on pousse  la plus célèbre des portes rondes, celle de la maison du fameux Hobbit Bilbo Sacquet, se plient en 4 pour faire vivre un moment étonnant le temps d’une nuit ou d’un week-end.",
+            "etablishment_type_id": 1
+        },
+        {
+            "id": 4,
+            "name": "Cabane sur l'eau",
+            "description": "Les séjours dans les cabanes sur l'eau sont souvent  très agréables car ils sont  au calme, en pleine nature pour pouvoir admirer un magnifique ciel étoilé, écouter les grenouilles et les divers oiseaux.... Les cabanes très confortables se font avec un accès qui,  si ce n’est par un ponton, se fera en barque. cela le charme de l'expérience absolue!t t",
+            "etablishment_type_id": 1
+        },
+        {
+            "id": 5,
+            "name": "Tipis - tentes - yourtes",
+            "description": "Une nuit insolite en tipi indien ou dans une yourte permet d'apprécier l’atmosphère unique de ces habitats nomades avec leurs lits surbaissés, les grands tapis, les coussins colorés et les couettes moelleuses. C’est une façon originale de voyager à travers les us et coutumes de ses tribus. Mais une toile, c’est aussi une simple tente que l’on pose et dépose à volonté dans un camping ou sur des spots pour partir tout simplement à l’aventure!",
+            "etablishment_type_id": 1
+        },
+        {
+            "id": 6,
+            "name": "Bulles",
+            "description": "Dormir à la belle étoile, à l’abri des intempéries sous un toit transparent pour profiter d’une immersion en pleine nature, avec une vue à 360° ! Des bulles, des dômes, des pyramides… tout en transparence pour ne faire qu’un avec la nuit.",
+            "etablishment_type_id": 1
+        },
+        {
+            "id": 7,
+            "name": "Habitats roulants",
+            "description": "Ce mode d’habitation est synonyme de liberté. Alors que les roulottes étaient pour les gitans, tziganes et autres nomades un moyen de locomotion autant que de lieu de vie pour ces gens du voyage, elle est considérée à présent comme un hébergement convivial et chaleureux, souvent sédentarisée dans un joli par ou jardin. Mais on peut aussi choisir un autre style, avec les caravanes américaines, vintage et superbement aménagées en plein milieu de la nature. Sinon, alors que l’on a envie dans l’esprit, de conserver sa liberté jusqu’au bout, il y a moyen de trouver de superbes spots pour dormir en van aménagé, caravane, camping-car ou tout autre véhicule aménagé !",
+            "etablishment_type_id": 1
+        },
+        {
+            "id": 8,
+            "name": "Monuments Historiques",
+            "description": "Vous y trouverez châteaux, abbayes, phares et maisons historiques transformées aujourd'hui en hébergements ou chambres d'hôtes. Amateurs d’histoires et de bâtis anciens? Ces hébergements sont idéal pour des séjours authentiques!",
+            "etablishment_type_id": 1
+        },
+        {
+            "id": 9,
+            "name": "Bateaux",
+            "description": "Alors que chercher à dormir dans un bâteau ne coule pas de source, c’est pourtant un moyen très ressourçant que de prendre le temps d’écouter les clapotis de l’eau. Pour une soirée en amoureux ou un week-end entre amis, la location de péniches, yachts, toués et autres “barques” en tout genre est la solution pour un moment original au bord de la mer, d’une rivière, d’un fleuve ou sur un lac. Eau calme ou douce mélodie de la mer, c’est un élément fait pour ressourcer à coup sûr!",
+            "etablishment_type_id": 1
+        },
+        {
+            "id": 10,
+            "name": "H\u00e9bergement de charme",
+            "description": "La chambre d’hôte est un mode d’hébergement pour les personnes qui recherchent la proximité, la convivialité et le bien être. Souvent, on peut aussi profiter du jardin et de la piscine. Les propriétaires aiment accueillir chez eux et partager le plaisir de la rencontre. Si ce n'est des chambres d'hôtes, il y a aussi la maison ou le gîte à louer pour passer un moment à deux, en famille ou entre amis. Ces maisons sont familiales, accueillantes et proposent souvent un grand nombre de chambres. Parfois, on peut tomber sur des pépites totalement différentes de ce que l’on peut rencontrer habituellement et c’est l’occasion de vivre autre chose le temps d’un séjour.",
+            "etablishment_type_id": 1
+        },
+        {
+            "id": 11,
+            "name": "H\u00f4tels atypiques",
+            "description": "Certains hôtels  sont atypiques, hors du commun, fascinants et inhabituels par leur forme, leur décoration et leur ambiance. Souvent accompagnés par des décorateurs d’intérieurs plus originaux les uns que les autres, la conceptualisation de l'hôtel et de ses chambres rend le séjour fort agréable. Que ce soit pour une nuit en amoureux ou pour un voyage d'affaires, tout est fait pour profiter d’un moment à part.",
+            "etablishment_type_id": 1
+        },
+        {
+            "id": 12,
+            "name": "Bars lounges - Whiskies - Cocktails",
+            "description": "Souvent dans une atmosphère calfeutrée et propice à la dégustation, les lieux proposent généralement la dégustation de whiskies, du single malt à une sélection impressionnante de scotchs aussi nombreuse que variée.  Mais on peut aussi se laisser surprendre par les alliances détonantes de sirops, infusions et  liqueurs de qualité, qui changent au gré des envies et qui sont de pures créations originales",
+            "etablishment_type_id": 2
+        },
+        {
+            "id": 13,
+            "name": "Bars rooftop",
+            "description": "Du dernier étage d’un gratte-ciel en passant par une terrasse romantique, les bars rooftops avec leur vue spectaculaire proposent aussi bien des dîners sophistiqués qu’un joli cocktail, une soirée électro ou un moment fun en famille. Les visiteurs ont une vue imprenable à 360° lors des plus",
+            "etablishment_type_id": 2
+        },
+        {
+            "id": 14,
+            "name": "Bar \u00e0 vins",
+            "description": "C’est le week-end ! Les vacances ! Alors pourquoi ne pas se retrouver entre amis, amoureux ou en famille autour d’un vin délicieux apercevez dans cette catégorie plusieurs bars caves à vin vous proposant des vins excellents à déguster dans un cadre paisible et idyllique.",
+            "etablishment_type_id": 2
+        },
+        {
+            "id": 15,
+            "name": "Bars divers Pubs - Bars \u00e0 Tapas",
+            "description": "Se retrouver entre amis pour se détendre autour d’un verre accompagné de petits tapas, rien de plus convivial! Ou peut-être un pub irlandais traditionnel décoré d’éléments en bois sombres serait plus adapté?",
+            "etablishment_type_id": 2
+        },
+        {
+            "id": 16,
+            "name": "Bar \u00e0 th\u00e8mes - Jeux - Billard",
+            "description": "Depuis un certain temps, le phénomène des bars à thème ne cesse de s’intensifier en France. Ces bars, malgré leurs appellations, ne proposent pas tous des boissons alcoolisées, mais plutôt des ambiances comme celle des jeux vidéo, des ambiances féeriques, rock, jazz etc. Si le classique billard, Flipper, fléchettes qui peuvent être un plus dans un bar pour passer un moment bien sympathique entre amis, il y a aussi tous ces petits bars avec jeux de sociétés et ambiances ludiques",
+            "etablishment_type_id": 2
+        },
+        {
+            "id": 17,
+            "name": "Concerts Bars",
+            "description": "S’amuser, se détendre en assistant à des concerts de jazz, Blues, Rock, countries… avec des saxophonites, pianistes, chanteurs…nombreux sont les bars qui offrent ce genre de concert dan tous les styles de musique!",
+            "etablishment_type_id": 2
+        },
+        {
+            "id": 18,
+            "name": "Bar \u00e0 Chats",
+            "description": "Les petits félins sont une grande passion et la gourmandise un très joli défaut? Alors les On peut se détendre où calme et relaxation sont au rendez-vous avec son animal préféré ! Les vibrations apaisantes et bienfaisantes émises par ces chats font que vous oubliez votre journée de travail épuisante! D’abord né à Taïwan à la fin des années 90, le concept est très prisé au Japon puis il est arrivé en Europe. Il n’est pas toujours possible d’avoir un chat chez soi. La gestion quotidienne d’un animal n’étant pas toujours évidente, le bar à chats se trouve donc être une bonne alternative à l’adoption!",
+            "etablishment_type_id": 2
+        },
+        {
+            "id": 19,
+            "name": "Restaurants originaux",
+            "description": "De nombreux restaurants proposent pour les soirées de fête entre amis ou d'anniversaire des animations pour changer des brasseries typiques ou de la déco standard de certains franchisés. Mais certains concepts de restaurants sont hors normes pour séduire le client et vivre quelque chose d’unique! Il en ressort ravi et satisfait, c’est le principe de ces restaurants à part!",
+            "etablishment_type_id": 3
+        },
+        {
+            "id": 20,
+            "name": "Restaurants avec animations",
+            "description": "Une soirée avec animation est une manière d’offrir une expérience unique et différente aux clients, de souder les équipes de travail, de divertir les amis et de s’amuser en famille. Bien sûr, un groupe de musique est l’animation pour restaurant par excellence mais il y a beaucoup d’autres animations tel que les blinds tests musicaux, ou encore le magicien se déplaçant de table en table pendant que les clients attendent leurs plats. Les enfants raffolent des sculptures de ballon et c’est donc l’animation idéale pour un public familial. Les soirées à thèmes connaissent beaucoup de succès, et pour cause! Elles transportent les participants dans un autre univers!",
+            "etablishment_type_id": 3
+        },
+        {
+            "id": 21,
+            "name": "Brasseries - Bistrots - Auberges",
+            "description": "Si, au départ, le bistro avec tables en bois ou zinc et nappes vichy, ce restaurant qui se voulait modeste et sans prétention, à présent, ils proposent des espaces généralement ouverts, conviviaux et modernes. Le design y a pris une place importante et le côté un rien tendance de ce genre de lieu, est de proposer à présent des repas type “bistronomiques”. Les mets français traditionnels sont revisités en apportant une technique gastronomique et des produits de haute qualité!",
+            "etablishment_type_id": 3
+        },
+        {
+            "id": 22,
+            "name": "Cuisine traditionnelle",
+            "description": "La cuisine traditionnelle française fait référence à divers styles gastronomiques dérivés de la culture française. Chaque région, parfois même chaque département, regorge de recettes traditionnelles souvent transmises de génération en génération qui offre une très large palette de plats et de saveurs. A présent, la cuisine traditionnelle est aussi dans sa version la plus renommée appelée la grande cuisine.",
+            "etablishment_type_id": 3
+        },
+        {
+            "id": 23,
+            "name": "Cuisine du monde",
+            "description": "On aurait envie de se changer les idées et partir ailleurs manger une cuisine aux saveurs exotiques! On peut voyager et se faire un petit tour du monde à travers les cuisines asiatique, orientale, américaine et européenne. De pays en pays, on peut embarquer pour un voyage culinaire avec des saveurs de plats, d’aliments et d’épices parfois inconnus, inédits ou incontournables pour régaler les papilles!",
+            "etablishment_type_id": 3
+        },
+        {
+            "id": 24,
+            "name": "Type fast-food - Tapas",
+            "description": "Ce type de restauration est axé sur la rapidité, à toute heure et pour un prix peu élevé, qui peuvent être consommés sur place ou emportés sous emballage. On y retrouve les food-trucks et les traditionnels enseignes d’hamburgers, des kebabs, de pizzas, d’asiatiques mais la tendance s’est développée ces dernières années grâce au service tout compris ! Dorénavant, la livraison directement à domicile est fournie par les restaurants et suite à un appel téléphonique, quelques minutes plus tard et  et avec un service clef en main,  le plat cuisiné par un grand chef se retrouve dans le salon !",
+            "etablishment_type_id": 3
+        },
+        {
+            "id": 25,
+            "name": "Au fil de l eau",
+            "description": "Il y a mille et une façon de se balader et celle où on glisse sur l’eau est tout de même, une des plus agréable, il faut bien le dire!A bord d’un canoë, kayak ou paddle à deux, en famille ou entre amis, vivre une expérience 100 % nature au cœur des magnifiques paysages de nos régions avec la faune et la flore environnante. On peut aussi s’organiser une croisière-repas ou une promenade commentée grâce aux eaux tranquilles d’une rivière  ou carrément se faire une sortie crépuscule ou encore un bivouac en bord de fleuve. Visiter un département à travers une balade au fil de l’eau pour en admirer les paysages, c’est vraiment une expérience incroyable!",
+            "etablishment_type_id": 4
+        },
+        {
+            "id": 26,
+            "name": "Randonn\u00e9es nature",
+            "description": "Randonner, c'est voyager à son propre rythme, se retrouver au cœur de la nature et des routes pittoresques qui mènent à des trésors insoupçonnés. On peut en profiter pour aller à la pêche des perles sauvages à pied, à vélo ou à cheval, en solo, en famille ou entre amis, la randonnée c’est se ressourcer au fil des chemins !",
+            "etablishment_type_id": 4
+        },
+        {
+            "id": 27,
+            "name": "Sites historiques",
+            "description": "Se balader, c’est aussi découvrir  les joyaux architecturaux d’une ville dans laquelle il fait bon entamer une balade historique à travers les siècles.  On  peut choisir de se faire une balade hautement culturelle en s'accordant un voyage à travers l’histoire de la ville ou du village village, à la découverte de l’influence des civilisations qui les ont construits.",
+            "etablishment_type_id": 4
+        },
+        {
+            "id": 28,
+            "name": "Les perles sauvages",
+            "description": "Ces balades offrent un environnement naturel exceptionnel. Si on souhaite etre dans secteur sauvage, il existe de nombreux lieux remarquables avec des randonnées absolument fabuleuses à faire!",
+            "etablishment_type_id": 4
+        },
+        {
+            "id": 29,
+            "name": "Les jardins imaginaires",
+            "description": "Ces jardins sont dessinés avec des lignes architecturales très contemporaines, illustrations de la manière dont l’homme dialogue avec la Nature.Les parcours proposent comme des tableaux avec des voûtes parfumées faites de houblon, de glycine, de jasmin et d’autres plantes grimpantes qui ouvrent la porte aux rêves mais aussi des rosiers, vivaces,pieds de buis, jets d’eau, plein espèces végétales, arbres et arbustes dont des souvent des essences rares, des terrasses, des sous-bois, des belvédères, des jardins d’eau… Ces tableaux naturels aussi surprenants qu’envoûtants!",
+            "etablishment_type_id": 4
+        },
+        {
+            "id": 30,
+            "name": "Ateliers et stages",
+            "description": "Envie d'une activité qui pour quelques jours ou pour toute l’année? Que ce soit les activités sportives ou manuelles, lorsque l’on cherche à ou apprendre faire quelque chose, que l'on se considère ou non comme un artisan, un créatif ou un artiste, il est très amusant d’apprendre une nouvelle compétence ou de perfectionner celle qu’on  a déjà. De la théorie à la pratique, il existe des tonnes de choses productives à faire !",
+            "etablishment_type_id": 5
+        },
+        {
+            "id": 31,
+            "name": "Activit\u00e9s physiques et sportives",
+            "description": "L’activité physique vise à améliorer essentiellement sa condition physique et se présente sous forme de jeux individuels ou collectifs, donnant généralement lieu à  des compétitions mais pas seulement. On sait bien que la pratique régulière d'un sport, même d'intensité modérée, va forcer le corps à préserver les muscles et à se tourner vers la graisse pour trouver l'énergie qui lui manque. Le sport aide donc à perdre du poids, à renforcer les os et les capacités cardio-vasculaires. De plus, il renforce la motricité, renforce la coordination et la souplesse. C’est pour cela que l’on se sent bien après une bonne séance de sport ! D'un point de vue social, la pratique d'un sport favorise l'échange, hors stress professionnel ou différences culturelles, et développe la convivialité ! Que du bénéfice !",
+            "etablishment_type_id": 5
+        },
+        {
+            "id": 32,
+            "name": "Activit\u00e9s ludiques",
+            "description": "Les activités ludiques sont des supports facilitateurs pour entrer en relation avec autrui. Souvent, ses activités concernent les enfants et on leur trouve tout un tas de propositions  sans soucis qui va bien évidemment jusqu'aux parcs d’attractions mais les activités pour les adultes ne sont pas en reste dans les jeux, escapes games, spectacles, concerts,...",
+            "etablishment_type_id": 5
+        },
+        {
+            "id": 33,
+            "name": "Activit\u00e9s gustatives",
+            "description": "Vous avez envie de faire une activité dans l’univers de la cuisine ou encore, vous cherchez à faire des dégustations ?Il y a beaucoup de façons de déguster les produits ! Souvent, les artisans vous font découvrir l’amour de leurs produits de terroir… que ce soit le vin, le fromage mais aussi la truffe, le caviar et pour les passionnés des produits comme le chocolat! Pour ne citer que cela! Vous pouvez passer du temps, seul, entre amis ou en famille à apprendre ou inventer les recettes qui vont régaler vos papilles. Vous pouvez les y trouver sous forme de stages ou d’ ateliers et ce sera toujours des cours préparés avec passion par des passionnés",
+            "etablishment_type_id": 5
+        },
+        {
+            "id": 34,
+            "name": "Activit\u00e9s \u00e9ducatives",
+            "description": "On peut toujours en apprendre plus. Pour visiter, en prendre plein les yeux, découvrir de nouvelles choses, revenir sur des souvenirs, sentir, voir, toucher, entendre…Il est  toujours satisfaisant de se “coucher le soir moins bête…” ! Certaines des activités aussi sont vraiment adaptées aux enfants. Elles leur permettent de s’occuper, de découvrir ou de développer de nouveaux horizons.",
+            "etablishment_type_id": 5
+        },
+        {
+            "id": 35,
+            "name": "Activit\u00e9s Bien-\u00eatre",
+            "description": "Lorsque l’on éprouve cet état, cette sensation de bien-être, c’est que la satisfaction des besoins du corps et le calme de l'esprit sont atteints.  On  peut les retrouver grâce aux massages, au yoga ou dans des ateliers de développement personnel qui, en réduisant les tensions et en favorisant la relaxation, contribuent au bien-être général et  rétablissent l'harmonie entre les différents flux de l'organisme. Mais, peut-être aussi que juste un soin esthétique suffirait?  Enfin, se faire plaisir avec un moment bien-être reste vraiment un moment privilégié à faire seul-e ou à deux!",
+            "etablishment_type_id": 5
+        },
+        {
+            "id": 36,
+            "name": "Shopping artisans et cr\u00e9ateurs",
+            "description": "Retrouvez ici, des boutiques de créateurs partout où vous serez en France. Entrez en contact avec des artistes créateurs et découvrez des œuvres artistiques uniques. où  pour faire du shopping, et ramener  avec vous des objets d’art  unique.",
+            "etablishment_type_id": 5
+        },
+        {
+            "id": 37,
+            "name": "Organisateurs",
+            "description": "L'organisateur est celui qui régie la conception d'un événement de bout en bout, mais pas obligatoirement. Il peut s’occuper des préparatifs, de l'organisation matérielle d'un événement, du mariage à l’anniversaire en passant par la réception, l'inauguration de toute occasion mais il peut aussi s’occuper  de la logistique en fonction des besoins. Bien sûr, les wedding planners ont le vent en poupe car ils aident à coordonner toute la  journée du mariage qui peut être stressante et compliquée pour les futurs concernés! Mais de plus en plus, les organisateurs toutes catégories confondues sont les bienvenus pour aider à organiser de façon professionnelle malgré les airs festifs, les événements quels qu'ils soient en fonction  des obligations administratives, de la déco et bien évidemment du budget.",
+            "etablishment_type_id": 6
+        },
+        {
+            "id": 38,
+            "name": "Photographes",
+            "description": "C’est un professionnel de l'image et il existe plusieurs types de photographes. Créatif, il propose de réaliser des prises de vue dans les domaines de la mode, du mariage, du paysage...Souvent on peut faire appel à un photographe/vidéaste pour immortaliser un évènement, illustrer un article, réaliser des portraits, photos de naissance. Il propose de faire un shooting à son atelier mais ils peuvent aussi convenir de se déplacer pour prendre dans un contexte particulier un événement où les clichés n’en seront que plus poignant.",
+            "etablishment_type_id": 6
+        },
+        {
+            "id": 39,
+            "name": "Traiteurs",
+            "description": "Pour confectionner le repas idéal ou créer son évènement gourmand, le savoir-faire des traiteurs permet la qualité et les produits travaillés sont les ingrédients d’une soirée réussie. Le traiteur se déplace et conceptualise le repas sur le lieu de réception mais de plus en plus, la livraison est possible et une simple soirée en amoureux devient un moment magique autour d’un repas étudier pour vos envies!",
+            "etablishment_type_id": 6
+        },
+        {
+            "id": 40,
+            "name": "Fleuristes",
+            "description": "Les fleuristes assemblent chaque bouquet avec amour pour donner le meilleur de leur art. Les fleurs peuvent être livrées par un fleuriste local considéré comme un véritable artisan qui sait réaliser une composition florale pour satisfaire les attentes et le budget du client. Les fleurs proviennent souvent de producteurs triés sur le volet en France et en Europe, avec lesquels les artisans travaillent main dans la main. Les collections de fleurs offrent une grande diversité de choix au fil des saisons. Pour des événements, des surprises ou une marque d’affection, la fleur reste une valeur sûre!",
+            "etablishment_type_id": 6
+        },
+        {
+            "id": 41,
+            "name": "Locations de v\u00e9hicules",
+            "description": "Une voiture de location au meilleur prix, avec un large choix de modèles de voitures et d’utilitaires. Tous les choix s'offrent suivant les besoins de location: Economique, Mini, Compacte, Monospace, Intermédiaire, Premium, 4x4, Break, SUV! Souvent les assurances sont incluses dans le prix, il est possible de bénéficier d’une couverture multirisque et vol et en général, il y a l’assistance dépannage 24h:24 pour tous les véhicules. Selon la destination ou la localisation, des séjours loin de chez soin ou parce que l’on souhaite se déplacer sans l'achat d’un véhicule, la location de voiture partout en France est une très belle solution! ",
+            "etablishment_type_id": 6
+        },
+        {
+            "id": 42,
+            "name": "Locations de v\u00e9los",
+            "description": "La tendance actuelle voudrait que l’on puisse se déplacer sans encombrement et visiter, se faire une balade, une randonnée ou du sport, sans avoir à se préoccuper de charger ou stocker un vélo. Il y a des magasins de location qui proposent tout type de vélo, du vélo de ville à celui tout terrain en passant par le vélo électrique mais à présent, on peut aussi trouver des livraisons de vélos un peu partout en France. La réservation de vélo se fait souvent à travers une large gamme et un très grand choix de possibilités!",
+            "etablishment_type_id": 6
+        },
+        {
+            "id": 43,
+            "name": "Divers",
+            "description": "IGOguide a pensé à tous les petits détails qui permettent aux utilisateurs de pouvoir s’organiser pendant leur soirée, week-end ou vacances! Cette catégorie permet de rassembler des entreprises qui facilitent le quotidien sont parfois aussi utiles que surprenantes! On y trouvera des points relais colis mais aussi les pressings, les lavomatics, l'entretien de chaussures, divers services de location et plein d’autres prestations pour faciliter le bon fonctionnement d’un séjour!",
+            "etablishment_type_id": 6
+        }
+    ]
+}
