@@ -173,6 +173,10 @@ g path:hover {
     }
 }
 
+/*#reseaux{
+    background-image: url('IMG/Réseaux sociaux instagram et facebook pour Igoguide_text.jpg');
+}*/
+
 /*body { 
     width: 100%;
     height:100%;
@@ -212,7 +216,7 @@ g path:hover {
                 <form action="/etablishment/search" method="POST">{% csrf_token %}
                   <div class="row">
                     <div class="col-lg-4 d-flex align-items-center form-group input-group-sm">
-                      <input class="form-control border-0 shadow-0 btn-sm" name="mc" type="text" placeholder="Mot clé (Ex: Manger)">
+                      <input class="form-control border-0 shadow-0 btn-sm" name="mc" type="text" placeholder="Mot clé (Ex: Dormir, bars, restaurants.....)">
                     </div>
                     <div class="col-lg-4 d-flex mb-0 align-items-center form-group ">
                       <div class="input-label-absolute input-label-absolute-right w-100">
@@ -262,8 +266,8 @@ g path:hover {
                                 <div class="team-img">
                                     <img  style="border-radius: 20px" src="{% static 'IMG/ETAPES/1.png'%}" alt="Image">
                                     <div style="text-align: left; margin-top:5%;">
-                                        <p><strong> choisie une destination ? Un établissement ? Où une activité ?</strong></p>
-                                        <p>Par mots-clés pour n'en faire qu'une bouchée. Avec sa carte interactive, super addictive ! Où avec ses favoris au goût de reviens-y !</p>
+                                        <p><strong> choisi une destination ? Un établissement ? <br>Ou encore une activité ?</strong></p>
+                                        <p>Par mots-clés pour n'en faire qu'une bouchée. Avec sa carte interactive, super addictive ! Ou avec ses favoris au goût de reviens-y !</p>
                                     </div>
                                 </div>
 
@@ -275,7 +279,7 @@ g path:hover {
                                     <img style="border-radius: 20px" src="{% static 'IMG/ETAPES/2.png'%}" alt="Image">
                                     <div style="text-align: left; margin-top:5%;">
                                         <p><strong>J'ai trouvé !</strong></p>
-                                        <p>Super! Accédez à présent directement à sa fiche ! Tous ses renseignements dont ses photos, site, tarifs, adresse, mail et téléphone ci trouvent</p>
+                                        <p>Super! Accédez à présent directement à sa fiche ! Tous ses renseignements dont ses photos, site, tarifs, adresse, mail et téléphone ci-trouvent</p>
                                     </div>
                                 </div>
 
@@ -305,76 +309,76 @@ g path:hover {
 
 
 <!-- gallery-item -->
-        <div class="row  mb-5">
+        <!--<div class="row  mb-5">
             <div class="col-sm-4"><hr></div>
             <div class="col-sm-4 text-center" style="font-size: 22px; font-family: Bangers; color:black">Lieux</div>
             <div class="col-sm-4"><hr></div>
-        </div>
-
+        </div>-->
+        <br>
         <div class="row row-cols-1 row-cols-md-6 g-4">
             <div class="col">
               <div class="card h-100">
-                <img src="{% static 'IMG/2 Hipster pour nuit insolite.jpg'%}" class="card-img-top" alt="...">
+                <a href="/categorie/1"><img src="{% static 'IMG/2 Hipster pour nuit insolite.jpg'%}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                    <h6 class="card-title"><a href="/categorie/1" class="categorie2 card-title" style="text-align: center; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Hébergements atypiques</a></h6>
-                    <p class="card-text" style="text-align: center;">Des nuits atypiques, c’est assuré…insolites, c’est probable…et des nuits magiques, c’est certain! L’univers que les hôtes ont créé est inventif et rend ces moments inoubliables.</p>
+                    <h6 class="card-title"><a href="/categorie/1" class="categorie2 card-title"  style="font-family: Bangers; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Hébergements atypiques</a></h6>
+                    <a href="/categorie/1"><p class="card-text" style="text-align: center;">Des nuits atypiques, c’est assuré…insolites, c’est probable…et des nuits magiques, c’est certain! L’univers que les hôtes ont créé est inventif et rend ces moments inoubliables.</p></a>
                 </div>
               </div>
             </div>
             <div class="col">
               <div class="card h-100">
-                <img src="{% static 'IMG/restaurant pop art igoguide.jpg'%}" class="card-img-top" alt="...">
+                <a href="/categorie/2"><img src="{% static 'IMG/restaurant pop art igoguide.jpg'%}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                  <h6 class="card-title"><a href="/categorie/2" class="categorie2 card-title" style="text-align: center; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Bars</a></h6>
-                  <p class="card-text" style="text-align: center;">Se retrouver entre amis ou en famille pour un partage de bons moments.
-                </p>
+                  <h6 class="card-title"><a href="/categorie/2" class="categorie2 card-title" style="font-family: Bangers; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Bars</a></h6>
+                  <a href="/categorie/2"><p class="card-text" style="text-align: center;">Se retrouver entre amis ou en famille pour un partage de bons moments.</p></a>
                 </div>
               </div>
             </div>
             <div class="col">
               <div class="card h-100">
-                <img src="{% static 'IMG/Bar ou boire avec ses amis.jpg'%}" class="card-img-top" alt="...">
+                <a href="/categorie/3"><img src="{% static 'IMG/Bar ou boire avec ses amis.jpg'%}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                    <h6 class="card-title"><a href="/categorie/3" class="categorie2 card-title" style="text-align: center; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Restaurants</a></h6>
-                    <p class="card-text" style="text-align: center;">Lorsque l’on va au restaurant, on ne se contente plus de savourer un délicieux repas. On cherche aussi maintenant à vivre une véritable expérience de dépaysement le temps d’un tête à tête.</p>
+                    <h6 class="card-title"><a href="/categorie/3" class="categorie2 card-title" style="font-family: Bangers; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Restaurants</a></h6>
+                    <a href="/categorie/3"><p class="card-text" style="text-align: center;">Lorsque l’on va au restaurant, on ne se contente plus de savourer un délicieux repas. On cherche aussi maintenant à vivre une véritable expérience de dépaysement le temps d’un tête à tête.</p></a>
                 </div>
               </div>
             </div>
             <div class="col">
               <div class="card h-100">
-                <img src="{% static 'IMG/balade igoguide.jpg'%}" class="card-img-top" alt="...">
+                <a href="/categorie/4"><img src="{% static 'IMG/balade igoguide.jpg'%}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                    <h6 class="card-title"><a href="/categorie/4" class="categorie2 card-title" style="text-align: center; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Balade</a></h6>
-                  <p class="card-text" style="text-align: center;">Des idées de promenades et des itinéraires de randonnées pour une découverte de La France et de ses régions dans les moindres recoins</p>
+                    <h6 class="card-title"><a href="/categorie/4" class="categorie2 card-title" style="font-family: Bangers; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Balade</a></h6>
+                    <a href="/categorie/4"><p class="card-text" style="text-align: center;">Des idées de promenades et des itinéraires de randonnées pour une découverte de La France et de ses régions dans les moindres recoins</p></a>
                 </div>
               </div>
             </div>
             <div class="col">
                 <div class="card h-100">
-                  <img src="{% static 'IMG/activités igoguide.jpg'%}" class="card-img-top" alt="...">
+                    <a href="/categorie/5"><img src="{% static 'IMG/activités igoguide.jpg'%}" class="card-img-top" alt="..."></a>
                   <div class="card-body">
-                    <h6 class="card-title"><a href="/categorie/5" class="categorie2 card-title" style="text-align: center; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Activitées</a></h6>
-                    <p class="card-text" style="text-align: center;">À la recherche d’une activité dans le lieu où vous vous trouvez ? Envie de découvrir les régions françaises sous leurs angles les plus originaux? IGOguide vous emmène pour bouger ou vous détendre.</p>
+                    <h6 class="card-title"><a href="/categorie/5" class="categorie2 card-title" style="font-family: Bangers; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Activitées</a></h6>
+                    <a href="/categorie/5"><p class="card-text" style="text-align: center;">À la recherche d’une activité dans le lieu où vous vous trouvez ? Envie de découvrir les régions françaises sous leurs angles les plus originaux? IGOguide vous emmène pour bouger ou vous détendre.</p></a>
                   </div>
                 </div>
               </div>
               <div class="col">
                 <div class="card h-100">
-                  <img src="{% static 'IMG/photographe mariage.jpg'%}" class="card-img-top" alt="...">
+                    <a href="/categorie/6"><img src="{% static 'IMG/photographe mariage.jpg'%}" class="card-img-top" alt="..."></a>
                   <div class="card-body">
-                    <h6 class="card-title"><a href="/categorie/6" class="categorie2 card-title" style="text-align: center; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Services</a></h6>
-                    <p class="card-text" style="text-align: center;">Et si pour animer votre soirée ou rendre votre séjour inoubliable, vous faisiez appel aux services de professionnels? besoin d’un photographe? D’un traiteur? D’une location de voiture? D’un fleuriste peut-être!</p>
+                    <h6 class="card-title"><a href="/categorie/6" class="categorie2 card-title" style="font-family: Bangers; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Services</a></h6>
+                    <a href="/categorie/6"><p class="card-text" style="text-align: center;">Et si pour animer votre soirée ou rendre votre séjour inoubliable, vous faisiez appel aux services de professionnels? besoin d’un photographe? D’un traiteur? D’une location de voiture? D’un fleuriste peut-être!</p></a>
                   </div>
                 </div>
               </div>
           </div>
-
+          <div></div>
+          <div class="alert alert-dark text-center" style="font-size: 22px; font-family: Bangers; color:gray;" role="alert">IGOGUIDE TRANFORME VOS RECHERCHES!</div>
      </section>
 
 
 <div class="row mt-4 mb-4">
     <div class="col-sm-4"><hr></div>
-    <div class="col-sm-4 mt-3 text-center" style="font-size: 22px; font-family: Bangers; color:black">Suivez le guide</div>
+    <div class="col-sm-4 mt-3 text-center" style="font-size: 22px; font-family: Bangers; color:black">O&ugrave; aller ?</div>
     <div class="col-sm-4"><hr></div>
 </div>
 
@@ -841,7 +845,8 @@ g path:hover {
 <!-- gallery-item -->
 <div class="row mt-4 mb-4">
     <div class="col-sm-4"><hr></div>
-    <div class="col-sm-4 mt-3 text-center" style="font-size: 22px; font-family: Bangers; color:black">Découvertes insolites</div>
+    <div class="col-sm-4 mt-3 text-center" style="font-size: 22px; font-family: Bangers; color:black">Partez &agrave; la D&eacute;couverte des r&eacute;gions et de leurs secrets...</div>
+    <!--<div class="col-sm-4 mt-3 text-center" style="font-size: 22px; font-family: Bangers; color:black">IGOblog: destinations merveilleuses</div>-->
     <div class="col-sm-4"><hr></div>
 </div>
 
@@ -854,7 +859,7 @@ g path:hover {
         <div class="swiper-wrapper pb-6">
           <!-- Slides-->
           <div class="swiper-slide h-auto px-2" style="  transform: rotate(-3deg);">
-            <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="http://blog.igoguide.com/tag/nouvelle-aquitaine/"></a><img class="bg-image" src="{% static 'IMG/vidéo pour film vacances en famille.jpg'%}" alt="Card image">
+            <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="http://blog.igoguide.com/tag/nouvelle-aquitaine/"></a><img class="bg-image" src="{% static 'IMG/section_blog/blog_nouvelle_aquitaine.jpg'%}" alt="Card image">
               <div class="card-body overlay-content">
                 <h6 class="card-title text-shadow text-uppercase">Nouvelle Aquitaine</h6>
                 <p class="card-text text-sm"></p>
@@ -863,7 +868,7 @@ g path:hover {
           </div>
 
           <div class="swiper-slide h-auto px-2" style="  transform: rotate(1deg);">
-            <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="http://blog.igoguide.com/tag/martinique/"></a><img class="bg-image" src="{% static 'IMG/Depositphotos_13245599_XL.jpg'%}" alt="Card image">
+            <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="http://blog.igoguide.com/tag/martinique/"></a><img class="bg-image" src="{% static 'IMG/section_blog/blog_martinique.jpg'%}" alt="Card image">
               <div class="card-body overlay-content">
                 <h6 class="card-title text-shadow text-uppercase">Martinique</h6>
                 <p class="card-text text-sm"></p>
@@ -872,7 +877,7 @@ g path:hover {
           </div>
 
           <div class="swiper-slide h-auto px-2" style="  transform: rotate(-4deg);">
-            <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="http://blog.igoguide.com/tag/corse/"></a><img class="bg-image" src="{% static 'IMG/gorge du verdon.jpg'%}" alt="Card image">
+            <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="http://blog.igoguide.com/tag/corse/"></a><img class="bg-image" src="{% static 'IMG/section_blog/blog_corse.jpg'%}" alt="Card image">
               <div class="card-body overlay-content">
                 <h6 class="card-title text-shadow text-uppercase">Corse</h6>
                 <p class="card-text text-sm"></p>
@@ -881,7 +886,7 @@ g path:hover {
           </div>
 
           <div class="swiper-slide h-auto px-2" style="  transform: rotate(4deg);">
-            <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="http://blog.igoguide.com/tag/occitanie/"></a><img class="bg-image" src="{% static 'IMG/beach-g00440e007_1920.jpg'%}" alt="Card image">
+            <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="http://blog.igoguide.com/tag/occitanie/"></a><img class="bg-image" src="{% static 'IMG/section_blog/blog_occitanie.jpg'%}" alt="Card image">
               <div class="card-body overlay-content">
                 <h6 class="card-title text-shadow text-uppercase">Occitanie</h6>
                 <p class="card-text text-sm"></p>
@@ -890,7 +895,7 @@ g path:hover {
           </div>
 
           <div class="swiper-slide h-auto px-2" style="  transform: rotate();">
-            <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="http://blog.igoguide.com/tag/normandie/"></a><img class="bg-image" src="{% static 'IMG/eiffel-tower-g57b626770_1920.jpg'%}" alt="Card image">
+            <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0"><a class="tile-link" href="http://blog.igoguide.com/tag/normandie/"></a><img class="bg-image" src="{% static 'IMG/section_blog/blog_normandie.jpg'%}" alt="Card image">
               <div class="card-body overlay-content">
                 <h6 class="card-title text-shadow text-uppercase">Normandie</h6>
                 <p class="card-text text-sm"></p>
@@ -904,11 +909,20 @@ g path:hover {
     </div>
   </section>
 
-  <div class="row  mb-4">
+  <!--<div class="row  mb-4">
     <div class="col-sm-4 mt-3"><hr></div>
-    <div class="col-sm-4 mt-3 text-center" style="font-size: 22px; font-family: Bangers; color:black">Destinations merveilleuses</div>
+    <div class="col-sm-4 mt-3 text-center" style="font-size: 22px; font-family: Bangers; color:black;"></div>
     <div class="col-sm-4 mt-3"><hr></div>
+</div>-->
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-6 offset-md-3" style="font-size: 22px; font-family: Bangers;">
+            <p style="background-color:#FFCD00;">Destinations merveilleuses et d&eacute;couvertes insolites</p>
+        </div>
+      </div>
 </div>
+
 
     <section style="width:100%; margin-left:0;margin-right:0">
         <div class="row no-gutters" style="width:100%;margin-right:0">
@@ -916,6 +930,9 @@ g path:hover {
             <a href="#"><img style="height:100%;margin-left:1px" class="image-footer" src="{% static 'IMG/Bons cadeaux Igoguide_text.jpg'%}" alt="Image"></a>
          </div>
           <div class="col">
+            <!--<table id="reseaux">
+                <p>jjjj</p>
+            </table>-->
             <a href="https://www.instagram.com/accounts/login/?next=/igoguide/" target="_blank"><img style="height:100%" class="image-footer" src="{% static 'IMG/Réseaux sociaux instagram et facebook pour Igoguide_text.jpg'%}" alt="Image"></a>
           </div>
           <div class="col">
