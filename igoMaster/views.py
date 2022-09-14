@@ -32,6 +32,12 @@ def cgv(request):
 def cgu(request):
     return render(request,'dashboard/pages/cgu.html')
 
+def cgu_footer(request):
+    return render(request, 'cgu_footer.html')
+
+def faq_footer(request):
+    return render(request, 'faq_footer.html')
+
 def fillcat():
     et=None
     with open('igoMaster/data/EtablishmentSubTypes.json','r')as f:
