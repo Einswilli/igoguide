@@ -1,0 +1,294 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>IGOGUIDE | CGU</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'template/img/PngItem_97912.png'%}" rel="icon">
+  <link href="{% static 'dashboard/assets/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'dashboard/assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'dashboard/assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'dashboard/assets/vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'dashboard/assets/vendor/quill/quill.snow.css'%}" rel="stylesheet">
+  <link href="{% static 'dashboard/assets/vendor/quill/quill.bubble.css'%}" rel="stylesheet">
+  <link href="{% static 'dashboard/assets/vendor/remixicon/remixicon.css'%}" rel="stylesheet">
+  <link href="{% static 'dashboard/assets/vendor/simple-datatables/style.css'%}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'dashboard/assets/css/style.css'%}" rel="stylesheet">
+  <link href="{% static 'css/datatables.css'%}" rel="stylesheet">
+  <script src="{% static 'js/jquery.min.js'%}"></script>
+
+  <style>
+    a{
+      text-decoration:none;
+    }
+    a:hover{
+      text-decoration:none;
+    }
+    #transform { 
+        text-transform: uppercase;
+    }
+  </style>
+  <!-- =======================================================
+  * Template Name: NiceAdmin - v2.3.1
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Conditions Générales d'Utilisation</h5>
+
+          <div class="col-1" style="justify-content:center;">
+            <a href="/"><i class="bi bi-arrow-left" title="retour sur la page d'accueil" style="color:rgb(0, 11, 135), 15, 176);font-size:26px"></i></a>
+          </div>
+
+          <!-- Default Accordion -->
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="transform">
+                    IGOguide à l'air d'avoir choisi des endroits assez atypiques, voir vraiment insolites. Pourquoi ce choix?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Les guides et annuaires dit classiques des hébergements, de bars, de restaurants, de balades, d'activités fleurissent tous les jours sur la toile. IGOguide se voulait différent de plusieurs façons afin de se démarquer, dont principalement 3 axes: <br><br>
+                 
+                  <ol>
+                    <li> Rassembler toutes les catégories de loisirs sur une même plateforme</li>
+                    <li> Faciliter la recherche grâce aux mots-clés, aux cartes et au contact direct avec les établissements</li>
+                    <li> Etre sûr de proposer des choses surprenantes adaptées aux occasions, aux sorties, aux envies!</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="transform">
+                  <uppercase>Comment faire une recherche efficace?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <ul>
+                        <li> Grâce au menu qui possède 6 catégories, ayant elles-même un ensemble de sous-catégories afin d'affiner au mieux votre recherche</li>
+                        <li> Mais aussi avec la barre de recherche où vous mettez vos mots-clés suivant la priorité de votre demande. Cela pourrait être : l’établissement, l’activité, mais cela peut-être aussi enfants, animaux, spa par exemple et ensuite le lieu.  Exemple : cabanes dans les arbres, Bretagne.</li>
+                        <li> Puis La recherche sur la carte par régions</li>
+                        <li> Et enfin sur la liste par départements</li>
+                      </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" id="transform">
+                    Quel est le principe de la carte interactive ?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Jetez votre dévolu sur un établissement et choisissez avec facilité toutes vos activités se trouvant autour! Mais l'inverse est valable aussi! Faites l'activité tant attendue et vous trouverez de quoi vous restaurer et dormir à proximité!!!
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4" id="transform">
+                    En quoi peuvent m'être utile les "Services" sur IGOguide?
+                </button>
+              </h2>
+              <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Votre humble serviteur, Mister IGOguide a pensé à tout ! Votre catégorie "services" vous permet d'avoir accès à tous les petits + pour organiser au mieux votre séjour.<br>
+                    <ul>
+                        <li> Votre demande en mariage se fait en haut des cimes d'un arbre grâce à la nuit insolite que vous avez réservé? Trouver une agence de production vidéo qui fera un film souvenir en prise de vue aérienne avec un drone est une super idée non? Et pour le coup assez unique! Comme votre demande!</li>
+                        <li> Vous avez réservé une table de restaurant avec un repas exceptionnel pour son anniversaire mais vous auriez voulu pouvoir y rajouter votre touche personnelle? L'intervention du magicien sera le clou du spectacle au moment du gâteau!</li>
+                      </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5" id="transform">
+                    Mes favoris restent enregistrés ?
+                </button>
+              </h2>
+              <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Exactement! A partir du moment où vous êtes inscrit, IGOguide vous redonne tout de go ce que vous aviez mis de côté!
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading6">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6" id="transform">
+                  Quelle est la différence des bons cadeaux IGOguide avec ce qui existe déjà?
+                </button>
+              </h2>
+              <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Vous pourriez être surpris des possibilités qui vont s'ouvrir à vous! IGOguide vous les dévoilera incessamment sous peu!
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading7">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7" id="transform">
+                   J'ai vu que l'on pouvait offrir des bons cadeaux?
+                </button>
+              </h2>
+              <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    C'est pour bientôt ! Mais IGOguide n'a pas tout à fait fini sa petite mixture. Il veut que tout soit parfait donc cela prendra encore un peu de temps... Vous pourrez les acheter sur IGOguide.com et les professionnels toutes catégories confondues participants du réseau "bons cadeaux IGOguide" pourront accepter le bénéficiaire dans son établissement ou à son activité.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading8">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8" id="transform">
+                    Si je souhaite communiquer une bonne adresse, comment faire?
+                </button>
+              </h2>
+              <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Rien de plus simple! Ecrivez à IGOguide <a href="contact@igoguide.com">contact@igoguide.com</a> et celui-ci s'empressera de regarder ce que vous lui avez concocté!
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading9">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9" id="transform">
+                  IGOguide est GRATUIT pour tout le monde, particuliers et professionnels, comment est-ce possible ?
+                </button>
+              </h2>
+              <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    "L'union fait la force" voici l'adage qu'aurait pu choisir IGOguide ! <br>
+                    Et/ou "Plus on est de fous, plus on rit " ! IGOguide met en avant les interactions des catégories qu'il propose. Il faut donc que tout le monde y soit et que chacun y trouve son bonheur!
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading10">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10" id="transform">
+                    Puisque c'est GRATUIT, puis-je ajouter ma fiche en tant que professionnel ?
+                </button>
+              </h2>
+              <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Mais bien sûr ! Rien de plus simple !!! Vous vous inscrivez en tant que professionnel depuis “L’Espace Pro” et vous remplissez votre fiche. Pas d'inquiétude, elle est très simple et facile. Vous serez guidé pas-à-pas. 5 minutes montre en main suffisent!
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading11">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11" id="transform">
+                    Comment ça marche? Réaliser ses rêves n'a jamais été aussi simple!
+                </button>
+              </h2>
+              <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <ul>
+                        <li> Choisissez votre établissement ou votre activité </li>
+                        <li> Regardez s'ils correspondent à vos autres envies qui se trouvent autour grâce à la carte interactive!</li>
+                        <li> Contactez-les grâce à leurs fiches de renseignements</li>
+                      </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading12">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="false" aria-controls="collapse12" id="transform">
+                    Je suis professionnel: comment vont se dérouler les 2 mois d'inscription GRATUITS ?
+                  </button>
+                </h2>
+                <div id="collapse12" class="accordion-collapse collapse" aria-labelledby="heading12" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    Sans aucun problème ! <br>
+                    Vous pouvez donc vous inscrire sans engagement. Aucune carte n’est demandée. Vous pourrez ainsi accéder à toutes vos questions en tant que professionnels sans contrepartie !<br>
+                    En résumé : vous allez vous enregistrer d'ici quelques minutes et IGOguide se chargera de vous envoyer un e-mail lorsqu'arrivera la fin de cette période pour vous demander si vous souhaitez continuer et prendre un ou plusieurs forfaits pour  <br>
+                    Continuer l’aventure  Tout simplement !
+                  </div>
+                </div>
+              </div>
+          </div><!-- End Default Accordion Example -->
+    
+        </div>
+      </div>
+</body>
+
+<script src="{% static 'dashboard/assets/vendor/apexcharts/apexcharts.min.js'%}"></script>
+  <script src="{% static 'dashboard/assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static 'dashboard/assets/vendor/chart.js/chart.min.js'%}"></script>
+  <script src="{% static 'dashboard/assets/vendor/echarts/echarts.min.js'%}"></script>
+  <script src="{% static 'dashboard/assets/vendor/quill/quill.min.js'%}"></script>
+  <script src="{% static 'dashboard/assets/vendor/simple-datatables/simple-datatables.js'%}"></script>
+  <script src="{% static 'dashboard/assets/vendor/tinymce/tinymce.min.js'%}"></script>
+  <script src="{% static 'dashboard/assets/vendor/php-email-form/validate.js'%}"></script>
+  <script src="{% static 'js/jquery.min.js'%}"></script>
+  
+  <!-- Template Main JS File -->
+  <script src="{% static 'dashboard/assets/js/main.js'%}"></script>
+
+{% comment %} FIN DU CONTENU {% endcomment %}
+<script src="{% static 'js/jquery.min.js'%}"></script>
+<script>
+  $(window).on('load',function(){
+    var uid;
+    var cgu=document.querySelector('#cgu')
+    //var profile_link=document.querySelector('#prolink')
+    uid = localStorage.getItem('userid');
+    $.ajax(
+    {
+      type:"GET",
+      url: "/users/pro/"+uid,
+      data:{
+               //post_id: catid
+      },
+      success: function( data ) 
+      {
+        console.log(data);
+        nf.href='/etablishment/new';
+        lf.href='/etablishment/list/pro/'+data.id;
+        na.href="/subscription/new"
+        la.href='/subscription/list/pro/'+data.id;
+        tr.href='/payments/pro/'+data.id;
+        mails.href='/mails/pro/'+data.id;
+        notif.href='/notifications/pro/'+data.id;
+        prof.href='/profile/pro/'+data.id;
+        faq.href='/faq';
+        cgv.href='/cgv';
+        cgu.href='#';
+      }
+    })
+  }
+);
+</script>

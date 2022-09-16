@@ -14,6 +14,8 @@ urlpatterns=[
     path("faq",views.faq),
     path("cgv",views.cgv),
     path("cgu",views.cgu),
+    path("cgu_footer", views.cgu_footer),
+    path("faq_footer", views.faq_footer),
 
     ### Médias
     path('media/new/<int:id>',views.save_media),
