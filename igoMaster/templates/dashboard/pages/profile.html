@@ -7,10 +7,10 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="/">
+        <!--<a class="nav-link " href="#">-->
           <i class="bi bi-grid"></i>
           <span>TABLEAU DE BORD</span>
-        </a>
+        <!--</a>-->
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
@@ -87,20 +87,20 @@
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" id='faq'>
+        <a class="nav-link collapsed" href="/faq" id='faq'>
           <i class="bi bi-question-circle"></i>
           <span>F.A.Q</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" id="cgv">
+        <a class="nav-link collapsed" href="/cgv" id="cgv">
           <i class="bi bi-question-circle"></i>
           <span>C.G.V</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" id="cgu">
+        <a class="nav-link collapsed" href="/cgu" id="cgu">
           <i class="bi bi-question-circle"></i>
           <span>C.G.U</span>
         </a>
@@ -203,16 +203,19 @@
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form action="/users/update/pro/{{user.id}}" method='POST' enctype"multipart/form-data">
+                  <form action="/users/update/pro/{{user.id}}" method='POST' enctype"multipart/form-data" id="post_form">
                     {% csrf_token %}
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Photo deProfile </label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="{{ user.Photo.url }}" alt="Profile">
+                        {% if data.Photo %}
+                          <img src="{{ user.Photo.url }}" alt="Profile">
+                        {% endif %}
                         <div class="pt-2">
-                          <a href="#" class="btn btn-primary btn-sm" title="Changer la photo de profile"><i class="bi bi-upload"></i></a>
+                          <a href="#" name="Photo" class="btn btn-primary btn-sm" title="Changer la photo de profile"><i class="bi bi-upload"></i></a>
                           <a href="#" class="btn btn-danger btn-sm" title="Supprimer la photo de profile"><i class="bi bi-trash"></i></a>
                         </div>
+                        <!--<input type="file" Required name="Photo" class="form-control">-->
                       </div>
                     </div>
 
@@ -294,6 +297,9 @@
 
     {% comment %} FIN DU CONTENU {% endcomment %}
     <script src="{% static 'js/jquery.min.js'%}"></script>
+
+    
+
     <script>
       $(window).on('load',function(){
         var uid;

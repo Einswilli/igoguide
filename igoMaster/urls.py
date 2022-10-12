@@ -82,5 +82,5 @@ urlpatterns=[
     path('profile/pro/<int:id>',views.get_user_profile),
     path('profile/p/<int:id>',views.get_particular_profile),
     path('users/changepass/pro/<int:id>',views.change_user_pass),
-    path('users/update/pro/<int:id>',views.update_user)
+    path('users/update/pro/<int:id>',views.update_user, name = "profile")
 ]

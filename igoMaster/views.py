@@ -1,3 +1,4 @@
+from email import message
 import re
 import time
 import random
@@ -11,6 +12,7 @@ from datetime import date, datetime, timedelta
 from dateutil.relativedelta import relativedelta
 from django.http import HttpResponse,JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+import os
 
 # Create your views here.
 
@@ -823,7 +825,24 @@ def change_user_pass(request,id):
     pass
 
 def update_user(request,id):
-    pass
+    data = User.objects.get(id = id)
+    
+    if request.method == 'POST':
+        if len(request.FILES) != 0:
+            if len(data.Photo) > 0:
+                os.remove(data.Photo.path)
+            data.Photo = request.FILES['Photo'] 
+        data.lname = request.POST.get('lname')
+        data.fname = request.POST.get('fname')
+        data.email = request.POST.get('email')
+        data.phone = request.POST.get('phone')
+        data.save()
+        #message.success(request, 'Modification enrégistrer')
+        return redirect(request, 'dashboard/pages/profile.html')
+
+# Modification du profile du professionel
+def update_professional_user(request,id):
+    get_professional_user(request,id)
 
 
 ######
