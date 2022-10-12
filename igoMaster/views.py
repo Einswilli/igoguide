@@ -616,6 +616,31 @@ def get_dept_etablishments(request,id):
         }for e in Etablishment.objects.filter(city__name__icontains=dept_name)]
         return render(request,'etablissements/liste.html',{'etablissements':l,'text':dept_name})
 
+def get_reg_etablishments(request,reg):
+    if reg not in ('',None):
+        
+        l=[{
+            'id':e.id,
+            'name':e.name,
+            'address':e.address,
+            'presentation':e.presentation,
+            'longitude':e.longitude,
+            'latitude':e.latitude,
+            'city':e.city,
+            'tags':e.tags,
+            'postal':e.postal,
+            'contact':Contact.objects.get(etablishment=e.id),
+            'reseaux':Social.objects.get(etablishment=e.id),
+            'subType':e.subType.name,
+            'subTypeText':e.subType.description,
+            'subtypeid':e.subType.id,
+            'type':e.subType.type.name,
+            'owner':e.owner,
+            'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
+            'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
+        }for e in Etablishment.objects.filter(city__region__icontains=reg)]
+        return render(request,'etablissements/liste.html',{'etablissements':l,'text':reg})
+
 def search_etablishment(request):
     if request.method=='POST':
         mc=request.POST.get('mc')

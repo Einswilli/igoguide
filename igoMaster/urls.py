@@ -66,6 +66,7 @@ urlpatterns=[
     path('etablishment/subtype/<int:id>',views.list_subtypeX_etablishment),
     path('etablishment/search',views.search_etablishment),
     path('etablishment/dept/<int:id>',views.get_dept_etablishments),
+    path('etablishment/reg/<str:reg>',views.get_reg_etablishments),
 
     ### ABONNEMENTS
     path('subscription/new',views.new_subscription),
