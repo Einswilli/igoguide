@@ -347,7 +347,21 @@
                                 <div class="info-box card">
                                     <i class="bi bi-clock" style="color:{{e.typeColor}}"></i>
                                     <h3 style="color:{{e.typeColor}}">Heures</h3>
-                                    <p>Monday - Friday<br>9:00AM - 05:00PM</p>
+                                    <p>
+                                        {% if 'Jours non ouverts' in e.other.keys %}
+                                            {% for k,v in e.other.items %}
+                                            {% if 'Jours non ouverts' %}{{v}}{% endif %}
+                                            {% comment %} {% if 'Jours non ouverts' %}{{v}}{% endif %} {% endcomment %}
+                                            {% endfor %}
+                                        {% else %}
+                                        Lundi-Dimanche
+                                        {% endif %}
+                                    <br>
+                                    {% for k,v in e.other.items %}
+                                    {% if "Heure d'ouverture" in k %}{{v}}{% endif %}
+                                    {% if 'Heure de fermeture' in k %}-{{v}}{% endif %}
+                                    {% endfor %}
+                                    </p>
                                 </div>
                             </div>
                         </div>

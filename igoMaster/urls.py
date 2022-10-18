@@ -58,7 +58,7 @@ urlpatterns=[
     path('etablishment/new',views.new_etablishment),
     path('etablishment/save',views.save_etablishment),
     path('etablishment/<int:id>',views.get_etablishment_details),
-    path('etablishment/list/pro/<int:id>',views.list_user_etablishments),
+    path('etablishment/list/pro/<int:id>',views.list_user_etablishments,name="user_etablishments"),
     path('etablishment/get/pro/<int:id>',views.get_user_etablishments),
     path('etablissement/edit/<int:id>',views.edit_etablishment),
     path('etablissement/delete/<int:id>',views.delete_etablishment),

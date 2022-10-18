@@ -141,6 +141,7 @@ def particular_login(request):
                     'telephone':u.Phone,
                     'favorites':[e.etablishment.id for e in Favoris.objects.filter(user=u.id)]
                 }
+                request.session['client']=user
                 return render(request,'accueil.html',{'client':user})
             else:
                 msg='mot de passe invalide!'
@@ -227,6 +228,7 @@ def professional_login(request):
         if u!=None:
             #Alors on vérifie le pass
             if u.Pass==paswd:
+                request.session['user']=u
                 return render(request,'dashboard/index.html',{'user':u})
             else:
                 msg='Erreur: mot de passe invalide!'
@@ -313,6 +315,7 @@ def get_etablishment_details(request,id):
         'subtypeid':e.subType.id,
         'type':e.subType.type.name,
         'owner':e.owner,
+        #'other':Json.loads(OTHER.objects.get(etablishment=e.id).content) or '',
         'typeColor':e.subType.type.color,
         'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
         'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
@@ -714,7 +717,7 @@ def x_in_city(x,city):
     return False 
 
 def x_in_etab(x,etab):
-    # Recher cher par mots clés
+    # Rechercher par mots clés
     if not x or x=='': return False
     atrs=[
         etab['presentation'],etab['tags'],etab['name'],
