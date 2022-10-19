@@ -9,6 +9,7 @@ urlpatterns=[
 
     ###     ACCUEIL
     path("",views.home,name="Home"),
+    path("dashboard",views.dashboard,name='dashboard'),
 
     ###     FAQ - CGV - CGU
     path("faq",views.faq),
@@ -49,8 +50,10 @@ urlpatterns=[
     path('auth/pro/login',views.professional_login,name="pro_login"),
     path('auth/pro/new',views.new_professional,name="new_professional"),
     path('auth/pro/register',views.professional_register,name="professional_register"),
+    path('auth/pro/logout',views.pro_logout),
+    path('auth/p/logout',views.p_logout),
 
-    ### Cat"gories d'établissements
+    ### Catégories d'établissements
     path('categorie/<int:id>',views.get_categorieX),
 
     ### Etablissements

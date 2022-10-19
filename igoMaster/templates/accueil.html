@@ -227,7 +227,10 @@ g path:hover {
                         <div class="input-label-absolute input-label-absolute-right w-100">
                             <input class="form-control border-0 shadow-0 btn-sm" type="text" name="client" placeholder="Lieu (Ex: Bordeaux) " id="client_id" hidden>
                         </div>
-                        <script>document.getElementById('client_id').value=localStorage.getItem('clientid')</script>
+                        <script>
+                            document.getElementById('client_id').value="{{request.session.client.id}}"
+                            //localStorage.getItem('clientid')
+                        </script>
                     </div>
                     
 

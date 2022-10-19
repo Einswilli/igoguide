@@ -25,6 +25,11 @@ def home(request):
     # fillcat()
     return render(request,'accueil.html')
 
+def dashboard(request):
+    if 'user' not in request.session.keys():
+        return redirect('professional_login')
+    return render(request,'dashboard/index.html',{'user':request.session['user']})
+
 def faq(request):
     return render(request,'dashboard/pages/faq.html')
 
@@ -139,17 +144,24 @@ def particular_login(request):
                     'fname':u.FName,
                     'email':u.Email,
                     'telephone':u.Phone,
+                    'image':u.Photo.url,
                     'favorites':[e.etablishment.id for e in Favoris.objects.filter(user=u.id)]
                 }
                 request.session['client']=user
-                return render(request,'accueil.html',{'client':user})
+                return redirect('Home')#render(request,'accueil.html',{'client':user})
             else:
                 msg='mot de passe invalide!'
                 return render(request,'auth/particular/login.html',{'msg':msg})
     except Exception as e:
-        print(e)
+        print('ERREUR',e)
         msg='E-mail invalide!'
         return render(request,'auth/particular/login.html',{'msg':msg})
+
+def p_logout(request):
+    # Deconnecte le particulier
+    del request.session['client']
+    request.session.modified = True
+    return redirect('Home')
 
 def new_particular(request):
     #   Retourne la page de REGISTER des particuliers
@@ -228,8 +240,18 @@ def professional_login(request):
         if u!=None:
             #Alors on vérifie le pass
             if u.Pass==paswd:
-                request.session['user']=u
-                return render(request,'dashboard/index.html',{'user':u})
+                user={
+                    'id':u.id,
+                    'lname':u.LName,
+                    'fname':u.FName,
+                    'email':u.Email,
+                    'telephone':u.Phone,
+                    'type':u.Type.name,
+                    'image':u.Photo.url,
+                }
+                request.session['user']=user
+                request.session.modified=True
+                return redirect('dashboard')#render(request,'dashboard/index.html',{'user':u})
             else:
                 msg='Erreur: mot de passe invalide!'
                 return render(request,'auth/professional/login.html',{'msg':msg})
@@ -270,6 +292,12 @@ def professional_register(request):
         msg='Formulaire invalide!'
         return render(request,'auth/professional/register.html',{'msg':msg})
 
+def pro_logout(request):
+    # Deconnecte le particulier
+    del request.session['user']
+    request.session.modified = True
+    return redirect('Home')
+
 def get_user_profile(request,id):
     u=User.objects.get(id=id)
     return render(request,'dashboard/pages/profile.html',{'user':u})
@@ -293,6 +321,8 @@ def get_categorieX(request,id):
 
 def new_etablishment(request):
     #   Renvoie la page de création des établissements
+    if 'user' not in request.session.keys():
+        return redirect('professional_login')
     return render(request,'dashboard/etablissements/new.html')
 
 def get_etablishment_details(request,id):
@@ -323,6 +353,9 @@ def get_etablishment_details(request,id):
     return render(request,'etablissements/detail.html',{'e':es})
 
 def save_etablishment(request):
+    #   Vérifier s'il y a un user connecté
+    if 'user' not in request.session.keys():
+        return redirect('professional_login')
     #   On crée ici l'établissement
     if request.method=='POST':
 
@@ -572,6 +605,9 @@ def get_user_etablishments(request,id):
         return JsonResponse(etablissements,safe=False)
 
 def list_user_etablishments(request,id):
+    # vérifier s'il y a un user connceté
+    if 'user' not in request.session.keys():
+        return redirect('professional_login')
     # Liste les etablissements appartenant a un professionnel X
     etablissements=[{
         'id':e.id,
@@ -760,10 +796,16 @@ def list_subtypeX_etablishment(request,id):
 ######
 
 def new_subscription(request):
+    # vérifier s'il y a un user connceté
+    if 'user' not in request.session.keys():
+        return redirect('professional_login')
     #   Renvoie la page de création des abonnements
     return render(request,'dashboard/abonnements/new.html')
 
 def save_subscription(request):
+    # vérifier s'il y a un user connceté
+    if 'user' not in request.session.keys():
+        return redirect('professional_login')
     #   Enregistre l'abonnement depuis le POST
     if request.method=='POST':
         print(request.POST)
@@ -779,6 +821,9 @@ def save_subscription(request):
     return render(request,'dashboard/abonnements/new.html',{'msg':msg})
 
 def list_user_subscriptions(request,id):
+    # vérifier s'il y a un user connceté
+    if 'user' not in request.session.keys():
+        return redirect('professional_login')
     # liste les abonnements de l'user
     s=Subscription.objects.filter(etablishment__owner=id)
     return render(request,'dashboard/abonnements/list.html',{'subscriptions':s})
@@ -853,6 +898,9 @@ def update_professional_user(request,id):
 ######
 
 def get_user_mails(request,id):
+    # vérifier s'il y a un user connceté
+    if 'user' not in request.session.keys():
+        return redirect('professional_login')
     c=ContactMail.objects.filter(toUser=id).order_by('-createdAt','isOpened')
     u=ContactMail.objects.filter(toUser=id,isOpened=False).count()
     l=[{
@@ -897,6 +945,9 @@ def get_user_unread_mails_count(request,id):
     return JsonResponse(u,safe=False)
 
 def get_user_notifications(request,id):
+    # vérifier s'il y a un user connceté
+    if 'user' not in request.session.keys():
+        return redirect('professional_login')
     return render(request,'dashboard/messages/notifications.html')
 
 def send_contact_mail(request,id):
@@ -984,7 +1035,7 @@ def save_media(request,id):
     return list_user_etablishments(request,e.owner.id)
 
 def get_subscription_info(request,id):
-    d=date.today()+relativedelta(months=int(id))
+    d=date.today()+relativedelta(years=int(id))
     r={
         'd':d.ctime(),
         't':int(id)*49.0
