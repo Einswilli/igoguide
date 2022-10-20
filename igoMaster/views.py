@@ -991,22 +991,35 @@ def send_contact_mail(request,id):
 
 @csrf_exempt
 def save_to_favorites(request):
+    #   Renvoie la page de création des établissements
+    if 'client' not in request.session.keys():
+        return redirect('particular_login')
     
     if request.method=='POST':
         u=User.objects.get(id=request.POST.get('client'))
         e=Etablishment.objects.get(id=request.POST.get('etablishment'))
-        f=Favoris.objects.create(
-            user=u,
-            etablishment=e
-        )
-        return JsonResponse(f.id,safe=False)
+        try:
+            ff=Favoris.objects.get(user=u.id,etablishment=e.id)
+            return JsonResponse(ff.id,safe=False)
+        except:
+            f=Favoris.objects.create(
+                user=u,
+                etablishment=e
+            )
+            return JsonResponse(f.id,safe=False)
     return JsonResponse('METHOD NOT ALLOWED!',safe=False)
 
 @csrf_exempt
 def remove_from_favorites(request,uid,eid):
+    #   Renvoie la page de création des établissements
+    if 'client' not in request.session.keys():
+        return redirect('particular_login')
+
     if request.method=='DELETE':
-        f=Favoris.objects.get(user=int(uid),etablishment=int(eid))
-        f.delete()
+        try:
+            f=Favoris.objects.get(user=int(uid),etablishment=int(eid))
+            f.delete()
+        except:pass
         return JsonResponse('DELETED',safe=False)
 
 def get_user_favorites(request,id):

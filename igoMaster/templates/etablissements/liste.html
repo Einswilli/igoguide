@@ -18,6 +18,12 @@
    .container{
     padding: 0.5%;
    }
+   .etsf_0{
+    color:#ffffff;
+   }
+   .etsf_1{
+    color:deeppink;
+   }
 </style>
 <style>
     @font-face {
@@ -295,101 +301,10 @@
                     <div class="card card-bg" style="background-image:url('{{ etablissement.images.0.url }}');">
                         <div class="card-img-overlay d-flex flex-column">
                         <div class="card-head d-flex justify-content-end">
-                            {% if etablissement.id in client.favorites %}
-                                <i class="far fa-heart" id="fav_{{etablissement.id}}" title="retirer {{ etablissement.name }} des favoris" style="color:deeppink;"></i>
-                                <script>
-                                    $('#fav_{{etablissement.id}}').click(function(){
-                                        $('#fav_{{etablissement.id}}').css('color','white');
-                                        $('#fav_{{etablissement.id}}').title="ajouter  {{ etablissement.name }} aux favoris"
-                                        $.ajax({
-                                            type:'DELETE',
-                                            url:'/favorites/delete/'+localStorage.getItem('clientid')+'/'+{{ etablissement.id }},
-                                            data:{
-                                                'client':localStorage.getItem('clientid'),
-                                                'etablishment':{{ etablissement.id }}
-                                            },
-                                            success: function(){
-                                                console.log('deleted')
-                                            },
-                                            error: function(err){
-                                                $('#fav_{{etablissement.id}}').css('color','deeppink');
-                                                $('#fav_{{etablissement.id}}').title="retirer  {{ etablissement.name }} des favoris"
-                                                $.ajax({
-                                                    type:'POST',
-                                                    url:'/favorites/new',
-                                                    data:{
-                                                        'client':localStorage.getItem('clientid'),
-                                                        'etablishment':{{ etablissement.id }}
-                                                    },
-                                                    success: function(res){
-                                                        //$('#fav_{{etablissement.id}}').css('color','deeppink');
-                                                        console.log('added')
-                                                    }
-                                                })
-                                            }
-                                        })
-                                    })
-                                </script>
+                            {% if etablissement.id in request.session.client.favorites %}
+                                <i class="far fa-heart fav_ets etsf_1" id="fav_{{etablissement.id}}" title="retirer {{ etablissement.name }} des favoris" style="color:deeppink;"></i>
                             {% else %}
-                            <i class="far fa-heart" id="fav_{{etablissement.id}}" title="ajouter  {{ etablissement.name }} aux favoris"></i>
-                            <script>
-
-                                $('#fav_{{etablissement.id}}').click(function(){
-
-                                    //UTILISATEUR NON CONNECTÉ!
-                                    if(!localStorage.hasOwnProperty('clientid')){
-                                        
-                                        $.ajax({
-                                            type:'GET',
-                                            url:'/redirect/to/login',
-                                            success: function(){
-                                                console.log('redirected to login')
-                                            }
-                                        })
-                                    }else{
-                                        getUser()
-                                    }
-                                })
-                                function getUser(){
-                                    var uid=localStorage.getItem('clientid')
-                                    $.ajax({
-                                        type:'GET',
-                                        url:'/users/p/'+uid,
-                                        data:{},
-                                        success: function(client){
-                                            if(client.favorites.includes({{ etablissement.id }})==false){
-                                                $('#fav_{{etablissement.id}}').css('color','deeppink');
-                                                $('#fav_{{etablissement.id}}').title="retirer  {{ etablissement.name }} des favoris"
-                                                $.ajax({
-                                                    type:'POST',
-                                                    url:'/favorites/new',
-                                                    data:{
-                                                        'client':localStorage.getItem('clientid'),
-                                                        'etablishment':{{ etablissement.id }}
-                                                    },
-                                                    success: function(res){
-                                                        console.log('added')
-                                                    }
-                                                })
-                                            }else{
-                                                $('#fav_{{etablissement.id}}').css('color','white');
-                                                $('#fav_{{etablissement.id}}').title="ajouter  {{ etablissement.name }} aux favoris"
-                                                $.ajax({
-                                                    type:'DELETE',
-                                                    url:'/favorites/delete/'+localStorage.getItem('clientid')+'/'+{{ etablissement.id }},
-                                                    data:{},
-                                                    success: function(res){
-                                                        console.log('deleted')
-                                                    }
-                                                })
-                                            }
-                                        },
-                                        error: function(err){
-                                            console.log('ERROR:FRRRR  '+err.Message)
-                                        }
-                                    })
-                                }
-                            </script>
+                            <i class="far fa-heart fav_ets etsf_0" id="fav_{{etablissement.id}}" title="ajouter  {{ etablissement.name }} aux favoris"></i>
                             {% endif %}
                         </div>
                         <div class="card-body">
@@ -466,6 +381,159 @@
 </body>
 </html>
 
+<script>
+    var f1=document.querySelectorAll('.etsf_1')
+    var f0=document.querySelectorAll('.etsf_0')
+    function e_f1(){
+        for(let item of f1){
+            item.addEventListener('click',function(){
+                item.style.color='#ffffff'
+                item.classList.remove('etsf_1')
+                item.classList.add('etsf_0')
+                var id=item.id.replace('fav_','')
+
+                $.ajax({
+                    type:'DELETE',
+                    url:'/favorites/delete/'+{{ request.session.client.id }}+'/'+id,
+                    data:{
+                        'client':{{ request.session.client.id }},
+                        'etablishment':id
+                    },
+                    success: function(){
+                        console.log('deleted')
+                    },
+                    error: function(err){
+                        console.log(err)
+                    }
+                })
+                e_f0()
+            })
+        }
+    }
+    function e_f0(){
+        for(let item of f0){
+            item.addEventListener('click',function(){
+                item.style.color='deeppink'
+                item.classList.remove('etsf_0')
+                item.classList.add('etsf_1')
+                var id=item.id.replace('fav_','')
+
+                $.ajax({
+                    type:'POST',
+                    url:'/favorites/new',
+                    data:{
+                        'client':{{ request.session.client.id }},
+                        'etablishment':id
+                    },
+                    success: function(res){
+                        //$('#fav_{{etablissement.id}}').css('color','deeppink');
+                        console.log('added')
+                    },
+                    error: function(err){
+                        console.log(err)
+                    }
+                })
+                e_f1()
+            })
+        }
+    }
+    e_f0()
+    e_f1()
+</script>
+
 <script src="{% static 'js/vendor.js'%}"></script>
 <script src="{% static 'js/map.js'%}"></script>
 {% endblock content %}
+
+{% comment %} <script>
+    $('#fav_{{etablissement.id}}').click(function(){
+        $(this).css('color','white');
+        $(this).title="ajouter  {{ etablissement.name }} aux favoris"
+        $.ajax({
+            type:'DELETE',
+            url:'/favorites/delete/'+{{ request.session.client.id }}+'/'+{{ etablissement.id }},
+            data:{
+                'client':request.session.client.id,
+                'etablishment':{{ etablissement.id }}
+            },
+            success: function(){
+                console.log('deleted')
+            },
+            error: function(err){
+                $('#fav_{{etablissement.id}}').css('color','deeppink');
+                $('#fav_{{etablissement.id}}').title="retirer  {{ etablissement.name }} des favoris"
+                $.ajax({
+                    type:'POST',
+                    url:'/favorites/new',
+                    data:{
+                        'client':localStorage.getItem('clientid'),
+                        'etablishment':{{ etablissement.id }}
+                    },
+                    success: function(res){
+                        //$('#fav_{{etablissement.id}}').css('color','deeppink');
+                        console.log('added')
+                    }
+                })
+            }
+        })
+    })
+</script> {% endcomment %}
+
+{% comment %} <script>
+
+    $('#fav_{{etablissement.id}}').click(function(){
+
+        //UTILISATEUR NON CONNECTÉ!
+        if(!localStorage.hasOwnProperty('clientid')){
+            
+            $.ajax({
+                type:'GET',
+                url:'/redirect/to/login',
+                success: function(){
+                    console.log('redirected to login')
+                }
+            })
+        }else{
+            getUser()
+        }
+    })
+    function getUser(){
+        var uid=localStorage.getItem('clientid')
+        $.ajax({
+            type:'GET',
+            url:'/users/p/'+uid,
+            data:{},
+            success: function(client){
+                if(client.favorites.includes({{ etablissement.id }})==false){
+                    $('#fav_{{etablissement.id}}').css('color','deeppink');
+                    $('#fav_{{etablissement.id}}').title="retirer  {{ etablissement.name }} des favoris"
+                    $.ajax({
+                        type:'POST',
+                        url:'/favorites/new',
+                        data:{
+                            'client':localStorage.getItem('clientid'),
+                            'etablishment':{{ etablissement.id }}
+                        },
+                        success: function(res){
+                            console.log('added')
+                        }
+                    })
+                }else{
+                    $('#fav_{{etablissement.id}}').css('color','white');
+                    $('#fav_{{etablissement.id}}').title="ajouter  {{ etablissement.name }} aux favoris"
+                    $.ajax({
+                        type:'DELETE',
+                        url:'/favorites/delete/'+localStorage.getItem('clientid')+'/'+{{ etablissement.id }},
+                        data:{},
+                        success: function(res){
+                            console.log('deleted')
+                        }
+                    })
+                }
+            },
+            error: function(err){
+                console.log('ERROR:FRRRR  '+err.Message)
+            }
+        })
+    }
+</script> {% endcomment %}

@@ -420,7 +420,7 @@
                         <script>
                             $('#fav_{{etablissement.id}}').click(function(){
                                 $('#fav_{{etablissement.id}}').css('color','white');
-                                $('#etablishment_{{ etablishment.id }}').fadeOut()
+                                $('#etablishment_{{ etablishment.id }}').remove()
                                 $.ajax({
                                     type:'DELETE',
                                     url:'/favorites/delete/'+localStorage.getItem('clientid')+'/'+{{ etablissement.id }},
@@ -432,7 +432,7 @@
                                         console.log('deleted')
                                     },
                                     error: function(err){
-                                        console.log('ERROR: '+err.Message)
+                                        console.log('ERROR: '+err)
                                     }
                                 })
                             })
