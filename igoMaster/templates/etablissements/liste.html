@@ -385,57 +385,61 @@
     var f1=document.querySelectorAll('.etsf_1')
     var f0=document.querySelectorAll('.etsf_0')
     function e_f1(){
-        for(let item of f1){
-            item.addEventListener('click',function(){
-                item.style.color='#ffffff'
-                item.classList.remove('etsf_1')
-                item.classList.add('etsf_0')
-                var id=item.id.replace('fav_','')
+        if(f1!=null && f1!=undefined){
+            for(let item of f1){
+                item.addEventListener('click',function(){
+                    item.style.color='#ffffff'
+                    item.classList.remove('etsf_1')
+                    item.classList.add('etsf_0')
+                    var id=item.id.replace('fav_','')
 
-                $.ajax({
-                    type:'DELETE',
-                    url:'/favorites/delete/'+{{ request.session.client.id }}+'/'+id,
-                    data:{
-                        'client':{{ request.session.client.id }},
-                        'etablishment':id
-                    },
-                    success: function(){
-                        console.log('deleted')
-                    },
-                    error: function(err){
-                        console.log(err)
-                    }
+                    $.ajax({
+                        type:'DELETE',
+                        url:'/favorites/delete/'+{{ request.session.client.id }}+'/'+id,
+                        data:{
+                            'client':{{ request.session.client.id }},
+                            'etablishment':id
+                        },
+                        success: function(){
+                            console.log('deleted')
+                        },
+                        error: function(err){
+                            console.log(err)
+                        }
+                    })
                 })
-                e_f0()
-            })
+            }
         }
+        e_f0()
     }
     function e_f0(){
-        for(let item of f0){
-            item.addEventListener('click',function(){
-                item.style.color='deeppink'
-                item.classList.remove('etsf_0')
-                item.classList.add('etsf_1')
-                var id=item.id.replace('fav_','')
+        if(f0!=null && f0!=undefined){
+            for(let item of f0){
+                item.addEventListener('click',function(){
+                    item.style.color='deeppink'
+                    item.classList.remove('etsf_0')
+                    item.classList.add('etsf_1')
+                    var id=item.id.replace('fav_','')
 
-                $.ajax({
-                    type:'POST',
-                    url:'/favorites/new',
-                    data:{
-                        'client':{{ request.session.client.id }},
-                        'etablishment':id
-                    },
-                    success: function(res){
-                        //$('#fav_{{etablissement.id}}').css('color','deeppink');
-                        console.log('added')
-                    },
-                    error: function(err){
-                        console.log(err)
-                    }
+                    $.ajax({
+                        type:'POST',
+                        url:'/favorites/new',
+                        data:{
+                            'client':{{ request.session.client.id }},
+                            'etablishment':id
+                        },
+                        success: function(res){
+                            //$('#fav_{{etablissement.id}}').css('color','deeppink');
+                            console.log('added')
+                        },
+                        error: function(err){
+                            console.log(err)
+                        }
+                    })
                 })
-                e_f1()
-            })
+            }
         }
+        e_f1()
     }
     e_f0()
     e_f1()
