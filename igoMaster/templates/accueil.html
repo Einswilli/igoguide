@@ -227,10 +227,7 @@ g path:hover {
                         <div class="input-label-absolute input-label-absolute-right w-100">
                             <input class="form-control border-0 shadow-0 btn-sm" type="text" name="client" placeholder="Lieu (Ex: Bordeaux) " id="client_id" hidden>
                         </div>
-                        <script>
-                            document.getElementById('client_id').value="{{request.session.client.id}}"
-                            //localStorage.getItem('clientid')
-                        </script>
+                        <script>document.getElementById('client_id').value=localStorage.getItem('clientid')</script>
                     </div>
                     
 
@@ -256,7 +253,7 @@ g path:hover {
 
             <div class="row mt-3">
                 <div class="col-sm-4 mt-1" style="height:20px "><hr></div>
-                <div class="col-sm-4 mt-1 text-center" style="font-size: 22px; color:black;font-family: Bangers"> Comment ça marche ?</div>
+                <div class="col-sm-4 mt-1 text-center" style="font-size: 44px; color:black;font-family: Bangers"> Comment ça marche ?</div>
                 <div class="col-sm-4 mt-1"><hr></div>
             </div>
 
@@ -301,8 +298,8 @@ g path:hover {
                             </div>
                         </div>
                     </div>
-                    <div id="simg" style="height: 100%">
-                        <img src="{% static 'IMG/site/design 2.png'%}" style="width: 100%;height:auto;" alt="">
+                    <div id="simg" style="height:100%">
+                        <img src="{% static 'IMG/site/design 2.png'%}" style="width: 100%;height:70%;" alt="">
                     </div>
                 </div>
             </div>
@@ -323,7 +320,7 @@ g path:hover {
               <div class="card h-100">
                 <a href="/categorie/1"><img src="{% static 'IMG/2 Hipster pour nuit insolite.jpg'%}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                    <h6 class="card-title"><a href="/categorie/1" class="categorie2 card-title"  style="font-family: Bangers; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Hébergements atypiques</a></h6>
+                    <h6 class="card-title"><a href="/categorie/1" class="categorie2 card-title"  style="font-family: Bangers; color:black"><i class="fa-solid fa-arrow-circle-right"></i>Hébergements atypiques</a></h6>
                     <a href="/categorie/1"><p class="card-text" style="text-align: center;">Des nuits atypiques, c’est assuré…insolites, c’est probable…et des nuits magiques, c’est certain! L’univers que les hôtes ont créé est inventif et rend ces moments inoubliables.</p></a>
                 </div>
               </div>
@@ -332,7 +329,7 @@ g path:hover {
               <div class="card h-100">
                 <a href="/categorie/2"><img src="{% static 'IMG/restaurant pop art igoguide.jpg'%}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                  <h6 class="card-title"><a href="/categorie/2" class="categorie2 card-title" style="font-family: Bangers; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Bars</a></h6>
+                  <h6 class="card-title"><a href="/categorie/2" class="categorie2 card-title" style="font-family: Bangers; color:black"><i class="fa-solid fa-arrow-circle-right"></i>Bars</a></h6>
                   <a href="/categorie/2"><p class="card-text" style="text-align: center;">Se retrouver entre amis ou en famille pour un partage de bons moments.</p></a>
                 </div>
               </div>
@@ -341,7 +338,7 @@ g path:hover {
               <div class="card h-100">
                 <a href="/categorie/3"><img src="{% static 'IMG/Bar ou boire avec ses amis.jpg'%}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                    <h6 class="card-title"><a href="/categorie/3" class="categorie2 card-title" style="font-family: Bangers; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Restaurants</a></h6>
+                    <h6 class="card-title"><a href="/categorie/3" class="categorie2 card-title" style="font-family: Bangers; color:black"><i class="fa-solid fa-arrow-circle-right"></i>Restaurants</a></h6>
                     <a href="/categorie/3"><p class="card-text" style="text-align: center;">Lorsque l’on va au restaurant, on ne se contente plus de savourer un délicieux repas. On cherche aussi maintenant à vivre une véritable expérience de dépaysement le temps d’un tête à tête.</p></a>
                 </div>
               </div>
@@ -350,7 +347,7 @@ g path:hover {
               <div class="card h-100">
                 <a href="/categorie/4"><img src="{% static 'IMG/balade igoguide.jpg'%}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                    <h6 class="card-title"><a href="/categorie/4" class="categorie2 card-title" style="font-family: Bangers; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Balade</a></h6>
+                    <h6 class="card-title"><a href="/categorie/4" class="categorie2 card-title" style="font-family: Bangers; color:black"><i class="fa-solid fa-arrow-circle-right"></i>Balade</a></h6>
                     <a href="/categorie/4"><p class="card-text" style="text-align: center;">Des idées de promenades et des itinéraires de randonnées pour une découverte de La France et de ses régions dans les moindres recoins.</p></a>
                 </div>
               </div>
@@ -359,7 +356,7 @@ g path:hover {
                 <div class="card h-100">
                     <a href="/categorie/5"><img src="{% static 'IMG/activités igoguide.jpg'%}" class="card-img-top" alt="..."></a>
                   <div class="card-body">
-                    <h6 class="card-title"><a href="/categorie/5" class="categorie2 card-title" style="font-family: Bangers; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Activités</a></h6>
+                    <h6 class="card-title"><a href="/categorie/5" class="categorie2 card-title" style="font-family: Bangers; color:black"><i class="fa-solid fa-arrow-circle-right"></i>Activités</a></h6>
                     <a href="/categorie/5"><p class="card-text" style="text-align: center;">À la recherche d’une activité dans le lieu où vous vous trouvez ? Envie de découvrir les régions françaises sous leurs angles les plus originaux? IGOguide vous emmène pour bouger ou vous détendre.</p></a>
                   </div>
                 </div>
@@ -368,7 +365,7 @@ g path:hover {
                 <div class="card h-100">
                     <a href="/categorie/6"><img src="{% static 'IMG/photographe mariage.jpg'%}" class="card-img-top" alt="..."></a>
                   <div class="card-body">
-                    <h6 class="card-title"><a href="/categorie/6" class="categorie2 card-title" style="font-family: Bangers; color:rgb(0, 11, 135), 15, 176);"><i class="fa-solid fa-arrow-circle-right"></i>Services</a></h6>
+                    <h6 class="card-title"><a href="/categorie/6" class="categorie2 card-title" style="font-family: Bangers; color:black"><i class="fa-solid fa-arrow-circle-right"></i>Services</a></h6>
                     <a href="/categorie/6"><p class="card-text" style="text-align: center;">Et si pour animer votre soirée ou rendre votre séjour inoubliable, vous faisiez appel aux services de professionnels? besoin d’un photographe? D’un traiteur? D’une location de voiture? D’un fleuriste peut-être!</p></a>
                   </div>
                 </div>
@@ -381,14 +378,14 @@ g path:hover {
 
 <div class="row mt-4 mb-4">
     <div class="col-sm-4"><hr></div>
-    <div class="col-sm-4 mt-3 text-center" style="font-size: 22px; font-family: Bangers; color:black">O&ugrave; aller ?</div>
+    <div class="col-sm-4 mt-3 text-center" style="font-size: 44px; font-family: Bangers; color:black">O&ugrave; aller ?</div>
     <div class="col-sm-4"><hr></div>
 </div>
 
 <section>
 <div class="row mt-4 mb-12" >
     <div class="col-lg-4" style="height:60%; margin-right:10%">
-        <center><h3 style="font-size: 15px; font-family: Bangers;">Trouver par département</h3></center>
+        <center><h3 style="font-size: 22px; font-family: Bangers;">Trouver par département</h3></center>
         
         <div class="carte" id="catre">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 667 578" xml:space="preserve">
@@ -775,34 +772,34 @@ g path:hover {
         
         <div class="row">
           <div class="col-lg-6">
-            <center><h3 style="font-size: 15px; font-family: Bangers;">Trouver par région</h3></center>
+            <center><h3 style="font-size: 22px; font-family: Bangers;">Trouver par région</h3></center>
                 <ul class="list-group" style="border: none;">
                     <li class="list-group-ite lien1-i " style="list-style:none">
-                        <i class="fas fa-caret-right" style="color: rgb(255, 255, 0); margin-right: 10px;"></i><a class="lien1"  href="/etablishment/reg/Auvergne-Rhône-Alpes" id="list-1">Auvergne-Rhône-Alpes</a>
+                        <i class="fas fa-caret-right" style="color: rgb(255, 255, 0); margin-right: 10px;"></i><a class="lien1"  href="/Region/Auvergne-Rhône-Alpes" id="list-1">Auvergne-Rhône-Alpes</a>
                     </li>
                     <li class="list-group-ite pt-2 pb-2" style="list-style:none">
-                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Bourgogne-Franche-Comté" id="list-2">Bourgogne-Franche-Comté</a>
+                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Bourgogne-Franche-Comté" id="list-2">Bourgogne-Franche-Comté</a>
                     </li>
                     <li class="list-group-ite" style="list-style:none">
-                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Bretagne" id="list-3">Bretagne</a>
+                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Bretagne" id="list-3">Bretagne</a>
                     </li>
                     <li class="list-group-ite"  style="list-style:none">
-                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Centre-Val de Loire" id="list-4">Centre-Val de Loire</a>
+                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Centre-Val de Loire" id="list-4">Centre-Val de Loire</a>
                     </li>
                     <li class="list-group-ite"  style="list-style:none">
-                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Corse" id="list-5">Corse</a>
+                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Corse" id="list-5">Corse</a>
                     </li>
                     <li class="list-group-ite"  style="list-style:none">
-                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Grand Est" id="list-6">Grand Est</a>
+                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Grand Est" id="list-6">Grand Est</a>
                     </li>
                     <li class="list-group-ite"  style="list-style:none">
-                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Hauts-de-France" id="list-7">Hauts-de-France</a>
+                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Hauts-de-France" id="list-7">Hauts-de-France</a>
                     </li>
                     <li class="list-group-ite"  style="list-style:none">
-                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Guyane" id="list-8">Guyane</a>
+                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Guyane" id="list-8">Guyane</a>
                     </li>
                     <li class="list-group-ite"  style="list-style:none">
-                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/La Réunion" id="list-9">La Réunion</a>
+                        <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/La Réunion" id="list-9">La Réunion</a>
                     </li>
 
                 </ul>
@@ -812,32 +809,32 @@ g path:hover {
 
             <ul class="list-group">
                 <li class="list-group-ite"  style="list-style:none">
-                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Guadeloupe" id="list-10">Guadeloupe</a>
+                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Guadeloupe" id="list-10">Guadeloupe</a>
                 </li>
                 <li class="list-group-ite"  style="list-style:none">
-                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Martinique" id="list-11">Martinique</a>
+                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Martinique" id="list-11">Martinique</a>
                 </li>
                 <li class="list-group-ite "   style="list-style:none">
-                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Nouvelle-Aquitaine" id="list-12">Nouvelle-Aquitaine</a>
+                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Nouvelle-Aquitaine" id="list-12">Nouvelle-Aquitaine</a>
                 </li>
                 <li class="list-group-ite pt-2 pb-2"   style="list-style:none">
-                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Occitaine" id="list-13">Occitaine</a>
+                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Occitaine" id="list-13">Occitaine</a>
                 </li>
                 <li class="list-group-ite"  style="list-style:none">
-                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Pays de la Loire" id="list-14">Pays de la Loire</a>
+                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Pays de la Loire" id="list-14">Pays de la Loire</a>
                 </li>
                 <li class="list-group-ite"  style="list-style:none">
-                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Provence-Alpes-Côte d'Azur" id="list-15">Provence-Alpes-Côte d'Azur</a>
+                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Provence-Alpes-Côte d'Azur" id="list-15">Provence-Alpes-Côte d'Azur</a>
                 </li>
 
                 <li class="list-group-ite"  style="list-style:none">
-                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Normandie" id="list-16"> Normandie</a>
+                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Normandie" id="list-16"> Normandie</a>
                 </li>
                 <li class="list-group-ite"  style="list-style:none">
-                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/etablishment/reg/Île-de-France" id="list-17">Île-de-France</a>
+                    <i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i><a href="/Region/Île-de-France" id="list-17">Île-de-France</a>
                 </li>
                 <li class="list-group-ite"  style="list-style:none">
-                    <a href="/etablishment/reg/Mayotte" id="list-18"><i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i>Mayotte</a>
+                    <a href="/Region/Mayotte" id="list-18"><i class="fas fa-caret-right" style="color: yellow; margin-right: 10px;"></i>Mayotte</a>
                 </li>
 
             </ul>
@@ -850,10 +847,10 @@ g path:hover {
 
 <!-- gallery-item -->
 <div class="row mt-4 mb-4">
-    <div class="col-sm-4"><hr></div>
-    <div class="col-sm-4 mt-3 text-center" style="font-size: 22px; font-family: Bangers; color:black">Partez &agrave; la D&eacute;couverte des r&eacute;gions et de leurs secrets...</div>
+    <div class="col-sm-3"><hr></div>
+    <div class="col-sm-6 mt-3 text-center" style="font-size: 44px; font-family: Bangers; color:black">Partez &agrave; la D&eacute;couverte des r&eacute;gions et de leurs secrets avec IGOBLOG...</div>
     <!--<div class="col-sm-4 mt-3 text-center" style="font-size: 22px; font-family: Bangers; color:black">IGOblog: destinations merveilleuses</div>-->
-    <div class="col-sm-4"><hr></div>
+    <div class="col-sm-3"><hr></div>
 </div>
 
 <section class="py-2">
@@ -921,14 +918,12 @@ g path:hover {
     <div class="col-sm-4 mt-3"><hr></div>
 </div>-->
 
-<div class="container text-center">
-    <div class="row">
-        <div class="col-md-6 offset-md-3" style="font-size: 22px; font-family: Bangers;">
-            <p style="background-color:#FFCD00;">Destinations merveilleuses et d&eacute;couvertes insolites</p>
-        </div>
-      </div>
-</div>
-
+    <div class="row mt-4 mb-4">
+        <div class="col-sm-3"><hr></div>
+        <div class="col-sm-6 mt-3 text-center" style="font-size: 44px; font-family: Bangers; color:black">Rejoignez nous !</div>
+        <!--<div class="col-sm-4 mt-3 text-center" style="font-size: 22px; font-family: Bangers; color:black">IGOblog: destinations merveilleuses</div>-->
+        <div class="col-sm-3"><hr></div>
+    </div>
 
     <section style="width:100%; margin-left:0;margin-right:0">
         <div class="row no-gutters" style="width:100%;margin-right:0">
@@ -942,7 +937,7 @@ g path:hover {
             <a href="https://www.instagram.com/accounts/login/?next=/igoguide/" target="_blank"><img style="height:100%" class="image-footer" src="{% static 'IMG/Réseaux sociaux instagram et facebook pour Igoguide_text.jpg'%}" alt="Image"></a>
           </div>
           <div class="col">
-            <a href="https://www.facebook.com/igoguidefrance" target="_blank"><img style="height:100%" class="image-footer" src="{% static 'IMG/partenariat profesionnels et Igoguide_text.jpg'%}" alt="Image"></a>
+            <a href="/auth/pro/connexion" target="_blank"><img style="height:100%" class="image-footer" src="{% static 'IMG/partenariat profesionnels et Igoguide_text.jpg'%}" alt="Image"></a>
           </div>
         </div>
 

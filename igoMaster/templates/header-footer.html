@@ -296,21 +296,16 @@
                                                         <a class="btn btn-dark rounded-pill h-100 h" href="fiche.index" type="submit" title="Dashboard"><i class="fas fa-dashboard pr-2 ic" aria-hidden="true" style="color:yellow;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Dashboard</span></a>
                                                     </div> {% endcomment %}
                                                 {% comment %} @else {% endcomment %}
-
-                                                {% if 'client' in request.session.keys %}
-                                                    
-                                                    <div class="col" id="pfav">
-                                                        <a id="espace" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" href="/profile/p/{{ request.session.client.id }}" type="button" title="Mon espace" ><i class="fas fa-heart pr-2 ic" aria-hidden="true" style="color:deeppink;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Mon espace</span></a>
-                                                    </div> 
-                                                {% else %}
                                                     <div class="col" id="pcon">
-                                                        <a class="btn btn-dark rounded-pill h-100 h" href="/auth/p/connexion" type="submit" title="Se connecter"><i class="fas fa-user pr-2 ic" aria-hidden="true" style="color:white;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic"> Se connecter</span></a>
+                                                    <a class="btn btn-dark rounded-pill h-100 h" href="/auth/p/connexion" type="submit" title="Se connecter"><i class="fas fa-user pr-2 ic" aria-hidden="true" style="color:white;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic"> Se connecter</span></a>
                                                     </div>
                                                     <div class="col" id="procon">
                                                         <a class="btn btn-dark rounded-pill h-100 h" href="/auth/pro/connexion" type="submit" title="Espace pro"><i class="fas fa-user-tie pr-2 ic" aria-hidden="true" style="color:white;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Espace pro</span></a>
                                                     </div>
-                                                {% endif %}
-                                                    {% comment %} <script>
+                                                    <div class="col" id="pfav" style="display:none">
+                                                        <a id="espace" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" href="/profile/p/{{ client.id }}" type="button" title="Mon espace" ><i class="fas fa-heart pr-2 ic" aria-hidden="true" style="color:deeppink;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Mon espace</span></a>
+                                                    </div>
+                                                    <script>
                                                         if(localStorage.hasOwnProperty('clientid')){
                                                             document.querySelector('#espace').href="/profile/p/"+localStorage.getItem('clientid')
                                                             $('#pcon').fadeOut()
@@ -321,7 +316,7 @@
                                                             $('#procon').fadeIn()
                                                             $('#pfav').fadeOut()
                                                         }
-                                                    </script> {% endcomment %}
+                                                    </script>
                                                  {% comment %} @endauth {% endcomment %}
 
 
@@ -387,7 +382,7 @@
                                                             href="/etablishment/subtype/1">
                                                             <div class="elmt">
                                                                 <img src="{% static 'icon_sous_categories/heb/cabane_arbres.png'%}" alt="">
-                                                                <p>Cabane dans les arbres</p>
+                                                                <p>Cabanes dans les arbres</p>
                                                             </div>
                                                             <hr class="solid">
                                                         </a>
@@ -407,7 +402,7 @@
                                                             href="/etablishment/subtype/2">
                                                             <div class="elmt">
                                                                 <img src="{% static 'icon_sous_categories/heb/cabane_sur_terre.png'%}" alt="">
-                                                                <p>Cabane sur terre</p>
+                                                                <p>Cabanes sur terre</p>
                                                             </div>
                                                             <hr class="solid">
                                                         </a>
@@ -417,7 +412,7 @@
                                                             href="/etablishment/subtype/4">
                                                             <div class="elmt">
                                                                 <img src="{% static 'icon_sous_categories/heb/cabane_sur_l_eau.png'%}" alt="">
-                                                                <p>Cabane sur l'eau</p>
+                                                                <p>Cabanes sur l'eau</p>
                                                             </div>
                                                             <hr class="solid">
                                                         </a>
@@ -437,7 +432,7 @@
                                                             href="/etablishment/subtype/5">
                                                             <div class="elmt">
                                                                 <img src="{% static 'icon_sous_categories/heb/tipis_tente_yourte.png'%}" alt="">
-                                                                <p>Tippi/ Tente/ Yourt</p>
+                                                                <p>Tippis/ Tentes/ Yourts</p>
                                                             </div>
                                                             <hr class="solid">
                                                         </a>   
@@ -476,7 +471,7 @@
                                                             href="/etablishment/subtype/10">
                                                             <div class="elmt">
                                                                 <img src="{% static 'icon_sous_categories/heb/hébergements_de_charme.png'%}" alt="">
-                                                                <p>Hebergements de charmes</p>
+                                                                <p>H&eacute;bergements de charmes</p>
                                                             </div>
                                                             <hr class="solid">
                                                         </a>
@@ -516,7 +511,7 @@
                                                             href="/etablishment/subtype/13">
                                                             <div class="elmt">
                                                                 <img src="{% static 'icon_sous_categories/oub/bar_rooftop.png'%}" alt="#">
-                                                                <p>Bar à Rooftop</p>
+                                                                <p>Bars à Rooftop</p>
                                                             </div>
                                                             <hr class="solid">
                                                         </a>
@@ -526,7 +521,7 @@
                                                             href="/etablishment/subtype/14">
                                                             <div class="elmt">
                                                                 <img src="{% static 'icon_sous_categories/oub/bar_vin.png'%}" alt="#">
-                                                                <p>Bar à vins</p>
+                                                                <p>Bars à vins</p>
                                                             </div>
                                                             <hr class="solid">
                                                         </a>
@@ -617,7 +612,7 @@
                                                             href="/etablishment/subtype/22">
                                                             <div class="elmt">
                                                                 <img src="{% static 'icon_sous_categories/oum/cuisine_traditionnelle.png'%}" alt="#">
-                                                                <p>Cuisine traditionnelle</p>
+                                                                <p>Cuisines traditionnelles</p>
                                                             </div>
                                                             <hr class="solid">
                                                         </a>
@@ -627,7 +622,7 @@
                                                             href="/etablishment/subtype/23">
                                                             <div class="elmt">
                                                                 <img src="{% static 'icon_sous_categories/oum/cuisine_monde.png'%}" alt="#">
-                                                                <p>Cuisine du monde</p>
+                                                                <p>Cuisines du monde</p>
                                                             </div>
                                                             <hr class="solid">
                                                         </a>
@@ -902,41 +897,41 @@
 
             <div class="ltn__utilize-menu">
                 <ul>
-                    <li><a>Hébergements atypiques</a>
+                    <li><a>H&eacute;bergements atypiques</a>
                         <ul class="sub-menu">
-                            <li><a href="/etablishment/subtype/1">Cabane dans les arbres</a></li>
-                            <li><a href="/etablishment/subtype/3">Cabane sous terre</li>
-                            <li><a href="/etablishment/subtype/2">Cabane sur terre</a></li>
-                            <li><a href="/etablishment/subtype/4">Cabane sur l'eau</a></li>
+                            <li><a href="/etablishment/subtype/1">Cabanes dans les arbres</a></li>
+                            <li><a href="/etablishment/subtype/3">Cabanes sous terre</li>
+                            <li><a href="/etablishment/subtype/2">Cabanes sur terre</a></li>
+                            <li><a href="/etablishment/subtype/4">Cabanes sur l'eau</a></li>
                             <li><a href="/etablishment/subtype/6">Bulles</a></li>
-                            <li><a href="/etablishment/subtype/5">Tippi/Tente/Yourt</a></li>
+                            <li><a href="/etablishment/subtype/5">Tippis/Tentes/Yourts</a></li>
                             <li><a href="/etablishment/subtype/7">Habitats roulants</a></li>
                             <li><a href="/etablishment/subtype/8">Monuments historiques </a></li>
                             <li><a href="/etablishment/subtype/9">Bateaux</a></li>
-                            <li><a href="/etablishment/subtype/10">Hébergements de charmes</a></li>
+                            <li><a href="/etablishment/subtype/10">H&eacute;bergements de charmes</a></li>
                             <li><a href="/etablishment/subtype/11">Hotels atypiques</a></li>
                         </ul>
                     </li>
 
-                    <li><a>Où Boire ?</a>
+                    <li><a>O&ugrave; Boire ?</a>
                         <ul class="sub-menu">
                             <li><a href="/etablishment/subtype/12">Bars lounges/Whiskies/Cocktail</a></li>
                             <li><a href="/etablishment/subtype/13">Bars à Rooftop</a></li>
                             <li><a href="/etablishment/subtype/14">Bars à vin</a></li>
                             <li><a href="/etablishment/subtype/15">Pubs/Bars à tap</a></li>
                             <li><a href="/etablishment/subtype/16">Bars à thèmes/jeux/billards</a></li>
-                            <li><a href="/etablishment/subtype/17">Concert Bars</a></li>
+                            <li><a href="/etablishment/subtype/17">Concerts Bars</a></li>
                             <li><a href="/etablishment/subtype/18">Bars à Chats</a></li>
                         </ul>
                     </li>
 
-                    <li><a>Où manger?</a>
+                    <li><a>O&ugrave; manger?</a>
                         <ul class="sub-menu">
-                            <li><a href="/etablishment/subtype/19">Restaurant originaux</a></li>
+                            <li><a href="/etablishment/subtype/19">Restaurants originaux</a></li>
                             <li><a href="/etablishment/subtype/20">Restaurants avec animations</a></li>
                             <li><a href="/etablishment/subtype/21">Brasseries -Bistrots -Auberges</a></li>
-                            <li><a href="/etablishment/subtype/22">Cuisine traditionnelle</a></li>
-                            <li><a href="/etablishment/subtype/23">Cuisine du monde </a></li>
+                            <li><a href="/etablishment/subtype/22">Cuisines traditionnelle</a></li>
+                            <li><a href="/etablishment/subtype/23">Cuisines du monde </a></li>
                             <li><a href="/etablishment/subtype/24">Types fast foods /Tapas</a></li>
                         </ul>
                     </li>
@@ -954,12 +949,12 @@
                     <li><a>Activités</a>
                         <ul class="sub-menu">
                             <li><a href="/etablishment/subtype/30">Ateliers et stages</a></li>
-                            <li><a href="/etablishment/subtype/31">Activités physiques et sportives</a></li>
-                            <li><a href="/etablishment/subtype/32">Activités ludiques</a></li>
-                            <li><a href="/etablishment/subtype/33">Activités gustatives</a></li>
-                            <li><a href="/etablishment/subtype/34">Activités éducatives </a></li>
-                            <li><a href="/etablishment/subtype/35">Activités Bien etre</a></li>*
-                            <li><a href="/etablishment/subtype/36">Shoppings artisans et créateurs</a></li>
+                            <li><a href="/etablishment/subtype/31">Activit&eacute;s physiques et sportives</a></li>
+                            <li><a href="/etablishment/subtype/32">Activit&eacute;s ludiques</a></li>
+                            <li><a href="/etablishment/subtype/33">Activit&eacute;s gustatives</a></li>
+                            <li><a href="/etablishment/subtype/34">Activit&eacute;s &eacute;ducatives </a></li>
+                            <li><a href="/etablishment/subtype/35">Activit&eacute;s Bien etre</a></li>*
+                            <li><a href="/etablishment/subtype/36">Shoppings artisans et cr&eacute;ateurs</a></li>
                         </ul>
                     </li>
 
@@ -1025,7 +1020,7 @@
                                     <li><a class="sub-categorie1" data-bs-toggle="modal" data-bs-target="#exampleModal1" style="font-size: 12px" href="confidentialite">Confidentialité</a></li>
                                     <li><a class="sub-categorie1" style="font-size: 12px" href="/cgu_footer">CGU</a></li>
                                     <li><a class="sub-categorie1" style="font-size: 12px" href="/faq_footer">FAQ</a></li>
-                                    <li><a class="sub-categorie1" style="font-size: 12px" href="#">Nous contacter</a></li>
+                                    <!--<li><a class="sub-categorie1" style="font-size: 12px" href="#">Nous contacter</a></li>-->
                                 </ul>
                             </div>
                         </div>
@@ -1035,9 +1030,9 @@
                             <h6 class="footer-title fs-6">Catégories</h6>
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/1">Hebergements atypiques</a></li>
-                                    <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/2">Ou boire?</a></li>
-                                    <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/3">Ou manger?</a></li>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/1">H&eacute;bergements atypiques</a></li>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/2">O&ugrave; boire?</a></li>
+                                    <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/3">O&ugrave; manger?</a></li>
                                     <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/5">Activités</a></li>
                                     <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/4">Balades</a></li>
                                     <li><a class="sub-categorie1" style="font-size: 12px" href="/categorie/6">Services</a></li>
@@ -1053,7 +1048,7 @@
                                     <li><a class="sub-categorie1" style="font-size: 12px" href="#">Carte cadeau</a></li>
                                     <li><a class="sub-categorie1" style="font-size: 12px" href="/auth/p/connexion">Se connecter</a></li>
                                     <li><a class="sub-categorie1" style="font-size: 12px" href="/auth/pro/connexion">Espace pro</a></li>
-                                    <li><a class="sub-categorie1" style="font-size: 12px" href="#">Langue</a></li>
+                                    <!--<li><a class="sub-categorie1" style="font-size: 12px" href="#">Langue</a></li>-->
                                 </ul>
                             </div>
                         </div>
@@ -1091,7 +1086,7 @@
                                                 <div class="col-3">
                                                     <img class="rounded-circle z-depth-2" style="height:60px" alt="100x100" src="{% static 'IMG/avis positif 2 igoguide.jpg'%}">
                                                 </div>
-                                                <div class="col">IGOguide, est un site vraiment exceptionnel ! En tant que professionnel j'ai su me servir de cette plateforme pour avoir non seulement des client mais aussi un site représentatif par la même occasion pour une maudite somme de 49 euros</div>
+                                                <div class="col">Avec IGOguide, j'ai découvert une nouvelle façon de chercher mes loisirs! Le site est très interactif et j'ai pu enfin trouver les activités de mes enfants et un restaurant aux alentours. Très simple! C'est ce qui nous manquait!</div>
                                            </div>
                                         </a>
                                     </li>
@@ -1110,7 +1105,7 @@
                 <div class="row">
                     <div class="col-md-6 col-12">
                         <div class="ltn__copyright-design clearfix">
-                            <p>All Rights Reserved @ igoguide <span class="current-year"></span></p>
+                            <p>@ 2020 - 2022 IGOguide Tous droits réservés. IGOgroup ne facture aucun frais de service pour les utilisateurs de notre site. <span class="current-year"></span></p>
                         </div>
                     </div>
                     <div class="col-md-6 col-12 align-self-center">
@@ -1209,4 +1204,3 @@ Hébergeur : OVH, société par action simplifiée au capital de 10 069 020 €u
 <script src="{% static 'js/jquery.min.js'%}"></script>
 <script src="{% static 'js/bootstrap.min.js'%}"></script>
 </html>
-
