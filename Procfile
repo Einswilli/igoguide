@@ -1,1 +1,1 @@
-web: gunicorn igoguide.wsgi 
+web:python manage.py runserver 
