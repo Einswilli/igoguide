@@ -9,3 +9,4 @@ whitenoise==5.3.0
 timeago
 simplejson
 python-dateutil
+mysqlclient
