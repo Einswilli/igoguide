@@ -397,16 +397,18 @@
                             <h4 class="card-title">
                                 <a href="/etablishment/{{ etablissement.id }}" style="text-decoration:none;color:#FFFFFF"><i class="fa fa-location-dot"></i> {{ etablissement.address }}</a>
                             </h4>
-                            <small><i class="bx bxs-dashboard"></i> {{ etablissement.subType }}</small>
+                            <!--<small><i class="bx bxs-dashboard"></i> {{ etablissement.subType }}</small>-->
                         </div>
                         <div class="card-footer">
                           <div class="media">
-                            <a href="/etablishment/{{ etablissement.id }}"><img alt="..."
+                            <!--<a href="/etablishment/{{ etablissement.id }}"><img alt="..."
                                  class="mr-3 rounded-circle"
-                                 src="{{etablissement.owner.Photo.url}}" style="max-width:50px;min-height:50px"></a>
+                                 src="{{etablissement.owner.Photo.url}}" style="max-width:50px;min-height:50px"></a>-->
                             <div class="media-body">
-                              <h6 class="my-0 text-white d-block">{{ etablissement.owner.FName }} {{ etablissement.owner.LName }}</h6>
-                              <small>{{ etablissement.owner.Email }}</small>
+                              <!--<h6 class="my-0 text-white d-block">{{ etablissement.owner.FName }} {{ etablissement.owner.LName }}</h6>
+                              <small>{{ etablissement.owner.Email }}</small>-->
+                              <small><i class="bx bxs-dashboard"></i> {{ etablissement.subType }}</small>
+                              <h6 class="my-0 text-white d-block">{{ etablissement.name }}</h6>
                             </div>
                           </div>
                         </div>
