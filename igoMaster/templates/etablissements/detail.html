@@ -172,13 +172,13 @@
                     <!-- Slide 1 -->
                     {% for image in e.images %}
                         <div class="carousel-item {% if forloop.first %} active {% endif %}" style="background: url('{{image.url}}') top center;background-size:100% auto;backgorund-color:#11101D;">
-                            <div class="carousel-container" style="margon-top:100px;width:50%">
+                            <div class="carousel-container" >
                                 <div class="carousel-content text-start">
-                                    <h2 class="animate__animated animate__fadeInDown"style="font-size:40px;color:{{e.typeColor}}"><span style="font-family:Bangers;font-size:60px;color:{{e.typeColor}};">{{e.subType.name}}</span><br> {{e.name}}</h2>
+                                    <center><h2 class="animate__animated animate__fadeInDown"style="font-size:40px;color:{{e.typeColor}}"><span style="font-family:Bangers;font-size:60px;color:{{e.typeColor}};">{{e.subType.name}}</span><br> {{e.name}}</h2></center>
                                     <p class="animate__animated animate__fadeInUp text-start text-start" style="font-size:22px">{{e.presentation}}</p>
                                     <div class="text-start">
                                         <!-- <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a> -->
-                                        <a href="#contact" class="btn-book animate__animated animate__fadeInUp scrollto" id="gbtn">Contact</a>
+                                        <center><a href="#contact" class="btn-book animate__animated animate__fadeInUp scrollto" id="gbtn">Contact</a></center>
                                         </a>
                                     </div>
                                 </div>
