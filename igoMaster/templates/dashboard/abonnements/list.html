@@ -214,9 +214,14 @@
                                         <div class="col-12 d-none">
                                           <input type="text" class="form-control" name="etab" id="etab" value="{{etablissement.id}}" hidden required>
                                         </div>
-                                        <iframe id="idFramePaiement" name="nomFramePaiement" src="https://p.monetico-services.com/paiement.cgi?TPE=7569774&version=valeur2&" ></iframe>
+                                        <iframe id="idFramePaiement" name="nomFramePaiement" src="https://p.monetico-services.com/paiement.cgi?TPE=7569774&date={{date}}&montant={{sub.fee}}EUR&reference=REF-S{{sub.id}}E{{sub.etablishment.id}}U{{sub.etablishment.owner.id}}&texte-libre=Letextlibre&version=3.0&lgue=FR&MAC={{mc}}&societe=igoguide&contexte_commande={{info}}&mail={{sub.etablishment.owner.Email}}&mode_affichage=iframe" ></iframe>
                                         <div class=""style="display:flex;justify-content:space-between;">
-                                          <button type="reset" class="btn btn-danger" style="width:45%">Annuler</button>
+                                          <button type="reset" id="cls{{forloop.counter}}" class="btn btn-danger" style="width:45%">Annuler</button>
+                                          <script>
+                                            $('#cls{{forloop.counter}}').click(function(){
+                                              $('#paymodal{{forloop.counter}}').modal('toggle')
+                                            })
+                                          </script>
                                           <button type="submit" class="btn btn-primary" data-dismiss="modal" style="width:45%">Enregister</button>
                                         </div>
                                       </form>

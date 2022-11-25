@@ -1,7 +1,8 @@
-from email import message
-import re
+import base64
+import hashlib,hmac
 import time
 import random
+from bson import ObjectId
 import timeago
 from .models import *
 import simplejson as Json
@@ -174,9 +175,12 @@ def particular_register(request):
     if request.POST.get('pass')!=request.POST.get('pass_confirm'):
         msg='Les champs de mot de passe doivent être identique!'
         return render(request,'auth/particular/register.html',{'msg':msg})
-    if request.FILES.get('photo')==None:
-        msg='Veuillez Choisir une photo'
-        return render(request,'auth/professional/register.html',{'msg':msg})
+    try:
+        if User.objects.get(Email=request.POST.get('email')):
+            msg='Cet e-mail est déjà utilisé.'
+            return render(request,'auth/particular/register.html',{'msg':msg})
+    except:
+        pass
     msg=None
     if validate(request):
         User.objects.create(
@@ -186,7 +190,7 @@ def particular_register(request):
             Phone=request.POST.get('phone'),
             Pass=request.POST.get('pass'),
             Type=UserType.objects.get(id=2),
-            Photo=request.FILES.get('photo')
+            # Photo=request.FILES.get('photo')
         )
         msg='Compte Créé avec succes! Authentifiez vous.'
         return render(request,'auth/particular/login.html')
@@ -327,30 +331,38 @@ def new_etablishment(request):
 
 def get_etablishment_details(request,id):
     # Renvoie la page de detail de l'établissement X
-    e=Etablishment.objects.get(id=id)
-    es={
-        'id':e.id,
-        'name':e.name,
-        'address':e.address,
-        'presentation':e.presentation,
-        'longitude':e.longitude,
-        'latitude':e.latitude,
-        'city':e.city,
-        'tags':e.tags,
-        'postal':e.postal,
-        'contact':Contact.objects.get(etablishment=e.id),
-        'reseaux':Social.objects.get(etablishment=e.id),
-        'subType':e.subType.name,
-        'subTypeText':e.subType.description,
-        'subtypeid':e.subType.id,
-        'type':e.subType.type.name,
-        'owner':e.owner,
-        #'other':Json.loads(OTHER.objects.get(etablishment=e.id).content) or '',
-        'typeColor':e.subType.type.color,
-        'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
-        'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
-    }
-    return render(request,'etablissements/detail.html',{'e':es})
+    try:
+        e=Etablishment.objects.get(id=id)
+        es={
+            'id':e.id,
+            'name':e.name,
+            'address':e.address,
+            'presentation':e.presentation,
+            'longitude':e.longitude,
+            'latitude':e.latitude,
+            'city':e.city,
+            'tags':e.tags,
+            'postal':e.postal,
+            'contact':Contact.objects.get(etablishment=e.id),
+            'reseaux':Social.objects.get(etablishment=e.id),
+            'subType':e.subType.name,
+            'subTypeText':e.subType.description,
+            'subtypeid':e.subType.id,
+            'type':e.subType.type.name,
+            'typeid':e.subType.type.id,
+            'marker': get_marker(e.subType.type.id),
+            'owner':e.owner,
+            'typeColor':e.subType.type.color,
+            'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
+            'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
+        }
+        try:
+            es['other']=Json.loads(OTHER.objects.get(etablishment=e.id).content)
+        except:
+            pass
+        return render(request,'etablissements/detail2.html',{'e':es})
+    except:
+        return redirect('Home')
 
 def save_etablishment(request):
     #   Vérifier s'il y a un user connecté
@@ -614,6 +626,7 @@ def list_user_etablishments(request,id):
         'name':e.name,
         'address':e.address,
         'presentation':e.presentation,
+        'shortPresentation':e.truncate,
         'longitude':e.longitude,
         'latitude':e.latitude,
         'city':e.city,
@@ -625,9 +638,16 @@ def list_user_etablishments(request,id):
         'subTypeText':e.subType.description,
         'subtypeid':e.subType.id,
         'type':e.subType.type.name,
+        'typeid':e.subType.type.id,
+        'marker': get_marker(e.subType.type.id),
         'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
         'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
     }for e in Etablishment.objects.filter(owner=id)]
+    for e in etablissements:
+        try:
+            e.update({'other':Json.loads(OTHER.objects.get(etablishment=e['id']).content)})
+        except:
+            pass
     return render(request,'dashboard/etablissements/list.html',{'etablissements':etablissements})
 
 def get_dept_etablishments(request,id):
@@ -640,6 +660,7 @@ def get_dept_etablishments(request,id):
             'name':e.name,
             'address':e.address,
             'presentation':e.presentation,
+            'shortPresentation':e.truncate,
             'longitude':e.longitude,
             'latitude':e.latitude,
             'city':e.city,
@@ -651,10 +672,17 @@ def get_dept_etablishments(request,id):
             'subTypeText':e.subType.description,
             'subtypeid':e.subType.id,
             'type':e.subType.type.name,
+            'typeid':e.subType.type.id,
+            'marker': get_marker(e.subType.type.id),
             'owner':e.owner,
             'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
             'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
-        }for e in Etablishment.objects.filter(city__name__icontains=dept_name)]
+        }for e in Etablishment.objects.filter(city__department__icontains=dept_name)]
+        for e in l:
+            try:
+                e.update({'other':Json.loads(OTHER.objects.get(etablishment=e['id']).content)})
+            except:
+                pass
         return render(request,'etablissements/liste.html',{'etablissements':l,'text':dept_name})
 
 def get_reg_etablishments(request,reg):
@@ -665,6 +693,7 @@ def get_reg_etablishments(request,reg):
             'name':e.name,
             'address':e.address,
             'presentation':e.presentation,
+            'shortPresentation':e.truncate,
             'longitude':e.longitude,
             'latitude':e.latitude,
             'city':e.city,
@@ -676,10 +705,17 @@ def get_reg_etablishments(request,reg):
             'subTypeText':e.subType.description,
             'subtypeid':e.subType.id,
             'type':e.subType.type.name,
+            'typeid':e.subType.type.id,
+            'marker': get_marker(e.subType.type.id),
             'owner':e.owner,
             'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
             'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
         }for e in Etablishment.objects.filter(city__region__icontains=reg)]
+        for e in l:
+            try:
+                e.update({'other':Json.loads(OTHER.objects.get(etablishment=e['id']).content)})
+            except:
+                pass
         return render(request,'etablissements/liste.html',{'etablissements':l,'text':reg})
 
 def search_etablishment(request):
@@ -711,6 +747,7 @@ def search_etablishment(request):
             'name':e.name,
             'address':e.address,
             'presentation':e.presentation,
+            'shortPresentation':e.truncate,
             'longitude':e.longitude,
             'latitude':e.latitude,
             'city':e.city,
@@ -722,26 +759,44 @@ def search_etablishment(request):
             'subTypeText':e.subType.description,
             'subtypeid':e.subType.id,
             'type':e.subType.type.name,
+            'typeid':e.subType.type.id,
+            'marker': get_marker(e.subType.type.id),
             'owner':e.owner,
             'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
             'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
         }for e in Etablishment.objects.all()]
+        for e in etablissements:
+            try:
+                e.update({'other':Json.loads(OTHER.objects.get(etablishment=e['id']).content)})
+            except:
+                pass
         l=[]
         for i in etablissements:
+            o=[]
+            try:
+                o=Json.loads(OTHER.objects.get(etablishment=i['id'])).keys()
+            except:
+                pass
             if mc and loc:
-                if x_in_city(loc,i['city']) or loc.lower() in i['address'] and x_in_etab(mc,i):
+                if x_in_city(loc,i['city']) or loc.lower() in i['address'] and x_in_etab(mc,i) or mc in o:
                     l.append(i) 
             elif mc and not loc:
-                if x_in_etab(mc,i):
+                if x_in_etab(mc,i) or mc in o:
                     l.append(i)
             elif not mc and loc:
                 if x_in_city(loc,i['city']) or loc.lower() in i['address']:
                     l.append(i)
+            # elif mc in o and x_in_city(loc,i['city']):
+            #     l.append(i)
             else:pass
         random.shuffle(l)
         return render(request,'etablissements/liste.html',{'etablissements':l,'text':text,'client':user})
     return JsonResponse('NOT FOUND',safe=False)
 
+def get_marker(idx):
+    # Retourne le marqueur 
+    x=['heb.png','oub.png','oum.png','bal.png','act.png','ser.png'] 
+    return x[idx-1] 
 
 def x_in_city(x,city):
     # rechercher par localisation
@@ -773,6 +828,7 @@ def list_subtypeX_etablishment(request,id):
         'name':e.name,
         'address':e.address,
         'presentation':e.presentation,
+        'shortPresentation':e.truncate,
         'longitude':e.longitude,
         'latitude':e.latitude,
         'city':e.city,
@@ -784,6 +840,9 @@ def list_subtypeX_etablishment(request,id):
         'subTypeText':e.subType.description,
         'subtypeid':e.subType.id,
         'type':e.subType.type.name,
+        'typeid':e.subType.type.id,
+        'typeColor':e.subType.type.color,
+        'marker': get_marker(e.subType.type.id),
         'owner':e.owner,
         'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
         'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
@@ -824,9 +883,73 @@ def list_user_subscriptions(request,id):
     # vérifier s'il y a un user connceté
     if 'user' not in request.session.keys():
         return redirect('professional_login')
+
     # liste les abonnements de l'user
     s=Subscription.objects.filter(etablishment__owner=id)
-    return render(request,'dashboard/abonnements/list.html',{'subscriptions':s})
+    u_r="http://alldotpy.herokuapp.com/"#f"http://localhost:8000/subscription/list/pro/{request.session['user']['id']}"
+    mac="D5C3D99BF7FF337DE4DF59BCC5AB271F791FBF9D"
+    
+    #&url_retour_ok={{u_r}}&url_retour_err={{u_r}}&
+    d=datetime.now().strftime('%d/%m/%Y:%H:%M:%S')
+    dt=datetime.now().strftime('%d/%m/%Y')
+    info=str({
+        "billing":{
+            "firstName":s[0].etablishment.owner.FName,
+            "lastName":s[0].etablishment.owner.LName,
+            "addressLine1":s[0].etablishment.address,
+            "city":s[0].etablishment.city.name,
+            "postalCode":s[0].etablishment.postal,
+            "country":"FR"
+        },
+        "shipping":{
+            "firstName":s[0].etablishment.owner.FName,
+            "lastName":s[0].etablishment.owner.LName,
+            "addressLine1":s[0].etablishment.address,
+            "city":s[0].etablishment.city.name,
+            "postalCode":s[0].etablishment.postal,
+            "country":"FR",
+            "email":s[0].etablishment.owner.Email,
+            "phone":s[0].etablishment.owner.Phone,
+            "shipIndicator":"billing_address",
+            "deliveryTimeframe":"two_day",
+            "firstUseDate":date.today(),
+            "matchBillingAddress":True
+        },
+        "client":{
+            "email":s[0].etablishment.owner.LName,
+            "phone":s[0].etablishment.owner.Phone,
+            "birthCity":s[0].etablishment.city.name,
+            "birthPostalCode":"68000",
+            "birthCountry":"FR",
+            "birthdate":"1987-03-27"
+        }
+    }).encode('utf-8')
+
+    #   CONVERTIR L'INFO EN BASE 64
+    info=str(base64.b64encode(info))[2:-1]
+    ctx={
+        'subscriptions':s,
+        'date':str(d),
+        'u_r':u_r,
+        'info':info,
+        'dat':dt
+    }
+    for x in s:
+        data=f"TPE=7569774*date={d}*lgue=FR*mail={x.etablishment.owner.Email}*montant={x.fee}EUR*reference=REFS{x.id}E{x.etablishment.id}U{x.etablishment.owner.id}*societe=igoguide*version=3.0"
+        ctx[f'mc{x.etablishment.id}']=(hmac.new(key=mac.encode(), msg=data.encode(), digestmod=hashlib.sha1).hexdigest())
+    print(ctx)
+    return render(request,'dashboard/abonnements/list.html',ctx)
+
+def get_user_paied_subscription_count(request):
+    try:
+        s=Subscription.objects.filter(etablishment__owner=request.session['user']['id'])
+        l=[]
+        for i in s:
+            if i.createdAt.year==date.today().year and i.isPaied():
+                l.append(i)
+        return len(l)
+    except:
+        return 0
 
 def new_payment(request,id):
     pass
@@ -950,6 +1073,7 @@ def get_user_notifications(request,id):
         return redirect('professional_login')
     return render(request,'dashboard/messages/notifications.html')
 
+@csrf_exempt
 def send_contact_mail(request,id):
     if request.method=='POST':
         e=Etablishment.objects.get(id=id)
@@ -957,7 +1081,7 @@ def send_contact_mail(request,id):
         n=request.POST.get('name')
         o=request.POST.get('subject')
         r=[x for x in str(request.POST.get('contacts')).split(',') if x!=None and x!='']
-        print(r,request.POST.get('contacts'))
+        # print(r,request.POST.get('contacts'))
         m=request.POST.get('message')
 
         f=f'''E-mail de Contact de IGOguide
@@ -1049,9 +1173,17 @@ def save_media(request,id):
 
 def get_subscription_info(request,id):
     d=date.today()+relativedelta(years=int(id))
+    t=49
+    if int(id)!=1 and int(id) in (2,3):
+        t=int(id)*49.0 if int(id) not in (2,3) else (49+(49-49*.3))
+    else:
+        x=get_user_paied_subscription_count(request)
+        if x%3==0 or x%2==0:
+            t=int(id)*49.0
+        else:t=49
     r={
         'd':d.ctime(),
-        't':int(id)*49.0
+        't':t if date.today().year in (2022,2023) else int(id)*49
     }
     return JsonResponse(r,safe=True)
 

@@ -167,7 +167,7 @@ MEDIA_URL='/images/'
 
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT='587'
-EMAIL_HOST_USER="fiches.igoguide@gmail.com" #'leDotPy01@gmail.com'
-EMAIL_HOST_PASSWORD="vibmhvkyhojmqjwv"      #'lsovmpcypmkltjok'#'L0ve.Py@'
+EMAIL_HOST_USER='leDotPy01@gmail.com' #"fiches.igoguide@gmail.com" #
+EMAIL_HOST_PASSWORD='lsovmpcypmkltjok'#'L0ve.Py@' #"vibmhvkyhojmqjwv" 
 EMAIL_USE_TLS=True
 #EMAIL_USE_SSL=False

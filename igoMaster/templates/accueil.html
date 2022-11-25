@@ -243,7 +243,7 @@ g path:hover {
               </div>
 
           </div>
-          <a href=""><img src="{% static 'IMG/igoguide-mes-favoris@4x.png'%}" href="#" class="float-end bottom-0 end-0"  style="height:270px; margin-bottom:0;margin-top:50px;bottom:0;" alt=""></a>
+          <a href="{% if request.session.client %}/profile/p/{{request.session.client.id}}{% else %}/auth/p/connexion{% endif %}"><img src="{% static 'IMG/igoguide-mes-favoris@4x.png'%}" class="float-end bottom-0 end-0"  style="height:270px; margin-bottom:0;margin-top:50px;bottom:0;" alt=""></a>
 
         </div>
       </div>

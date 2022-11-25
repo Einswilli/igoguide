@@ -156,13 +156,13 @@
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-chat-left-text"></i>
-            <span class="badge bg-success badge-number" id="msgcount">3</span>
+            <span class="badge bg-success badge-number" id="msgcount">0</span>
           </a><!-- End Messages Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages" id="msgbox">
             <li class="dropdown-header">
               Nouveaux méssages
-              <a href="#" id="msglist"><span class="badge rounded-pill bg-primary p-2 ms-2">voir tout</span></a>
+              <a href="/mails/pro/{{request.sesion.user.id}}" id="msglist"><span class="badge rounded-pill bg-primary p-2 ms-2">voir tout</span></a>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -211,7 +211,7 @@
             </li>
 
             <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
+              <a href="/mails/pro/{{request.sesion.user.id}}">Voir tous méssages</a>
             </li>
 
           </ul><!-- End Messages Dropdown Items -->

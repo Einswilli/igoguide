@@ -7,6 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+
+  <link type="text/css" rel="stylesheet" href="{% static 'nc/reset.css'%}">
+  <link type="text/css" rel="stylesheet" href="{% static 'nc/plugins.css'%}">
+  <link type="text/css" rel="stylesheet" href="{% static 'nc/style.css'%}">
+  <link type="text/css" rel="stylesheet" href="{% static 'css/color.css'%}">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
@@ -264,6 +270,188 @@
         font-size: 26px;
     }
 
+    {% comment %} NOUVEAU CARDS {% endcomment %}
+
+    .cont {
+        width: 100%;
+        margin: 0px auto;
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        justify-content: space-between;
+      }
+      
+      .cont .box {
+        width: calc((100% / 3) - 20px);
+        background-color: white;
+        position: relative;
+        margin-bottom:25px;
+      }
+      
+      .cont .box:first-of-type:before {
+        content: "Igoguide";
+        background-color: #ffc823;
+        color: white;
+        font-size: 13px;
+        padding: 4px 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-50%);
+        z-index: 1;
+      }
+      
+      .cont .box:first-of-type:after {
+        content: "";
+        border-width: 12px;
+        border-style: solid;
+        border-color: transparent transparent transparent #ea723d;
+        position: absolute;
+        left: 72px;
+        top: 0;
+        transform: translateY(-50%);
+      }
+      
+      .cont .box .top {
+        position: relative;
+        background-color: red;
+      }
+      
+      {% comment %} .cont .box .top:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba(10, 10, 10, 0.3);
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 0.3s;
+        opacity: 0;
+      }
+      
+      .cont .box .top:hover:before {
+        opacity: 1;
+      } {% endcomment %}
+      
+      .cont .box .top:after {
+        content: "Voir détails";
+        color: white;
+        font-size: 12px;
+        padding: 10px;
+        border: 1px solid white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        transition: 0.3s;
+        opacity: 0;
+      }
+      
+      .cont .box .top:hover:after {
+        opacity: 1;
+      }
+      
+      .cont .box .top img {
+        width: 100%;
+        max-height:200px;
+        margin-bottom: -4px;
+      }
+      
+      .cont .box .top span {
+        position: absolute;
+        right: 20px;
+        bottom: 15px;
+        color: white;
+        font-size: 20px;
+      }
+      
+      .cont .box .top span i {
+        margin-left: 5px;
+      }
+      
+      .cont .box .bottom {
+        padding: 20px 15px;
+        position: relative;
+      }
+      
+      {% comment %} .cont .box:not(:last-of-type) .bottom:before {
+        content: "Hot";
+        background-color: #ea723d;
+        color: white;
+        font-size: 11px;
+        padding: 4px 7px;
+        position: absolute;
+        left: 20px;
+        top: -40px;
+        z-index: 1;
+      } {% endcomment %}
+      
+      .cont .box .bottom h3 {
+        font-size: 15px;
+      }
+      
+      .cont .box .bottom > p {
+        margin: 15px 0;
+        font-size: 13px;
+        line-height: 1.4;
+        color: #777;
+      }
+      
+      .cont .box .bottom .advants {
+        display: flex;
+      }
+      
+      .cont .box .bottom .advants > div {
+        margin-right: 15px;
+      }
+      
+      .myconconttainer .box .bottom .advants > div > span {
+        font-weight: bold;
+        font-size: 12px;
+      }
+      
+      .cont .box .bottom .advants > div > div {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+      }
+      
+      .cont .box .bottom .advants > div > div i {
+        color: #777;
+        font-size: 22px;
+      }
+      
+      .cont .box .bottom .advants > div > div > span {
+        font-size: 12px;
+        font-weight: bold;
+        margin-left: 10px;
+      }
+      
+      .cont .box .bottom .advants > div > div > span > span {
+        color: #777;
+        font-weight: normal;
+        margin-left: 5px;
+      }
+      
+      .cont .box .bottom .price {
+        margin-top: 20px;
+      }
+      
+      .cont .box .bottom .price span:first-of-type {
+        display: block;
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      
+      .cont .box .bottom .price span:last-of-type {
+        color: #3eaba1;
+        font-size: 22px;
+      }
+      
+
+    {% comment %}  {% endcomment %}
+
     body { 
         width: 100%;
         height:100%;
@@ -290,14 +478,160 @@
                 </h2>
             {% endif %}
             <div class="mycontainer">
-                <div class="row mr-10">
+                <div class="row mr-10 listing-item-container">
                     {% if not etablissements or etablissements|length < 0 %}
                         <h2 style="text-align:center;margin-top:200px;color:#ffffff;font-family:Bangers;">Aucun résultat!</h2>
                         <img src"{% static 'categories/img_404.jpg'%}" style="height:200px;width:auto;">
                     {% else %}
                 {% for etablissement in etablissements %}
-                <div class="col-md-6 col-lg-6 col-sm-6 js-marker mb-30" data-lat="{{etablissement.latitude}}" data-lng="{{etablissement.longitude}}" data-num="{{etablissement.id}}">
-                    {% comment %} {% for image in etablissement.images %} {% endcomment %}
+                  <div class="gallery-item hotels js-marker" data-lat="{{etablissement.latitude}}" data-lng="{{etablissement.longitude}}" data-num="{{etablissement.id}}" data-cat="{% static 'IMG/Epingles/' %}{{etablissement.marker}}">
+                    <!-- listing-item  -->
+                    <div class="listing-item">
+                        <article class="geodir-category-listing fl-wrap">
+                            <div class="geodir-category-img">
+                                <div class="geodir-js-favorite_btn"><i class="fal fa-heart"></i><span>Ajouter</span></div>
+                                <a href="/etablishment/{{ etablissement.id }}" class="geodir-category-img-wrap fl-wrap">
+                                <img src="{{ etablissement.images.0.url }}" alt=""> 
+                                </a>
+                                <div class="listing-avatar"><a href="/etablishment/{{ etablissement.id }}"><img src="{{ etablissement.owner.Photo.url }}" alt=""></a>
+                                    <span class="avatar-tooltip">{{ etablissement.owner.FName }}  <strong>{{ etablissement.owner.LName }}</strong></span>
+                                </div>
+                                <div class="geodir_status_date gsd_open bg-blue" style="font-family: Bangers;"><i class="fal fa-lock-open"></i>{{ etablissement.subType }}</div>
+                                <div class="geodir-category-opt">
+                                    <div class="listing-rating-count-wrap">
+                                      {% for k,v in etablissement.other.items %}
+                                        {% if 'Tarif à partir de' in k %}
+                                          <div class="review-score">{{v}}€</div>
+                                        {% endif %}
+                                      {% endfor %}
+                                        {% comment %} <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div> {% endcomment %}
+                                        <br>
+                                        {% comment %} <div class="reviews-count">9 reviews</div> {% endcomment %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="geodir-category-content fl-wrap title-sin_item">
+                                <div class="geodir-category-content-title fl-wrap">
+                                    <div class="geodir-category-content-title-item">
+                                        <h3 class="title-sin_map"><a href="#">{{ etablissement.name }}</a></h3>
+                                        <div class="geodir-category-location fl-wrap"><a href="/etablishment/{{ etablissement.id }}"><i class="fas fa-map-marker-alt"></i>  {{ etablissement.address }}</a></div>
+                                    </div>
+                                </div>
+                                <div class="geodir-category-text fl-wrap">
+                                    <p class="small-text">{{ etablissement.shortPresentation }}</p>
+                                    <div class="facilities-list fl-wrap">
+                                        <div class="facilities-list-title" style="font-family: Bangers;">Avantages : </div>
+                                        <ul class="no-list-style">
+                                            <li class="tolt"  data-microtip-position="top" data-tooltip="Free WiFi"><i class="fal fa-wifi"></i></li>
+                                            <li class="tolt"  data-microtip-position="top" data-tooltip="Parking"><i class="fal fa-parking"></i></li>
+                                            <li class="tolt"  data-microtip-position="top" data-tooltip="Non-smoking Rooms"><i class="fal fa-smoking-ban"></i></li>
+                                            <li class="tolt"  data-microtip-position="top" data-tooltip="Pets Friendly"><i class="fal fa-dog-leashed"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="geodir-category-footer fl-wrap">
+                                    <a class="listing-item-category-wrap" href="/etablishment/{{ etablissement.id }}">
+                                        <div class="listing-item-category" style="background-color:{{etablissement.typeColor}};"><i class="fal fa-cart-arrow-down"></i></div>
+                                        <span style="font-family: Bangers;">Voir plus...</span>
+                                    </a>
+                                    <div class="geodir-opt-list">
+                                        <ul class="no-list-style">
+                                            <li><a href="#" class="show_gcc"><i class="fal fa-envelope"></i><span class="geodir-opt-tooltip">Contact Info</span></a></li>
+                                            <li><a href="#" class="single-map-item" data-newlatitude="40.88496706" data-newlongitude="-73.88191222"><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map <strong>5</strong></span> </a></li>
+                                            <li>
+                                                <div class="dynamic-gal gdop-list-link" data-dynamicPath="[{'src': 'images/all/28.jpg'},{'src': 'images/all/29.jpg'}, {'src': 'images/all/30.jpg'}]"><i class="fal fa-search-plus"></i><span class="geodir-opt-tooltip">Gallery</span></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    {% comment %} <div class="price-level geodir-category_price">
+                                        <span class="price-level-item" data-pricerating="3"></span>
+                                        <span class="price-name-tooltip">Pricey</span>
+                                    </div> {% endcomment %}
+                                    <div class="geodir-category_contacts">
+                                        <div class="close_gcc"><i class="fal fa-times-circle"></i></div>
+                                        <ul class="no-list-style">
+                                            <li><span><i class="fal fa-phone"></i> Téléphone : </span><a href="#">{{ etblissement.contact.0.telephone }}</a></li>
+                                            <li><span><i class="fal fa-envelope"></i> E-mail : </span><a href="#">{{ etabblissement.contact.0.email }}</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- listing-item end -->                                           
+                </div>
+                <!-- gallery-item  end-->
+
+
+                {% comment %} <div class="box js-marker" data-lat="{{etablissement.latitude}}" data-lng="{{etablissement.longitude}}" data-num="{{etablissement.id}}" data-cat="{% static 'IMG/Epingles/' %}{{etablissement.marker}}">
+                  <div class="top">
+                      <a href="/etablishment/{{ etablissement.id }}">
+                        <img src="{{ etablissement.images.0.url }}" alt="" />
+                      </a>
+                        <span>
+                          {% if request.session.client %}
+                            {% if etablissement.id in request.session.client.favorites %}
+                              <i class="fas fa-heart etsf_1" id="fav_{{etablissement.id}}" title="retirer {{ etablissement.name }} des favoris" style="color:deeppink;"></i>
+                            {% else %}
+                              <i class="fas fa-heart etsf_0" id="fav_{{etablissement.id}}" title="ajouter  {{ etablissement.name }} aux favoris"></i>
+                            {% endif %}
+                          {% else %}
+                            <a href="/auth/p/connexion" style="text-decoration:none;color:#ffc823;"><i class="fas fa-heart" title="Connectez vous pour ajouter  {{ etablissement.name }} aux favoris"></i></a>
+                          {% endif %}
+                        </span>
+                    </div>
+                    <div class="bottom">
+                      <h3><b>{{ etablissement.name }}</b></h3>
+                      <p>
+                        <i class="fa fa-location-dot"></i> {{ etablissement.address }}
+                      </p>
+                      <span class="badge-dark" style="font-size:12px;color:#ffffff;background-color:black;padding:5px 5px;font-family: Bangers;"><b> {{ etablissement.subType }} </b></span>
+                      {% if etablissement.other %}
+                        <div class="advants">
+                          {% for k,v in etablissement.other.items %}
+                            {% if 'Nombre de couchages' in k %}
+                              <div>
+                                <span style="font-size:11px;font-family: Bangers;">Couchages</span>
+                                <div><i class="fas fa-th-large"></i><span>{{v}}</span></div>
+                              </div>
+                            {% endif %}
+                            {% if k in 'Piscine Sauna Cuisine' %}
+                              <div>
+                                <span style="font-size:11px;font-family: Bangers;">{{ k }}</span>
+                                <div><i class="fas fa-th-large"></i><span>{{ v }}</span></div>
+                              </div>
+                            {% endif %}
+                            {% if 'Accessible aux handicapés' in k %}
+                              <div>
+                                <span style="font-size:11px;font-family: Bangers;">Handicapés</span>
+                                <div><i class="fa-solid fa-wheelchair"></i><span style="font-family: Bangers;">Oui</span></div>
+                              </div>
+                            {% endif %}
+                            
+                          {% endfor %} 
+                        </div>
+                      {% endif %}
+                      
+                      <div class="price">
+                        {% if etablissement.other %}
+                          {% for k,v in etablissement.other.items %}
+                            {% if 'Tarif à partir de' in k %}
+                              <span>{{v}}€</span>
+                            {% endif %}
+                            {% if k in 'Livraisons' %}
+                              <span style="font-size:11px;font-family: Bangers;">{{k}} : {{ v }}</span>
+                            {% endif %}
+                          {% endfor %}
+                        {% else %}
+                        <a class="btn btn-outline-warning" style="font-size:12px;font-family: Bangers;" href="/etablishment/{{ etablissement.id }}">Voir plus...</a>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div> {% endcomment %}
+
+
+
+                {% comment %} <div class="col-md-6 col-lg-6 col-sm-6 js-marker mb-30" data-lat="{{etablissement.latitude}}" data-lng="{{etablissement.longitude}}" data-num="{{etablissement.id}}" data-cat="{% static 'IMG/Epingles/' %}{{etablissement.marker}}">
                     <div class="card card-bg" style="background-image:url('{{ etablissement.images.0.url }}');">
                         <div class="card-img-overlay d-flex flex-column">
                         <div class="card-head d-flex justify-content-end">
@@ -327,7 +661,10 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> {% endcomment %}
+
+
+
                         {% comment %} <div class="col-lg-4 col-sm-6 col-12 js-marker" data-lat="{{etablissement.latitude}}" data-lng="{{etablissement.longitude}}" data-num="{{etablissement.id}}" style="border-radius:10px">
                             <div class="ltn__blog-item ltn__blog-item-3" style="margin-top:10%; border-radius:10px">
                                 <div class="ltn__blog-img " style="background-color:black;border-radius:15px;border-top-right-radius:15px">
@@ -445,8 +782,11 @@
     e_f1()
 </script>
 
-<script src="{% static 'js/vendor.js'%}"></script>
-<script src="{% static 'js/map.js'%}"></script>
+{% comment %} <script src="{% static 'nc/vendor.js'%}"></script> {% endcomment %}
+{% comment %} <script src="{% static 'nc/map.js'%}"></script> {% endcomment %}
+{% comment %} <script src="{% static 'nc/jquery.min.js'%}"></script> {% endcomment %}
+{% comment %} <script src="{% static 'nc/plugins.js'%}"></script> {% endcomment %}
+{% comment %} <script src="{% static 'nc/scripts.js'%}"></script> {% endcomment %}
 {% endblock content %}
 
 {% comment %} <script>

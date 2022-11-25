@@ -21,7 +21,7 @@ class User(models.Model):
     Phone=models.CharField(max_length=20)
     Pass=models.CharField(max_length=25)
     Type=models.ForeignKey("UserType",on_delete=models.CASCADE)
-    Photo=models.ImageField()
+    Photo=models.ImageField(default='blank-dark.svg',blank=True,null=True)
     JoinedAt=models.DateField(auto_now_add=True)
 
     def __str__(self) -> str:
@@ -80,6 +80,9 @@ class Etablishment(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    def truncate(self) -> str:
+        return self.presentation[:90] if len(self.presentation)>90 else self.presentation
 
 ####    MEDIAS
 class Media(models.Model):
@@ -144,6 +147,13 @@ class Subscription(models.Model):
     stopDate=models.DateField(auto_now_add=False)   # Date de fin d'abonnements
     etablishment=models.ForeignKey("Etablishment",on_delete=models.CASCADE)
     createdAt=models.DateField(auto_now_add=True)
+
+    def isPaied(self):
+        try:
+            Payment.objects.get(subscription=self.id,status="SUCCESS")
+            return True
+        except:
+            return False
 
 ####    PAIEMENTS
 class Payment(models.Model):

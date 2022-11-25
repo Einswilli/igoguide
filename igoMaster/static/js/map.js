@@ -26,10 +26,12 @@ class GoogleMap{
                     }
                 
                     onAdd () {
+                        var x='';
                         this.div = document.createElement('div')
                         this.div.classList.add('marker')
                         this.div.style.position = 'absolute'
-                        this.div.innerHTML = this.text
+                        //alert(this.text)
+                        this.div.innerHTML =this.text// "<img src=\""+this.text+"\">"
                         this.div.dataset.num=this.text
                         this.getPanes().overlayImage.appendChild(this.div)
                         this.div.addEventListener('click',()=>{
@@ -88,9 +90,18 @@ class GoogleMap{
 
                 // var center={lat:-25.363,lng:131.044}
                 this.map=new google.maps.Map(element,{
-                    zoom:12
+                    zoom:8,
+                    //gestureHandling: "cooperative"
                 })
                 this.bounds=new google.maps.LatLngBounds()
+                // google.maps.event.addListener(this.map,'zoom_changed',()=>{
+                //     alert('zoom_changed')
+                //     let b=this.map.getBounds()
+                //     let items=document.querySelectorAll('.js-marker')
+                //     for(let item of items){
+                //         alert(b)
+                //     }
+                // })
                 resolve()
             })
         })
