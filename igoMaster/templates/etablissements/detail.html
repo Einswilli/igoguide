@@ -172,13 +172,13 @@
                     <!-- Slide 1 -->
                     {% for image in e.images %}
                         <div class="carousel-item {% if forloop.first %} active {% endif %}" style="background: url('{{image.url}}') top center;background-size:100% auto;backgorund-color:#11101D;">
-                            <div class="carousel-container" style="margon-top:100px;width:50%">
+                            <div class="carousel-container" >
                                 <div class="carousel-content text-start">
-                                    <h2 class="animate__animated animate__fadeInDown"style="font-size:40px;color:{{e.typeColor}}"><span style="font-family:Bangers;font-size:60px;color:{{e.typeColor}};">{{e.subType.name}}</span><br> {{e.name}}</h2>
+                                    <center><h2 class="animate__animated animate__fadeInDown"style="font-size:40px;color:{{e.typeColor}}"><span style="font-family:Bangers;font-size:60px;color:{{e.typeColor}};">{{e.subType.name}}</span><br> {{e.name}}</h2></center>
                                     <p class="animate__animated animate__fadeInUp text-start text-start" style="font-size:22px">{{e.presentation}}</p>
                                     <div class="text-start">
                                         <!-- <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a> -->
-                                        <a href="#contact" class="btn-book animate__animated animate__fadeInUp scrollto" id="gbtn">Contact</a>
+                                        <center><a href="#contact" class="btn-book animate__animated animate__fadeInUp scrollto" id="gbtn">Contact</a></center>
                                         </a>
                                     </div>
                                 </div>
@@ -340,7 +340,7 @@
                                 <div class="info-box card">
                                     <i class="bi bi-envelope" style="color:{{e.typeColor}}"></i>
                                     <h3 style="color:{{e.typeColor}}">E-mails</h3>
-                                    <p>{{e.contact.email}}<br></p>
+                                    <p style="text-transform:lowercase;">{{e.contact.email}}<br></p>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -379,7 +379,7 @@
                                     </div>
 
                                     <div class="col-md-6 ">
-                                        <input type="email" class="form-control" name="email" placeholder="Votre Email" required>
+                                        <input type="email" class="form-control" name="email" placeholder="Votre Email" style="text-transform:lowercase;" required>
                                     </div>
 
                                     <div class="col-md-12">
@@ -399,7 +399,7 @@
                                     <div class="col-md-12 text-center">
                                         <div class="loading">Loading</div>
                                         <div class="error-message"></div>
-                                        <div class="sent-message">Votre méssage a bien été envoyé!</div>
+                                        <div class="sent-message">Votre message a bien été envoyé!</div>
 
                                         <button type="submit" style="background-color:{{e.typeColor}}">Envoyer</button>
                                     </div>
