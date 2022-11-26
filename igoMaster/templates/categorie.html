@@ -119,21 +119,27 @@
                 {% for es in EtablishmentSubTypes %}
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="ltn__category-item ltn__category-item-5 text-center cc">
-                        <a href="/etablishment/subtype/{{es.id}}" class="aa">
-                            <span class="category-icon"><i class="flaticon-home-2" style="color: {{EtablishmentType.color}}"></i></span>
+                        <a href="/etablishment/subtype/{{es.id}}" class="aa" title="{{es.description}}">
+                            <span class="category-icon"><img src="{% static 'icon_sous_categories/'%}{{es.image}}" alt=""></span>
+                            <!-- <i class="flaticon-home-2" style="color: {{EtablishmentType.color}}"></i>< -->
                             <span class="category-title">{{es.name}}</span>
                             <span class="category-btn"><i class="flaticon-right-arrow"></i></span>
-                            <span><a class="btn btn-warning" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Lire la description</a></span>
+                            <span><a id="mod{{es.id}}" class="btn btn-warning" data-bs-toggle="modal" target="#exampleModalToggle" role="button">Lire la description</a></span>
+                            <script>
+                                $('#mod{{es.id}}').click(function(){
+                                    $('#dal{{es.id}}').modal('toggle');
+                                })
+                            </script>
 
                         </a>
                     </div>
                    
-                    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                    <div class="modal fade" id="dal{{es.id}}" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                         <div class="modal-dialog modal-dialog-centered">
                           <div class="modal-content">
                             <div class="modal-header">
                               <h5 class="modal-title" id="exampleModalToggleLabel">Description</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              <button id="cls{{es.id}}" type="button" class="btn-close" ></button>
                             </div>
                             <div class="modal-body">
                               <span class="category-description">{{es.description}}</span>
@@ -141,6 +147,11 @@
                           </div>
                         </div>
                     </div>
+                    <script>
+                        $('#cls{{es.id}}').click(function(){
+                            $('#dal{{es.id}}').modal('toggle');
+                        })
+                    </script>
                     
                 </div>
                 {% endfor %}
