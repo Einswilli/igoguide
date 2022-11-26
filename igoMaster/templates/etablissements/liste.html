@@ -493,11 +493,15 @@
                                 <div class="geodir_status_date gsd_open bg-blue" style="font-family: Bangers;"><i class="fal fa-lock-open"></i>{{ etablissement.subType }}</div>
                                 <div class="geodir-category-opt">
                                     <div class="listing-rating-count-wrap">
-                                      {% for k,v in etablissement.other.items %}
-                                        {% if 'Tarif à partir de' in k %}
-                                          <div class="review-score">{{v}}€</div>
-                                        {% endif %}
-                                      {% endfor %}
+                                      {% if etablissement.other %}
+                                        {% for k,v in etablissement.other.items %}
+                                          {% if 'Tarif à partir de' in k %}
+                                            <div class="review-score">{{v}}€</div>
+                                          {% endif %}
+                                        {% endfor %}
+                                      {% else %}
+                                        <div class="review-score" style="font-family: Bangers;"><a href="/etablishment/{{ etablissement.id }}" style="color:#ffffff;text-decoratoin:none;">voir plus...</a></div>
+                                      {% endif %}
                                         {% comment %} <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div> {% endcomment %}
                                         <br>
                                         {% comment %} <div class="reviews-count">9 reviews</div> {% endcomment %}
@@ -513,7 +517,7 @@
                                 </div>
                                 <div class="geodir-category-text fl-wrap">
                                     <p class="small-text">{{ etablissement.shortPresentation }}</p>
-                                    <div class="facilities-list fl-wrap">
+                                    <div class="facilities-list fl-wrap d-flex">
                                         <div class="facilities-list-title" style="font-family: Bangers;">Avantages : </div>
                                         <ul class="no-list-style">
                                             <li class="tolt"  data-microtip-position="top" data-tooltip="Free WiFi"><i class="fal fa-wifi"></i></li>
@@ -523,7 +527,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="geodir-category-footer fl-wrap">
+                                {% comment %} <div class="geodir-category-footer fl-wrap">
                                     <a class="listing-item-category-wrap" href="/etablishment/{{ etablissement.id }}">
                                         <div class="listing-item-category" style="background-color:{{etablissement.typeColor}};"><i class="fal fa-cart-arrow-down"></i></div>
                                         <span style="font-family: Bangers;">Voir plus...</span>
@@ -537,10 +541,10 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    {% comment %} <div class="price-level geodir-category_price">
+                                    <div class="price-level geodir-category_price">
                                         <span class="price-level-item" data-pricerating="3"></span>
                                         <span class="price-name-tooltip">Pricey</span>
-                                    </div> {% endcomment %}
+                                    </div>
                                     <div class="geodir-category_contacts">
                                         <div class="close_gcc"><i class="fal fa-times-circle"></i></div>
                                         <ul class="no-list-style">
@@ -548,7 +552,7 @@
                                             <li><span><i class="fal fa-envelope"></i> E-mail : </span><a href="#">{{ etabblissement.contact.0.email }}</a></li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> {% endcomment %}
                             </div>
                         </article>
                     </div>

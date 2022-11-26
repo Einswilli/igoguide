@@ -296,16 +296,19 @@
                                                         <a class="btn btn-dark rounded-pill h-100 h" href="fiche.index" type="submit" title="Dashboard"><i class="fas fa-dashboard pr-2 ic" aria-hidden="true" style="color:yellow;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Dashboard</span></a>
                                                     </div> {% endcomment %}
                                                 {% comment %} @else {% endcomment %}
+                                                {% if not request.session.client %}
                                                     <div class="col" id="pcon">
                                                     <a class="btn btn-dark rounded-pill h-100 h" href="/auth/p/connexion" type="submit" title="Se connecter"><i class="fas fa-user pr-2 ic" aria-hidden="true" style="color:white;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic"> Se connecter</span></a>
                                                     </div>
                                                     <div class="col" id="procon">
                                                         <a class="btn btn-dark rounded-pill h-100 h" href="/auth/pro/connexion" type="submit" title="Espace pro"><i class="fas fa-user-tie pr-2 ic" aria-hidden="true" style="color:white;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Espace pro</span></a>
                                                     </div>
-                                                    <div class="col" id="pfav" style="display:none">
-                                                        <a id="espace" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" href="/profile/p/{{ client.id }}" type="button" title="Mon espace" ><i class="fas fa-heart pr-2 ic" aria-hidden="true" style="color:deeppink;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Mon espace</span></a>
+                                                {% else %}
+                                                    <div class="col" id="pfav">
+                                                        <a id="espace" class="btn btn-dark rounded-pill navbar-toggle-box navbar-toggle-box-collapse" href="/profile/p/{{ request.session.client.id }}" type="button" title="Mon espace" ><i class="fas fa-heart pr-2 ic" aria-hidden="true" style="color:deeppink;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Mon espace</span></a>
                                                     </div>
-                                                    <script>
+                                                {% endif %}
+                                                    {% comment %} <script>
                                                         if(localStorage.hasOwnProperty('clientid')){
                                                             document.querySelector('#espace').href="/profile/p/"+localStorage.getItem('clientid')
                                                             $('#pcon').fadeOut()
@@ -316,8 +319,7 @@
                                                             $('#procon').fadeIn()
                                                             $('#pfav').fadeOut()
                                                         }
-                                                    </script>
-                                                 {% comment %} @endauth {% endcomment %}
+                                                    </script> {% endcomment %}
 
 
                                                     <div class="btn-group mt-3 mb-2 col">

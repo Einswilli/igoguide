@@ -45,6 +45,7 @@ class EtablishmentSubType(models.Model):
     name=models.CharField(max_length=50)
     description=models.CharField(max_length=250)
     type=models.ForeignKey("EtablishmentType",on_delete=models.CASCADE)
+    image=models.CharField(max_length=150,default='AUCUNE IMAGE')
     createdAt=models.DateField(auto_now_add=True)
 
     def __str__(self) -> str:
