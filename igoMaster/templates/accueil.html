@@ -55,8 +55,8 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.6);
-        color: #ffffff;
-        font-family: 'Quicksand', sans-serif;
+        color: #000000;
+        font-family: "Open Sans", sans-serif;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -70,7 +70,7 @@
     }
 
     .image__overlay--primary {
-        background: yellow;
+        background: #FECD00;
     }
 
     .image__overlay>* {
@@ -94,6 +94,7 @@
     .image__description {
         font-size: 1.25em;
         margin-top: 0.25em;
+        color: #000000;
     }
 
     .bouton-recherche:hover{
@@ -266,11 +267,11 @@ g path:hover {
         </div>
       </div>
 
-      <div class="container  text-white z-index-20">
+      <div class="container  text-white z-index-20 bg-primary">
         <div class="row align-items-center">
           <div class="col-lg-12">
             <div class="text-center mb-5 mt-0">
-            <h6 class="display-3 fw-bold text-shadow"  style="font-family: Bangers;font-size:300%;margin-top:100px">Une nuit insolite, une sortie et c’est parti !</h6>
+            <h6 class="display-3 fw-bold text-shadow"  style="font-family: Bangers; font-size:400%; margin-top:100px; letter-spacing: 3px;">Une nuit insolite, une sortie et c’est parti !</h6>
             </div>
             <div class="search-bar mt-5 mb-3 p-3 p-lg-1 ps-lg-4" style="margin-right:10%;margin-left:10%;margin-top:100px; text-align:center;">
                 <form action="/etablishment/search" method="POST">{% csrf_token %}
@@ -313,7 +314,7 @@ g path:hover {
 
             <div class="row mt-3">
                 <div class="col-sm-4 mt-1" style="height:20px "><hr></div>
-                <div class="col-sm-4 mt-1 text-center" style="font-size: 44px; color:black;font-family: Bangers"> Comment ça marche ?</div>
+                <div class="col-sm-4 mt-1 text-center" style="font-size: 44px; color:black;font-family: Bangers; letter-spacing: 3px;"> Comment ça marche ?</div>
                 <div class="col-sm-4 mt-1"><hr></div>
             </div>
 
@@ -380,7 +381,7 @@ g path:hover {
               <div class="card h-100">
                 <a href="/categorie/1"><img src="{% static 'IMG/2 Hipster pour nuit insolite.jpg'%}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                    <center><h6 class="card-title"><a href="/categorie/1" class="categorie2 card-title"  style="font-family: Bangers; color:black"><i class="fa-solid fa-arrow-circle-right"></i>Hébergements atypiques</a></h6></center>
+                    <center><h6 class="card-title"><a href="/categorie/1" class="categorie2 card-title"  style="font-family: Bangers; color:black; letter-spacing: 3px;"><i class="fa-solid fa-arrow-circle-right"></i>Hébergements atypiques</a></h6></center>
                     <a href="/categorie/1"><p class="card-text" style="text-align: center;">Des nuits atypiques, c’est assuré…insolites, c’est probable…et des nuits magiques, c’est certain! L’univers que les hôtes ont créé est inventif et rend ces moments inoubliables.</p></a>
                 </div>
               </div>
@@ -389,7 +390,7 @@ g path:hover {
               <div class="card h-100">
                 <a href="/categorie/2"><img src="{% static 'IMG/restaurant pop art igoguide.jpg'%}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                    <center><h6 class="card-title"><a href="/categorie/2" class="categorie2 card-title" style="font-family: Bangers; color:black"><i class="fa-solid fa-arrow-circle-right"></i>Bars</a></h6></center>
+                    <center><h6 class="card-title"><a href="/categorie/2" class="categorie2 card-title" style="font-family: Bangers; color:black; letter-spacing: 3px;"><i class="fa-solid fa-arrow-circle-right"></i>Bars</a></h6></center>
                   <a href="/categorie/2"><p class="card-text" style="text-align: center;">Se retrouver entre amis ou en famille pour un partage de bons moments.</p></a>
                 </div>
               </div>
@@ -398,7 +399,7 @@ g path:hover {
               <div class="card h-100">
                 <a href="/categorie/3"><img src="{% static 'IMG/Bar ou boire avec ses amis.jpg'%}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                    <center><h6 class="card-title"><a href="/categorie/3" class="categorie2 card-title" style="font-family: Bangers; color:black"><i class="fa-solid fa-arrow-circle-right"></i>Restaurants</a></h6></center>
+                    <center><h6 class="card-title"><a href="/categorie/3" class="categorie2 card-title" style="font-family: Bangers; color:black; letter-spacing: 3px;"><i class="fa-solid fa-arrow-circle-right"></i>Restaurants</a></h6></center>
                     <a href="/categorie/3"><p class="card-text" style="text-align: center;">Lorsque l’on va au restaurant, on ne se contente plus de savourer un délicieux repas. On cherche aussi maintenant à vivre une véritable expérience de dépaysement le temps d’un tête à tête.</p></a>
                 </div>
               </div>
@@ -407,7 +408,7 @@ g path:hover {
               <div class="card h-100">
                 <a href="/categorie/4"><img src="{% static 'IMG/balade igoguide.jpg'%}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                    <center><h6 class="card-title"><a href="/categorie/4" class="categorie2 card-title" style="font-family: Bangers; color:black"><i class="fa-solid fa-arrow-circle-right"></i>Balade</a></h6></center>
+                    <center><h6 class="card-title"><a href="/categorie/4" class="categorie2 card-title" style="font-family: Bangers; color:black; letter-spacing: 3px;"><i class="fa-solid fa-arrow-circle-right"></i>Balade</a></h6></center>
                     <a href="/categorie/4"><p class="card-text" style="text-align: center;">Des idées de promenades et des itinéraires de randonnées pour une découverte de La France et de ses régions dans les moindres recoins.</p></a>
                 </div>
               </div>
@@ -416,7 +417,7 @@ g path:hover {
                 <div class="card h-100">
                     <a href="/categorie/5"><img src="{% static 'IMG/activités igoguide.jpg'%}" class="card-img-top" alt="..."></a>
                   <div class="card-body">
-                    <center><h6 class="card-title"><a href="/categorie/5" class="categorie2 card-title" style="font-family: Bangers; color:black"><i class="fa-solid fa-arrow-circle-right"></i>Activités</a></h6></center>
+                    <center><h6 class="card-title"><a href="/categorie/5" class="categorie2 card-title" style="font-family: Bangers; color:black; letter-spacing: 3px;"><i class="fa-solid fa-arrow-circle-right"></i>Activités</a></h6></center>
                     <a href="/categorie/5"><p class="card-text" style="text-align: center;">À la recherche d’une activité dans le lieu où vous vous trouvez ? Envie de découvrir les régions françaises sous leurs angles les plus originaux? IGOguide vous emmène pour bouger ou vous détendre.</p></a>
                   </div>
                 </div>
@@ -425,27 +426,27 @@ g path:hover {
                 <div class="card h-100">
                     <a href="/categorie/6"><img src="{% static 'IMG/photographe mariage.jpg'%}" class="card-img-top" alt="..."></a>
                   <div class="card-body">
-                    <center><h6 class="card-title"><a href="/categorie/6" class="categorie2 card-title" style="font-family: Bangers; color:black"><i class="fa-solid fa-arrow-circle-right"></i>Services</a></h6></center>
+                    <center><h6 class="card-title"><a href="/categorie/6" class="categorie2 card-title" style="font-family: Bangers; color:black; letter-spacing: 3px;"><i class="fa-solid fa-arrow-circle-right"></i>Services</a></h6></center>
                     <a href="/categorie/6"><p class="card-text" style="text-align: center;">Et si pour animer votre soirée ou rendre votre séjour inoubliable, vous faisiez appel aux services de professionnels? besoin d’un photographe? D’un traiteur? D’une location de voiture? D’un fleuriste peut-être!</p></a>
                   </div>
                 </div>
               </div>
           </div>
           <div></div>
-          <div class="alert alert-dark text-center" style="font-size: 22px; font-family: Bangers; color:gray;" role="alert">IGOGUIDE TRANFORME VOS RECHERCHES!</div>
+          <div class="alert alert-dark text-center" style="font-size: 22px; font-family: Bangers; color:gray; letter-spacing: 3px;" role="alert">IGOGUIDE TRANFORME VOS RECHERCHES!</div>
      </section>
 
 
 <div class="row mt-4 mb-4">
     <div class="col-sm-4"><hr></div>
-    <div class="col-sm-4 mt-3 text-center" style="font-size: 44px; font-family: Bangers; color:black">O&ugrave; aller ?</div>
+    <div class="col-sm-4 mt-3 text-center" style="font-size: 44px; font-family: Bangers; color:black; letter-spacing: 3px;">O&ugrave; aller ?</div>
     <div class="col-sm-4"><hr></div>
 </div>
 
 <section>
 <div class="row mt-4 mb-12" >
     <div class="col-lg-4" style="height:60%; margin-right:10%">
-        <center><h3 style="font-size: 22px; font-family: Bangers;">Trouver par département</h3></center>
+        <center><h3 style="font-size: 22px; font-family: Bangers; letter-spacing: 3px;">Trouver par département</h3></center>
         
         <div class="carte" id="catre">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 667 578" xml:space="preserve">
@@ -832,7 +833,7 @@ g path:hover {
         
         <div class="row">
           <div class="col-lg-6">
-            <center><h3 style="font-size: 22px; font-family: Bangers;">Trouver par région</h3></center>
+            <center><h3 style="font-size: 22px; font-family: Bangers; letter-spacing: 3px;">Trouver par région</h3></center>
                 <ul class="list-group" style="border: none;">
                     <li class="list-group-ite lien1-i " style="list-style:none">
                         <i class="fas fa-caret-right" style="color: rgb(255, 255, 0); margin-right: 10px;"></i><a class="lien1"  href="/Region/Auvergne-Rhône-Alpes" id="list-1">Auvergne-Rhône-Alpes</a>
@@ -908,7 +909,7 @@ g path:hover {
 <!-- gallery-item -->
 <div class="row mt-4 mb-4">
     <div class="col-sm-3"><hr></div>
-    <div class="col-sm-6 mt-3 text-center" style="font-size: 44px; font-family: Bangers; color:black">Partez &agrave; la D&eacute;couverte des r&eacute;gions et de leurs secrets avec IGOBLOG...</div>
+    <div class="col-sm-6 mt-3 text-center" style="font-size: 44px; font-family: Bangers; color:black; letter-spacing: 3px;">Partez &agrave; la D&eacute;couverte des r&eacute;gions et de leurs secrets avec IGOBLOG...</div>
     <!--<div class="col-sm-4 mt-3 text-center" style="font-size: 22px; font-family: Bangers; color:black">IGOblog: destinations merveilleuses</div>-->
     <div class="col-sm-3"><hr></div>
 </div>
@@ -980,7 +981,7 @@ g path:hover {
 
     <div class="row mt-4 mb-4">
         <div class="col-sm-3"><hr></div>
-        <div class="col-sm-6 mt-3 text-center" style="font-size: 44px; font-family: Bangers; color:black">Rejoignez nous !</div>
+        <div class="col-sm-6 mt-3 text-center" style="font-size: 44px; font-family: Bangers; color:black; letter-spacing: 3px;">Rejoignez-nous !</div>
         <!--<div class="col-sm-4 mt-3 text-center" style="font-size: 22px; font-family: Bangers; color:black">IGOblog: destinations merveilleuses</div>-->
         <div class="col-sm-3"><hr></div> 
     </div>
@@ -1021,10 +1022,10 @@ g path:hover {
                             <div class="image__overlay image__overlay--primary">
                                 <div class="image__title">Les réseaux</div>
                                 <p class="image__description">
-                                    <a href="https://www.instagram.com/accounts/login/?next=/igoguide/" target="_blank">Instagram</a>
+                                    <a href="https://www.instagram.com/accounts/login/?next=/igoguide/" target="_blank" style="color:#000000;">Instagram</a>
                                 </p>
                                 <p class="image__description">
-                                    <a href="https://www.facebook.com/igoguidefrance" target="_blank">Facebook</a>
+                                    <a href="https://www.facebook.com/igoguidefrance" target="_blank" style="color:#000000;">Facebook</a>
                                 </p>
                             </div>
                         </div>
@@ -1036,7 +1037,7 @@ g path:hover {
                             <div class="image__overlay image__overlay--primary">
                                 <!-- <div class="image__title">Bricks</div> -->
                                 <p class="image__description">
-                                    <a href="/auth/pro/connexion" target="_blank">Inscrivez-vous ici !</a>
+                                    <a href="/auth/pro/connexion" target="_blank" style="color:#000000;">Inscrivez-vous ici !</a>
                                 </p>
                             </div>
                         </div>
