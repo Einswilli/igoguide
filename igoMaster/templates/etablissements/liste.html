@@ -466,7 +466,7 @@
 <div class="mami"></div>
         <div class="ltn__blog-area ltn__blog-item-3-normal mb-100">
             {% if text %}
-                <h2 style="font-family: Bangers;text-align: center;margin:20px 20px;color:#ffffff ">
+                <h2 style="font-family: Bangers;text-align: center;margin:20px 20px;color:#000000 ">
                     <span style="color:#ffc823 " data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter">{{etablissements|length}}</span>
                     resultats trouves par igoguide pour &ldquo; {{text}}! &rdquo;
                 </h2>
@@ -474,7 +474,7 @@
             <div class="mycontainer">
                 <div class="row mr-10 listing-item-container">
                     {% if not etablissements or etablissements|length < 0 %}
-                        <h2 style="text-align:center;margin-top:200px;color:#ffffff;font-family:Bangers;">Aucun résultat!</h2>
+                        <h2 style="text-align:center;margin-top:200px;color:#000000;font-family:Bangers;">Aucun résultat!</h2>
                         <img src"{% static 'categories/img_404.jpg'%}" style="height:200px;width:auto;">
                     {% else %}
                 {% for etablissement in etablissements %}

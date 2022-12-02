@@ -1,188 +1,3 @@
-{% comment %} <!DOCTYPE html>{% load static %}
-<html lang="en">
-
-<head>
-    <title>Igoguide | Connexion</title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 10]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-      <!-- Meta -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-      <meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
-      <meta name="author" content="Codedthemes" />
-      <!-- Favicon icon -->
-
-      <link rel="shortcut icon" href="{% static 'template/img/PngItem_97912.png'%}" type="image/x-icon">
-      <!-- Google font-->
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
-      <!-- Required Fremwork -->
-      <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap/css/bootstrap.min.css'%}">
-      <!-- waves.css -->
-      <link rel="stylesheet" href="{% static 'assets/pages/waves/css/waves.min.css'%}" type="text/css" media="all">
-      <!-- themify-icons line icon -->
-      <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/themify-icons/themify-icons.css'%}">
-      <!-- ico font -->
-      <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/icofont/css/icofont.css'%}">
-      <!-- Font Awesome -->
-      <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/font-awesome/css/font-awesome.min.css'%}">
-      <!-- Style.css -->
-      <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css'%}">
-  </head>
-
-  <body themebg-pattern="theme1" style="margin:0px;height:100%;background: linear-gradient(70deg, red, aqua); background-repeat:no-repeat;background-attachment:fixed">
-  <!-- Pre-loader start -->
-  <div class="theme-loader">
-      <div class="loader-track">
-          <div class="preloader-wrapper">
-              <div class="spinner-layer spinner-blue">
-                  <div class="circle-clipper left">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="gap-patch">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="circle-clipper right">
-                      <div class="circle"></div>
-                  </div>
-              </div>
-              <div class="spinner-layer spinner-red">
-                  <div class="circle-clipper left">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="gap-patch">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="circle-clipper right">
-                      <div class="circle"></div>
-                  </div>
-              </div>
-
-              <div class="spinner-layer spinner-yellow">
-                  <div class="circle-clipper left">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="gap-patch">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="circle-clipper right">
-                      <div class="circle"></div>
-                  </div>
-              </div>
-
-              <div class="spinner-layer spinner-green">
-                  <div class="circle-clipper left">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="gap-patch">
-                      <div class="circle"></div>
-                  </div>
-                  <div class="circle-clipper right">
-                      <div class="circle"></div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <!-- Pre-loader end -->
-    {% if msg %}
-      <div class="alert alert-danger row txt-center" role="alert">
-          {{msg}}
-      </div>
-    {% endif %}
-    <section class="login-block">
-        <!-- Container-fluid starts -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <!-- Authentication card start -->
-
-                        <form class="md-float-material form-material" action="/auth/pro/login" method="POST">
-                            {% csrf_token %}
-                            <div class="auth-box card">
-                                <div class="card-block">
-                                    <div class="row m-b-20">
-                                        <div class="col-md-12 d-flex">
-                                            <div class="text-center">
-                                                <img src="{% static 'IMG/lg.png'%}" alt="logo.png" style="width:70px">
-                                            </div>
-                                            <div style="width:50px"></div>
-                                            <h3 class="text-center">Se Connecter</h3>
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-primary">
-                                        <input type="text" name="email" class="form-control">
-                                        <span class="form-bar"></span>
-                                        <label class="float-label">Votre email</label>
-                                    </div>
-                                    <div class="form-group form-primary">
-                                        <input type="password" name="pass" class="form-control">
-                                        <span class="form-bar"></span>
-                                        <label class="float-label">Mot de passe</label>
-                                    </div>
-                                    <div class="row m-t-25 text-left">
-                                        <div class="col-12">
-                                            <div class="checkbox-fade fade-in-primary d-">
-                                                <label>
-                                                    <input type="checkbox" name="garder">
-                                                    <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                                    <span class="text-inverse">Me garder connecté</span>
-                                                </label>
-                                            </div>
-                                            <input type="hidden" name="usertype_id" value="2" id="">
-
-                                            <div class="forgot-phone text-right f-right">
-                                                <a href="#l" class="text-right f-w-600"> Mot de passe oublié ?</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row m-t-30">
-                                        <div class="col-md-12">
-                                            <button type="submit" class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20">Se connecter</button>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="text-inverse text-left">Vous êtes nouveau?<a href="/auth/pro/new" style="color:rgb(0, 132, 255);"><b> s'inscrire</b></a></p>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                    <div class="row">
-                                        <div class="col-md-10">
-                                            <p class="text-inverse text-left m-b-0">Igoguide vous remerci!</p>
-                                            <p class="text-inverse text-left txt-blue"><a href="/" style="color:rgb(0, 132, 255);"><b>Accueil</b></a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <!-- end of form -->
-                </div>
-                <!-- end of col-sm-12 -->
-            </div>
-            <!-- end of row -->
-        </div>
-        <!-- end of container-fluid -->
-    </section>
-
-<script type="text/javascript" src="{% static 'assets/js/jquery/jquery.min.js'%} "></script>
-<script type="text/javascript" src="{% static 'assets/js/jquery-ui/jquery-ui.min.js'%} "></script>
-<script type="text/javascript" src="{% static 'assets/js/popper.js/popper.min.js'%}"></script>
-<script type="text/javascript" src="{% static 'assets/js/bootstrap/js/bootstrap.min.js '%}"></script>
-<!-- waves js -->
-<script src="{% static 'assets/pages/waves/js/waves.min.js'%}"></script>
-<!-- jquery slimscroll js -->
-<script type="text/javascript" src="{% static 'assets/js/jquery-slimscroll/jquery.slimscroll.js'%}"></script>
-<script type="text/javascript" src="{% static 'assets/js/common-pages.js'%}"></script>
-</body>
-
-</html> {% endcomment %}
-
-
-
 <style>
     /* CSS Libraries Used 
     
@@ -191,16 +6,17 @@
     *Typicons
     
     */
-    
+
     @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
     
     body, html {
       font-family: 'Source Sans Pro', sans-serif;
-      background-color: #1d243d;
+      background-color: #efeae4; 
       padding: 0;
       margin: 0;
     }
     
+
     #particles-js {
       position: absolute;
       width: 100%;
@@ -214,26 +30,21 @@
       position: absolute;
       text-align: center;
       transform: translateX(-50%);
-      background-color: rgb( 33, 41, 66 );
+      background-color: #000000;
       border-radius: 9px;
-      border-top: 10px solid #79a6fe;
-      border-bottom: 10px solid #56baed;
+      border-top: 10px solid #000000;
+      border-bottom: 10px solid #000000;
       width: 400px;
       height: 500px;
-      box-shadow: 1px 1px 108.8px 19.2px rgb(25,31,53);
     }
     
     .box h4 {
       font-family: 'Source Sans Pro', sans-serif;
-      color: #5c6bc0; 
-      font-size: 18px;
-      margin-top:94px;;
+      color: #8ce9fe; 
+      font-size: 25px;
+      margin-top: 70px;
     }
     
-    .box h4 span {
-      color: #dfdeee;
-      font-weight: lighter;
-    }
     
     .box h5 {
       font-family: 'Source Sans Pro', sans-serif;
@@ -247,13 +58,13 @@
     .box input[type = "text"],.box input[type = "password"] {
       display: block;
       margin: 20px auto;
-      background: #262e49;
+      background: #FFFFFF;
       border: 0;
       border-radius: 5px;
       padding: 14px 10px;
       width: 320px;
       outline: none;
-      color: #d6d6d6;
+      color: black;
           -webkit-transition: all .2s ease-out;
         -moz-transition: all .2s ease-out;
         -ms-transition: all .2s ease-out;
@@ -273,11 +84,17 @@
     a{
         text-decoration: none;
         color: #56baed;
+        border-radius: 10px;
     }
     
     a:hover {
         text-decoration: none;
+        background-color: #11101D;
     }
+
+    .g {
+      color: rgba(255,255,255,.5) !important;
+    }   
     
     label input[type = "checkbox"] {
         display: none; /* hide the default checkbox */
@@ -298,7 +115,7 @@
     
     .btn1 {
       border:0;
-      background: #79a6fe;
+      background: #000000;
       color: #dfdeee;
       border-radius: 100px;
       width: 340px;
@@ -313,6 +130,7 @@
     
     .btn1:hover {
       background: #56baed;
+      color: #ffffff;
     }
     
     .rmb {
@@ -325,15 +143,16 @@
     
     .forgetpass {
       position: relative;
-      float: right;
-      right: 28px;
-      text-decoration:none;
+      text-align: center;
+      text-decoration: none;
+      color: #8ce9fe;
     }
     
     .dnthave{
         position: absolute;
         top: 92%;
         left: 24%;
+        text-decoration: none;
     }
     
     [type=checkbox]:checked + span:before {/* <-- style its checked state */
@@ -388,7 +207,7 @@
     }
     
     .footer .fa {
-      color: #7f5feb;;
+      color: #7f5feb;
     }
 
     body { 
@@ -397,16 +216,9 @@
         font-family: 'Open Sans', sans-serif;
         background-size:100%;
         background-repeat:no-repeat;
-        background: #092756;
-        background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
-        background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
-        background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
-        background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
-        background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
-        background-attachment:fixed;
+        background: #efeae4;
     }
-    </style>
+</style>
     
     {% load static %}
     <link href="{% static 'assets/detail/css/boxicons.min.css'%}" rel="stylesheet">
@@ -416,8 +228,8 @@
     <script src="{% static 'js/jquery.min.js'%}"></script>
     <script src="{% static 'js/bootstrap.min.js'%}"></script>
 
-    <body id=""></body>
-    {% if msg %}
+
+        {% if msg %}
         {% if "Erreur" not in msg %}
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <i class="bi bi-check-circle me-1"></i>{{msg}}
@@ -431,66 +243,59 @@
         {% endif %}
     {% endif %}
     <div class="animated bounceInDown">
-      <div class="container text-center" style="width:30%;padding:10px">
-        <span class="error animated tada" id="msg"></span>
-        <form name="form1" class="box" method="POST" action="/auth/pro/login">{% csrf_token %}
-            <div class="d-flex" style="height:60px;justify-content:space-around;padding:10px">
-                <div class="col-1" style="justify-content:center;height:60px">
-                    <a href="/"><i class="bi bi-arrow-left" title="retour sur la page d'accueil" style="color:aqua;font-size:26px"></i></a>
+        <div class="container text-center" style="width:30%;padding:10px">
+            <span class="error animated tada" id="msg"></span>
+            <form name="form1" class="box" method="POST" action="/auth/pro/login">{% csrf_token %}
+                <div class="d-flex" style="height:60px;justify-content:space-around;padding:10px">
+                    <div class="col-1" style="justify-content:center;height:60px">
+                        <a href="/">
+                            <i class="bi bi-arrow-left" title="retour sur la page d'accueil" style="color:aqua;font-size:26px"></i>
+                        </a>
+                    </div>
+                    <div class="col-8" style="justify-content:center;height:60px"></div>
+                    
+                    <div class="col-2" style="justify-content:center;height:60px">
+                        <img src="{% static 'IMG/logo Igoguide/logo_fond_sombre.png'%}" style="height:50px;width:auto;">
+                    </div>
                 </div>
-                <div class="col-8" style="justify-content:center;height:60px">
-                </div>
-                <div class="col-2" style="justify-content:center;height:60px">
-                    <img src="{% static 'IMG/logo Igoguide/logo_fond_sombre.png'%}" style="height:50px;width:auto;">
-                </div>
-            </div>
-          <h4 class="mb-10">Espace<span> Professionnel</span></h4>
-          {% comment %} <h5 class="mb-3">Connexion</h5> {% endcomment %}
-            <input type="text" name="email" placeholder="E-mail" autocomplete="off">
-            {% comment %} <i class="bi bi-eye" id="eye"></i> {% endcomment %}
-            <input type="password" name="pass" placeholder="Mot de passe" id="pwd" autocomplete="off">
-            {% comment %} <label>
-              <input type="checkbox">
-              <span></span>
-              <small class="rmb">Remember me</small>
-            </label> {% endcomment %}
-            <a href="#" id="mdpo" class="forgetpass mb-5">Mot de passe oublié?</a>
-            <input type="submit" value="Se Connecter" class="btn1">
-          </form>
-          <a href="/auth/pro/new" class="dnthave">Vous êtes nouveau? Créez un compte</a>
-      </div> 
-           {% comment %} <div class="footer">
-          <span>Made with <i class="fa fa-heart pulse"></i> <a href="https://www.google.de/maps/place/Augsburger+Puppenkiste/@48.360357,10.903245,17z/data=!3m1!4b1!4m2!3m1!1s0x479e98006610a511:0x73ac6b9f80c4048f"><a href="https://codepen.io/lordgamer2354">By Anees Khan</a></span>
-        </div> {% endcomment %}
+
+                <h4 class="mb-10">ESPACE PROFESSIONNEL</h4>
+              
+                <input type="text" name="email" placeholder="E-mail" autocomplete="off">
+                <input type="password" name="pass" placeholder="Mot de passe" id="pwd" autocomplete="off">
+                <a href="#" id="mdpo" class="forgetpass mb-5 g">Mot de passe oublié ?</a>
+                <input type="submit" value="Se connecter" class="btn btn-outline-light btn-lg px-5 btn1">
+            </form>
+
+              <a href="/auth/pro/new" class="dnthave g">Vous êtes nouveau? Créez un compte</a>
+        </div> 
     </div>
+
     <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Mot de passe oublié</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Mot de passe oublié</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+
+                <form method="POST" action="/pass/reset">
+                  {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"type="email" name="email" required autofocus>
+                            <small id="emailHelp" class="form-text text-muted">Mot de passe oublié? Aucun problème. Indiquez-nous simplement votre adresse e-mail et nous vous enverrons par e-mail un code de récupération de mot de passe qui vous permettra d'en choisir un nouveau.</small>
+                        </div>
+                    </div>
+                    <div class="modal-footer"><button type="submit" class="btn btn-primary">Envoyer le code</button></div>
+                </form>
+            </div>
         </div>
-        <form method="POST" action="/pass/reset">
-          {% csrf_token %}
-        <div class="modal-body">
-  
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email</label>
-                <input  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"type="email" name="email"required autofocus>
-                <small id="emailHelp" class="form-text text-muted">Mot de passe oublié? Aucun problème. Indiquez-nous simplement votre adresse e-mail et nous vous enverrons par e-mail un code de récupération de mot de passe qui vous permettra d'en choisir un nouveau.</small>
-              </div>
-        </div>
-        <div class="modal-footer">
-         <button type="submit" class="btn btn-primary">Envoyer le code</button>
-        </div>
-      </form>
-  
-      </div>
     </div>
-  </div>
+    
+    
 
     <script>
         $('#mdpo').click(function(){

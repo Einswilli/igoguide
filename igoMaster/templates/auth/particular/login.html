@@ -1,138 +1,3 @@
-{% comment %} <!DOCTYPE html>{% load static %}
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>IGO guide | login</title>
-  <link rel="shortcut icon" href="{% static 'template/img/PngItem_97912.png'%}" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{% static 't2/urbanui-login-template-free-2-38baaa875b8e/assets/css/login.css'%}">
-
-</head>
-<style>
-    .login-card-footer-text {
-        font-size: 16px;
-        color: #0d2366;
-        margin-bottom: 40px;
-    margin-top: 20px; }
-</style>
-<body> {% endcomment %}
-
-{% comment %} @if ($errors->any())
-    @foreach ($errors->all() as $error)
-        <div class="alert alert-danger row txt-center" role="alert">
-            {{$error}}
-        </div>
-        <?php  break ?>;
-    @endforeach
-@endif {% endcomment %}
-  {% comment %} <main class="d-flex align-items-center min-vh-100 py-3 py-md-0 mt-4 mb-4 ">
-    <div class="container">
-      <div class="card login-card">
-        <div class="row no-gutters">
-          <div class="col-md-6">
-            <img src="{% static 'IMG/WhatsApp Image 2022-07-11 at 17.37.11.jpeg'%}" alt="login" class="login-card-img">
-          </div>
-
-          <div class="col-md-6 d-flex align-item-center  justify-content-center">
-            <div class="card-body center">
-                <div class="row d-flex align-item-center">
-                    <div class="col-md-12 d-flex">
-                        <div class="text-center col-sm-6">
-                            <img src="{% static 'IMG/lg.png'%}"  class="float-left" style="width:85px" alt="logo.png">
-                        </div>
-                        <div class="col-sm-6">
-                        <a href="/" class="btn btn-outline-warning " style="float-right; width:70%;">Retour au site</a>
-                        </div>
-                    </div>
-                </div>
-              <form method="POST" action="{% url 'p_login'%}">
-                {% csrf_token %}
-              <div class="mb-3 mt-5">
-                <label for="email" class="form-label mt-30"  :value="__('Email')">Email</label>
-                <input type="text" class="form-control" placeholder="exemple@gmail.com" id="email" type="email" name="email" :value="old('email')"  autofocus >
-              </div>
-              <div class="mb-3">
-                <label  for="password" :value="__('Password')"  class="form-label">Mot de passe</label>
-                <input class="form-control"id="password"   type="password" name="password"  autocomplete="current-password" placeholder="**********">
-              </div>
-              <input type="hidden" name="usertype_id" value="1" id="">
-                <div class="mb-5 mt-3">
-                    <div class="checkbox-fade fade-in-primary d-">
-                        <label>
-                            <input type="checkbox" name="garder">
-                            <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                            <span class="text-inverse">Me garder connecté</span>
-                        </label>
-                    </div
-                </div>
-              <div class="mb-3">
-                <button type="submit" style="min-width: 100%" class="btn btn-warning">Se connecter</button>
-              </div>
-
-              <div class="mb-2"> {% endcomment %}
-          {% comment %} @if (Route::has('password.request'))
-              <a  href="#" class="forgot-password-link mb-2" data-toggle="modal" data-target="#staticBackdrop">Mot de passe oublié?</a>
-         @endif {% endcomment %}
-                {% comment %} </div>
-        </form>
-
-
-              <nav class="login-card-footer-nav">
-                <p class="login-card-footer-text"> <span style="color: rgb(108, 105, 99); margin-top:4px">Pas encore de Compte?</span> <a href="/auth/p/new" class="text-reset" style="color: blue">Créer mon Compte</a></p>
-
-                <a href="confidentialite">CGU</a>
-             </nav>
-          </div>
-
-        </div>
-        </div>
-      </div>
-
-    </div>
-  </main>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</body>
-</html>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-  Launch static backdrop modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Mot de passe oublié</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form method="POST" action="password.email">
-        {% csrf_token %}
-      <div class="modal-body">
-
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email</label>
-              <input  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"type="email" name="email" :value="old('email')" required autofocus>
-              <small id="emailHelp" class="form-text text-muted">Mot de passe oublié? Aucun problème. Indiquez-nous simplement votre adresse e-mail et nous vous enverrons par e-mail un lien de réinitialisation de mot de passe qui vous permettra d'en choisir un nouveau.</small>
-            </div>
-      </div>
-      <div class="modal-footer">
-       <button type="submit" class="btn btn-primary">Envoyer lien</button>
-      </div>
-    </form>
-
-    </div>
-  </div>
-</div> {% endcomment %}
 {% load static %}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link href="{% static 'assets/detail/css/boxicons.min.css'%}" rel="stylesheet">
@@ -141,45 +6,47 @@
 <title>IGO guide | login</title>
 
 <style>
-  /*.gradient-custom {*/
-  /* fallback for old browsers 
-  background: #6a11cb;*/
-  
-  /* Chrome 10-25, Safari 5.1-6 
-  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));*/
-  
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ 
-  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
-  }*/
-  body { 
-    width: 100%;
-    height:100%;
-    font-family: 'Open Sans', sans-serif;
-    background-size:100%;
-    background-repeat:no-repeat;
-    background: #092756;
-    background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
-    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
-    background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
-    background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
-    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
-    background-attachment:fixed;
-  }
-  .col-1:hover{
-    //background-color:#11101D;
-  }
-  a{
-    height:70px;
-    width:70px;
-    border-radius:10px;
-    text-decoration:none;
-  }
-  a:hover{
-    text-decoration:none;
-    background-color:#11101D;
-  }
-  </style>
+    /*.gradient-custom {*/
+    /* fallback for old browsers 
+    background: #6a11cb;*/
+    
+    /* Chrome 10-25, Safari 5.1-6 
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));*/
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ 
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+    }*/
+
+    body { 
+      width: 100%;
+      height:100%;
+      font-family: 'Open Sans', sans-serif;
+      background-size:100%;
+      background-repeat:no-repeat;
+      background: #efeae4; 
+    }
+
+    .col-1:hover{
+      //background-color:#11101D;
+    }
+
+    a{
+      height:70px;
+      width:70px;
+      border-radius:10px;
+      text-decoration:none;
+    }
+
+    a:hover{
+      text-decoration:none;
+      background-color:#11101D;
+    }
+
+    .px-5:hover {
+      background-color: #2f343c;
+      color: #ffffff;
+    }
+</style>
   
 <body>
   {% if msg %}
@@ -230,7 +97,7 @@
     
                   <p class="small mb-3 pb-lg-2"><a class="text-white-50" href="#!" data-toggle="modal" data-target="#staticBackdrop" id="mdpo">Mot de passe oublié ?</a></p>
     
-                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Se Connecter</button>
+                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Se connecter</button>
                 </div>
     
                 <div>
