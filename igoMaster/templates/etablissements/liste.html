@@ -490,7 +490,7 @@
                                 <div class="listing-avatar"><a href="/etablishment/{{ etablissement.id }}"><img src="{{ etablissement.owner.Photo.url }}" alt=""></a>
                                     <span class="avatar-tooltip">{{ etablissement.owner.FName }}  <strong>{{ etablissement.owner.LName }}</strong></span>
                                 </div>
-                                <div class="geodir_status_date gsd_open bg-blue" style="font-family: Bangers;"><i class="fal fa-lock-open"></i>{{ etablissement.subType }}</div>
+                                <div class="geodir_status_date gsd_open bg-blue" style="font-family: Bangers;"><img src="{% static 'icon_sous_categories/'%}{{etablissement.subTypeImage}}" alt="" style="width:40px;height:auto;margin-right:10px"><i class="fal fa-lock-open d-none"></i>{{ etablissement.subType }}</div>
                                 <div class="geodir-category-opt">
                                     <div class="listing-rating-count-wrap">
                                       {% if etablissement.other %}
