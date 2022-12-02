@@ -52,6 +52,7 @@
         .h{
             background-color:black;
             color:yellow;
+            display:flex;
         }
 
         .ic{
@@ -239,6 +240,10 @@
             -webkit-line-clamp: 3;
             overflow: hidden;
           } 
+        
+    .dropdown-toggle{
+        z-index:90;
+    }
 
     </style>
 
@@ -305,7 +310,8 @@
                                                     </div>
                                                 {% else %}
                                                     <div class="col" id="pfav">
-                                                        <a id="espace" class="btn btn-dark rounded-pill " href="/profile/p/{{ request.session.client.id }}" type="button" title="Mon espace" ><i class="fas fa-heart pr-2 ic" aria-hidden="true" style="color:deeppink;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Mon espace</span></a>
+                                                        <a id="espace" class="badge bg-blue rounded-pill h-50" style="font-size:18px;text-decoration:none;" href="/profile/p/{{ request.session.client.id }}" type="button" title="Mon espace" ><i class="fas fa-heart pr-2 ic" aria-hidden="true" style="color:deeppink;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Mon espace</span></a>
+                                                        {% comment %} <div class="geodir_status_date gsd_open bg-blue" style="font-family: Bangers;width:auto"><i class="fas fa-heart pr-2 ic" aria-hidden="true" style="color:deeppink;" ></i></i>Mon Espace</div> {% endcomment %}
                                                     </div>
                                                 {% endif %}
                                                     {% comment %} <script>

@@ -84,6 +84,8 @@ urlpatterns=[
     path('users/pro/<int:id>',views.get_professional_user),
     path('profile/pro/<int:id>',views.get_user_profile),
     path('profile/p/<int:id>',views.get_particular_profile),
-    path('users/changepass/pro/<int:id>',views.change_user_pass),
-    path('users/update/pro/<int:id>',views.update_user, name = "profile")
+    path('users/changepass/p/<int:id>',views.change_userp_pass),
+    path('users/changepass/pro/<int:id>',views.change_userpro_pass),
+    path('users/update/p/<int:id>',views.update_userp),
+    path('users/update/pro/<int:id>',views.update_userpro)
 ]

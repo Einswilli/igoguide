@@ -169,8 +169,8 @@
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <h5 class="card-title">About</h5>
-                  <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</p>
+                  {% comment %} <h5 class="card-title">About</h5>
+                  <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</p> {% endcomment %}
 
                   <h5 class="card-title">Details du Profile</h5>
 
@@ -203,13 +203,13 @@
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form action="/users/update/pro/{{user.id}}" method='POST' enctype"multipart/form-data" id="post_form">
+                  <form action="/users/update/pro/{{request.session.user.id}}" method='POST' enctype"multipart/form-data" id="post_form">
                     {% csrf_token %}
                     <div class="row mb-3">
-                      <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Photo deProfile </label>
+                      <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Photo de profile </label>
                       <div class="col-md-8 col-lg-9">
                         {% if data.Photo %}
-                          <img src="{{ user.Photo.url }}" alt="Profile">
+                          <img src="{{ request.session.user.Photo.url }}" alt="Profile">
                         {% endif %}
                         <div class="pt-2">
                           <a href="#" name="Photo" class="btn btn-primary btn-sm" title="Changer la photo de profile"><i class="bi bi-upload"></i></a>
@@ -222,28 +222,28 @@
                     <div class="row mb-3">
                       <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nom</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="lname" type="text" class="form-control" id="fullName" value="{{ user.LName }}">
+                        <input name="lname" type="text" class="form-control" id="fullName" value="{{ request.session.user.LName }}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">Prénom</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="fname" type="text" class="form-control" id="fullName" value="{{ user.FName }}">
+                        <input name="fname" type="text" class="form-control" id="fullName" value="{{ request.session.user.FName }}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="company" class="col-md-4 col-lg-3 col-form-label">E-mail</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="company" value="{{ user.Email }}">
+                        <input name="email" type="email" class="form-control" id="company" value="{{ request.session.user.Email }}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Job" class="col-md-4 col-lg-3 col-form-label">Téléphone</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="phone" type="text" class="form-control" id="Job" value="{{ user.Phone }}">
+                        <input name="phone" type="text" class="form-control" id="Job" value="{{ request.session.user.Phone }}">
                       </div>
                     </div>
 
@@ -256,7 +256,8 @@
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
-                  <form action="/users/changepass/pro/{{user.id}}" method='POST'>
+                  <form action="/users/changepass/pro/{{request.session.user.id}}" method='POST'>
+                    {% csrf_token %}
 
                     <div class="row mb-3">
                       <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Mot de passe Actuel</label>
@@ -280,7 +281,7 @@
                     </div>
 
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Changer</button>
+                      <button type="submit" class="btn btn-primary btn-block">Changer</button>
                     </div>
                   </form><!-- End Change Password Form -->
 

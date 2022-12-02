@@ -22,7 +22,7 @@ class User(models.Model):
     Pass=models.CharField(max_length=25)
     Type=models.ForeignKey("UserType",on_delete=models.CASCADE)
     Photo=models.ImageField(default='blank-dark.svg',blank=True,null=True)
-    JoinedAt=models.DateField(auto_now_add=True)
+    JoinedAt=models.DateField(auto_now_add=True,null=True,blank=True)
 
     def __str__(self) -> str:
         return self.FName

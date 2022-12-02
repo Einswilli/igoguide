@@ -886,7 +886,8 @@ def list_user_subscriptions(request,id):
 
     # liste les abonnements de l'user
     s=Subscription.objects.filter(etablishment__owner=id)
-    u_r="http://alldotpy.herokuapp.com/"#f"http://localhost:8000/subscription/list/pro/{request.session['user']['id']}"
+    l=[]
+    u_r=f"http://localhost:8001/subscription/list/pro/{request.session['user']['id']}"
     mac="D5C3D99BF7FF337DE4DF59BCC5AB271F791FBF9D"
     
     #&url_retour_ok={{u_r}}&url_retour_err={{u_r}}&
@@ -926,17 +927,37 @@ def list_user_subscriptions(request,id):
     }).encode('utf-8')
 
     #   CONVERTIR L'INFO EN BASE 64
-    info=str(base64.b64encode(info))[2:-1]
+    info=str(base64.b64encode(info))
+    
+    for x in s:
+        data=f"TPE=7569774*contexte_commande={info}*date={d}*lgue=FR*mail={x.etablishment.owner.Email}*montant={x.fee}EUR*reference=REFS{x.id}E{x.etablishment.id}U{x.etablishment.owner.id}*societe=igoguide*version=3.0"
+        l.append({
+            'id':x.id,
+            'isActive':x.isActiive,
+            'activeDuration':x.activeDuration,
+            'fee':x.fee,
+            'stopDate':x.stopDate,
+            'createdAt':x.createdAt,
+            'mac':hmac.new(key=mac.encode(), msg=data.encode(), digestmod=hashlib.sha1).hexdigest(),
+            'etablishment':{
+                'id':x.etablishment.id,
+                'name':x.etablishment.name,
+                'owner':{
+                    'id':x.etablishment.owner.id,
+                    'LName':x.etablishment.owner.LName,
+                    'FName':x.etablishment.owner.FName,
+                    'Email':x.etablishment.owner.Email,
+                    'Phone':x.etablishment.owner.Phone
+                }
+            }
+        })
     ctx={
-        'subscriptions':s,
+        'subscriptions':l,
         'date':str(d),
         'u_r':u_r,
         'info':info,
         'dat':dt
     }
-    for x in s:
-        data=f"TPE=7569774*date={d}*lgue=FR*mail={x.etablishment.owner.Email}*montant={x.fee}EUR*reference=REFS{x.id}E{x.etablishment.id}U{x.etablishment.owner.id}*societe=igoguide*version=3.0"
-        ctx[f'mc{x.etablishment.id}']=(hmac.new(key=mac.encode(), msg=data.encode(), digestmod=hashlib.sha1).hexdigest())
     print(ctx)
     return render(request,'dashboard/abonnements/list.html',ctx)
 
@@ -992,10 +1013,71 @@ def get_particular_user(request,id):
         return JsonResponse(user,safe=True)
     return JsonResponse('METHOD NOT ALLOWED',safe=True)
 
-def change_user_pass(request,id):
-    pass
+def change_userpro_pass(request,id):
+    op=request.POST.get('oldpass')
+    np=request.POST.get('newpass')
+    rnp=request.POST.get('renewpassword')
 
-def update_user(request,id):
+    if not request.session['user']:
+        return redirect('professional_login')
+
+    if np!=rnp:
+        msg='Le nouveau mot de passe et la confirmation ne sont pas identiques!'
+        return render(request,'dashboard/pages/profile.html',{'msg':msg})
+
+    try:
+        u=User.objects.get(id=id,Pass=op)
+        u.Pass=rnp
+        u.save()
+        user={
+            'id':u.id,
+            'lname':u.LName,
+            'fname':u.FName,
+            'email':u.Email,
+            'telephone':u.Phone,
+            'image':u.Photo.url,
+            'favorites':[e.etablishment.id for e in Favoris.objects.filter(user=u.id)]
+        }
+        request.session['user']=user
+        request.session.modified = True
+        return redirect('/profile/pro/'+str(request.session['user']['id']))
+    except:
+        msg='Le mot de passe est incorrect!'
+        return render(request,'dashboard/pages/profile.html',{'msg':msg})
+
+def change_userp_pass(request,id):
+    op=request.POST.get('oldpass')
+    np=request.POST.get('newpass')
+    rnp=request.POST.get('renewpassword')
+
+    if not request.session['client']:
+        return redirect('particular_login')
+
+    if np!=rnp:
+        msg='Le nouveau mot de passe et la confirmation ne sont pas identiques!'
+        return render(request,'particular_profile.html',{'msg':msg})
+
+    try:
+        u=User.objects.get(id=id,Pass=op)
+        u.Pass=rnp
+        u.save()
+        user={
+            'id':u.id,
+            'lname':u.LName,
+            'fname':u.FName,
+            'email':u.Email,
+            'telephone':u.Phone,
+            'image':u.Photo.url,
+            'favorites':[e.etablishment.id for e in Favoris.objects.filter(user=u.id)]
+        }
+        request.session['client']=user
+        request.session.modified = True
+        return redirect('/profile/p/'+str(request.session['client']['id']))
+    except:
+        msg='Le mot de passe est incorrect!'
+        return render(request,'particular_profile.html',{'msg':msg})
+
+def update_userpro(request,id):
     data = User.objects.get(id = id)
     
     if request.method == 'POST':
@@ -1008,8 +1090,46 @@ def update_user(request,id):
         data.email = request.POST.get('email')
         data.phone = request.POST.get('phone')
         data.save()
+        user={
+            'id':data.id,
+            'lname':data.LName,
+            'fname':data.FName,
+            'email':data.Email,
+            'telephone':data.Phone,
+            'image':data.Photo.url,
+            'favorites':[e.etablishment.id for e in Favoris.objects.filter(user=data.id)]
+        }
+        request.session['user']=user
+        request.session.modified = True
         #message.success(request, 'Modification enrégistrer')
-        return redirect(request, 'dashboard/pages/profile.html')
+        return redirect(f'/profile/pro/'+str(request.session['user']['id']))
+
+def update_userp(request,id):
+    data = User.objects.get(id = id)
+    
+    if request.method == 'POST':
+        if len(request.FILES) != 0:
+            if len(data.Photo) > 0:
+                os.remove(data.Photo.path)
+            data.Photo = request.FILES['Photo'] 
+        data.lname = request.POST.get('lname')
+        data.fname = request.POST.get('fname')
+        data.email = request.POST.get('email')
+        data.phone = request.POST.get('phone')
+        data.save()
+        user={
+            'id':data.id,
+            'lname':data.LName,
+            'fname':data.FName,
+            'email':data.Email,
+            'telephone':data.Phone,
+            'image':data.Photo.url,
+            'favorites':[e.etablishment.id for e in Favoris.objects.filter(user=data.id)]
+        }
+        request.session['client']=user
+        request.session.modified = True
+        #message.success(request, 'Modification enrégistrer')
+        return redirect(f'/profile/p/'+str(request.session['client']['id']))
 
 # Modification du profile du professionel
 def update_professional_user(request,id):
