@@ -49,29 +49,29 @@
             color: rgb(0, 64, 142);
             background-color:rgb(0, 174, 255);
         }
-        .h{
+        /*.h{
             background-color:black;
             color:#FFCD00;
-        }
+        }*/
 
         .ic{
             color:#FFCD00;
         }
 
-        .h:hover{
+        /*.h:hover{
             background-color:rgb(0, 234, 255);
             color:black;
-        }
+        }*/
 
 
         .h:hover .ic{
-            color:black;
+            color:#8CE9FE !important;
         }
 
 
         .h:hover{
-            background-color:rgb(0, 174, 255);
-            color:black;
+            background-color:#2f343c !important;
+            color:#3eaba1 !important;
         }
         .sub-categorie {
             color: rgb(59, 59, 59);
@@ -96,7 +96,7 @@
 
         .sub-categorie1:hover {
             text-decoration: none;
-
+            color: #8CE9FE !important;
         }
         .categorie{
         }
@@ -376,7 +376,7 @@
                             <div class="ltn__main-menu">
                                 <ul>
                                     <li class="dropdown-toggle">
-                                        <a href="/" style="color: #FFFFFF !important;" class="categorie"><div style="text-align:center;"><span><br>Accueil</span></div> </a>
+                                        <a href="/" style="color: #FFFFFF !important;" class="categorie"><div style="text-align:center;"><img  src="{% static 'IMG/ic_a.png'%}" width="30px" height="25px" alt=""><span><br>Accueil</span></div> </a>
                                     </li>
 
                                     <li class="dropdown-toggle">
@@ -588,7 +588,7 @@
                                                         <a class="sub-categorie"
                                                             href="/etablishment/subtype/19">
                                                             <div class="elmt">
-                                                                <img src="{% static 'icon_sous_categories/oum/Restaurants_originaux.png'%}" alt="#">
+                                                                <img src="{% static 'icon_sous_categories/oum/restaurants_originaux.png'%}" alt="#">
                                                                 <p>Restaurants originaux</p>
                                                             </div>
                                                             <hr class="solid">
@@ -598,7 +598,7 @@
                                                         <a class="sub-categorie"
                                                             href="/etablishment/subtype/20">
                                                             <div class="elmt">
-                                                                <img src="{% static 'icon_sous_categories/oum/restaurants_originaux.png'%}" alt="#">
+                                                                <center><img src="{% static 'icon_sous_categories/oum/restaurants_annimation.png'%}" alt="#"></center>
                                                                 <p>Restaurants avec animations</p>
                                                             </div>
                                                             <hr class="solid">
@@ -772,7 +772,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="">
-                                                        <a class="sub-categorie" href="/etablishment/subtype/35">
+                                                        <a class="sub-categorie" href="/etablishment/subtype/36">
                                                             <div class="elmt">
                                                                 <img src="{% static 'icon_sous_categories/act/shopping_artisans_créateurs.png'%}" alt="#">
                                                                 <p>Shoppings artisans et créateurs</p>
@@ -987,8 +987,8 @@
 
 
     <!-- FOOTER AREA START -->
-    <footer class="ltn__footer-area" style="">
-        <div class="footer-top-area  section-bg-2 plr--5" style="">
+    <footer class="ltn__footer-area" style="background-color:#252525 !important;">
+        <div class="footer-top-area  section-bg-2 plr--5" style="background-color:#252525!important;">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-2 col-md-6 col-sm-6 col-12">
@@ -1105,15 +1105,16 @@
                 </div>
             </div>
         </div>
-        <div class="ltn__copyright-area ltn__copyright-2 section-bg-7  plr--5 ">
+        <div class="ltn__copyright-area ltn__copyright-2 section-bg-7  plr--5 " style="background-color:#424141 !important;">
             <div class="container-fluid ltn__border-top-2">
                 <div class="row">
-                    <div class="col-md-6 col-12">
-                        <div class="ltn__copyright-design clearfix">
-                            <p>@ 2020 - 2022 IGOguide Tous droits réservés. IGOgroup ne facture aucun frais de service pour les utilisateurs de notre site. <span class="current-year"></span></p>
+                    <div class="col-3"></div>
+                    <div class="col-md-6 col-6">
+                        <div class="ltn__copyright-design clearfix text-center">
+                            <p style="align:center !important">@ 2020 - 2022 IGOguide Tous droits réservés. IGOgroup ne facture aucun frais de service pour les utilisateurs de notre site. <span class="current-year"></span></p>
                         </div>
                     </div>
-                    <div class="col-md-6 col-12 align-self-center">
+                    <div class="col-md-3 col-3 align-self-center">
                         <div class="ltn__copyright-menu text-end">
 
                         </div>
