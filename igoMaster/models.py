@@ -27,6 +27,13 @@ class User(models.Model):
     def __str__(self) -> str:
         return self.FName
 
+    @property
+    def photo_url(self):
+        if self.Photo and hasattr(self.Photo, 'url'):
+            return self.Photo.url
+        else:
+            return "/static/IMG/blank-dark.svg"
+
 ####    TYPE D'ETABLISSEMENTS
 class EtablishmentType(models.Model):
     id=models.AutoField(primary_key=True)
@@ -95,6 +102,14 @@ class Media(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    @property
+    def img_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+        else:
+            return "/static/IMG/balade igoguide.jpg"
+
 
 ####    CONTACTS
 class Contact(models.Model):

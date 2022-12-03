@@ -219,7 +219,7 @@ def get_particular_profile(request,id):
             'subtypeid':e.etablishment.subType.id,
             'type':e.etablishment.subType.type.name,
             'owner':e.etablishment.owner,
-            'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.etablishment.id)],
+            'images':[{'url':i.img_url,'name':i.name} for i in Media.objects.filter(etablishment=e.etablishment.id)],
             'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.etablishment.subType.id)]
         } for e in f]
         return render(request,'particular_profile.html',{'client':u,'etablissements':favs})
@@ -343,8 +343,6 @@ def get_etablishment_details(request,id):
             'city':e.city,
             'tags':e.tags,
             'postal':e.postal,
-            'contact':Contact.objects.get(etablishment=e.id),
-            'reseaux':Social.objects.get(etablishment=e.id),
             'subType':e.subType.name,
             'subTypeText':e.subType.description,
             'subtypeid':e.subType.id,
@@ -353,11 +351,19 @@ def get_etablishment_details(request,id):
             'marker': get_marker(e.subType.type.id),
             'owner':e.owner,
             'typeColor':e.subType.type.color,
-            'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
+            'images':[{'url':i.img_url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
             'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
         }
         try:
             es['other']=Json.loads(OTHER.objects.get(etablishment=e.id).content)
+        except:
+            pass
+        try:
+            es.update({'reseaux':Social.objects.get(etablishment=e.id)})
+        except:
+            pass
+        try:
+            es.update({'contact':Contact.objects.get(etablishment=e.id)})
         except:
             pass
         return render(request,'etablissements/detail2.html',{'e':es})
@@ -611,7 +617,7 @@ def get_user_etablishments(request,id):
             # 'subTypeText':e.subType.description,
             # 'subtypeid':e.subType.id,
             # 'type':e.subType.type.name,
-            # 'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
+            # 'images':[{'url':i.img_url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
             # 'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
         }for e in Etablishment.objects.filter(owner=id)]
         return JsonResponse(etablissements,safe=False)
@@ -632,8 +638,6 @@ def list_user_etablishments(request,id):
         'city':e.city,
         'tags':e.tags,
         'postal':e.postal,
-        'contact':Contact.objects.get(etablishment=e.id),
-        'reseaux':Social.objects.get(etablishment=e.id),
         'subType':e.subType.name,
         'subTypeText':e.subType.description,
         'subtypeid':e.subType.id,
@@ -641,12 +645,20 @@ def list_user_etablishments(request,id):
         'type':e.subType.type.name,
         'typeid':e.subType.type.id,
         'marker': get_marker(e.subType.type.id),
-        'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
+        'images':[{'url':i.img_url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
         'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
     }for e in Etablishment.objects.filter(owner=id)]
     for e in etablissements:
         try:
             e.update({'other':Json.loads(OTHER.objects.get(etablishment=e['id']).content)})
+        except:
+            pass
+        try:
+            e.update({'contact':Contact.objects.get(etablishment=e.id)})
+        except:
+            pass
+        try:
+            e.update({'reseaux':Social.objects.get(etablishment=e.id)})
         except:
             pass
     return render(request,'dashboard/etablissements/list.html',{'etablissements':etablissements})
@@ -667,8 +679,6 @@ def get_dept_etablishments(request,id):
             'city':e.city,
             'tags':e.tags,
             'postal':e.postal,
-            'contact':Contact.objects.get(etablishment=e.id),
-            'reseaux':Social.objects.get(etablishment=e.id),
             'subType':e.subType.name,
             'subTypeText':e.subType.description,
             'subtypeid':e.subType.id,
@@ -677,7 +687,7 @@ def get_dept_etablishments(request,id):
             'typeid':e.subType.type.id,
             'marker': get_marker(e.subType.type.id),
             'owner':e.owner,
-            'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
+            'images':[{'url':i.img_url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
             'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
         }for e in Etablishment.objects.filter(city__department__icontains=dept_name)]
         for e in l:
@@ -685,6 +695,15 @@ def get_dept_etablishments(request,id):
                 e.update({'other':Json.loads(OTHER.objects.get(etablishment=e['id']).content)})
             except:
                 pass
+            try:
+                e.update({'contact':Contact.objects.get(etablishment=e.id)})
+            except:
+                pass
+            try:
+                e.update({'reseaux':Social.objects.get(etablishment=e.id)})
+            except:
+                pass
+
         return render(request,'etablissements/liste.html',{'etablissements':l,'text':dept_name})
 
 def get_reg_etablishments(request,reg):
@@ -701,8 +720,6 @@ def get_reg_etablishments(request,reg):
             'city':e.city,
             'tags':e.tags,
             'postal':e.postal,
-            'contact':Contact.objects.get(etablishment=e.id),
-            'reseaux':Social.objects.get(etablishment=e.id),
             'subType':e.subType.name,
             'subTypeText':e.subType.description,
             'subtypeid':e.subType.id,
@@ -711,12 +728,20 @@ def get_reg_etablishments(request,reg):
             'typeid':e.subType.type.id,
             'marker': get_marker(e.subType.type.id),
             'owner':e.owner,
-            'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
+            'images':[{'url':i.img_url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
             'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
         }for e in Etablishment.objects.filter(city__region__icontains=reg)]
         for e in l:
             try:
                 e.update({'other':Json.loads(OTHER.objects.get(etablishment=e['id']).content)})
+            except:
+                pass
+            try:
+                e.update({'contact':Contact.objects.get(etablishment=e.id)})
+            except:
+                pass
+            try:
+                e.update({'reseaux':Social.objects.get(etablishment=e.id)})
             except:
                 pass
         return render(request,'etablissements/liste.html',{'etablissements':l,'text':reg})
@@ -756,8 +781,6 @@ def search_etablishment(request):
             'city':e.city,
             'tags':e.tags,
             'postal':e.postal,
-            'contact':Contact.objects.get(etablishment=e.id),
-            'reseaux':Social.objects.get(etablishment=e.id),
             'subType':e.subType.name,
             'subTypeText':e.subType.description,
             'subtypeid':e.subType.id,
@@ -766,12 +789,20 @@ def search_etablishment(request):
             'typeid':e.subType.type.id,
             'marker': get_marker(e.subType.type.id),
             'owner':e.owner,
-            'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
+            'images':[{'url':i.img_url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
             'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
         }for e in Etablishment.objects.all()]
         for e in etablissements:
             try:
                 e.update({'other':Json.loads(OTHER.objects.get(etablishment=e['id']).content)})
+            except:
+                pass
+            try:
+                e.update({'contact':Contact.objects.get(etablishment=e.id)})
+            except:
+                pass
+            try:
+                e.update({'reseaux':Social.objects.get(etablishment=e.id)})
             except:
                 pass
         l=[]
@@ -849,7 +880,7 @@ def list_subtypeX_etablishment(request,id):
         'typeColor':e.subType.type.color,
         'marker': get_marker(e.subType.type.id),
         'owner':e.owner,
-        'images':[{'url':i.image.url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
+        'images':[{'url':i.img_url,'name':i.name} for i in Media.objects.filter(etablishment=e.id)],
         'type_subtypes':[{'name':i.name,'id':i.id,'desc':i.description} for i in EtablishmentSubType.objects.filter(type=e.subType.id)],
     }for e in Etablishment.objects.filter(subType=id)]
     return render(request,'etablissements/liste.html',{'etablissements':etablissements,'text':EtablishmentSubType.objects.get(id=id).name})
