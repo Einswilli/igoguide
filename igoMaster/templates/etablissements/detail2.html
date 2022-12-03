@@ -182,27 +182,16 @@
 			<!-- sidebar mobile menu & sidebar cart - start
 			================================================== -->
 			<div class="sidebar-menu-wrapper">
-				<div class="sidebar_mobile_menu modern_mobile_sidebar">
+				<div class="sidebar_mobile_menu modern_mobile_sidebar" style="background-image:url('{% static "nc/back.png" %}');background-size:cover;background-repeat:no-repeat; border-right:6px #3eaba1 solid">
 					{% comment %} <button type="button" class="close_btn"><i class="fal fa-times"></i></button> {% endcomment %}
 
-					<div class="brand_logo mb_50">
+					<div class="brand_logo mb_30 " style="margin-top:-60px">
 						<a href="/">
-							<img src="{% static 'IMG/logo Igoguide/logo_fond_clair.png'%}" srcset="assets/images/logo/logo_08_2x.png 2x" style="width:100px;height:auto;" alt="logo_not_found">
+							<img src="{% static 'IMG/logo Igoguide/logo_fond_clair.png'%}" srcset="assets/images/logo/logo_08_2x.png 2x" style="width:80px;height:auto;" alt="logo_not_found">
 						</a>
 					</div>
 
-					{% comment %} <div class="form_item mb_50">
-						<input type="search" name="search">
-						<button type="submit" class="submit_btn"><i class="fal fa-search"></i></button>
-					</div> {% endcomment %}
-
-					{% comment %} <div class="mobile_menu_list mb_50 clearfix">
-						<ul class="ul_li_block clearfix">
-                            {% for k,v in e.other.items %}
-                            <li><a href="#">{{ k }} : {{v}}</a></li> 
-                            {% endfor %}   
-						</ul>
-					</div> {% endcomment %}
+					
 
 					<ul class="action_btns_group mb_5 ul_li clearfix">
 						<li>
@@ -211,7 +200,7 @@
 							</button>
 						</li>
 						<li>
-                            <p>{{e.owner.FName}} {{e.owner.LName}}</p>
+                            <p class="bg_white">{{e.owner.FName}} {{e.owner.LName}}</p>
 						</li>
 					</ul>
                     <ul class="action_btns_group mb_5 ul_li clearfix">
@@ -221,7 +210,7 @@
 							</button>
 						</li>
 						<li>
-                            <p>{{e.owner.Email}}</p>
+                            <p class="bg_white">{{e.owner.Email}}</p>
 						</li>
 					</ul>
                     <ul class="action_btns_group mb_5 ul_li clearfix">
@@ -231,28 +220,10 @@
 							</button>
 						</li>
 						<li>
-                            <p>{{e.owner.Phone}}</p>
+                            <p class="bg_white">{{e.owner.Phone}}</p>
 						</li>
 					</ul>
 
-                    <div class="card">
-                        <h3 class="card-title text-center">Divers</h3>
-                        <div class="card-body" style="border-top:1px solid black">
-                            <table class="">
-                                {% for k,v in e.other.items %}
-                                <tr>
-                                    <td>
-                                        {{ k }}
-                                    </td>
-                                    <td>
-                                        {{ v }}
-                                    </td>
-                                </tr>
-                                {% endfor %}
-
-                            </table>
-                        </div>
-                    </div>
 
 					{% comment %} <ul class="primary_social_links ul_li clearfix">
 						<li><a href="#!"><i class="fab fa-instagram"></i></a></li>
@@ -306,6 +277,25 @@
 				</div>
 			</section>
 			<!-- slider_section - end
+			================================================== -->
+
+
+            <!-- watch_instagram - start
+			================================================== -->
+            <h3 class="title_text mb_15 fs-28 text-center" style="margin-top:100px;">Galerie</h3>
+			<div class="watch_instagram position-relative clearfix text-center" style="justify-content:center;margin-left:20px;margin-right:20px">
+				{% comment %} <span class="title_text text-uppercase"><i class="fab fa-instagram mr-2"></i> Follow us on instagram</span> {% endcomment %}
+				<ul class="zoom-gallery ul_li">
+                    {% for image in e.images %}
+					<li>
+						<a class="popup_image" href="{{ image.url }}">
+							<img src="{{ image.url }}" alt="image_not_found">
+						</a>
+					</li>
+                    {% endfor %}
+				</ul>
+			</div>
+			<!-- watch_instagram - end
 			================================================== -->
 
 
@@ -403,6 +393,19 @@
                 <!-- main_contact_section - end
                 ================================================== -->
 
+
+                {% if e.other %}
+                <section class="clearfix">
+                    <h3 class="title_text mb_15 text-center" style="margin-top:100px">Les  Équipements & Servivces :</h3>
+                    <ol class="gradient-list">
+                        {% for k,v in e.other.items %}
+                            <li><b>{{ k }} : {{v}}</b></li> 
+                        {% endfor %}
+                      </ol>
+                </section>
+                {% endif %}
+
+
                     <!-- map_section - start
                 ================================================== -->
                 <div class="map_section clearfix">
@@ -411,18 +414,6 @@
                 </div>
                 <!-- map_section - end
                 ================================================== -->
-
-
-                {% if e.other %}
-                <section class="clearfix">
-                    <h3 class="title_text mb_15 text-center" style="margin-top:100px">Divers</h3>
-                    <ol class="gradient-list">
-                        {% for k,v in e.other.items %}
-                            <li><b>{{ k }} : {{v}}</b></li> 
-                        {% endfor %}
-                      </ol>
-                </section>
-                {% endif %}
 
 			</div>
 			<!-- modern container - end -->
