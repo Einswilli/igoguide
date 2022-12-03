@@ -123,8 +123,8 @@
                             <span class="category-icon"><img src="{% static 'icon_sous_categories/'%}{{es.image}}" alt=""></span>
                             <!-- <i class="flaticon-home-2" style="color: {{EtablishmentType.color}}"></i>< -->
                             <span class="category-title">{{es.name}}</span>
-                            <span class="category-btn"><i class="flaticon-right-arrow"></i></span>
-                            <span><a id="mod{{es.id}}" class="btn btn-warning" data-bs-toggle="modal" target="#exampleModalToggle" role="button">Lire la description</a></span>
+                            <a id="mod{{es.id}}"><span class="category-btn w-auto  px-5 z-index-100" >Description <i class="flaticon-right-arrow" hidden></i></span></a>
+                            {% comment %} <span><a class="btn btn-warning" data-bs-toggle="modal" target="#exampleModalToggle" role="button">Lire la description</a></span> {% endcomment %}
                             <script>
                                 $('#mod{{es.id}}').click(function(){
                                     $('#dal{{es.id}}').modal('toggle');
