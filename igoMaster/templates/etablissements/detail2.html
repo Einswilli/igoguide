@@ -282,7 +282,7 @@
 
             <!-- watch_instagram - start
 			================================================== -->
-            <h3 class="title_text mb_15 fs-28 text-center" style="margin-top:100px;">Galerie</h3>
+            <h3 class="title_text mb_15 fs-28 text-center" style="margin-top:100px;">GALERIE</h3>
 			<div class="watch_instagram position-relative clearfix text-center" style="justify-content:center;margin-left:20px;margin-right:20px">
 				{% comment %} <span class="title_text text-uppercase"><i class="fab fa-instagram mr-2"></i> Follow us on instagram</span> {% endcomment %}
 				<ul class="zoom-gallery ul_li">
@@ -298,6 +298,9 @@
 			<!-- watch_instagram - end
 			================================================== -->
 
+            <h3 class="title_text mb_15 fs-28 text-center" style="margin-top:100px;">DESCRIPTION</h3>
+            <p style="margin-left:100px;margin-right:100px">{{e.presentation}}</p>
+
 
 			<!-- modern container - start -->
 			<div class="modern_container clearfix">
@@ -310,9 +313,9 @@
 
                             <div class="col-lg-5">
                                 <div class="main_contact_content">
-                                    <h3 class="title_text mb_15">Get In Touch</h3>
+                                    <h3 class="title_text mb_15">INFOS PRATIQUES</h3>
                                     <p class="mb_50">
-                                        If you are interested in working with us, please get in touch.
+                                        <a href="http://blog.igoguide.com/" style="text-decoration:none;color:black;">Voulez-vous en savoir plus sur la région ?</a>
                                     </p>
                                     <ul class="main_contact_info ul_li_block clearfix">
                                         <li>
@@ -330,7 +333,7 @@
                                             </span>
                                             <p class="mb-0">{{e.contact.telephone}}</p>
                                         </li>
-                                        <li>
+                                        <li hidden>
                                             <span class="icon">
                                                 <i class="fal fa-paper-plane"></i>
                                             </span>

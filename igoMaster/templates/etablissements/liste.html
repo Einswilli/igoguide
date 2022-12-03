@@ -474,7 +474,7 @@
             <div class="mycontainer">
                 <div class="row mr-10 listing-item-container">
                     {% if not etablissements or etablissements|length < 0 %}
-                        <h2 style="text-align:center;margin-top:200px;color:#ffffff;font-family:Bangers;">Aucun résultat!</h2>
+                        <h2 style="text-align:center;margin-top:200px;color:#000000;font-family:Bangers;"><a href="/" style="text-decoration:none;">Aucun résultat!</a></h2>
                         <img src"{% static 'categories/img_404.jpg'%}" style="height:200px;width:auto;">
                     {% else %}
                 {% for etablissement in etablissements %}
@@ -483,7 +483,15 @@
                     <div class="listing-item">
                         <article class="geodir-category-listing fl-wrap">
                             <div class="geodir-category-img">
-                                <div class="geodir-js-favorite_btn"><i class="fal fa-heart"></i><span>Ajouter</span></div>
+                              {% if request.session.client %}
+                                {% if etablissement.id in request.session.client.favorites %}
+                                  <div class="geodir-js-favorite_btn etsf_1"><i class="fal fa-heart" style="color:deeppink;"></i><span>Ajouter</span></div>
+                                {% else %}
+                                  <div class="geodir-js-favorite_btn etsf_0"><i class="fal fa-heart" ></i><span>Ajouter</span></div>
+                                {% endif %}
+                              {% else %}
+                                <a href="/auth/p/connexion" style="text-decoration:none;"><div class="geodir-js-favorite_btn"><i class="fal fa-heart" ></i><span>Ajouter</span></div><a/>
+                              {% endif %}
                                 <a href="/etablishment/{{ etablissement.id }}" class="geodir-category-img-wrap fl-wrap">
                                 <img src="{{ etablissement.images.0.url|default_if_none:'/static/IMG/balade igoguide.jpg' }}" alt=""> 
                                 </a>
@@ -493,15 +501,7 @@
                                 <div class="geodir_status_date gsd_open bg-blue" style="font-family: Bangers;"><img src="{% static 'icon_sous_categories/'%}{{etablissement.subTypeImage}}" alt="" style="width:40px;height:auto;margin-right:10px"><i class="fal fa-lock-open d-none"></i>{{ etablissement.subType }}</div>
                                 <div class="geodir-category-opt">
                                     <div class="listing-rating-count-wrap">
-                                      {% if etablissement.other %}
-                                        {% for k,v in etablissement.other.items %}
-                                          {% if 'Tarif à partir de' in k %}
-                                            <div class="review-score">{{v}}€</div>
-                                          {% endif %}
-                                        {% endfor %}
-                                      {% else %}
                                         <div class="review-score" style="font-family: Bangers;"><a href="/etablishment/{{ etablissement.id }}" style="color:#ffffff;text-decoratoin:none;">voir plus...</a></div>
-                                      {% endif %}
                                         {% comment %} <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div> {% endcomment %}
                                         <br>
                                         {% comment %} <div class="reviews-count">9 reviews</div> {% endcomment %}
@@ -536,6 +536,18 @@
                                               {% endif %}
                                               {% if 'Accessible aux handicapés' in k and v == 'Oui' %}
                                               <li class="tolt"  data-microtip-position="top" data-tooltip="Accessible aux handicapés"><i class="fa-solid fa-wheelchair"></i></li>
+                                              {% endif %}
+                                              {% if 'Livraisons' in k and v == 'Oui' %}
+                                              <li class="tolt"  data-microtip-position="top" data-tooltip="Ventes avec livraisons"><i class="fa-solid fa-person-dolly"></i></li>
+                                              {% endif %}
+                                              {% if 'Familles avec enfants' in k and v == 'Oui' %}
+                                              <li class="tolt"  data-microtip-position="top" data-tooltip="Familles avec enfants sont acceptés"><i class="fa-solid fa-family"></i></li>
+                                              {% endif %}
+                                              {% comment %} {% if 'Accessible aux handicapés' in k and v == 'Oui' %}
+                                              <li class="tolt"  data-microtip-position="top" data-tooltip="Accessible aux handicapés"><i class="fa-solid fa-wheelchair"></i></li>
+                                              {% endif %} {% endcomment %}
+                                              {% if 'Tarif à partir de' in k and v != '' %}
+                                                <div class="review-score">{{v}}€</div>
                                               {% endif %}
                                             {% endfor %}
                                           {% endif %}
