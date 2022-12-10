@@ -1020,7 +1020,7 @@
                             <h6 class="footer-title fs-6">A propos de nous</h6>
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a class="sub-categorie1" style="font-size: 12px" href="#">Besoin d'aide ?</a></li>
+                                    <li><a class="sub-categorie1" data-bs-toggle="modal" data-bs-target="#exampleModal2" style="font-size: 12px" href="besoin_aide">Besoin d'aide ?</a></li>
                                     <li><a class="sub-categorie1" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-size: 12px" href="mention_legales">Mentions légales</a></li>
                                     <li><a class="sub-categorie1" data-bs-toggle="modal" data-bs-target="#exampleModal1" style="font-size: 12px" href="confidentialite">Confidentialité</a></li>
                                     <li><a class="sub-categorie1" style="font-size: 12px" href="/cgu_footer">CGU</a></li>
@@ -1168,11 +1168,10 @@
       </div>
       <div class="modal-body">
         <h3 ></h3>
-Le site internet www.igoguide.com est édité par la société IGOgroup, SAS au capital de 10.000 €, immatriculée au RCS de Bordeaux, sous le n°889371142, dont le siège social est 9 rue de Condé, bureau 3,  33000 Bordeaux.
-N° de TVA intracommunautaire : FR10889371142
-Email : infos@igoguide.com
-Hébergeur : OVH, société par action simplifiée au capital de 10 069 020 €uros, immatriculée au RCS Lille Métropole 424 761 419 0004, N° TVA : FR 22 424 761 419 dont le siège social est  2 rue Kellermann – 59100 Roubaix – France
-
+        Le site internet www.igoguide.com est édité par la société IGOgroup, SAS au capital de 10.000 €, immatriculée au RCS de Bordeaux, sous le n°889371142, dont le siège social est 9 rue de Condé, bureau 3,  33000 Bordeaux.
+        N° de TVA intracommunautaire : FR10889371142
+        Email : infos@igoguide.com
+        Hébergeur : OVH, société par action simplifiée au capital de 10 069 020 €uros, immatriculée au RCS Lille Métropole 424 761 419 0004, N° TVA : FR 22 424 761 419 dont le siège social est  2 rue Kellermann – 59100 Roubaix – France
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>
@@ -1196,8 +1195,6 @@ Hébergeur : OVH, société par action simplifiée au capital de 10 069 020 €u
         Conformément aux articles 38 et suivants de la loi n° 78-17 du 6 janvier 1978 modifiée par la loi du 6 août 2004 relative à l’informatique, aux fichiers et aux libertés, toute personne peut obtenir communication et, le cas échéant, modification, rectification ou suppression des informations le concernant, en s’adressant à IGOgroup, 9 rue de Condé, bureau 3, 33000 Bordeaux, France.
         Conformément à l’article 92 du décret N°2005-1309 du 20 octobre 2005, les demandes doivent être signées et accompagnées de la photocopie d’un titre d’identité portant la signature du titulaire. Les demandes doivent également préciser l’adresse à laquelle doit parvenir la réponse.
         Conformément à l’article 94 du décret N°2005-1309 du 20 octobre 2005, le responsable du traitement répond à la demande présentée par l’intéressé dans le délai de 2 mois suivant sa réception. Si la demande est imprécise ou ne comporte pas tous les éléments, le responsable du traitement invite l’intéressé à les lui fournir.
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>
@@ -1206,6 +1203,25 @@ Hébergeur : OVH, société par action simplifiée au capital de 10 069 020 €u
   </div>
 </div>
 
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: rgb(160, 160, 0);" id="exampleModalLabel">Besoin d'aide ?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5>En tant qu’utilisateur de la plateforme, vous n’aurez aucun besoin d’entrer en contact avec IGOguide.</h5>
+        Pour toutes questions, veuillez les poser directement aux établissements concernés.
+        En revanche, nous sommes sensibles aux attentions. Si vous avez repéré un établissement, une activité ou une balade à référencer, faites-nous en part! Après vérification de l’information et mise en contact avec la structure concernée, nous pourrions avoir le plaisir de l’ajouter à la plateforme.
+        contact@igoguide.com (avec lien)
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>
+     </div>
+    </div>
+  </div>
+</div>
 
 <script src="{% static 'js/jquery.min.js'%}"></script>
 <script src="{% static 'js/bootstrap.min.js'%}"></script>
