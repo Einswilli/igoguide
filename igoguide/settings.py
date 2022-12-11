@@ -135,7 +135,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/home/admin/igoguide/igoMaster/static/'
 
 STATIC_ROOT=os.path.join(BASE_DIR,"staticfiles")
 
@@ -157,7 +157,7 @@ STATICFILES_DIR=[
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT=os.path.join(BASE_DIR/"images")
-MEDIA_URL='/images/'
+MEDIA_URL='/home/admin/igoguide/images/'
 
 #E-MAIL SETTINGS
 
