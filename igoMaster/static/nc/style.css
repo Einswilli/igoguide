@@ -4232,7 +4232,7 @@ section.gray-section .section-separator {
 }
 .geodir-category-img-wrap  img  , .gallery-item img{
 	width:100%;
-	height:auto;
+	height:200px;
 
 	max-height: 200px !important;
 }
@@ -4258,13 +4258,13 @@ section.gray-section .section-separator {
 	height:36px;
 	line-height:36px;
 	border-radius:100%;
-    background: #425998;
+    background: #252525;
 	position:relative;
 	z-index:2;
 }
 .geodir-js-favorite_btn span {
     border-radius: 36px;
-    background: #425998;
+    background: #252525;
 	float:left;
 	left:-36px;
 	height:36px;

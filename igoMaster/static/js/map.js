@@ -94,14 +94,15 @@ class GoogleMap{
                     //gestureHandling: "cooperative"
                 })
                 this.bounds=new google.maps.LatLngBounds()
-                // google.maps.event.addListener(this.map,'zoom_changed',()=>{
-                //     alert('zoom_changed')
-                //     let b=this.map.getBounds()
-                //     let items=document.querySelectorAll('.js-marker')
-                //     for(let item of items){
-                //         alert(b)
-                //     }
-                // })
+                google.maps.event.addListener(this.map,'zoom_changed',()=>{
+                    alert('zoom_changed')
+                    let b=this.map.getBounds()
+                    alert(b)
+                    // let items=document.querySelectorAll('.js-marker')
+                    // for(let item of items){
+                    //     alert(b)
+                    // }
+                })
                 resolve()
             })
         })

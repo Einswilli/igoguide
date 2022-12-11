@@ -251,13 +251,13 @@
 							</ul>
 							<h4 class="text-white" data-animation="fadeInUp" data-delay=".4s"><i class="fal fa-map-marked-alt"></i> {{ e.city }}</h4>
 							<h3 class="text-white" data-animation="fadeInUp" data-delay=".6s">{{ e.name }}</h3>
-							<p data-animation="fadeInUp" data-delay=".8s">
+							{% comment %} <p data-animation="fadeInUp" data-delay=".8s">
 								{% if e.presentation is not '' %}
                                     {{ e.presentation }}
                                 {% else %}
                                     {{ e.subTypeText }}
                                 {% endif %}
-							</p>
+							</p> {% endcomment %}
 							<div class="abtn_wrap clearfix" data-animation="fadeInUp" data-delay="1s">
 								<a href="#ctct" class="custom_btn bg_black text-uppercase">Nous Contacter</a>
 							</div>

@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
-  <link type="text/css" rel="stylesheet" href="{% static 'nc/reset.css'%}">
+  {% comment %} <link type="text/css" rel="stylesheet" href="{% static 'nc/reset.css'%}"> {% endcomment %}
   <link type="text/css" rel="stylesheet" href="{% static 'nc/plugins.css'%}">
   <link type="text/css" rel="stylesheet" href="{% static 'nc/style.css'%}">
   <link type="text/css" rel="stylesheet" href="{% static 'css/color.css'%}">
@@ -347,6 +347,8 @@
       
       .cont .box .top img {
         width: 100%;
+        height:20px;
+        min-height:200px !important;
         max-height:200px;
         margin-bottom: -4px;
       }
@@ -498,10 +500,10 @@
                                 <div class="listing-avatar"><a href="/etablishment/{{ etablissement.id }}"><img src="{{ etablissement.owner.photo_url }}" alt=""></a>
                                     <span class="avatar-tooltip">{{ etablissement.owner.FName }}  <strong>{{ etablissement.owner.LName }}</strong></span>
                                 </div>
-                                <div class="geodir_status_date gsd_open bg-blue" style="font-family: Bangers;"><img src="{% static 'icon_sous_categories/'%}{{etablissement.subTypeImage}}" alt="" style="width:40px;height:auto;margin-right:10px"><i class="fal fa-lock-open d-none"></i>{{ etablissement.subType }}</div>
+                                <div class="geodir_status_date gsd_open" style="font-family: Bangers;background-color:#53B7C6"><img src="{% static 'icon_sous_categories/'%}{{etablissement.subTypeImage}}" alt="" style="width:40px;height:auto;margin-right:10px"><i class="fal fa-lock-open d-none"></i>{{ etablissement.subType }}</div>
                                 <div class="geodir-category-opt">
                                     <div class="listing-rating-count-wrap">
-                                        <div class="review-score" style="font-family: Bangers;"><a href="/etablishment/{{ etablissement.id }}" style="color:#ffffff;text-decoratoin:none;">voir plus...</a></div>
+                                        <div class="review-score" style="font-family: Bangers; background-color:#252525"><a href="/etablishment/{{ etablissement.id }}" style="color:#ffffff;text-decoratoin:none;">voir plus...</a></div>
                                         {% comment %} <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div> {% endcomment %}
                                         <br>
                                         {% comment %} <div class="reviews-count">9 reviews</div> {% endcomment %}
@@ -511,14 +513,14 @@
                             <div class="geodir-category-content fl-wrap title-sin_item">
                                 <div class="geodir-category-content-title fl-wrap">
                                     <div class="geodir-category-content-title-item">
-                                        <h3 class="title-sin_map"><a href="#">{{ etablissement.name }}</a></h3>
-                                        <div class="geodir-category-location fl-wrap"><a href="/etablishment/{{ etablissement.id }}"><i class="fas fa-map-marker-alt"></i>  {{ etablissement.address }}</a></div>
+                                        <h3 class="title-sin_map"><a href="etablishment/{{ etablissement.id }}" style="color:#252525;">{{ etablissement.name }}</a></h3>
+                                        <div class="geodir-category-location fl-wrap"><a href="/etablishment/{{ etablissement.id }}" style="color:#252525;"><i class="fas fa-map-marker-alt"></i>  {{ etablissement.address }}</a></div>
                                     </div>
                                 </div>
                                 <div class="geodir-category-text fl-wrap">
-                                    <p class="small-text">{{ etablissement.shortPresentation }}...</p>
+                                    <p class="small-text" style="color:#424141;">{{ etablissement.shortPresentation }}...</p>
                                     <div class="facilities-list fl-wrap col">
-                                        <div class="facilities-list-title" style="font-family: Bangers;">Les  Équipements & Servivces : </div><br>
+                                        <div class="facilities-list-title" style="font-family: Bangers;color:#252525">Les  Équipements & Servivces : </div><br>
                                         <ul class="no-list-style d-flex">
                                           {% if etablissement.other %}
                                             {% for k,v in etablissement.other.items %}

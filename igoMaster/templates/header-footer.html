@@ -47,12 +47,14 @@
         .categorie:hover  {
             text-decoration: none;
             color: rgb(0, 64, 142);
-            background-color:rgb(0, 174, 255);
+            background-color:#53B7C6;
+            /*rgb(0, 174, 255);*/
         }
-        /*.h{
-            background-color:black;
-            color:#FFCD00;
-        }*/
+        .h{
+            height:40px !important;
+            width:auto !important;
+            padding:5px;
+        }
 
         .ic{
             color:#FFCD00;
@@ -302,14 +304,14 @@
                                                 {% comment %} @else {% endcomment %}
                                                 {% if not request.session.client %}
                                                     <div class="col" id="pcon">
-                                                    <a class="btn btn-dark rounded-pill h-100 h" href="/auth/p/connexion" type="submit" title="Se connecter"><i class="fas fa-user pr-2 ic" aria-hidden="true" style="color:white;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic"> Se connecter</span></a>
+                                                    <a class="badge bg_black p-3 rounded-pill h-100 h" style="text-decoration:none;" href="/auth/p/connexion" type="submit" title="Se connecter"><i class="fas fa-user pr-2 ic" aria-hidden="true" style="color:white;" ></i><span style="font-family:Arial, Helvetica, sans-serif;font-size:14px;" class="ic"> Se connecter</span></a>
                                                     </div>
                                                     <div class="col" id="procon">
-                                                        <a class="btn btn-dark rounded-pill h-100 h" href="/auth/pro/connexion" type="submit" title="Espace pro"><i class="fas fa-user-tie pr-2 ic" aria-hidden="true" style="color:white;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Espace pro</span></a>
+                                                        <a class="badge bg_black p-3 rounded-pill h-100 h" style="text-decoration:none;" href="/auth/pro/connexion" type="submit" title="Espace pro"><i class="fas fa-user-tie pr-2 ic" aria-hidden="true" style="color:white;" ></i><span style="font-family:Arial, Helvetica, sans-serif;font-size:14px;" class="ic">Espace pro</span></a>
                                                     </div>
                                                 {% else %}
                                                     <div class="col" id="pfav">
-                                                        <a id="espace" class="badge bg-blue rounded-pill h-50" style="font-size:18px;text-decoration:none;" href="/profile/p/{{ request.session.client.id }}" type="button" title="Mon espace" ><i class="fas fa-heart pr-2 ic" aria-hidden="true" style="color:deeppink;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Mon espace</span></a>
+                                                        <a id="espace" class="badge bg_black p-2 rounded-pill h-100 h" style="font-size:18px;text-decoration:none;" href="/profile/p/{{ request.session.client.id }}" type="button" title="Mon espace" ><i class="fas fa-heart pr-2 ic" aria-hidden="true" style="color:deeppink;" ></i><span style="font-family:Arial, Helvetica, sans-serif" class="ic">Mon espace</span></a>
                                                         {% comment %} <div class="geodir_status_date gsd_open bg-blue" style="font-family: Bangers;width:auto"><i class="fas fa-heart pr-2 ic" aria-hidden="true" style="color:deeppink;" ></i></i>Mon Espace</div> {% endcomment %}
                                                     </div>
                                                 {% endif %}
@@ -380,8 +382,8 @@
                                     </li>
 
                                     <li class="dropdown-toggle">
-                                        <a href="#" style="color: #FFFFFF !important;" class="categorie"><div style="text-align:center;"><img  src="{% static 'IMG/Icones Menu/herbergement VB1@4x.png'%}" width="30px" height="25px" alt=""><span><br>Hébergements atypiques</span></div> </a>
-                                        <ul class="sub-menu menu-pages-img-show" style="width: 900px;background-color:#d1cfd0;">
+                                        <a href="#" style="color: #FFFFFF !important;" class="categorie"><div style="text-align:center;"><img  src="{% static 'IMG/Icones Menu/herbergement VB1@4x.png'%}" width="30px" height="25px" alt=""><span><br>Hébergements</span></div> </a>
+                                        <ul class="sub-menu menu-pages-img-show" style="width: 900px;background-color:#d1cfd0;z-index:50">
                                             
                                                 <div class="icon-container" style="">
                                                     <div class="">
