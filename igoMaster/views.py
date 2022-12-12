@@ -367,7 +367,8 @@ def get_etablishment_details(request,id):
         except:
             pass
         return render(request,'etablissements/detail2.html',{'e':es})
-    except:
+    except Exception as e:
+        print(e)
         return redirect('Home')
 
 def save_etablishment(request):

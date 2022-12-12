@@ -192,37 +192,38 @@
 					</div>
 
 					
-
-					<ul class="action_btns_group mb_5 ul_li clearfix">
-						<li>
-							<button type="button" class="user_btn">
-								<i class="fal fa-user"></i>
-							</button>
-						</li>
-						<li>
-                            <p class="bg_white">{{e.owner.FName}} {{e.owner.LName}}</p>
-						</li>
-					</ul>
-                    <ul class="action_btns_group mb_5 ul_li clearfix">
-						<li>
-							<button type="button" class="user_btn">
-								<i class="fal fa-paper-plane"></i>
-							</button>
-						</li>
-						<li>
-                            <p class="bg_white">{{e.owner.Email}}</p>
-						</li>
-					</ul>
-                    <ul class="action_btns_group mb_5 ul_li clearfix">
-						<li>
-							<button type="button" class="user_btn">
-								<i class="fal fa-phone-volume"></i>
-							</button>
-						</li>
-						<li>
-                            <p class="bg_white">{{e.owner.Phone}}</p>
-						</li>
-					</ul>
+                    {% if e.reseaux %}
+                        <ul class="action_btns_group mb_5 ul_li clearfix">
+                            <li>
+                                <button type="button" class="user_btn">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+                            </li>
+                            <li>
+                                <p class="bg_white">{{e.reseaux.facebookName|default:'non renseigné'}}</p>
+                            </li>
+                        </ul>
+                        <ul class="action_btns_group mb_5 ul_li clearfix">
+                            <li>
+                                <button type="button" class="user_btn">
+                                    <i class="fab fa-instagram"></i>
+                                </button>
+                            </li>
+                            <li>
+                                <p class="bg_white">{{e.reseaux.instagramName|default:'non renseigné'}}</p>
+                            </li>
+                        </ul>
+                        <ul class="action_btns_group mb_5 ul_li clearfix">
+                            <li>
+                                <button type="button" class="user_btn">
+                                    <i class="fab fa-twitter"></i>
+                                </button>
+                            </li>
+                            <li>
+                                <p class="bg_white">{{e.reseaux.twitterName|default:'non renseigné'}}</p>
+                            </li>
+                        </ul>
+                    {% endif %}
 
 
 					{% comment %} <ul class="primary_social_links ul_li clearfix">
@@ -402,7 +403,13 @@
                     <h3 class="title_text mb_15 text-center" style="margin-top:100px">Les  Équipements & Servivces :</h3>
                     <ol class="gradient-list">
                         {% for k,v in e.other.items %}
-                            <li><b>{{ k }} : {{v}}</b></li> 
+                            {% if v != '' and v != None %}
+                                {% if 'Tarif à partir de' in k %}
+                                    <li><b>{{ k }} : {{v}} €</b></li>
+                                {% else %}
+                                    <li><b>{{ k }}</b></li> 
+                                {% endif %}
+                            {% endif %}
                         {% endfor %}
                       </ol>
                 </section>

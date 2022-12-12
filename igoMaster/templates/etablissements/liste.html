@@ -495,7 +495,7 @@
                                 <a href="/auth/p/connexion" style="text-decoration:none;"><div class="geodir-js-favorite_btn"><i class="fal fa-heart" ></i><span>Ajouter</span></div><a/>
                               {% endif %}
                                 <a href="/etablishment/{{ etablissement.id }}" class="geodir-category-img-wrap fl-wrap">
-                                <img src="{{ etablissement.images.0.url|default_if_none:'/static/IMG/balade igoguide.jpg' }}" alt=""> 
+                                <img src="{{ etablissement.images.0.url|default:'/static/IMG/bg2.jpg' }}" alt=""> 
                                 </a>
                                 <div class="listing-avatar"><a href="/etablishment/{{ etablissement.id }}"><img src="{{ etablissement.owner.photo_url }}" alt=""></a>
                                     <span class="avatar-tooltip">{{ etablissement.owner.FName }}  <strong>{{ etablissement.owner.LName }}</strong></span>
