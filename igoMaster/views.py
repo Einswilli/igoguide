@@ -1346,7 +1346,7 @@ def get_subscription_info(request,id):
 
 def get_department_by_id(id):
     et=None
-    with open('igoMaster/data/Departments.json','r')as f:
+    with open('/home/admin/igoguide/igoMaster/data/Departments.json','r')as f:
         et=Json.loads(f.read())['Departments']
     for e in et:
         if e['id']==id:
