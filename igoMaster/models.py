@@ -1,4 +1,6 @@
 from django.db import models
+import simplejson as Json
+from .exceptions import *
 
 # Create your models here.
 
@@ -11,6 +13,19 @@ class UserType(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    def to_json(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
+            'createdAt': self.createdAt
+        }
+
+    def get_members(self):
+        return [
+            u.to_json() for u in User.objects.filter(Type=self.id)
+        ]
 
 ####    UTILISATEURS
 class User(models.Model):
@@ -34,6 +49,36 @@ class User(models.Model):
         else:
             return "/static/IMG/blank-dark.svg"
 
+    def to_Json(self):
+        #   RENVOIE LES INFOS DU USER AU FORMAT JSON
+        return {
+            'id': self.id,
+            'last_name': self.LName,
+            'first_name': self.FName,
+            'email': self.Email,
+            'phone': self.Phone,
+            'password': self.Pass,
+            'type': self.Type.to_json(),
+            'photo_url': self.photo_url,
+            'joined_at': self.JoinedAt
+        }
+
+    def get_etablishments(self):
+        #   RENVOIE LA LISTE DES ETABLISSEMENTS DU USER
+        return [
+            e.to_json() for e in Etablishment.objects.filter(owner=self.id)
+        ]
+
+    def get_notifications(self):
+        return [
+            n.to_json() for n in Notification.objects.filter(toUser=self.id)
+        ]
+
+    def get_mails(self):
+        return [
+            m.to_json() for m in ContactMail.objects.filter(toUser=self.id)
+        ]
+
 ####    TYPE D'ETABLISSEMENTS
 class EtablishmentType(models.Model):
     id=models.AutoField(primary_key=True)
@@ -46,6 +91,29 @@ class EtablishmentType(models.Model):
     def __str__(self) -> str:
         return self.name
 
+    def to_Json(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
+            'color': self.color,
+            'image': self.image,
+            'createdAt': self.createdAt
+        }
+
+    def get_subtypes(self):
+        #   RENVOIE LA LISTE DES SOUS-CATÉGORIES DE LA CATÉGORIE
+
+        return [
+            s.to_json() for s in EtablishmentSubType.objects.filter(type__id=self.id)
+        ] 
+
+    def get_etablishments(self):
+        #   RENVOIE LA LISTE DES ETABLISSEMENTS DU MEME TYPE
+        return [
+            e.to_json() for e in Etablishment.objects.filter(subType__type=self.id)
+        ]
+
 ####    SOUS-TYPES D'ETABLISSEMENTS
 class EtablishmentSubType(models.Model):
     id=models.AutoField(primary_key=True)
@@ -57,6 +125,21 @@ class EtablishmentSubType(models.Model):
 
     def __str__(self) -> str:
         return self.name
+    
+    def to_json(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
+            'type': self.type.to_json(),
+            'image': self.image,
+            'createdAt': self.createdAt
+        }
+
+    def get_etablishments(self):
+        return [
+            e.to_json() for e in Etablishment.objects.filter(subType=self.id)
+        ]
 
 ####    VILLES
 class City(models.Model):
@@ -69,6 +152,21 @@ class City(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    def to_json(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'department': self.department,
+            'region': self.region,
+            'country': self.country,
+            'createdAt': self.createdAt
+        }
+
+    def get_etablishments(self):
+        return [
+            e.to_json() for e in Etablishment.objects.filter(city__id=self.id)
+        ]
 
 ####    ETABLISSEMENTS
 class Etablishment(models.Model):
@@ -92,6 +190,61 @@ class Etablishment(models.Model):
     def truncate(self) -> str:
         return self.presentation[:90] if len(self.presentation)>90 else self.presentation
 
+    def to_json(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'presentation': self.presentation,
+            'address': self.address,
+            'tags': self.tags,
+            'longitude': self.longitude,
+            'latitude': self.latitude,
+            'postal': self.postal,
+            'isActive': self.isActive,
+            'city': self.city.to_json(),
+            'subType': self.subType.to_json(),
+            'owner': self.owner.to_json(),
+            'createdAt': self.createdAt
+        }
+
+    def get_medias(self):
+        return [
+            m.to_json() for m in Media.objects.filter(etablishment=self.id)
+        ]
+
+    def get_subscriptions(self):
+        return [
+            s.to_json() for s in Subscription.objects.filter(etablishment=self.id)
+        ]
+
+    def get_contacts(self):
+        return [
+            c.to_json() for c in Contact.objects.filter(etablishment=self.id)
+        ]
+
+    def get_socials(self):
+        return [
+            s.to_json() for s in Social.objects.filter(etablishment=self.id)
+        ]
+
+    def get_others(self):
+        try:
+            return OTHER.objects.get(etablishment=self.id).to_json()
+        except:
+            return ObjectNotFoundException(
+                "OTHER's Etablishment",
+                self.id
+            ).format()
+
+    def get_promotions(self):
+        try:
+            return Promotion.objects.get(etablishment=self.id).to_json()
+        except:
+            return ObjectNotFoundException(
+                "PROMOTION's Etablishment",
+                self.id
+            ).format()
+
 ####    MEDIAS
 class Media(models.Model):
     id=models.AutoField(primary_key=True)
@@ -110,6 +263,15 @@ class Media(models.Model):
         else:
             return "/static/IMG/balade igoguide.jpg"
 
+    def to_json(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'image': self.image_url,
+            'createdAt': self.createdAt,
+            'etablishment': self.etablishment.to_json()
+        }
+
 
 ####    CONTACTS
 class Contact(models.Model):
@@ -119,6 +281,16 @@ class Contact(models.Model):
     website=models.CharField(max_length=300)
     etablishment=models.ForeignKey("Etablishment",on_delete=models.CASCADE)
     createdAt=models.DateField(auto_now_add=True)
+
+    def to_json(self):
+        return {
+            'id': self.id,
+            'telephone': self.telephone,
+            'email': self.email,
+            'website': self.website,
+            'createdAt': self.createdAt,
+            'etablishment':self.etablishment.to_json()
+        }
 
 ####    ACTIVITES
 class Activite(models.Model):
@@ -137,6 +309,13 @@ class OTHER(models.Model):
     content=models.CharField(max_length=10000,null=True)
     etablishment=models.ForeignKey("Etablishment",on_delete=models.CASCADE)
 
+    def to_json(self):
+        return {
+            'id': self.id,
+            'content': Json.load(self.content),
+            'etablishment': self.etablishment.to_json()
+        }
+
 ####    SOCIALS
 class Social(models.Model):
     id=models.AutoField(primary_key=True)
@@ -146,6 +325,17 @@ class Social(models.Model):
     tiktokName=models.CharField(max_length=500,default='Non renseigné')
     etablishment=models.ForeignKey("Etablishment",on_delete=models.CASCADE)
     createdAt=models.DateField(auto_now_add=True)
+
+    def to_json(self):
+        return {
+            'id': self.id,
+            'facebookName': self.facebookName,
+            'instagramName': self.instagramName,
+            'tweeterName': self.tweeterName,
+            'tiktokName': self.tiktokName,
+            'createdAt': self.createdAt,
+            'etablishment': self.etablishment.to_json()
+        }
 
 ####    FAVORIS
 class Favoris(models.Model):
@@ -164,6 +354,17 @@ class Subscription(models.Model):
     etablishment=models.ForeignKey("Etablishment",on_delete=models.CASCADE)
     createdAt=models.DateField(auto_now_add=True)
 
+    def to_json(self):
+        return {
+            'id': self.id,
+            'isActive': self.isActive,
+            'activeDuration': self.activeDuration,
+            'fee': self.fee,
+            'startDate': self.stopDate,
+            'createdAt': self.createdAt,
+            'etablishment': self.etablishment.to_json()
+        }
+
     def isPaied(self):
         try:
             Payment.objects.get(subscription=self.id,status="SUCCESS")
@@ -179,6 +380,15 @@ class Payment(models.Model):
     subscription=models.ForeignKey("Subscription",on_delete=models.CASCADE)
     createdAt=models.DateField(auto_now_add=True)
 
+    def to_json(self):
+        return {
+            'id': self.id,
+            'amount': self.amount,
+            'subscription': self.subscription.to_json(),
+            'status': self.status,
+            'createdAt': self.createdAt
+        }
+
 ####    NOTIFICATIONS
 class Notification(models.Model):
     id=models.AutoField(primary_key=True)
@@ -187,6 +397,16 @@ class Notification(models.Model):
     fromUser=models.CharField(max_length=200)
     toUser=models.ForeignKey("User",on_delete=models.CASCADE)
     createdAt=models.DateField(auto_now_add=True)
+
+    def to_json(self):
+        return {
+            'id': self.id,
+            'message': self.message,
+            'isOpened': self.isOpened,
+            'fromUser': self.fromUser,
+            'toUser': self.toUser.to_json(),
+            'createdAt': self.createdAt
+        }
 
 ####    MAILS
 class ContactMail(models.Model):
@@ -199,6 +419,18 @@ class ContactMail(models.Model):
     toUser=models.ForeignKey("User",on_delete=models.CASCADE)
     createdAt=models.DateField(auto_now_add=True)   #To DateTimeField
 
+    def to_json(self):
+        return {
+            'id': self.id,
+            'subject': self.subject,
+            'email': self.email,
+            'message': self.message,
+            'isOpened': self.isOpened,
+            'fromUser': User.objects.get(id=int(self.fromUser)).to_Json(),
+            'toUser': self.toUser.to_json(),
+            'createdAt': self.createdAt
+        }
+
 ###     PROMOTIONS
 class Promotion(models.Model):
     id=models.AutoField(primary_key=True)
@@ -210,6 +442,18 @@ class Promotion(models.Model):
     etablishment=models.ForeignKey("Etablishment",on_delete=models.CASCADE)
     createdAt=models.DateField(auto_now_add=True)
 
+    def to_json(self):
+        return {
+            'id': self.id,
+            'duration': self.duration,
+            'text': self.text,
+            'fee': self.fee,
+            'stopDate': self.stopDate,
+            'isActive': self.isActive,
+            'createdAt': self.createdAt,
+            'etablishment': self.etablishment.to_json()
+        }
+
 ###     PACKS DE FORFAITS
 class Forfait(models.Model):
     id=models.AutoField(primary_key=True)
@@ -220,7 +464,27 @@ class Forfait(models.Model):
     def __str__(self):
         return self.name
 
+    def to_json(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'price': self.price,
+            'duration': self.duration
+        }
+
 ###     BANIERES
 class Banner(models.Model):
     id=models.AutoField(primary_key=True)
     image=models.ImageField()
+
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+        return "/static/IMG/balade igoguide.jpg"
+
+    def to_json(self):
+        return {
+            'id': self.id,
+            'image': self.image_url
+        }
