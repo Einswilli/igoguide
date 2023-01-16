@@ -54,3 +54,18 @@ class InvalidRequestMethodException(IgoguideBaseException):
                 'code':3
             }
         }
+
+class UncompatibleUserTypeException(IgoguideBaseException):
+
+    def __init__(self,wrong_user_type,right_user_type):
+        self.msg=f'Only a {right_user_type} USER can request this action. Not a {wrong_user_type} USER!'
+
+    def format(self):
+        return {
+            'Status':'failed',
+            'Error':{
+                'name':self.__class__.__name__,
+                'message':self.msg,
+                'code':4
+            }
+        }

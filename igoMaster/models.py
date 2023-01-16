@@ -1,6 +1,7 @@
 from django.db import models
 import simplejson as Json
 from .exceptions import *
+import ast
 
 # Create your models here.
 
@@ -49,7 +50,7 @@ class User(models.Model):
         else:
             return "/static/IMG/blank-dark.svg"
 
-    def to_Json(self):
+    def to_json(self):
         #   RENVOIE LES INFOS DU USER AU FORMAT JSON
         return {
             'id': self.id,
@@ -340,9 +341,40 @@ class Social(models.Model):
 ####    FAVORIS
 class Favoris(models.Model):
     id=models.AutoField(primary_key=True)
-    user=models.ForeignKey("User",on_delete=models.CASCADE)
-    etablishment=models.ForeignKey("Etablishment",on_delete=models.CASCADE)
+    user=models.ForeignKey("User",on_delete=models.CASCADE,null=True,blank=True)
+    etablishments=models.TextField(default="[]")#models.ForeignKey("Etablishment",on_delete=models.CASCADE)
     createdAt=models.DateField(auto_now_add=True)
+
+    def load_objects(self):
+        return ast.literal_eval(self.etablishments)
+
+    def add(self,id):
+        x=str(self.load_objects())
+        if id not in x:
+            x.append(id)
+            self.etablishments=str(x)
+            self.save()
+
+    def remove(self,id):
+        #   SUPPRIME L'ETABLI
+        x=list(self.load_objects())
+        if id in x:
+            x.remove(id)
+            self.etablishments=str(x)
+            self.save()
+
+    def get_etablishments(self):
+        # RENVOIE LES ETABLISSEMENTS CONTENUS DANS LE FAVORIS
+
+        l=[]
+        for i in self.load_objects():
+            #   SI L'ETABLISSEMENT EXISTE!
+            try:
+                #   COOL!
+                l.append(Etablishment.objects.get(user=i).to_json())
+            except :
+                #   L'ETABLISSEMENT N'EXISTE PAS!
+                pass    #   ON ZAPPE!
 
 ####    ABONNEMENTS
 class Subscription(models.Model):
