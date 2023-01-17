@@ -69,3 +69,18 @@ class UncompatibleUserTypeException(IgoguideBaseException):
                 'code':4
             }
         }
+
+class UnknownErrorException(IgoguideBaseException):
+
+    def __init__(self,msg):
+        self.msg=msg
+
+    def format(self):
+        return {
+            'Status':'failed',
+            'Error':{
+                'name':self.__class__.__name__,
+                'message':self.msg,
+                'code':6
+            }
+        }

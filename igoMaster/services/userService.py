@@ -117,3 +117,26 @@ class UserService(models.Model):
         except: 
             # USER INTROUVABLE!
             return ObjectNotFoundException('USER',id).format()
+
+    def add_favoris(self,uid,eid):
+        #   AJOUTE L'ETABLISSEMENT AVEC L'ID AUX FAVORIS DU USER S'IL EXISTE
+        try:
+            return User.objects.get(id=uid).add_favoris(eid)
+        except:
+            return ObjectNotFoundException('USER',uid).format()
+
+    def remove_favoris(self,uid,eid):
+        #   SUPPRIME L'ETABLISSEMENT AVEC L'ID DES FAVORIS DU USER S'IL EXISTE
+        try:
+            return User.objects.get(id=uid).remove_favoris(eid)
+        except:
+            # USER INTROUVABLE!
+            return ObjectNotFoundException('USER',uid).format()
+
+    def get_favoris(self,uid):
+        #   RENVOIE LES FAVORIS DU USER AVEC L'ID
+        try:
+            return User.objects.get(id=uid).get_favoris()
+        except:
+            # USER INTROUVABLE!
+            return ObjectNotFoundException('USER',uid).format()

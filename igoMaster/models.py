@@ -80,6 +80,65 @@ class User(models.Model):
             m.to_json() for m in ContactMail.objects.filter(toUser=self.id)
         ]
 
+    def get_favoris(self):
+        # RENVOIE LA LISTE DES FAVORIS DU USER
+
+        return Favoris.objects.get(user=self.id).get_etablishments()
+
+    def add_favoris(self,eid):
+        # AJOUTE L'ID DE L'ETABLISSEMENT AUX FAVORIS DU USER
+
+        try:
+            #   VERIFIER SI L'ETABLISSEMENT EXISTE
+            e=Etablishment.objects.get(id=eid)
+
+            # VERIFIER SI LE USER A DES FAVORIS
+            try:
+                uf=Favoris.objects.get(user=self.id)
+                # ALORS ON L'AJOUTE
+                uf.add(e.id)
+            except:
+                # LE FAVORIS N'EXISTE PAS 
+                # ALORS ON LE CRÉ ET ON AJOUTE L'ETABLISSEMENT
+                f=Favoris.objects.create(
+                    user=self
+                )
+                f.add(e.id)
+
+            return {
+                    'added':True
+                }
+        except:
+            # L'ETABLISSEMENT N'EXISTE PAS
+            return ObjectNotFoundException('ETABLISHMENT',eid).format()
+
+    def remove_favoris(self,eid):
+        # SUPPRIME L'ETABLISSEMENT DES FAVORIS DU USER
+
+        try:
+            # VERIFIER SI L'ETABLISSEMENT EXISTE
+            e=Etablishment.objects.get(id=eid)
+
+            # VERIFIER SI LE USER A DES FAVORIS
+            try:
+                uf=Favoris.objects.get(user=self.id)
+                # ALORS ON L'AJOUTE
+                uf.remove(e.id)
+            except:
+                # LE FAVORIS N'EXISTE PAS 
+                # ALORS ON LE CRÉ ET ON PASSE
+                Favoris.objects.create(
+                    user=self
+                )
+
+            return {
+                    'removed':True
+                }
+        except:
+            # L'ETABLISSEMENT N'EXISTE PAS
+            return ObjectNotFoundException('ETABLISHMENT',eid).format()
+
+
 ####    TYPE D'ETABLISSEMENTS
 class EtablishmentType(models.Model):
     id=models.AutoField(primary_key=True)
@@ -268,7 +327,7 @@ class Media(models.Model):
         return {
             'id': self.id,
             'name': self.name,
-            'image': self.image_url,
+            'image': self.img_url,
             'createdAt': self.createdAt,
             'etablishment': self.etablishment.to_json()
         }
@@ -375,6 +434,7 @@ class Favoris(models.Model):
             except :
                 #   L'ETABLISSEMENT N'EXISTE PAS!
                 pass    #   ON ZAPPE!
+        return l
 
 ####    ABONNEMENTS
 class Subscription(models.Model):
@@ -458,10 +518,13 @@ class ContactMail(models.Model):
             'email': self.email,
             'message': self.message,
             'isOpened': self.isOpened,
-            'fromUser': User.objects.get(id=int(self.fromUser)).to_Json(),
+            'fromUser': self.get_fromUser(),
             'toUser': self.toUser.to_json(),
             'createdAt': self.createdAt
         }
+
+    def get_fromUser(self):
+        return User.objects.get(id=self.fromUser).to_json()
 
 ###     PROMOTIONS
 class Promotion(models.Model):
@@ -507,6 +570,7 @@ class Forfait(models.Model):
 ###     BANIERES
 class Banner(models.Model):
     id=models.AutoField(primary_key=True)
+    name=models.CharField(max_length=500)
     image=models.ImageField()
 
     @property
@@ -518,5 +582,6 @@ class Banner(models.Model):
     def to_json(self):
         return {
             'id': self.id,
+            'name': self.name,
             'image': self.image_url
         }
