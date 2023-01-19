@@ -84,3 +84,18 @@ class UnknownErrorException(IgoguideBaseException):
                 'code':6
             }
         }
+
+class InvalidAuthInformationException(IgoguideBaseException):
+
+    def __init__(self,attribute):
+        self.msg="Invalid {attribute} "
+
+    def format(self):
+        return {
+            'Status':'failed',
+            'Error':{
+                'name':self.__class__.__name__,
+                'message':self.msg,
+                'code':7
+            }
+        }

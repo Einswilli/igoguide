@@ -20,6 +20,13 @@ class UserTypeService:
             #   USERTYPE INTROUVABLE
             return ObjectNotFoundException("USERTYPE", id).format()
 
+    def list(self):
+        # RENVOIE LA LISTE DES USERTYPES
+
+        return [
+            ut.to_json() for ut in UserType.objects.all().order_by('-id')
+        ]
+
     def get_members(self,id):
         #   RENVOIE UNE LISTE DE USER LUI APPARTENANT
 

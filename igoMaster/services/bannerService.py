@@ -33,3 +33,10 @@ class BannerService:
         except:
             # BANNER INTROUVABLE!
             return ObjectNotFoundException('BANNER',id).format()
+
+    def list(self):
+        # RENVOIE LA LISTE DES BANNERS
+
+        return [
+            b.to_json() for b in Banner.objects.all().order_by('-id')
+        ]

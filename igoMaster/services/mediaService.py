@@ -42,7 +42,7 @@ class MediaService:
             # MEDIA INTROUVABLE!
             return ObjectNotFoundException('MEDIA',id).format()
 
-    def get_etablishment_medias(sel,id):
+    def get_etablishment_medias(self,id):
         # RENVOIE LES MEDIAS DE L'ETABLISSEMENT AVEC L'ID
 
         try:
