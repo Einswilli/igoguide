@@ -11,6 +11,7 @@ from igoMaster.services.bannerService import BannerService
 from igoMaster.services.contactMailService import ContactMailService
 from igoMaster.services.etablishmentService import EtablishmentService
 from igoMaster.services.favoriService import FavorisService
+from igoMaster.services.forfaitService import ForfaitServive
 from igoMaster.services.mediaService import MediaService
 from igoMaster.services.notificationService import NotificationsService
 from igoMaster.services.paymentService import PaymentService
@@ -676,7 +677,7 @@ class FORFAIT:
 
         if request.method=='POST':
             return JsonResponse(
-                ForfaitService().save(request),
+                ForfaitServive().save(request),
                 safe=True
             )
         return JsonResponse(
@@ -690,7 +691,7 @@ class FORFAIT:
         
         if request.method=='GET':
             return JsonResponse(
-                ForfaitService().show(id),
+                ForfaitServive().show(id),
                 safe=True
             )
         return JsonResponse(
@@ -704,7 +705,7 @@ class FORFAIT:
 
         if request.method=='GET':
             return JsonResponse(
-                ForfaitService().list(),
+                ForfaitServive().list(),
                 safe=False
             )
         return JsonResponse(
@@ -718,7 +719,7 @@ class FORFAIT:
 
         if request.method=='POST':
             return JsonResponse(
-                ForfaitService().update(request,id),
+                ForfaitServive().update(request,id),
                 safe=True
             )
         return JsonResponse(
@@ -732,7 +733,7 @@ class FORFAIT:
 
         if request.method=='DELETE':
             return JsonResponse(
-                ForfaitService().delete(id),
+                ForfaitServive().delete(id),
                 safe=True
             )
         return JsonResponse(
