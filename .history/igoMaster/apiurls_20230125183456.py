@@ -132,9 +132,8 @@ urlpatterns=[
     #####
     #####   LES INSCRIPTIONS
     #####
-    path('subscription/save', api.SUBSCRIPTIONS.save),
-    path('subscription/list', api.SUBSCRIPTIONS.list),
-    path('subscription/show/<int:id>', api.SUBSCRIPTIONS.show),
-    path('subscription/get/user/<int:id>', api.SUBSCRIPTIONS.get_user_subscription),
-    path('subscription/get/is/paied/<int:id>', api.SUBSCRIPTIONS.is_paied)
+    path('subscription/save', api.MEDIA.save),
+    path('subscription/list', api.MEDIA.list),
+    path('subscription/show/<int:id>', api.MEDIA.show),
+    path('subscription/delete/<int:id>', api.MEDIA.delete),
 ]

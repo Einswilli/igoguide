@@ -39,7 +39,7 @@ urlpatterns=[
     ### LES FAVORIES
     path('user/favoris/save', api.USER.add_favoris),
     path('user/favoris/get/<int:id>', api.USER.get_favoris),
-    path('user/favoris/delete/<int:uid>/<int:eid>', api.USER.remove_favoris),
+    path('user/favoris/remove/<int:uid>/<int:eid>', api.USER.remove_favoris),
     ### MAILS && NOTIFICATIONS
     path('user/mail/get/<int:id>', api.USER.get_mails),
     path('user/mail/get/<int:id>', api.USER.get_notifications),
@@ -81,60 +81,5 @@ urlpatterns=[
     #####
     #####   LES FAVORIS
     #####
-    path('favoris/save/<int:fid>/<int:eid>', api.FAVORIS.add),
-    path('favoris/get/favoris/etablissement/<int:id>', api.FAVORIS.get_etablishment),
-    path('favoris/get/favoris/user/<int:id>', api.FAVORIS.get_user),
-    path('favoris/get/user/favoris/<int:fid>/<int:eid>', api.FAVORIS.get_user_favoris),
-    path('favoris/delete/<int:fid>/<int:eid>', api.FAVORIS.remove),
 
-    #####
-    #####   LES FORFAITS
-    #####
-    path('forfaits/save', api.FORFAIT.save),
-    path('forfaits/update/<int:id>', api.FORFAIT.update),
-    path('forfaits/list', api.FORFAIT.list),
-    path('forfaits/show/<int:id>', api.FORFAIT.show),
-    path('forfaits/delete/<int:id>', api.FORFAIT.delete),
-
-    #####
-    #####   LES MEDIAS
-    #####
-    path('medias/save', api.MEDIA.save),
-    path('medias/list', api.MEDIA.list),
-    path('medias/show/<int:id>', api.MEDIA.show),
-    path('medias/get/etablissement/<int:id>', api.MEDIA.get_etablishment_medias),
-    path('medias/delete/<int:id>', api.MEDIA.delete),
-
-    #####
-    #####   LES NOTIFICATIONS
-    #####
-    path('notification/save', api.NOTIFICATION.save),
-    path('notification/list', api.NOTIFICATION.list),
-    path('notification/show/<int:id>', api.NOTIFICATION.show),
-    path('notification/delete/<int:id>', api.NOTIFICATION.delete),
-
-    #####
-    #####   LES PAYMENTS
-    #####
-    path('payement/save', api.PAYMENT.save),
-    path('payement/list', api.PAYMENT.list),
-    path('payement/show/<int:id>', api.PAYMENT.show),
-    path('payement/delete/<int:id>', api.PAYMENT.delete),
-
-    #####
-    #####   LES PROMOTIONS
-    #####
-    path('promotion/save', api.PROMOTION.save),
-    path('promotion/list', api.PROMOTION.list),
-    path('promotion/show/<int:id>', api.PROMOTION.show),
-    path('promotion/delete/<int:id>', api.PROMOTION.delete),
-
-    #####
-    #####   LES INSCRIPTIONS
-    #####
-    path('subscription/save', api.SUBSCRIPTIONS.save),
-    path('subscription/list', api.SUBSCRIPTIONS.list),
-    path('subscription/show/<int:id>', api.SUBSCRIPTIONS.show),
-    path('subscription/get/user/<int:id>', api.SUBSCRIPTIONS.get_user_subscription),
-    path('subscription/get/is/paied/<int:id>', api.SUBSCRIPTIONS.is_paied)
 ]

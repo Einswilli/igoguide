@@ -108,33 +108,36 @@ urlpatterns=[
     #####
     #####   LES NOTIFICATIONS
     #####
-    path('notification/save', api.NOTIFICATION.save),
-    path('notification/list', api.NOTIFICATION.list),
-    path('notification/show/<int:id>', api.NOTIFICATION.show),
-    path('notification/delete/<int:id>', api.NOTIFICATION.delete),
+    path('medias/save', api.MEDIA.save),
+    path('medias/list', api.MEDIA.list),
+    path('medias/show/<int:id>', api.MEDIA.show),
+    path('medias/get/etablissement/<int:id>', api.MEDIA.get_etablishment_medias),
+    path('medias/delete/<int:id>', api.MEDIA.delete),
 
     #####
     #####   LES PAYMENTS
     #####
-    path('payement/save', api.PAYMENT.save),
-    path('payement/list', api.PAYMENT.list),
-    path('payement/show/<int:id>', api.PAYMENT.show),
-    path('payement/delete/<int:id>', api.PAYMENT.delete),
+    path('medias/save', api.MEDIA.save),
+    path('medias/list', api.MEDIA.list),
+    path('medias/show/<int:id>', api.MEDIA.show),
+    path('medias/get/etablissement/<int:id>', api.MEDIA.get_etablishment_medias),
+    path('medias/delete/<int:id>', api.MEDIA.delete),
 
     #####
-    #####   LES PROMOTIONS
+    #####   LES MEDIAS
     #####
-    path('promotion/save', api.PROMOTION.save),
-    path('promotion/list', api.PROMOTION.list),
-    path('promotion/show/<int:id>', api.PROMOTION.show),
-    path('promotion/delete/<int:id>', api.PROMOTION.delete),
+    path('medias/save', api.MEDIA.save),
+    path('medias/list', api.MEDIA.list),
+    path('medias/show/<int:id>', api.MEDIA.show),
+    path('medias/get/etablissement/<int:id>', api.MEDIA.get_etablishment_medias),
+    path('medias/delete/<int:id>', api.MEDIA.delete),
 
     #####
-    #####   LES INSCRIPTIONS
+    #####   LES MEDIAS
     #####
-    path('subscription/save', api.SUBSCRIPTIONS.save),
-    path('subscription/list', api.SUBSCRIPTIONS.list),
-    path('subscription/show/<int:id>', api.SUBSCRIPTIONS.show),
-    path('subscription/get/user/<int:id>', api.SUBSCRIPTIONS.get_user_subscription),
-    path('subscription/get/is/paied/<int:id>', api.SUBSCRIPTIONS.is_paied)
+    path('medias/save', api.MEDIA.save),
+    path('medias/list', api.MEDIA.list),
+    path('medias/show/<int:id>', api.MEDIA.show),
+    path('medias/get/etablissement/<int:id>', api.MEDIA.get_etablishment_medias),
+    path('medias/delete/<int:id>', api.MEDIA.delete),
 ]
