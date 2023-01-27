@@ -1,4 +1,5 @@
 from . import api
+from django.urls import path
 
 #####
 #####   ICI SE FAIT LE MAPPING DES URLS EN DIRECTION DE L'API
@@ -8,8 +9,8 @@ urlpatterns=[
     #####
     #####   AUTHENTIFICATION
     #####
-    path('login/particular/<int:id>', api.AUTH.login),
-    path('login/professional/<int:id>', api.AUTH.login),
+    path('login/particular', api.AUTH.login),
+    path('login/professional', api.AUTH.login),
     
     #####
     #####   MOTS DE PASSES
