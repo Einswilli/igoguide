@@ -9,25 +9,25 @@ urlpatterns=[
     #####
     #####   AUTHENTIFICATION
     #####
-    path('login/particular', api.AUTH.login),
-    path('login/professional', api.AUTH.login),
+    path('api/login/particular', api.AUTH.login),
+    path('api/login/professional', api.AUTH.login),
     
     #####
     #####   MOTS DE PASSES
     #####
-    path('users/changepass/particular/<int:id>', api.AUTH.reset_password),
-    path('users/changepass/professional/<int:id>', api.AUTH.reset_password),
-    path('users/update/particular/<int:id>', api.AUTH.send_password),
-    path('users/update/professional/<int:id>', api.AUTH.send_password),
+    path('api/users/changepass/particular/<int:id>', api.AUTH.reset_password),
+    path('api/users/changepass/professional/<int:id>', api.AUTH.reset_password),
+    path('api/users/update/particular/<int:id>', api.AUTH.send_password),
+    path('api/users/update/professional/<int:id>', api.AUTH.send_password),
 
     #####
     #####   LES TYPES D'UTILISATEURS
     #####
-    path('usertype/new', api.USERTYPE.save),
-    path('usertype/update/<int:id>', api.USERTYPE.update),
-    path('usertype/list', api.USERTYPE.list),
-    path('usertype/get/<int:id>', api.USERTYPE.get_members),
-    path('usertype/show/<int:id>', api.USERTYPE.show),
+    path('api/usertype/new', api.USERTYPE.save),
+    path('api/usertype/update/<int:id>', api.USERTYPE.update),
+    path('api/usertype/list', api.USERTYPE.list),
+    path('api/usertype/get/<int:id>', api.USERTYPE.get_members),
+    path('api/usertype/show/<int:id>', api.USERTYPE.show),
 
     #####
     #####   LES UTILISATEURS

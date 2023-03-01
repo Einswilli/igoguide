@@ -1,8 +1,8 @@
 #coding:utf-8
 
 import random
-from models import *
-from exceptions import*
+from ..models import *
+from ..exceptions import*
 from igoguide.settings import *
 from .emailService import EmailService
 

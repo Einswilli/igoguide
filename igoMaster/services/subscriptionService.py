@@ -1,5 +1,5 @@
-from models import *
-from exceptions import*
+from ..models import *
+from ..exceptions import*
 from .emailService import EmailService
 
 class SubscriptionService:

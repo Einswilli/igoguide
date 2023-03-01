@@ -1,6 +1,6 @@
-from models import *
-from exceptions import *
-from emailService import EmailService
+from ..models import *
+from ..exceptions import *
+from .emailService import EmailService
 
 class PaymentService:
 

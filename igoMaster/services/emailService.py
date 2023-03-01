@@ -1,5 +1,5 @@
-from models import *
-from exceptions import *
+from ..models import *
+from ..exceptions import *
 from django.core.mail import send_mail
 
 class EmailService:

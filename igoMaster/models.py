@@ -570,7 +570,7 @@ class Forfait(models.Model):
 ###     BANIERES
 class Banner(models.Model):
     id=models.AutoField(primary_key=True)
-    name=models.CharField(max_length=500)
+    name=models.CharField(max_length=500,default='sans nom')
     image=models.ImageField()
 
     @property
