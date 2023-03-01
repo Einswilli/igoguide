@@ -106,7 +106,7 @@ class USERTYPE:
         if request.method=='GET':
             return JsonResponse(
                 UserTypeService().list(),
-                safe=True
+                safe=False
             )
 
     @csrf_exempt
