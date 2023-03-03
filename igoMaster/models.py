@@ -61,7 +61,7 @@ class User(models.Model):
             'password': self.Pass,
             'type': self.Type.to_json(),
             'photo_url': self.photo_url,
-            'joined_at': self.JoinedAt
+            'joined_at': str(self.JoinedAt)
         }
 
     def get_etablishments(self):
