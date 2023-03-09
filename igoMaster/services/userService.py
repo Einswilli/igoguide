@@ -38,8 +38,8 @@ class UserService(models.Model):
 
         try:
             u=User.objects.get(id=id)
-            u.Lname = request.POST.get('last_name')
-            u.Fname = request.POST.get('first_name')
+            u.LName = request.POST.get('last_name')
+            u.FName = request.POST.get('first_name')
             u.Email = request.POST.get('email')
             u.Phone = request.POST.get('phone')
             u.save()
