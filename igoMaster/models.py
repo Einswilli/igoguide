@@ -20,7 +20,7 @@ class UserType(models.Model):
             'id': self.id,
             'name': self.name,
             'description': self.description,
-            'createdAt': self.createdAt
+            'createdAt': str(self.createdAt)
         }
 
     def get_members(self):
@@ -151,14 +151,14 @@ class EtablishmentType(models.Model):
     def __str__(self) -> str:
         return self.name
 
-    def to_Json(self):
+    def to_json(self):
         return {
             'id': self.id,
             'name': self.name,
             'description': self.description,
             'color': self.color,
             'image': self.image,
-            'createdAt': self.createdAt
+            'createdAt': str(self.createdAt)
         }
 
     def get_subtypes(self):
