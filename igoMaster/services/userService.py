@@ -81,8 +81,8 @@ class UserService(models.Model):
 
         try:
             u=User.objects.get(id=id)
-            if u.type.id==1: #  SEULEMENT SI LE USER EST UN PRO!
-                return u.get_etablissements()
+            if u.Type.id==1: #  SEULEMENT SI LE USER EST UN PRO!
+                return u.get_etablishments()
             return UncompatibleUserTypeException(
                 'PROFESSIONAL','PARTICULAR'
             ).format()
